@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  CapitalGain Tax Calculator
 //
-//  Created by Gokul Narasimhan on 7/14/15.
-//  Copyright (c) 2015 BigRoom. All rights reserved.
+//  Created by Gokul Narasimhan on 7/14/15. 
+//  Copyright (c) 2015 BigRoom. All rights reserved.cc
 //
 
 import UIKit
