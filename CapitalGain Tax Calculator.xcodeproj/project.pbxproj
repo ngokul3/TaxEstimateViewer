@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		55C28A491B55F0E2001D073E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A481B55F0E2001D073E /* AppDelegate.swift */; };
+		55C28A4C1B55F0E2001D073E /* CapitalGain_Tax_Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A4A1B55F0E2001D073E /* CapitalGain_Tax_Calculator.xcdatamodeld */; };
+		55C28A4E1B55F0E2001D073E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A4D1B55F0E2001D073E /* ViewController.swift */; };
+		55C28A511B55F0E2001D073E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55C28A4F1B55F0E2001D073E /* Main.storyboard */; };
+		55C28A531B55F0E2001D073E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55C28A521B55F0E2001D073E /* Images.xcassets */; };
+		55C28A561B55F0E2001D073E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55C28A541B55F0E2001D073E /* LaunchScreen.xib */; };
+		55C28A621B55F0E3001D073E /* CapitalGain_Tax_CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A611B55F0E3001D073E /* CapitalGain_Tax_CalculatorTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		55C28A5C1B55F0E3001D073E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55C28A3B1B55F0E2001D073E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55C28A421B55F0E2001D073E;
+			remoteInfo = "CapitalGain Tax Calculator";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		55C28A431B55F0E2001D073E /* CapitalGain Tax Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CapitalGain Tax Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		55C28A471B55F0E2001D073E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55C28A481B55F0E2001D073E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		55C28A4B1B55F0E2001D073E /* CapitalGain_Tax_Calculator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CapitalGain_Tax_Calculator.xcdatamodel; sourceTree = "<group>"; };
+		55C28A4D1B55F0E2001D073E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		55C28A501B55F0E2001D073E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		55C28A521B55F0E2001D073E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		55C28A551B55F0E2001D073E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		55C28A5B1B55F0E3001D073E /* CapitalGain Tax CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CapitalGain Tax CalculatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		55C28A601B55F0E3001D073E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55C28A611B55F0E3001D073E /* CapitalGain_Tax_CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapitalGain_Tax_CalculatorTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		55C28A401B55F0E2001D073E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55C28A581B55F0E3001D073E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		55C28A3A1B55F0E2001D073E = {
+			isa = PBXGroup;
+			children = (
+				55C28A451B55F0E2001D073E /* CapitalGain Tax Calculator */,
+				55C28A5E1B55F0E3001D073E /* CapitalGain Tax CalculatorTests */,
+				55C28A441B55F0E2001D073E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		55C28A441B55F0E2001D073E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				55C28A431B55F0E2001D073E /* CapitalGain Tax Calculator.app */,
+				55C28A5B1B55F0E3001D073E /* CapitalGain Tax CalculatorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		55C28A451B55F0E2001D073E /* CapitalGain Tax Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				55C28A481B55F0E2001D073E /* AppDelegate.swift */,
+				55C28A4D1B55F0E2001D073E /* ViewController.swift */,
+				55C28A4F1B55F0E2001D073E /* Main.storyboard */,
+				55C28A521B55F0E2001D073E /* Images.xcassets */,
+				55C28A541B55F0E2001D073E /* LaunchScreen.xib */,
+				55C28A4A1B55F0E2001D073E /* CapitalGain_Tax_Calculator.xcdatamodeld */,
+				55C28A461B55F0E2001D073E /* Supporting Files */,
+			);
+			path = "CapitalGain Tax Calculator";
+			sourceTree = "<group>";
+		};
+		55C28A461B55F0E2001D073E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				55C28A471B55F0E2001D073E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		55C28A5E1B55F0E3001D073E /* CapitalGain Tax CalculatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				55C28A611B55F0E3001D073E /* CapitalGain_Tax_CalculatorTests.swift */,
+				55C28A5F1B55F0E3001D073E /* Supporting Files */,
+			);
+			path = "CapitalGain Tax CalculatorTests";
+			sourceTree = "<group>";
+		};
+		55C28A5F1B55F0E3001D073E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				55C28A601B55F0E3001D073E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		55C28A421B55F0E2001D073E /* CapitalGain Tax Calculator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55C28A651B55F0E3001D073E /* Build configuration list for PBXNativeTarget "CapitalGain Tax Calculator" */;
+			buildPhases = (
+				55C28A3F1B55F0E2001D073E /* Sources */,
+				55C28A401B55F0E2001D073E /* Frameworks */,
+				55C28A411B55F0E2001D073E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CapitalGain Tax Calculator";
+			productName = "CapitalGain Tax Calculator";
+			productReference = 55C28A431B55F0E2001D073E /* CapitalGain Tax Calculator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		55C28A5A1B55F0E3001D073E /* CapitalGain Tax CalculatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55C28A681B55F0E3001D073E /* Build configuration list for PBXNativeTarget "CapitalGain Tax CalculatorTests" */;
+			buildPhases = (
+				55C28A571B55F0E3001D073E /* Sources */,
+				55C28A581B55F0E3001D073E /* Frameworks */,
+				55C28A591B55F0E3001D073E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				55C28A5D1B55F0E3001D073E /* PBXTargetDependency */,
+			);
+			name = "CapitalGain Tax CalculatorTests";
+			productName = "CapitalGain Tax CalculatorTests";
+			productReference = 55C28A5B1B55F0E3001D073E /* CapitalGain Tax CalculatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		55C28A3B1B55F0E2001D073E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = BigRoom;
+				TargetAttributes = {
+					55C28A421B55F0E2001D073E = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					55C28A5A1B55F0E3001D073E = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 55C28A421B55F0E2001D073E;
+					};
+				};
+			};
+			buildConfigurationList = 55C28A3E1B55F0E2001D073E /* Build configuration list for PBXProject "CapitalGain Tax Calculator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 55C28A3A1B55F0E2001D073E;
+			productRefGroup = 55C28A441B55F0E2001D073E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				55C28A421B55F0E2001D073E /* CapitalGain Tax Calculator */,
+				55C28A5A1B55F0E3001D073E /* CapitalGain Tax CalculatorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		55C28A411B55F0E2001D073E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55C28A511B55F0E2001D073E /* Main.storyboard in Resources */,
+				55C28A561B55F0E2001D073E /* LaunchScreen.xib in Resources */,
+				55C28A531B55F0E2001D073E /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55C28A591B55F0E3001D073E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		55C28A3F1B55F0E2001D073E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55C28A4E1B55F0E2001D073E /* ViewController.swift in Sources */,
+				55C28A491B55F0E2001D073E /* AppDelegate.swift in Sources */,
+				55C28A4C1B55F0E2001D073E /* CapitalGain_Tax_Calculator.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55C28A571B55F0E3001D073E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55C28A621B55F0E3001D073E /* CapitalGain_Tax_CalculatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		55C28A5D1B55F0E3001D073E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 55C28A421B55F0E2001D073E /* CapitalGain Tax Calculator */;
+			targetProxy = 55C28A5C1B55F0E3001D073E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		55C28A4F1B55F0E2001D073E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				55C28A501B55F0E2001D073E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		55C28A541B55F0E2001D073E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				55C28A551B55F0E2001D073E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		55C28A631B55F0E3001D073E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		55C28A641B55F0E3001D073E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		55C28A661B55F0E3001D073E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "CapitalGain Tax Calculator/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		55C28A671B55F0E3001D073E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "CapitalGain Tax Calculator/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		55C28A691B55F0E3001D073E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CapitalGain Tax CalculatorTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CapitalGain Tax Calculator.app/CapitalGain Tax Calculator";
+			};
+			name = Debug;
+		};
+		55C28A6A1B55F0E3001D073E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CapitalGain Tax CalculatorTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CapitalGain Tax Calculator.app/CapitalGain Tax Calculator";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		55C28A3E1B55F0E2001D073E /* Build configuration list for PBXProject "CapitalGain Tax Calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55C28A631B55F0E3001D073E /* Debug */,
+				55C28A641B55F0E3001D073E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55C28A651B55F0E3001D073E /* Build configuration list for PBXNativeTarget "CapitalGain Tax Calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55C28A661B55F0E3001D073E /* Debug */,
+				55C28A671B55F0E3001D073E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		55C28A681B55F0E3001D073E /* Build configuration list for PBXNativeTarget "CapitalGain Tax CalculatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55C28A691B55F0E3001D073E /* Debug */,
+				55C28A6A1B55F0E3001D073E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		55C28A4A1B55F0E2001D073E /* CapitalGain_Tax_Calculator.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				55C28A4B1B55F0E2001D073E /* CapitalGain_Tax_Calculator.xcdatamodel */,
+			);
+			currentVersion = 55C28A4B1B55F0E2001D073E /* CapitalGain_Tax_Calculator.xcdatamodel */;
+			path = CapitalGain_Tax_Calculator.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 55C28A3B1B55F0E2001D073E /* Project object */;
+}
