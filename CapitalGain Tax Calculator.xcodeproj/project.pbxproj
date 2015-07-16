@@ -14,6 +14,8 @@
 		55C28A531B55F0E2001D073E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55C28A521B55F0E2001D073E /* Images.xcassets */; };
 		55C28A561B55F0E2001D073E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55C28A541B55F0E2001D073E /* LaunchScreen.xib */; };
 		55C28A621B55F0E3001D073E /* CapitalGain_Tax_CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A611B55F0E3001D073E /* CapitalGain_Tax_CalculatorTests.swift */; };
+		55C28A6C1B572D9F001D073E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A6B1B572D9F001D073E /* MasterViewController.swift */; };
+		55C28A6E1B57385E001D073E /* LotPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A6D1B57385E001D073E /* LotPosition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		55C28A5B1B55F0E3001D073E /* CapitalGain Tax CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CapitalGain Tax CalculatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C28A601B55F0E3001D073E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55C28A611B55F0E3001D073E /* CapitalGain_Tax_CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapitalGain_Tax_CalculatorTests.swift; sourceTree = "<group>"; };
+		55C28A6B1B572D9F001D073E /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		55C28A6D1B57385E001D073E /* LotPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotPosition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 				55C28A481B55F0E2001D073E /* AppDelegate.swift */,
 				55C28A4D1B55F0E2001D073E /* ViewController.swift */,
 				55C28A4F1B55F0E2001D073E /* Main.storyboard */,
+				55C28A6B1B572D9F001D073E /* MasterViewController.swift */,
 				55C28A521B55F0E2001D073E /* Images.xcassets */,
 				55C28A541B55F0E2001D073E /* LaunchScreen.xib */,
 				55C28A4A1B55F0E2001D073E /* CapitalGain_Tax_Calculator.xcdatamodeld */,
@@ -94,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				55C28A471B55F0E2001D073E /* Info.plist */,
+				55C28A6D1B57385E001D073E /* LotPosition.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -215,9 +221,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55C28A6C1B572D9F001D073E /* MasterViewController.swift in Sources */,
 				55C28A4E1B55F0E2001D073E /* ViewController.swift in Sources */,
 				55C28A491B55F0E2001D073E /* AppDelegate.swift in Sources */,
 				55C28A4C1B55F0E2001D073E /* CapitalGain_Tax_Calculator.xcdatamodeld in Sources */,
+				55C28A6E1B57385E001D073E /* LotPosition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
