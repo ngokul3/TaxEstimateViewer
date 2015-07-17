@@ -16,6 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        let splitViewController = self.window!.rootViewController as! UISplitViewController
+        let leftNavController = splitViewController.viewControllers.first as! UINavigationController
+        let masterViewController = leftNavController.topViewController as! MasterViewController
+        let stockDetailViewController = splitViewController.viewControllers.last as! StockDetailViewController
+ 
+        let firstLot = masterViewController.lotPosition.first
+        stockDetailViewController.lotPosition = firstLot
+        
+        masterViewController.delegate = stockDetailViewController
         // Override point for customization after application launch.
         return true
     }

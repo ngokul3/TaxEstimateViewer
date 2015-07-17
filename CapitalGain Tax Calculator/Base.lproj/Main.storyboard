@@ -15,8 +15,20 @@
                     <view key="view" contentMode="scaleToFill" id="EqB-Eo-IUo">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AAPL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XxA-0E-vy6">
+                                <rect key="frame" x="165" y="64" width="43" height="21"/>
+                                <accessibility key="accessibilityConfiguration" label=""/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="XxA-0E-vy6" id="tPf-D8-5ee"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8EN-SY-I9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -38,7 +50,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HXj-sE-Uvt" id="8nw-IY-rXx">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Apple" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GJQ-LK-alS">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="AAPL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GJQ-LK-alS">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -183,10 +195,10 @@
             </objects>
             <point key="canvasLocation" x="318" y="-384"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Stock Split View Controller-->
         <scene sceneID="xSe-2E-XSV">
             <objects>
-                <splitViewController id="Wg9-sa-AgT" sceneMemberID="viewController">
+                <splitViewController id="Wg9-sa-AgT" customClass="StockSplitViewController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="PAw-nx-jSy" kind="relationship" relationship="masterViewController" id="7eG-bq-ppV"/>
                         <segue destination="I98-bq-knc" kind="relationship" relationship="detailViewController" id="K2g-5M-jrE"/>

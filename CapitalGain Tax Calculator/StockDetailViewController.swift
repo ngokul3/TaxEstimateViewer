@@ -9,9 +9,12 @@
 import UIKit
 
 class StockDetailViewController: UIViewController {
-
+@IBOutlet weak var nameLabel: UILabel!
+    
     override func viewDidLoad() {
+         refreshUI()
         super.viewDidLoad()
+       
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -19,7 +22,26 @@ class StockDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    var lotPosition: LotPosition! {
+        didSet (newStock) {
+            self.refreshUI()
+        }
+    }
+    
+    func refreshUI() {
+        
+        
+        nameLabel?.text = lotPosition.GetStockDetail()
+        /*descriptionLabel?.text = monster.description
+        iconImageView?.image = UIImage(named: monster.iconName)
+        weaponImageView?.image = monster.weaponImage()*/
+    }
+   
 
-
+}
+extension StockDetailViewController: LotSelectionDelegate {
+    func lotSelected(newLot: LotPosition) {
+        lotPosition = newLot
+    }
 }
 
