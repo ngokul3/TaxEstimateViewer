@@ -155,29 +155,74 @@
                             <outlet property="delegate" destination="eny-Cq-9WB" id="Nod-vo-jCY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Stocks" id="pfo-E7-Lrj"/>
+                    <navigationItem key="navigationItem" title="Stocks" id="pfo-E7-Lrj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xoB-KF-Yu3">
+                            <connections>
+                                <segue destination="Apt-jr-UWW" kind="presentation" id="9nn-cb-EJD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <keyCommands>
+                        <keyCommand/>
+                        <keyCommand actionName=""/>
+                    </keyCommands>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99w-yj-UtM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1136" y="-384"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="0T1-KI-rfL">
+        <!--Navigation Controller-->
+        <scene sceneID="oxV-Ye-kQ7">
             <objects>
-                <viewController id="Mxd-jQ-5xg" sceneMemberID="viewController">
+                <navigationController id="Apt-jr-UWW" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="N8V-kT-69P">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="0Vf-90-6yV" kind="showDetail" id="yGM-V2-dDP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9UG-II-yr6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1856" y="-370"/>
+        </scene>
+        <!--Add Stock View Controller-->
+        <scene sceneID="08e-d7-qxc">
+            <objects>
+                <viewController id="0Vf-90-6yV" customClass="AddStockViewController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DuQ-jZ-jN1"/>
-                        <viewControllerLayoutGuide type="bottom" id="NNY-kb-22d"/>
+                        <viewControllerLayoutGuide type="top" id="I5O-P5-1Bb"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nlc-vc-xKo"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="WG2-X8-Jtg">
+                    <view key="view" contentMode="scaleToFill" id="AqE-Ff-O0Z">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OpenDate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2PW-7X-sjS">
+                                <rect key="frame" x="77" y="87" width="78" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2zf-EF-h5o">
+                                <rect key="frame" x="-83" y="13" width="712" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="ljW-Uk-LA4">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="gTQ-ED-bjV"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="B9w-Bh-4v7"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ezg-Lx-6mZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pns-2W-jsl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1844" y="-370"/>
+            <point key="canvasLocation" x="2630" y="-355"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hoX-h5-boV">
