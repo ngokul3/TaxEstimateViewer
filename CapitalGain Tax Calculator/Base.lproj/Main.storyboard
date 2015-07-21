@@ -4,7 +4,26 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--Investment Detail Controller-->
+        <!--Add Investment-->
+        <scene sceneID="6da-En-vxp">
+            <objects>
+                <viewController id="COO-sV-LRS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LU0-oQ-UDf"/>
+                        <viewControllerLayoutGuide type="bottom" id="JIw-he-LnV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CWV-AK-3Wk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Investment" id="KFn-EM-FrG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M6s-qH-k6U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2776" y="-1909"/>
+        </scene>
+        <!--Investment View-->
         <scene sceneID="5me-Ay-Lxn">
             <objects>
                 <viewController id="I98-bq-knc" customClass="InvestmentDetailController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -26,6 +45,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Investment View" id="CmQ-Ac-FIg"/>
                     <connections>
                         <outlet property="nameLabel" destination="XxA-0E-vy6" id="tPf-D8-5ee"/>
                     </connections>
@@ -34,7 +54,7 @@
             </objects>
             <point key="canvasLocation" x="2772" y="-1090"/>
         </scene>
-        <!--Filing Detail Controller-->
+        <!--Add Filing Detail-->
         <scene sceneID="GvQ-fj-WTP">
             <objects>
                 <viewController id="6SW-hu-ik5" customClass="FilingDetailController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,12 +67,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Add Filing Detail" id="S4L-c4-9OB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9G-zQ-xfx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2780" y="-240"/>
         </scene>
-        <!--Add Filing View Controller-->
+        <!--Filing Mode View-->
         <scene sceneID="AbS-1M-BJT">
             <objects>
                 <viewController id="1Hi-A3-xd8" customClass="AddFilingViewController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -65,6 +86,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Filing Mode View" id="NHu-ds-jI2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gc-9g-d0n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -120,9 +142,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="0Vf-90-6yV" kind="show" identifier="AddInvestments" id="g3a-LV-UMB"/>
-                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="K6O-WW-Isx" style="IBUITableViewCellStyleDefault" id="e6G-bN-EEW">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -151,6 +170,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="I98-bq-knc" kind="show" identifier="ShowInvestment" id="fh0-JI-dML"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -160,7 +182,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Investments" id="pfo-E7-Lrj">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xoB-KF-Yu3"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xoB-KF-Yu3">
+                            <connections>
+                                <segue destination="COO-sV-LRS" kind="show" identifier="AddInvestment" id="ur2-f8-IJ1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <keyCommands>
                         <keyCommand/>
@@ -171,7 +197,7 @@
             </objects>
             <point key="canvasLocation" x="1900" y="-1458"/>
         </scene>
-        <!--Filing Master Controller-->
+        <!--Filing Mode-->
         <scene sceneID="A0A-O9-tcm">
             <objects>
                 <tableViewController id="mOU-Zt-5rk" customClass="FilingMasterController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -192,43 +218,20 @@
                             <outlet property="delegate" destination="mOU-Zt-5rk" id="3z6-7U-frR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="G8g-g9-wyB"/>
+                    <navigationItem key="navigationItem" title="Filing Mode" id="Fzh-w9-0rz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fEu-4h-wom">
+                            <connections>
+                                <segue destination="6SW-hu-ik5" kind="show" identifier="AddFiling" id="Ebe-wr-Rtk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <segue destination="6SW-hu-ik5" kind="show" id="1IE-fy-onA"/>
-                        <segue destination="1Hi-A3-xd8" kind="show" id="NZa-hD-qmk"/>
+                        <segue destination="1Hi-A3-xd8" kind="show" identifier="ShowFiling" id="NZa-hD-qmk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o29-Ou-MFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1960" y="153"/>
-        </scene>
-        <!--Add Investment Controller-->
-        <scene sceneID="08e-d7-qxc">
-            <objects>
-                <viewController id="0Vf-90-6yV" customClass="AddInvestmentController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="I5O-P5-1Bb"/>
-                        <viewControllerLayoutGuide type="bottom" id="Nlc-vc-xKo"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="AqE-Ff-O0Z">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OpenDate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2PW-7X-sjS">
-                                <rect key="frame" x="77" y="87" width="78" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pns-2W-jsl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2772" y="-2069"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yh3-02-29V">
@@ -288,10 +291,12 @@
             </objects>
             <point key="canvasLocation" x="1200" y="125"/>
         </scene>
-        <!--Tax View Controller-->
+        <!--Tax Picture-->
         <scene sceneID="ter-hu-K9s">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="ITM-eq-R3Z" customClass="TaxViewController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="ITM-eq-R3Z" customClass="TaxViewController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Tax Picture" id="pxY-ch-qnX"/>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XZh-Nq-MVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1968" y="1769"/>
