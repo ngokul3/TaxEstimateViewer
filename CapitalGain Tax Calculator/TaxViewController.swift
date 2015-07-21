@@ -1,27 +1,25 @@
 //
-//  StockSplitViewController.swift
+//  TaxViewController.swift
 //  CapitalGain Tax Calculator
 //
-//  Created by Gokul Narasimhan on 7/16/15.
+//  Created by Gokul Narasimhan on 7/20/15.
 //  Copyright (c) 2015 BigRoom. All rights reserved.
 //
 
 import UIKit
 
-class StockSplitViewController: UISplitViewController , UISplitViewControllerDelegate{
+class TaxViewController: UIPageViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      //  self.delegate = self
-        
+
         // Do any additional setup after loading the view.
     }
-    
-  /*  func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController!, ontoPrimaryViewController primaryViewController: UIViewController!) -> Bool{
-        return true
-    }
-*/
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
 
     /*

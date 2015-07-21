@@ -13,14 +13,13 @@ protocol LotSelectionDelegate: class {
 
 
 
-class MasterViewController: UITableViewController {
+class InvestmentMasterController: UITableViewController {
 weak var delegate:LotSelectionDelegate?
     var lotPosition =   [LotPosition]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-         //  let lotPosition =
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -30,19 +29,19 @@ weak var delegate:LotSelectionDelegate?
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.lotPosition.append(LotPosition(symbolCode:"AAPL", symbolDesc:"Apple"))
+        /*self.lotPosition.append(LotPosition(symbolCode:"AAPL", symbolDesc:"Apple"))
         self.lotPosition.append(LotPosition(symbolCode:"CTSH", symbolDesc:"Cognizant"))
-               self.lotPosition.append(LotPosition(symbolCode:"TCS", symbolDesc:"TCS"))
+               self.lotPosition.append(LotPosition(symbolCode:"TCS", symbolDesc:"TCS"))*/
 
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedLot = self.lotPosition[indexPath.row]
         self.delegate?.lotSelected(selectedLot)
-        
+       /*
         if let detailViewController = self.delegate as? StockDetailViewController {
             splitViewController?.showDetailViewController(detailViewController, sender: nil)
-        }
+        }*/
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue,
@@ -50,20 +49,7 @@ weak var delegate:LotSelectionDelegate?
        
             var x = 10
             
-          /*  if segue.identifier == "showDetail" {
-                if let indexPath = self.tableView.indexPathForSelectedRow() {
-                    let urlString = siteAddresses?[indexPath.row]
-                    
-                    let controller = (segue.destinationViewController
-                        as UINavigationController).topViewController
-                        as! StockDetailViewController
-                    
-                    controller.detailItem = urlString
-                    controller.navigationItem.leftBarButtonItem =
-                        splitViewController?.displayModeButtonItem()
-                    controller.navigationItem.leftItemsSupplementBackButton = true
-                }
-            }*/
+         
     }
   
 }

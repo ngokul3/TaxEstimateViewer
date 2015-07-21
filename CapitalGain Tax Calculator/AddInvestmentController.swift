@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddStockViewController: UIViewController {
+class AddInvestmentController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

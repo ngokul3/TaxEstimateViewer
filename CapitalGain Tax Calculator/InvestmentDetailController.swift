@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StockDetailViewController: UIViewController {
+class InvestmentDetailController: UIViewController {
 @IBOutlet weak var nameLabel: UILabel!
     
     override func viewDidLoad() {
@@ -39,9 +39,5 @@ class StockDetailViewController: UIViewController {
    
 
 }
-extension StockDetailViewController: LotSelectionDelegate {
-    func lotSelected(newLot: LotPosition) {
-        lotPosition = newLot
-    }
-}
+
 
