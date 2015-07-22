@@ -9,7 +9,8 @@
 import UIKit
 
 class AddFilingViewController: UITableViewController {
-
+@IBOutlet weak var btnAddFiling: UIButton?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

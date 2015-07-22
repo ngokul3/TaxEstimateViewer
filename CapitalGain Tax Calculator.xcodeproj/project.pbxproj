@@ -21,6 +21,8 @@
 		55D0CF5E1B5DD1AC003B1D3F /* FilingMasterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF5D1B5DD1AC003B1D3F /* FilingMasterController.swift */; };
 		55D0CF601B5DD213003B1D3F /* AddFilingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF5F1B5DD213003B1D3F /* AddFilingViewController.swift */; };
 		55D0CF621B5DD431003B1D3F /* TaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF611B5DD431003B1D3F /* TaxViewController.swift */; };
+		55D0CF6B1B5F1F4E003B1D3F /* CapitalGainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF6A1B5F1F4E003B1D3F /* CapitalGainController.swift */; };
+		55D0CF6D1B5F2145003B1D3F /* CapitalGainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF6C1B5F2145003B1D3F /* CapitalGainManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		55D0CF5D1B5DD1AC003B1D3F /* FilingMasterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilingMasterController.swift; sourceTree = "<group>"; };
 		55D0CF5F1B5DD213003B1D3F /* AddFilingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFilingViewController.swift; sourceTree = "<group>"; };
 		55D0CF611B5DD431003B1D3F /* TaxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxViewController.swift; sourceTree = "<group>"; };
+		55D0CF6A1B5F1F4E003B1D3F /* CapitalGainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapitalGainController.swift; sourceTree = "<group>"; };
+		55D0CF6C1B5F2145003B1D3F /* CapitalGainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapitalGainManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,20 +97,16 @@
 		55C28A451B55F0E2001D073E /* CapitalGain Tax Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				55D0CF691B5F1EE5003B1D3F /* Library */,
+				55D0CF671B5F16CC003B1D3F /* Controller */,
+				55D0CF651B5F16B6003B1D3F /* View */,
+				55D0CF631B5F16A4003B1D3F /* Model */,
 				55C28A481B55F0E2001D073E /* AppDelegate.swift */,
-				55C28A4D1B55F0E2001D073E /* InvestmentDetailController.swift */,
 				55C28A4F1B55F0E2001D073E /* Main.storyboard */,
-				55D0CF611B5DD431003B1D3F /* TaxViewController.swift */,
-				55D0CF5F1B5DD213003B1D3F /* AddFilingViewController.swift */,
-				55D0CF5B1B5DD18C003B1D3F /* FilingDetailController.swift */,
-				55D0CF5D1B5DD1AC003B1D3F /* FilingMasterController.swift */,
-				55C28A6F1B57C9CB001D073E /* AddInvestmentController.swift */,
-				55C28A6B1B572D9F001D073E /* InvestmentMasterController.swift */,
 				55C28A521B55F0E2001D073E /* Images.xcassets */,
 				55C28A541B55F0E2001D073E /* LaunchScreen.xib */,
 				55C28A4A1B55F0E2001D073E /* CapitalGain_Tax_Calculator.xcdatamodeld */,
 				55C28A461B55F0E2001D073E /* Supporting Files */,
-				55C28A731B58751F001D073E /* LotPosition.swift */,
 			);
 			path = "CapitalGain Tax Calculator";
 			sourceTree = "<group>";
@@ -134,6 +134,44 @@
 				55C28A601B55F0E3001D073E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		55D0CF631B5F16A4003B1D3F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				55C28A731B58751F001D073E /* LotPosition.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		55D0CF651B5F16B6003B1D3F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		55D0CF671B5F16CC003B1D3F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				55C28A4D1B55F0E2001D073E /* InvestmentDetailController.swift */,
+				55D0CF611B5DD431003B1D3F /* TaxViewController.swift */,
+				55D0CF5F1B5DD213003B1D3F /* AddFilingViewController.swift */,
+				55D0CF5B1B5DD18C003B1D3F /* FilingDetailController.swift */,
+				55D0CF5D1B5DD1AC003B1D3F /* FilingMasterController.swift */,
+				55C28A6F1B57C9CB001D073E /* AddInvestmentController.swift */,
+				55C28A6B1B572D9F001D073E /* InvestmentMasterController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		55D0CF691B5F1EE5003B1D3F /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				55D0CF6A1B5F1F4E003B1D3F /* CapitalGainController.swift */,
+				55D0CF6C1B5F2145003B1D3F /* CapitalGainManager.swift */,
+			);
+			name = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,9 +277,11 @@
 				55D0CF5E1B5DD1AC003B1D3F /* FilingMasterController.swift in Sources */,
 				55D0CF601B5DD213003B1D3F /* AddFilingViewController.swift in Sources */,
 				55C28A6C1B572D9F001D073E /* InvestmentMasterController.swift in Sources */,
+				55D0CF6D1B5F2145003B1D3F /* CapitalGainManager.swift in Sources */,
 				55C28A4E1B55F0E2001D073E /* InvestmentDetailController.swift in Sources */,
 				55C28A741B58751F001D073E /* LotPosition.swift in Sources */,
 				55C28A491B55F0E2001D073E /* AppDelegate.swift in Sources */,
+				55D0CF6B1B5F1F4E003B1D3F /* CapitalGainController.swift in Sources */,
 				55C28A4C1B55F0E2001D073E /* CapitalGain_Tax_Calculator.xcdatamodeld in Sources */,
 				55C28A701B57C9CB001D073E /* AddInvestmentController.swift in Sources */,
 				55D0CF621B5DD431003B1D3F /* TaxViewController.swift in Sources */,

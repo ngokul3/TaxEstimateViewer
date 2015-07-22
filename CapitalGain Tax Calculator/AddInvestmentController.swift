@@ -9,7 +9,13 @@
 import UIKit
 
 class AddInvestmentController: UIViewController {
-
+    
+    @IBOutlet weak var btnAddInvestment: UIBarButtonItem!
+    
+    @IBAction func AddInvestment(sender: AnyObject) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
