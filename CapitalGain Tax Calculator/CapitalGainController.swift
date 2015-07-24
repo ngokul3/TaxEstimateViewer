@@ -10,9 +10,11 @@ import Foundation
 
 
  class CapitalGainController {
-     static let capitalGainController = CapitalGainControllerManager()
-    
-    
+     static let sharedInstance = CapitalGainControllerManager()
+    init()
+    {
+        
+    }
 }
 
     

@@ -12,7 +12,25 @@ class AddInvestmentController: UIViewController {
     
     @IBOutlet weak var btnAddInvestment: UIBarButtonItem!
     
+    @IBOutlet weak var txtSymbol: UITextField!
+    
+    @IBOutlet weak var txtPrice: UITextField!
+    @IBOutlet weak var txtCost: UITextField!
+    weak var lotPosition = LotPosition()
+
+    
     @IBAction func AddInvestment(sender: AnyObject) {
+        
+        var investArray = NSMutableArray()
+        
+        investArray = CapitalGainController.sharedInstance.GetInvestments()
+        
+        let itemCount = investArray.count
+        
+        let lotPosition = LotPosition(lotId: itemCount+1, symbolCode: txtSymbol.text,symbolDesc: txtSymbol.text)
+        
+        
+        CapitalGainController.sharedInstance.AddInvestment(lotPosition)
         
     }
     

@@ -10,37 +10,35 @@ import Foundation
 
 
 class CapitalGainControllerManager{
-    var investDict =  NSMutableDictionary()
-
+    var investmentArray =  NSMutableArray()
+    
     init()
     {
-        let investDict = NSMutableDictionary()
+        let investmentArray = NSMutableArray()
         
     }
     
-    func AddInvestment(lotPosition: LotPosition)->NSMutableDictionary
+    
+    func AddInvestment(lotPosition: LotPosition)->NSMutableArray
     {
-        
-        return investDict
+        investmentArray.addObject(LotPosition)
+        return investmentArray
+    }
+    func GetInvestments()->NSMutableArray
+    {
+        return investmentArray
     }
     
-    func GetInvestments()->NSMutableDictionary
+    func DeleteInvestments(lotPosition: LotPosition)->NSMutableArray
     {
-        let investDict = NSMutableDictionary()
-        
-        return investDict
-    }
-    
-    func DeleteInvestments(lotPosition: LotPosition)->NSMutableDictionary
-    {
-        let investDict = NSMutableDictionary()
+        let investDict = NSMutableArray()
         
         return investDict
     }
     
-    func EditInvestment()->NSMutableDictionary
+    func EditInvestment()->NSMutableArray
     {
-        let investDict = NSMutableDictionary()
+        let investDict = NSMutableArray()
         
         return investDict
     }

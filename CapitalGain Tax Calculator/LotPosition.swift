@@ -13,7 +13,7 @@ enum Direction{
 }
 
 class LotPosition{
- //   let _lotId:Int
+    let _lotId:Int32
     let _symbolCode:String
     let _symbolDesc:String
   /*  let _openDate: NSDate
@@ -25,12 +25,19 @@ class LotPosition{
    /* init(lotId:Int, symbolCode:String, symbolDesc:String, openDate:NSDate, closeDate:NSDate, fx:Float, multiplier:Int, lotDirection:Direction
     )
  */
-    init(symbolCode:String,symbolDesc:String
+    init()
+    {
+        self._symbolCode = ""
+        self._symbolDesc = ""
+        self._lotId = 0
+    }
+    init(lotId:Int32,symbolCode:String,symbolDesc:String
         )
     {
        // self._lotId = lotId
         self._symbolCode = symbolCode
         self._symbolDesc = symbolDesc
+        self._lotId = lotId
      /*   self._openDate = openDate
         self._closeDate = closeDate
         self._multiplier = multiplier
