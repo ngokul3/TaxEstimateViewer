@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5529604D1B6327A50035622F /* SevenSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5529604C1B6327A50035622F /* SevenSwitch.swift */; };
 		55C28A491B55F0E2001D073E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A481B55F0E2001D073E /* AppDelegate.swift */; };
 		55C28A4C1B55F0E2001D073E /* CapitalGain_Tax_Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A4A1B55F0E2001D073E /* CapitalGain_Tax_Calculator.xcdatamodeld */; };
 		55C28A4E1B55F0E2001D073E /* InvestmentDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A4D1B55F0E2001D073E /* InvestmentDetailController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5529604C1B6327A50035622F /* SevenSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SevenSwitch.swift; sourceTree = "<group>"; };
 		55C28A431B55F0E2001D073E /* CapitalGain Tax Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CapitalGain Tax Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C28A471B55F0E2001D073E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55C28A481B55F0E2001D073E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		55D0CF651B5F16B6003B1D3F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5529604C1B6327A50035622F /* SevenSwitch.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				55D0CF601B5DD213003B1D3F /* AddFilingViewController.swift in Sources */,
 				55C28A6C1B572D9F001D073E /* InvestmentMasterController.swift in Sources */,
 				55D0CF6D1B5F2145003B1D3F /* CapitalGainManager.swift in Sources */,
+				5529604D1B6327A50035622F /* SevenSwitch.swift in Sources */,
 				55C28A4E1B55F0E2001D073E /* InvestmentDetailController.swift in Sources */,
 				55C28A741B58751F001D073E /* LotPosition.swift in Sources */,
 				55C28A491B55F0E2001D073E /* AppDelegate.swift in Sources */,

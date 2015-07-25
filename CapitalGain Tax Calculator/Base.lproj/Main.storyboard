@@ -13,44 +13,45 @@
                         <viewControllerLayoutGuide type="bottom" id="JIw-he-LnV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="CWV-AK-3Wk">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X0N-Sv-GE9">
-                                <rect key="frame" x="230" y="114" width="143" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Investment " minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="X0N-Sv-GE9">
+                                <rect key="frame" x="0.0" y="99" width="375" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Symbol" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veI-vG-mle">
-                                <rect key="frame" x="79" y="123" width="79" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xwz-fp-drx">
-                                <rect key="frame" x="79" y="178" width="101" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Exit Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGR-0l-aSJ">
-                                <rect key="frame" x="79" y="232" width="91" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lRu-El-BjM">
-                                <rect key="frame" x="229" y="206" width="143" height="30"/>
+                            <pickerView tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5SX-G0-RRA" userLabel="DirectionPicker">
+                                <rect key="frame" x="0.0" y="466" width="375" height="88"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="COO-sV-LRS" id="1KU-Gr-wfs"/>
+                                    <outlet property="delegate" destination="COO-sV-LRS" id="WDV-cY-RR1"/>
+                                </connections>
+                            </pickerView>
+                            <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ixz-xK-XnJ" userLabel="InvestmentPicker">
+                                <rect key="frame" x="-8" y="457" width="375" height="105"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="COO-sV-LRS" id="R9J-ue-EDP"/>
+                                    <outlet property="delegate" destination="COO-sV-LRS" id="CTn-L0-mM8"/>
+                                </connections>
+                            </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Investment Type" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HNy-13-dVs">
+                                <rect key="frame" x="0.0" y="145" width="375" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="OnInvestmentTypeEditBegin:" destination="COO-sV-LRS" eventType="editingDidBegin" id="yC8-zo-Jm2"/>
+                                    <action selector="OnInvestmentTypeEditEnd:" destination="COO-sV-LRS" eventType="editingDidEnd" id="aT7-Tk-MAj"/>
+                                </connections>
                             </textField>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ezp-gG-OUq">
-                                <rect key="frame" x="237" y="294" width="51" height="31"/>
-                            </switch>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qod-nR-ien">
-                                <rect key="frame" x="229" y="162" width="143" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Direction" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UZy-Hi-0Ex" userLabel="Direction">
+                                <rect key="frame" x="0.0" y="198" width="375" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="OnDirectionEditBegin:" destination="COO-sV-LRS" eventType="editingDidBegin" id="cTX-qk-2Wl"/>
+                                    <action selector="OnDirectionEditEnd:" destination="COO-sV-LRS" eventType="editingDidEnd" id="XEB-Cj-miV"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,16 +63,19 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="btnAddInvestment" destination="9PO-rQ-gn3" id="YRS-5M-563"/>
-                        <outlet property="txtCost" destination="Qod-nR-ien" id="pRU-BP-BKE"/>
-                        <outlet property="txtPrice" destination="lRu-El-BjM" id="dGX-QL-1d7"/>
+                        <outlet property="pickerDirection" destination="5SX-G0-RRA" id="ZWg-kD-oAJ"/>
+                        <outlet property="pickerInvestmentType" destination="ixz-xK-XnJ" id="cab-Li-F9v"/>
+                        <outlet property="txtDirection" destination="UZy-Hi-0Ex" id="Mha-Ak-K8s"/>
+                        <outlet property="txtInvestmentType" destination="HNy-13-dVs" id="0K0-hV-KWg"/>
                         <outlet property="txtSymbol" destination="X0N-Sv-GE9" id="OaY-MZ-7U4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M6s-qH-k6U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2776" y="-1909"/>
+            <point key="canvasLocation" x="2845.5" y="-2011.5"/>
         </scene>
         <!--Investment View-->
         <scene sceneID="5me-Ay-Lxn">
