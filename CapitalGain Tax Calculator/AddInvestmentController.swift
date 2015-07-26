@@ -21,7 +21,11 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
     
     @IBOutlet weak var pickerDirection: UIPickerView!
     
-        @IBOutlet weak var txtPrice: UITextField!
+    @IBOutlet weak var btnProfitLoss: UISegmentedControl!
+    
+    
+    @IBOutlet weak var txtProfitLoss: UITextField!
+    @IBOutlet weak var txtPrice: UITextField!
     @IBOutlet weak var txtCost: UITextField!
     weak var lotPosition = LotPosition()
     var directionArray = ["Long","Short","CoveredShort"]
@@ -131,5 +135,19 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
     @IBAction func OnDirectionEditEnd(sender: AnyObject) {
         pickerDirection.hidden = true
     }
+    @IBAction func OnProfitLossValueChanged(sender: AnyObject) {
+        if(btnProfitLoss.selectedSegmentIndex==0)
+        {
+            txtProfitLoss.textColor = UIColor.greenColor()
+       //  txtProfitLoss.text = "Profit"
+         //   txtProfitLoss.backgroundColor
+        }
+        else if(btnProfitLoss.selectedSegmentIndex==1)
+        {
+         txtProfitLoss.textColor = UIColor.redColor()
+        }
+       // if (sender.btnProfitLoss.)
+    }
+
     
 }
