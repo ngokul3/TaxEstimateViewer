@@ -23,13 +23,52 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
     
     @IBOutlet weak var btnProfitLoss: UISegmentedControl!
     
+    @IBOutlet weak var lblTradeEndYear: UILabel!
+   
+    @IBOutlet weak var stpYear: UIStepper!
     
     @IBOutlet weak var txtProfitLoss: UITextField!
-    @IBOutlet weak var txtPrice: UITextField!
-    @IBOutlet weak var txtCost: UITextField!
-    weak var lotPosition = LotPosition()
+    
+     weak var lotPosition = LotPosition()
     var directionArray = ["Long","Short","CoveredShort"]
     var investmentTypeArray = ["Equity","Regular Income / Dividend","Section 1256"]
+    
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        pickerInvestmentType.hidden = true
+        pickerDirection.hidden = true
+        
+        let date = NSDate()
+        var dateFormatter = NSDateFormatter()
+        
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.CalendarUnitYear, fromDate: date)
+        let year = components.year
+        
+        lblTradeEndYear.text = year.description
+        stpYear.value = Double(year)
+        
+        stpYear.maximumValue = 2030
+        stpYear.stepValue = 1
+    }
+    
+    
+    @IBAction func OntxtProfitLossEditDidEnd(sender: AnyObject) {
+    
+        /*var formatter = NSNumberFormatter()
+        formatter.numberStyle = .CurrencyStyle
+        // formatter.locale = NSLocale.currentLocale() // This is the default
+        let txtPrice = formatter.stringFromNumber(txtProfitLoss.text) // "$123.44"
+        
+        formatter.locale = NSLocale(localeIdentifier: "es_CL")
+         txtPrice = formatter.stringFromNumber(price) // $123"
+        
+      //  formatter.locale = NSLocale(localeIdentifier: "es_ES")
+        //formatter.stringFromNumber(price) // "123,44 €"*/
+    }
+    
     
     @IBAction func AddInvestment(sender: AnyObject) {
         
@@ -49,14 +88,7 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
  
     
     
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        pickerInvestmentType.hidden = true
-        pickerDirection.hidden = true
-
-        // Do any additional setup after loading the view.
-    }
+  
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -149,5 +181,9 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
        // if (sender.btnProfitLoss.)
     }
 
+    @IBAction func stpYearValueChanged(sender: AnyObject) {
+        lblTradeEndYear.text = Int(stpYear.value).description
+       // if(stpYear.)
+    }
     
 }
