@@ -21,7 +21,7 @@ class CapitalGainControllerManager{
     
     func AddInvestment(lotPosition: LotPosition)->NSMutableArray
     {
-        investmentArray.addObject(LotPosition)
+        investmentArray.addObject(lotPosition)
         return investmentArray
     }
     func GetInvestments()->NSMutableArray
@@ -41,5 +41,12 @@ class CapitalGainControllerManager{
         let investDict = NSMutableArray()
         
         return investDict
+    }
+    
+    func GetPositionItem(index: Int)-> LotPosition
+    {
+        let lotPosition: LotPosition = investmentArray.objectAtIndex(index) as! LotPosition
+        return lotPosition
+
     }
 }

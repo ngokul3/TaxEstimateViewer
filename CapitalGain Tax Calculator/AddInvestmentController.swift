@@ -30,7 +30,7 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
     @IBOutlet weak var txtProfitLoss: UITextField!
     
      weak var lotPosition = LotPosition()
-    var directionArray = ["Long","Short","CoveredShort"]
+    var directionArray = ["Long","Short","Covered Short / Straddle"]
     var investmentTypeArray = ["Equity","Regular Income / Dividend","Section 1256"]
     
     
@@ -73,23 +73,27 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
     @IBAction func AddInvestment(sender: AnyObject) {
         
         var investArray = NSMutableArray()
-        
         investArray = CapitalGainController.sharedInstance.GetInvestments()
-        
         let itemCount = investArray.count
+        let lotPosition = LotPosition()
+        lotPosition.LotId = itemCount + 1
+        lotPosition.SymbolCode = txtSymbol.text
+        lotPosition.InvestmentType = ENumInvestmentType(rawValue: txtInvestmentType.text)!
+        lotPosition.Direction = ENumDirection( rawValue : txtDirection.text)!
+        lotPosition.RealizedGainLoss = txtProfitLoss.text.toDouble()!
+        lotPosition.RealizedYear = lblTradeEndYear.text!.toInt()!
+        lotPosition.IsLongTerm = true
         
-        let lotPosition = LotPosition(lotId: itemCount+1, symbolCode: txtSymbol.text,symbolDesc: txtSymbol.text)
+        
+    //    let lotPosition = LotPosition(lotId: itemCount+1, symbolCode: txtSymbol.text,txtInvestmentType.text,txtDirection.text,txtProfitLoss.text,lblTradeEndYear.text,true)
         
         
-        CapitalGainController.sharedInstance.AddInvestment(lotPosition)
+       CapitalGainController.sharedInstance.AddInvestment(lotPosition)
+        
+    var test = CapitalGainController.sharedInstance.GetInvestments()
         
     }
     
- 
-    
-    
-  
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -145,12 +149,9 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
     default:
         break
         
-        
     }
-
-    
-    
   }
+
     @IBAction func OnInvestmentTypeEditBegin(sender: AnyObject) {
         
         pickerInvestmentType.hidden = false
@@ -186,4 +187,41 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
        // if(stpYear.)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if btnAddInvestment === sender {
+            var investArray = NSMutableArray()
+            investArray = CapitalGainController.sharedInstance.GetInvestments()
+            let itemCount = investArray.count
+            let lotPosition = LotPosition()
+            lotPosition.LotId = itemCount + 1
+            lotPosition.SymbolCode = txtSymbol.text
+            lotPosition.InvestmentType = ENumInvestmentType(rawValue: txtInvestmentType.text)!
+            lotPosition.Direction = ENumDirection( rawValue : txtDirection.text)!
+            lotPosition.RealizedGainLoss = txtProfitLoss.text.toDouble()!
+            lotPosition.RealizedYear = lblTradeEndYear.text!.toInt()!
+            lotPosition.IsLongTerm = true
+            
+            
+            //    let lotPosition = LotPosition(lotId: itemCount+1, symbolCode: txtSymbol.text,txtInvestmentType.text,txtDirection.text,txtProfitLoss.text,lblTradeEndYear.text,true)
+            
+            
+            CapitalGainController.sharedInstance.AddInvestment(lotPosition)
+            
+
+            
+        }
+    }
+    
+    
+}
+
+extension String {
+    func toDouble() -> Double? {
+        return NSNumberFormatter().numberFromString(self)?.doubleValue
+    }
+    
+    func toInt() -> Int? {
+        return NSNumberFormatter().numberFromString(self)?.integerValue
+    }
 }

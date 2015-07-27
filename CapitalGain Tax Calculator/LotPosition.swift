@@ -8,46 +8,116 @@
 
 import Foundation
 
-enum Direction{
-    case Long, CoveredShort, UnCoveredShort
+enum ENumDirection:String{
+    case Long = "Long"
+    case CoveredShort = "Short"
+    case UnCoveredShort = "Covered Short / Straddle"
 }
 
+enum ENumInvestmentType:String{
+    case Equity="Equity"
+    case Dividend="Regular Income / Dividend"
+    case Section1256 = "Section 1256"
+}
 class LotPosition{
-    let _lotId:Int32
-    let _symbolCode:String
-    let _symbolDesc:String
-  /*  let _openDate: NSDate
-    let _closeDate:NSDate
-    let _fx:Float
-    let _multiplier:Int
-    let _lotDirection:Direction
-    */
-   /* init(lotId:Int, symbolCode:String, symbolDesc:String, openDate:NSDate, closeDate:NSDate, fx:Float, multiplier:Int, lotDirection:Direction
-    )
- */
+    var _lotId:Int32
+    var _symbolCode:String
+    var _investmentType:ENumInvestmentType
+    var _direction:ENumDirection
+    var _realizedGainLoss: Double
+    var _realizedYear: Int
+    var _isLongTerm : Bool
+  
     init()
     {
         self._symbolCode = ""
-        self._symbolDesc = ""
+        self._investmentType = ENumInvestmentType.Equity
+        self._direction = ENumDirection.Long
         self._lotId = 0
+        self._realizedGainLoss = 0
+        self._realizedYear=0
+        self._isLongTerm = false
     }
-    init(lotId:Int32,symbolCode:String,symbolDesc:String
+    init(lotId:Int32,symbolCode:String,investmentType:ENumInvestmentType,direction: ENumDirection,realizedGainLoss:Double,realizedYear:Int,IsLongTerm:Bool
         )
     {
-       // self._lotId = lotId
-        self._symbolCode = symbolCode
-        self._symbolDesc = symbolDesc
         self._lotId = lotId
-     /*   self._openDate = openDate
-        self._closeDate = closeDate
-        self._multiplier = multiplier
-        self._fx = fx
-        self._lotDirection = lotDirection
-        */
+        self._symbolCode = symbolCode
+        self._investmentType = investmentType
+        self._direction = direction
+        self._realizedGainLoss = realizedGainLoss
+        self._realizedYear = realizedYear
+        self._isLongTerm = false
+        
         
     }   
     
+    var LotId: Int32 {
+        get {
+            return _lotId
+        }
+        set {
+            _lotId = newValue
+        }
+    }
     
+    var SymbolCode: String {
+        get {
+           return _symbolCode
+        }
+        set {
+         _symbolCode = newValue
+        }
+    }
+    
+    var InvestmentType: ENumInvestmentType {
+        get {
+            return _investmentType
+        }
+        set {
+            _investmentType = newValue
+        }
+    }
+  
+    var Direction: ENumDirection {
+        get {
+            return _direction
+        }
+        set {
+            _direction = newValue
+        }
+    }
+    
+    var RealizedGainLoss: Double {
+        get {
+            return _realizedGainLoss
+        }
+        set {
+            _realizedGainLoss = newValue
+        }
+    }
+
+    
+    var RealizedYear: Int {
+        get {
+            return _realizedYear
+        }
+        set {
+            _realizedYear = newValue
+        }
+    }
+
+    var IsLongTerm: Bool {
+        get {
+            return _isLongTerm
+        }
+        set {
+            _isLongTerm = newValue
+        }
+    }
+    
+  
+
     func GetStockDetail()->String?{
         switch self._symbolCode
         {

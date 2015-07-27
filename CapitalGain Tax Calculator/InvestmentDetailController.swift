@@ -8,9 +8,10 @@
 
 import UIKit
 
-class InvestmentDetailController: UIViewController {
+class InvestmentDetailController: UIViewController{
 @IBOutlet weak var nameLabel: UILabel!
     
+
     override func viewDidLoad() {
          refreshUI()
         super.viewDidLoad()
