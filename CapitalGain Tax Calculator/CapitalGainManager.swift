@@ -11,10 +11,12 @@ import Foundation
 
 class CapitalGainControllerManager{
     var investmentArray =  NSMutableArray()
+    var filingStatusArray = NSMutableArray()
     
     init()
     {
         let investmentArray = NSMutableArray()
+        let filingStatusArray = NSMutableArray()
         
     }
     
@@ -49,4 +51,23 @@ class CapitalGainControllerManager{
         return lotPosition
 
     }
+    
+    func AddFilingStatus(filingStatus: FilingStatus)->NSMutableArray
+    {
+        filingStatusArray.addObject(filingStatus)
+        return filingStatusArray
+        
+    }
+    func GetFilingStatus()->NSMutableArray
+    {
+        return filingStatusArray
+    }
+    
+    func GetFilingStatusItem(index: Int)-> FilingStatus
+    {
+        let filingStatus: FilingStatus = filingStatusArray.objectAtIndex(index) as! FilingStatus
+        return filingStatus
+        
+    }
+
 }

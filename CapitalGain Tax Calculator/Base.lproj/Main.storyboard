@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Ul-UE-fK1">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Add Investment-->
@@ -16,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Asset" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="X0N-Sv-GE9">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Asset" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="X0N-Sv-GE9">
                                 <rect key="frame" x="0.0" y="99" width="375" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -35,7 +36,7 @@
                                     <outlet property="delegate" destination="COO-sV-LRS" id="CTn-L0-mM8"/>
                                 </connections>
                             </pickerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Asset Type" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HNy-13-dVs">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Asset Type" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HNy-13-dVs">
                                 <rect key="frame" x="0.0" y="145" width="375" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -44,7 +45,7 @@
                                     <action selector="OnInvestmentTypeEditEnd:" destination="COO-sV-LRS" eventType="editingDidEnd" id="aT7-Tk-MAj"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Direction" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UZy-Hi-0Ex" userLabel="Direction">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Direction" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UZy-Hi-0Ex" userLabel="Direction">
                                 <rect key="frame" x="0.0" y="198" width="375" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -107,6 +108,12 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="HNy-13-dVs" secondAttribute="trailing" id="KkM-ng-SVK"/>
+                            <constraint firstItem="HNy-13-dVs" firstAttribute="top" secondItem="X0N-Sv-GE9" secondAttribute="bottom" constant="16" id="WWJ-tH-Rt3"/>
+                            <constraint firstItem="HNy-13-dVs" firstAttribute="leading" secondItem="CWV-AK-3Wk" secondAttribute="leadingMargin" id="hMG-sb-1Nl"/>
+                            <constraint firstItem="UZy-Hi-0Ex" firstAttribute="top" secondItem="HNy-13-dVs" secondAttribute="bottom" constant="23" id="nzL-c5-YcN"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Investment" id="KFn-EM-FrG">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="9PO-rQ-gn3">
@@ -169,26 +176,90 @@
         <!--Add Filing Detail-->
         <scene sceneID="GvQ-fj-WTP">
             <objects>
-                <viewController id="6SW-hu-ik5" customClass="FilingDetailController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6SW-hu-ik5" customClass="AddFilingController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YU7-3i-HQG"/>
                         <viewControllerLayoutGuide type="bottom" id="LMo-bK-K7t"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ejZ-eO-pkI">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fIR-HG-YxC">
+                                <rect key="frame" x="-5" y="473" width="375" height="113"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="6SW-hu-ik5" id="qvY-g9-BvZ"/>
+                                    <outlet property="delegate" destination="6SW-hu-ik5" id="VeT-RL-0yz"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Taxable Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXu-gT-7ch">
+                                <rect key="frame" x="16" y="93" width="154" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="2020" translatesAutoresizingMaskIntoConstraints="NO" id="0zd-wE-gQK">
+                                <rect key="frame" x="265" y="89" width="94" height="29"/>
+                                <connections>
+                                    <action selector="OnStpYearValueChanged:" destination="6SW-hu-ik5" eventType="valueChanged" id="naq-YH-Jxs"/>
+                                    <action selector="stpYearValueChanged:" destination="COO-sV-LRS" eventType="valueChanged" id="aU0-AG-5qZ"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwc-La-Wef">
+                                <rect key="frame" x="184" y="93" width="55" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Filing Mode" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ofD-r9-jEQ">
+                                <rect key="frame" x="0.0" y="148" width="375" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="OnFilingModeEditBegin:" destination="6SW-hu-ik5" eventType="editingDidBegin" id="maB-A1-gGy"/>
+                                    <action selector="OnFilingModeEditEnd:" destination="6SW-hu-ik5" eventType="editingDidEnd" id="vMR-hi-Gvo"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Annual Income For year xxxx" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="05I-yg-A7M">
+                                <rect key="frame" x="0.0" y="193" width="375" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Previously Deferred Loss" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5zt-vg-afa">
+                                <rect key="frame" x="0.0" y="244" width="375" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Filing Detail" id="S4L-c4-9OB"/>
+                    <navigationItem key="navigationItem" title="Add Filing Detail" id="S4L-c4-9OB">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="SB9-EC-wPO">
+                            <connections>
+                                <segue destination="yzh-84-N3r" kind="unwind" unwindAction="unwindToFilingStatusList:" id="xPg-IX-lJg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="btnAddFilingStatus" destination="SB9-EC-wPO" id="09D-4H-1QY"/>
+                        <outlet property="lblYear" destination="dwc-La-Wef" id="O2g-DY-MPQ"/>
+                        <outlet property="pickerFilingMode" destination="fIR-HG-YxC" id="NgN-32-1Px"/>
+                        <outlet property="stpYear" destination="0zd-wE-gQK" id="dn2-Ez-pBh"/>
+                        <outlet property="txtCurrentTaxableIncome" destination="05I-yg-A7M" id="r03-tZ-IlL"/>
+                        <outlet property="txtFilingMode" destination="ofD-r9-jEQ" id="fzB-Wt-tlv"/>
+                        <outlet property="txtPreviouslyDeferredLoss" destination="5zt-vg-afa" id="Fuc-Of-FB9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9G-zQ-xfx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="yzh-84-N3r" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2780" y="-240"/>
+            <point key="canvasLocation" x="2779.5" y="-240.5"/>
         </scene>
         <!--Filing Mode View-->
         <scene sceneID="AbS-1M-BJT">
             <objects>
-                <viewController id="1Hi-A3-xd8" customClass="AddFilingViewController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1Hi-A3-xd8" customClass="FilingDetailController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7LE-o4-fD5"/>
                         <viewControllerLayoutGuide type="bottom" id="QiX-1E-Nwt"/>
@@ -258,17 +329,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Flc-YH-t17">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FilingTableViewCell" id="Flc-YH-t17" customClass="FilingTableViewCell" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Flc-YH-t17" id="1vR-eg-2NI">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8B-XE-IWC">
+                                            <rect key="frame" x="17" y="0.0" width="340" height="32"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="lblFilingStatus" destination="y8B-XE-IWC" id="RUb-1t-s1U"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="mOU-Zt-5rk" id="OS1-Z0-qd0"/>
-                            <outlet property="delegate" destination="mOU-Zt-5rk" id="3z6-7U-frR"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Filing Mode" id="Fzh-w9-0rz">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="fEu-4h-wom">
@@ -277,9 +355,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="1Hi-A3-xd8" kind="show" identifier="ShowFiling" id="NZa-hD-qmk"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o29-Ou-MFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -30,10 +30,9 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
     @IBOutlet weak var txtProfitLoss: UITextField!
     
      weak var lotPosition = LotPosition()
-    var directionArray = ["Long","Short","Covered Short / Straddle"]
-    var investmentTypeArray = ["Equity","Regular Income / Dividend","Section 1256"]
     
-    
+    var directionArray = [ENumDirection.Long.rawValue, ENumDirection.CoveredShort.rawValue, ENumDirection.UnCoveredShort.rawValue]
+    var investmentTypeArray = [ENumInvestmentType.Equity.rawValue, ENumInvestmentType.Dividend.rawValue, ENumInvestmentType.Section1256.rawValue]
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -50,7 +49,7 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
         lblTradeEndYear.text = year.description
         stpYear.value = Double(year)
         
-        stpYear.maximumValue = 2030
+        stpYear.maximumValue = 2030 // TODO:
         stpYear.stepValue = 1
     }
     
@@ -72,6 +71,8 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
     
     @IBAction func AddInvestment(sender: AnyObject) {
         
+        
+        // NOT USED : TODO
         var investArray = NSMutableArray()
         investArray = CapitalGainController.sharedInstance.GetInvestments()
         let itemCount = investArray.count
@@ -82,7 +83,7 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
         lotPosition.Direction = ENumDirection( rawValue : txtDirection.text)!
         lotPosition.RealizedGainLoss = txtProfitLoss.text.toDouble()!
         lotPosition.RealizedYear = lblTradeEndYear.text!.toInt()!
-        lotPosition.IsLongTerm = true
+        lotPosition.IsLongTerm = true //TODO
         
         
     //    let lotPosition = LotPosition(lotId: itemCount+1, symbolCode: txtSymbol.text,txtInvestmentType.text,txtDirection.text,txtProfitLoss.text,lblTradeEndYear.text,true)
@@ -202,13 +203,7 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
             lotPosition.RealizedYear = lblTradeEndYear.text!.toInt()!
             lotPosition.IsLongTerm = true
             
-            
-            //    let lotPosition = LotPosition(lotId: itemCount+1, symbolCode: txtSymbol.text,txtInvestmentType.text,txtDirection.text,txtProfitLoss.text,lblTradeEndYear.text,true)
-            
-            
             CapitalGainController.sharedInstance.AddInvestment(lotPosition)
-            
-
             
         }
     }
