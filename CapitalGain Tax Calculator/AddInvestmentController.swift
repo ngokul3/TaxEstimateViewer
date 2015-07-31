@@ -51,6 +51,14 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
         
         stpYear.maximumValue = 2030 // TODO:
         stpYear.stepValue = 1
+        
+        txtDirection.text = ENumDirection.CoveredShort.rawValue
+        txtInvestmentType.text = ENumInvestmentType.Section1256.rawValue
+        txtProfitLoss.text = "1213"
+        txtSymbol.text = "Zensar"
+        
+       println("This is investment add")
+        
     }
     
     

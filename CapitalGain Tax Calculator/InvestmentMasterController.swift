@@ -16,6 +16,8 @@ import UIKit
 class InvestmentMasterController: UITableViewController {
 //weak var delegate:LotSelectionDelegate?
     var lotPosition =   [LotPosition]()
+    var databasePath = NSString()
+
 
     @IBOutlet weak var txtLabelTest: UILabel!
     
@@ -26,11 +28,40 @@ class InvestmentMasterController: UITableViewController {
 
        // viewInvestments.dataSource = self
         //viewInvestments.delegate = self
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+               // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let filemgr = NSFileManager.defaultManager()
+        let dirPaths =
+        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
+            .UserDomainMask, true)
+        
+        let docsDir = dirPaths[0] as! String
+        
+        databasePath = docsDir.stringByAppendingPathComponent(
+            "Test1")
+        
+        if !filemgr.fileExistsAtPath(databasePath as String) {
+            
+            let lotPositionDB = FMDatabase(path: databasePath as String)
+            
+            if lotPositionDB == nil {
+                println("Error: \(lotPositionDB.lastErrorMessage())")
+            }
+            
+            if lotPositionDB.open() {
+                let sql_stmt = "CREATE TABLE IF NOT EXISTS LotPosition (LotPositionID INTEGER PRIMARY KEY AUTOINCREMENT, SymbolCode TEXT, InvestmentType TEXT, Direction TEXT, RealizedGainLoss DOUBLE, Year INTEGER, IsLongTerm BOOLEAN)"
+                if !lotPositionDB.executeStatements(sql_stmt) {
+                    println("Error: \(lotPositionDB.lastErrorMessage())")
+                }
+                lotPositionDB.close()
+            } else {
+                println("Error: \(lotPositionDB.lastErrorMessage())")
+            }
+        }
+        
+        
+        
     }
 
     required init(coder aDecoder: NSCoder) {

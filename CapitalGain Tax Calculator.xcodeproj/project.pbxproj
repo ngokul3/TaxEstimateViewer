@@ -12,6 +12,14 @@
 		557E85D71B66FE6100197CBE /* FilingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E85D61B66FE6100197CBE /* FilingTableViewCell.swift */; };
 		557E85D91B66FEFF00197CBE /* FilingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E85D81B66FEFF00197CBE /* FilingStatus.swift */; };
 		557E85DB1B67084300197CBE /* AddFilingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E85DA1B67084300197CBE /* AddFilingController.swift */; };
+		557E85DD1B69AA2E00197CBE /* LotTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E85DC1B69AA2E00197CBE /* LotTerm.swift */; };
+		557E85DF1B69AC5E00197CBE /* TaxProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E85DE1B69AC5E00197CBE /* TaxProcessor.swift */; };
+		557E85E11B6AE1F200197CBE /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 557E85E01B6AE1F200197CBE /* libsqlite3.dylib */; };
+		557E85EF1B6AE44F00197CBE /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 557E85E61B6AE44F00197CBE /* FMDatabase.m */; };
+		557E85F01B6AE44F00197CBE /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 557E85E81B6AE44F00197CBE /* FMResultSet.m */; };
+		557E85F11B6AE44F00197CBE /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 557E85EA1B6AE44F00197CBE /* FMDatabaseQueue.m */; };
+		557E85F21B6AE44F00197CBE /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 557E85EC1B6AE44F00197CBE /* FMDatabaseAdditions.m */; };
+		557E85F31B6AE44F00197CBE /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 557E85EE1B6AE44F00197CBE /* FMDatabasePool.m */; };
 		55C28A491B55F0E2001D073E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A481B55F0E2001D073E /* AppDelegate.swift */; };
 		55C28A4C1B55F0E2001D073E /* CapitalGain_Tax_Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A4A1B55F0E2001D073E /* CapitalGain_Tax_Calculator.xcdatamodeld */; };
 		55C28A4E1B55F0E2001D073E /* InvestmentDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A4D1B55F0E2001D073E /* InvestmentDetailController.swift */; };
@@ -45,6 +53,21 @@
 		557E85D61B66FE6100197CBE /* FilingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilingTableViewCell.swift; sourceTree = "<group>"; };
 		557E85D81B66FEFF00197CBE /* FilingStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilingStatus.swift; sourceTree = "<group>"; };
 		557E85DA1B67084300197CBE /* AddFilingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFilingController.swift; sourceTree = "<group>"; };
+		557E85DC1B69AA2E00197CBE /* LotTerm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotTerm.swift; sourceTree = "<group>"; };
+		557E85DE1B69AC5E00197CBE /* TaxProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxProcessor.swift; sourceTree = "<group>"; };
+		557E85E01B6AE1F200197CBE /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		557E85E31B6AE44E00197CBE /* CapitalGain Tax Calculator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CapitalGain Tax Calculator-Bridging-Header.h"; sourceTree = "<group>"; };
+		557E85E41B6AE44F00197CBE /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = DataLibrary/src/fmdb/FMDB.h; sourceTree = "<group>"; };
+		557E85E51B6AE44F00197CBE /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = DataLibrary/src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
+		557E85E61B6AE44F00197CBE /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = DataLibrary/src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
+		557E85E71B6AE44F00197CBE /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = DataLibrary/src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
+		557E85E81B6AE44F00197CBE /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = DataLibrary/src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
+		557E85E91B6AE44F00197CBE /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = DataLibrary/src/fmdb/FMDatabaseQueue.h; sourceTree = "<group>"; };
+		557E85EA1B6AE44F00197CBE /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = DataLibrary/src/fmdb/FMDatabaseQueue.m; sourceTree = "<group>"; };
+		557E85EB1B6AE44F00197CBE /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = DataLibrary/src/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		557E85EC1B6AE44F00197CBE /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = DataLibrary/src/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		557E85ED1B6AE44F00197CBE /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = DataLibrary/src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
+		557E85EE1B6AE44F00197CBE /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = DataLibrary/src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
 		55C28A431B55F0E2001D073E /* CapitalGain Tax Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CapitalGain Tax Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C28A471B55F0E2001D073E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55C28A481B55F0E2001D073E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				557E85E11B6AE1F200197CBE /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,9 +108,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		557E85E21B6AE40E00197CBE /* DataAccess */ = {
+			isa = PBXGroup;
+			children = (
+				557E85E41B6AE44F00197CBE /* FMDB.h */,
+				557E85E51B6AE44F00197CBE /* FMDatabase.h */,
+				557E85E61B6AE44F00197CBE /* FMDatabase.m */,
+				557E85E71B6AE44F00197CBE /* FMResultSet.h */,
+				557E85E81B6AE44F00197CBE /* FMResultSet.m */,
+				557E85E91B6AE44F00197CBE /* FMDatabaseQueue.h */,
+				557E85EA1B6AE44F00197CBE /* FMDatabaseQueue.m */,
+				557E85EB1B6AE44F00197CBE /* FMDatabaseAdditions.h */,
+				557E85EC1B6AE44F00197CBE /* FMDatabaseAdditions.m */,
+				557E85ED1B6AE44F00197CBE /* FMDatabasePool.h */,
+				557E85EE1B6AE44F00197CBE /* FMDatabasePool.m */,
+				557E85E31B6AE44E00197CBE /* CapitalGain Tax Calculator-Bridging-Header.h */,
+			);
+			name = DataAccess;
+			sourceTree = "<group>";
+		};
 		55C28A3A1B55F0E2001D073E = {
 			isa = PBXGroup;
 			children = (
+				557E85E01B6AE1F200197CBE /* libsqlite3.dylib */,
 				55C28A451B55F0E2001D073E /* CapitalGain Tax Calculator */,
 				55C28A5E1B55F0E3001D073E /* CapitalGain Tax CalculatorTests */,
 				55C28A441B55F0E2001D073E /* Products */,
@@ -105,6 +149,7 @@
 		55C28A451B55F0E2001D073E /* CapitalGain Tax Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				557E85E21B6AE40E00197CBE /* DataAccess */,
 				55D0CF691B5F1EE5003B1D3F /* Library */,
 				55D0CF671B5F16CC003B1D3F /* Controller */,
 				55D0CF651B5F16B6003B1D3F /* View */,
@@ -149,6 +194,7 @@
 			children = (
 				55C28A731B58751F001D073E /* LotPosition.swift */,
 				557E85D81B66FEFF00197CBE /* FilingStatus.swift */,
+				557E85DC1B69AA2E00197CBE /* LotTerm.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -182,6 +228,7 @@
 			children = (
 				55D0CF6A1B5F1F4E003B1D3F /* CapitalGainController.swift */,
 				55D0CF6C1B5F2145003B1D3F /* CapitalGainManager.swift */,
+				557E85DE1B69AC5E00197CBE /* TaxProcessor.swift */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -286,19 +333,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				557E85DD1B69AA2E00197CBE /* LotTerm.swift in Sources */,
+				557E85EF1B6AE44F00197CBE /* FMDatabase.m in Sources */,
 				55D0CF5E1B5DD1AC003B1D3F /* FilingMasterController.swift in Sources */,
+				557E85F31B6AE44F00197CBE /* FMDatabasePool.m in Sources */,
 				55C28A6C1B572D9F001D073E /* InvestmentMasterController.swift in Sources */,
 				55D0CF6D1B5F2145003B1D3F /* CapitalGainManager.swift in Sources */,
 				5529604D1B6327A50035622F /* SevenSwitch.swift in Sources */,
 				557E85D71B66FE6100197CBE /* FilingTableViewCell.swift in Sources */,
+				557E85F21B6AE44F00197CBE /* FMDatabaseAdditions.m in Sources */,
 				55C28A4E1B55F0E2001D073E /* InvestmentDetailController.swift in Sources */,
 				55C28A741B58751F001D073E /* LotPosition.swift in Sources */,
 				557E85DB1B67084300197CBE /* AddFilingController.swift in Sources */,
 				55C28A491B55F0E2001D073E /* AppDelegate.swift in Sources */,
+				557E85DF1B69AC5E00197CBE /* TaxProcessor.swift in Sources */,
 				557E85D91B66FEFF00197CBE /* FilingStatus.swift in Sources */,
 				55D0CF6B1B5F1F4E003B1D3F /* CapitalGainController.swift in Sources */,
+				557E85F01B6AE44F00197CBE /* FMResultSet.m in Sources */,
 				55C28A4C1B55F0E2001D073E /* CapitalGain_Tax_Calculator.xcdatamodeld in Sources */,
 				5529604F1B65B0DF0035622F /* InvestmentTableViewCell.swift in Sources */,
+				557E85F11B6AE44F00197CBE /* FMDatabaseQueue.m in Sources */,
 				55C28A701B57C9CB001D073E /* AddInvestmentController.swift in Sources */,
 				55D0CF621B5DD431003B1D3F /* TaxViewController.swift in Sources */,
 				55D0CF5C1B5DD18C003B1D3F /* FilingDetailController.swift in Sources */,
@@ -430,9 +484,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "CapitalGain Tax Calculator/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CapitalGain Tax Calculator/CapitalGain Tax Calculator-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -441,9 +498,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "CapitalGain Tax Calculator/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CapitalGain Tax Calculator/CapitalGain Tax Calculator-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

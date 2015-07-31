@@ -10,10 +10,37 @@ import UIKit
 
 class TaxViewController: UIPageViewController {
 
+    var databasePath = NSString()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let cntPositions = CapitalGainController.sharedInstance.GetInvestments().count
+        
+        
+        let lotPositionDB = FMDatabase(path: databasePath as String)
+        var arrayInvestments = CapitalGainController.sharedInstance.GetInvestments()
+        
+       for index in 0...cntPositions-1{
+        if lotPositionDB.open() {
+            let lotPosition = CapitalGainController.sharedInstance.GetPositionItem(index)
+            
+            
+            let insertSQL = "INSERT INTO LotPosition (SymbolCode, InvestmentType, Direction, RealizedGainLoss, Year, IsLongTerm) VALUES ('\(lotPosition.SymbolCode)', '\(lotPosition.InvestmentType)', '\(lotPosition.Direction)', '\(lotPosition.RealizedGainLoss)', '\(lotPosition.RealizedYear)', '\(lotPosition.IsLongTerm)')"
+            
+            let result = lotPositionDB.executeUpdate(insertSQL,
+                withArgumentsInArray: nil)
+            
+            if !result {
+               println("Error: \(lotPositionDB.lastErrorMessage())")
+            } 
+        } else {
+            println("Error: \(lotPositionDB.lastErrorMessage())")
+        }
+
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
