@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5529604D1B6327A50035622F /* SevenSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5529604C1B6327A50035622F /* SevenSwitch.swift */; };
 		5529604F1B65B0DF0035622F /* InvestmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5529604E1B65B0DF0035622F /* InvestmentTableViewCell.swift */; };
+		555F00CC1B6BEACD00EB1EAF /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F00CB1B6BEACC00EB1EAF /* DataManager.swift */; };
 		557E85D71B66FE6100197CBE /* FilingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E85D61B66FE6100197CBE /* FilingTableViewCell.swift */; };
 		557E85D91B66FEFF00197CBE /* FilingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E85D81B66FEFF00197CBE /* FilingStatus.swift */; };
 		557E85DB1B67084300197CBE /* AddFilingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E85DA1B67084300197CBE /* AddFilingController.swift */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		5529604C1B6327A50035622F /* SevenSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SevenSwitch.swift; sourceTree = "<group>"; };
 		5529604E1B65B0DF0035622F /* InvestmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestmentTableViewCell.swift; sourceTree = "<group>"; };
+		555F00CB1B6BEACC00EB1EAF /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		557E85D61B66FE6100197CBE /* FilingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilingTableViewCell.swift; sourceTree = "<group>"; };
 		557E85D81B66FEFF00197CBE /* FilingStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilingStatus.swift; sourceTree = "<group>"; };
 		557E85DA1B67084300197CBE /* AddFilingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFilingController.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				55D0CF6A1B5F1F4E003B1D3F /* CapitalGainController.swift */,
 				55D0CF6C1B5F2145003B1D3F /* CapitalGainManager.swift */,
 				557E85DE1B69AC5E00197CBE /* TaxProcessor.swift */,
+				555F00CB1B6BEACC00EB1EAF /* DataManager.swift */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				557E85DD1B69AA2E00197CBE /* LotTerm.swift in Sources */,
+				555F00CC1B6BEACD00EB1EAF /* DataManager.swift in Sources */,
 				557E85EF1B6AE44F00197CBE /* FMDatabase.m in Sources */,
 				55D0CF5E1B5DD1AC003B1D3F /* FilingMasterController.swift in Sources */,
 				557E85F31B6AE44F00197CBE /* FMDatabasePool.m in Sources */,

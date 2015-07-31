@@ -11,6 +11,8 @@ import Foundation
 
  class CapitalGainController {
      static let sharedInstance = CapitalGainControllerManager()
+     static let sharedDBInstance = DataManager()
+    
     init()
     {
         

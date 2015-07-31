@@ -17,7 +17,6 @@ class CapitalGainControllerManager{
     {
         let investmentArray = NSMutableArray()
         let filingStatusArray = NSMutableArray()
-        
     }
     
     
@@ -69,5 +68,7 @@ class CapitalGainControllerManager{
         return filingStatus
         
     }
+    
+    
 
 }

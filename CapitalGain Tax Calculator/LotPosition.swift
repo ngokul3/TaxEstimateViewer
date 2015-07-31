@@ -13,7 +13,7 @@ enum ENumDirection:String{
     case CoveredShort = "Short"
     case UnCoveredShort = "Covered Short / Straddle"
 }
- 
+
 enum ENumInvestmentType:String{
     case Equity="Equity"
     case Dividend="Regular Income / Dividend"
