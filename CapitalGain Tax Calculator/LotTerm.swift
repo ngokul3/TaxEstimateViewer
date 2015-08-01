@@ -11,13 +11,13 @@ import Foundation
 enum ENumTerm:String
 {
     case LongTerm = "LongTerm"
-    case ShortTerm = "ShortTem"
+    case ShortTerm = "ShortTerm"
     case Section1256 = "Section1256"
 }
 class LotTerm {
-    var _year: Int
-    var _termRealizedGainLoss : Double
-    var _term : ENumTerm
+    private var _year: Int32
+    private var _termRealizedGainLoss : Double
+    private var _term : ENumTerm
     
     init()
     {
@@ -26,5 +26,32 @@ class LotTerm {
         self._term = ENumTerm.LongTerm
     }
     
+    var Year: Int32 {
+        get {
+            return _year
+        }
+        set {
+            _year = newValue
+        }
+    }
+    
+    var TermRealizedGainLoss: Double {
+        get {
+            return _termRealizedGainLoss
+        }
+        set {
+            _termRealizedGainLoss = newValue
+        }
+    }
+    
+    var Term: ENumTerm {
+        get {
+            return _term
+        }
+        set {
+            _term = newValue
+        }
+    }
+
     
 }

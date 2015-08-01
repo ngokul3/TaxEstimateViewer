@@ -15,8 +15,12 @@ class FilingMasterController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        CapitalGainController.sharedDBInstance.InsertInvestments()
         
+      //  CapitalGainController.sharedDBInstance.InsertInvestments()
+        if CapitalGainController.sharedDBInstance.OpenDatabase(){
+          
+            let arr = CapitalGainController.sharedDBInstance.ReturnLotTerm()
+        }
     }
 
     override func didReceiveMemoryWarning() {
