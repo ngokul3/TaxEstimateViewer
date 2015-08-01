@@ -12,19 +12,16 @@ class TaxProcessor
 {
     func GetLotsByTerm(lstLotPosition: NSMutableArray)-> NSMutableArray
     {
-        let lstLotTerm = NSMutableArray()
+        var lstLotTerm = NSMutableArray()
+        lstLotTerm = CapitalGainController.sharedDBInstance.ReturnLotTerm()
         
-        for lotPosition: AnyObject in lstLotPosition
-        {
-            
-            if let user: AnyObject = lotPosition.valueForKey("username") {
-                
-                println(user)
-                
-            }
-
-            
-        }
         return lstLotTerm
     }
+    
+    func GetTaxableIncome(lstFilingStatus: NSMutableArray, lstLotPosition: NSMutableArray)
+    {
+        
+    }
+    
+   // func GetCapitalGainTax(termGL Float, T
 }

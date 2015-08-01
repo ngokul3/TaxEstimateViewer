@@ -10,6 +10,8 @@
 		5529604D1B6327A50035622F /* SevenSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5529604C1B6327A50035622F /* SevenSwitch.swift */; };
 		5529604F1B65B0DF0035622F /* InvestmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5529604E1B65B0DF0035622F /* InvestmentTableViewCell.swift */; };
 		555F00CC1B6BEACD00EB1EAF /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F00CB1B6BEACC00EB1EAF /* DataManager.swift */; };
+		557BD8261B6D1559003F5CE1 /* TaxBracket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BD8251B6D1559003F5CE1 /* TaxBracket.swift */; };
+		557BD8281B6D1671003F5CE1 /* TaxOnCapitalGainLossUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BD8271B6D1671003F5CE1 /* TaxOnCapitalGainLossUp.swift */; };
 		557E85D71B66FE6100197CBE /* FilingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E85D61B66FE6100197CBE /* FilingTableViewCell.swift */; };
 		557E85D91B66FEFF00197CBE /* FilingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E85D81B66FEFF00197CBE /* FilingStatus.swift */; };
 		557E85DB1B67084300197CBE /* AddFilingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E85DA1B67084300197CBE /* AddFilingController.swift */; };
@@ -52,6 +54,8 @@
 		5529604C1B6327A50035622F /* SevenSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SevenSwitch.swift; sourceTree = "<group>"; };
 		5529604E1B65B0DF0035622F /* InvestmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestmentTableViewCell.swift; sourceTree = "<group>"; };
 		555F00CB1B6BEACC00EB1EAF /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		557BD8251B6D1559003F5CE1 /* TaxBracket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxBracket.swift; sourceTree = "<group>"; };
+		557BD8271B6D1671003F5CE1 /* TaxOnCapitalGainLossUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxOnCapitalGainLossUp.swift; sourceTree = "<group>"; };
 		557E85D61B66FE6100197CBE /* FilingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilingTableViewCell.swift; sourceTree = "<group>"; };
 		557E85D81B66FEFF00197CBE /* FilingStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilingStatus.swift; sourceTree = "<group>"; };
 		557E85DA1B67084300197CBE /* AddFilingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFilingController.swift; sourceTree = "<group>"; };
@@ -197,6 +201,8 @@
 				55C28A731B58751F001D073E /* LotPosition.swift */,
 				557E85D81B66FEFF00197CBE /* FilingStatus.swift */,
 				557E85DC1B69AA2E00197CBE /* LotTerm.swift */,
+				557BD8251B6D1559003F5CE1 /* TaxBracket.swift */,
+				557BD8271B6D1671003F5CE1 /* TaxOnCapitalGainLossUp.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -336,6 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				557BD8281B6D1671003F5CE1 /* TaxOnCapitalGainLossUp.swift in Sources */,
 				557E85DD1B69AA2E00197CBE /* LotTerm.swift in Sources */,
 				555F00CC1B6BEACD00EB1EAF /* DataManager.swift in Sources */,
 				557E85EF1B6AE44F00197CBE /* FMDatabase.m in Sources */,
@@ -344,6 +351,7 @@
 				55C28A6C1B572D9F001D073E /* InvestmentMasterController.swift in Sources */,
 				55D0CF6D1B5F2145003B1D3F /* CapitalGainManager.swift in Sources */,
 				5529604D1B6327A50035622F /* SevenSwitch.swift in Sources */,
+				557BD8261B6D1559003F5CE1 /* TaxBracket.swift in Sources */,
 				557E85D71B66FE6100197CBE /* FilingTableViewCell.swift in Sources */,
 				557E85F21B6AE44F00197CBE /* FMDatabaseAdditions.m in Sources */,
 				55C28A4E1B55F0E2001D073E /* InvestmentDetailController.swift in Sources */,
