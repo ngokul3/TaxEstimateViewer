@@ -32,7 +32,7 @@ class DataManager
         return self._capitalGainCalculatorDB.open()
     }
     func CreateTable(){
-        if !self._filemgr.fileExistsAtPath(_databasePath as String) {
+      //  if !self._filemgr.fileExistsAtPath(_databasePath as String) {
             
             self._capitalGainCalculatorDB = FMDatabase(path: _databasePath as String)
             
@@ -41,27 +41,32 @@ class DataManager
             }
             
             if self._capitalGainCalculatorDB.open() {
-                let sql_stmt = "CREATE TABLE IF NOT EXISTS LotPosition (LotPositionID INTEGER PRIMARY KEY AUTOINCREMENT, SymbolCode TEXT, InvestmentType TEXT, Direction TEXT, RealizedGainLoss DOUBLE, Year INTEGER, IsLongTerm BOOLEAN)"
-                if !self._capitalGainCalculatorDB.executeStatements(sql_stmt) {
+                let lotPositionTable = "CREATE TABLE IF NOT EXISTS LotPosition (LotPositionID INTEGER PRIMARY KEY AUTOINCREMENT, SymbolCode TEXT, InvestmentType TEXT, Direction TEXT, RealizedGainLoss DOUBLE, Year INTEGER, IsLongTerm BOOLEAN)"
+                if !self._capitalGainCalculatorDB.executeStatements(lotPositionTable) {
                     println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
                 }
+                
+                let filingStatusTable = "CREATE TABLE IF NOT EXISTS FilingStatus (FilingStatusID INTEGER PRIMARY KEY AUTOINCREMENT, FilingType TEXT, Year INTEGER, CurrentTaxableIncome DOUBLE, PreviouslyDeferredLoss DOUBLE)"
+                if !self._capitalGainCalculatorDB.executeStatements(filingStatusTable) {
+                    println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+                }
+                
                 self._capitalGainCalculatorDB.close()
             } else {
                 println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
             }
-        }
+       // }
     }
     
-    func InsertInvestments()
+    func InsertInvestment(lotPosition: LotPosition) -> NSString
     {
         //TODO: Check for already existing lots
-        var arrayInvestments = CapitalGainController.sharedInstance.GetInvestments()
-        let cntPositions = CapitalGainController.sharedInstance.GetInvestments().count
         self._capitalGainCalculatorDB = FMDatabase(path: _databasePath as String)
         
-        for index in 0...cntPositions-1 {
-            if self._capitalGainCalculatorDB.open() {
-                let lotPosition = CapitalGainController.sharedInstance.GetPositionItem(index)
+      //  for index in 0...cntPositions-1 {
+        if self._capitalGainCalculatorDB.open()
+        {
+               // let lotPosition = CapitalGainController.sharedInstance.GetPositionItem(index)
                 
                 
                 let insertSQL = "INSERT INTO LotPosition (SymbolCode, InvestmentType, Direction, RealizedGainLoss, Year, IsLongTerm) VALUES ('\(lotPosition.SymbolCode)', '\(lotPosition.InvestmentType.rawValue)', '\(lotPosition.Direction.rawValue)', \(lotPosition.RealizedGainLoss), \(lotPosition.RealizedYear), \(1))" //TODO
@@ -70,25 +75,41 @@ class DataManager
                     withArgumentsInArray: nil)
                 
                 if !result {
-                    NSLog("otPositionDB.lastErrorMessage()")
                     println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
                 }
             } else {
                 println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+                return "Error" //ToDO
             }
-            
-        }
-        
-        let selectSql = "SELECT SymbolCode, Direction, RealizedGainLoss FROM LotPosition"
-        let results:FMResultSet? = self._capitalGainCalculatorDB.executeQuery(selectSql,
-            withArgumentsInArray: nil)
-        
-        
-        while results?.next() == true {
-            let symbol = results?.stringForColumn("SymbolCode")
-            NSLog(symbol!)
-        }
+    
+        return ""//ToDO
     }
+    
+    func InsertFilingStatus(filingStatus: FilingStatus) -> NSString
+    {
+        //TODO: Check for already existing record
+        self._capitalGainCalculatorDB = FMDatabase(path: _databasePath as String)
+        
+        if self._capitalGainCalculatorDB.open()
+        {
+            
+            
+            let insertSQL = "INSERT INTO FilingStatus (Year, FilingType, CurrentTaxableIncome, PreviouslyDeferredLoss) VALUES ('\(filingStatus.Year)', '\(filingStatus.FilingType.rawValue)', \(filingStatus.CurrentTaxableIncome), \(filingStatus.PreviouslyDeferredLoss))"
+            
+            let result = self._capitalGainCalculatorDB.executeUpdate(insertSQL,
+                withArgumentsInArray: nil)
+            
+            if !result {
+                println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+            }
+        } else {
+            println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+            return "Error" //ToDO
+        }
+        
+        return ""//ToDO
+    }
+
     
     func ReturnLotTerm()-> NSMutableArray
     {

@@ -94,12 +94,9 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
         lotPosition.IsLongTerm = true //TODO
         
         
-    //    let lotPosition = LotPosition(lotId: itemCount+1, symbolCode: txtSymbol.text,txtInvestmentType.text,txtDirection.text,txtProfitLoss.text,lblTradeEndYear.text,true)
-        
-        
        CapitalGainController.sharedInstance.AddInvestment(lotPosition)
         
-    var test = CapitalGainController.sharedInstance.GetInvestments()
+        var test = CapitalGainController.sharedDBInstance.InsertInvestment(lotPosition)
         
     }
     
@@ -212,6 +209,7 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
             lotPosition.IsLongTerm = true
             
             CapitalGainController.sharedInstance.AddInvestment(lotPosition)
+            var test = CapitalGainController.sharedDBInstance.InsertInvestment(lotPosition)
             
         }
     }

@@ -17,10 +17,10 @@ class FilingMasterController: UITableViewController {
 
         
       //  CapitalGainController.sharedDBInstance.InsertInvestments()
-        if CapitalGainController.sharedDBInstance.OpenDatabase(){
+    /*    if CapitalGainController.sharedDBInstance.OpenDatabase(){
           
             let arr = CapitalGainController.sharedDBInstance.ReturnLotTerm()
-        }
+        }*/
     }
 
     override func didReceiveMemoryWarning() {

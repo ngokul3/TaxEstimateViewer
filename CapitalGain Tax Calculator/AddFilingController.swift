@@ -97,9 +97,11 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
             let filingStatus = FilingStatus()
             filingStatus.Year = lblYear.text!.toInt()!
             filingStatus.FilingType = ENumFilingType(rawValue: txtFilingMode.text)!
+            filingStatus.CurrentTaxableIncome = txtCurrentTaxableIncome.text!.toDouble()!
             filingStatus.PreviouslyDeferredLoss = txtPreviouslyDeferredLoss.text!.toDouble()!
             CapitalGainController.sharedInstance.AddFilingStatus(filingStatus)
             
+            var returnString = CapitalGainController.sharedDBInstance.InsertFilingStatus(filingStatus)
         }
     }
 }
