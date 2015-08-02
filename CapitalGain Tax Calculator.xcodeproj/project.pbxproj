@@ -56,6 +56,7 @@
 		555F00CB1B6BEACC00EB1EAF /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		557BD8251B6D1559003F5CE1 /* TaxBracket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxBracket.swift; sourceTree = "<group>"; };
 		557BD8271B6D1671003F5CE1 /* TaxOnCapitalGainLossUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxOnCapitalGainLossUp.swift; sourceTree = "<group>"; };
+		557BD8291B6DA6E2003F5CE1 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		557E85D61B66FE6100197CBE /* FilingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilingTableViewCell.swift; sourceTree = "<group>"; };
 		557E85D81B66FEFF00197CBE /* FilingStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilingStatus.swift; sourceTree = "<group>"; };
 		557E85DA1B67084300197CBE /* AddFilingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFilingController.swift; sourceTree = "<group>"; };
@@ -166,6 +167,7 @@
 				55C28A541B55F0E2001D073E /* LaunchScreen.xib */,
 				55C28A4A1B55F0E2001D073E /* CapitalGain_Tax_Calculator.xcdatamodeld */,
 				55C28A461B55F0E2001D073E /* Supporting Files */,
+				557BD8291B6DA6E2003F5CE1 /* MyPlayground.playground */,
 			);
 			path = "CapitalGain Tax Calculator";
 			sourceTree = "<group>";
