@@ -13,7 +13,7 @@ class TaxBracket
     private var _year: Int
     private var _term: ENumTerm
     private var _filingType: ENumFilingType
-    private var _federalTax: Dictionary<Double,Double>
+    private var _federalTax: SortedDictionary<Double,Double>
     
     init()
     {
@@ -21,7 +21,7 @@ class TaxBracket
         self._term = ENumTerm.LongTerm //ToDo - better init
         self._filingType = ENumFilingType.Separate //ToDo - better init
 
-        self._federalTax = Dictionary<Double,Double>()
+        self._federalTax = SortedDictionary<Double,Double>()
         
         
     }
@@ -53,7 +53,7 @@ class TaxBracket
         }
     }
 
-    var FederalTax: Dictionary<Double,Double> {
+    var FederalTax: SortedDictionary<Double,Double> {
         get {
             return _federalTax
         }

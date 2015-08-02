@@ -39,6 +39,7 @@
 		55D0CF621B5DD431003B1D3F /* TaxViewController_Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF611B5DD431003B1D3F /* TaxViewController_Page.swift */; };
 		55D0CF6B1B5F1F4E003B1D3F /* CapitalGainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF6A1B5F1F4E003B1D3F /* CapitalGainController.swift */; };
 		55D0CF6D1B5F2145003B1D3F /* CapitalGainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF6C1B5F2145003B1D3F /* CapitalGainManager.swift */; };
+		55DD2B481B6ED2AC002B7400 /* SortedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DD2B471B6ED2AC002B7400 /* SortedDictionary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		55D0CF611B5DD431003B1D3F /* TaxViewController_Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxViewController_Page.swift; sourceTree = "<group>"; };
 		55D0CF6A1B5F1F4E003B1D3F /* CapitalGainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapitalGainController.swift; sourceTree = "<group>"; };
 		55D0CF6C1B5F2145003B1D3F /* CapitalGainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapitalGainManager.swift; sourceTree = "<group>"; };
+		55DD2B471B6ED2AC002B7400 /* SortedDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedDictionary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +245,7 @@
 				55D0CF6C1B5F2145003B1D3F /* CapitalGainManager.swift */,
 				557E85DE1B69AC5E00197CBE /* TaxProcessor.swift */,
 				555F00CB1B6BEACC00EB1EAF /* DataManager.swift */,
+				55DD2B471B6ED2AC002B7400 /* SortedDictionary.swift */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				557E85F31B6AE44F00197CBE /* FMDatabasePool.m in Sources */,
 				55C28A6C1B572D9F001D073E /* InvestmentMasterController.swift in Sources */,
 				55D0CF6D1B5F2145003B1D3F /* CapitalGainManager.swift in Sources */,
+				55DD2B481B6ED2AC002B7400 /* SortedDictionary.swift in Sources */,
 				5529604D1B6327A50035622F /* SevenSwitch.swift in Sources */,
 				557BD8261B6D1559003F5CE1 /* TaxBracket.swift in Sources */,
 				557E85D71B66FE6100197CBE /* FilingTableViewCell.swift in Sources */,

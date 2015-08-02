@@ -27,16 +27,20 @@ struct TaxOnCapitalGainLossUp {
         br_LT_Single_2015.FilingType = ENumFilingType.Single
         br_LT_Single_2015.Year = 2015
         br_LT_Single_2015.Term = ENumTerm.LongTerm
+       
+        //dict.insert("dog", forKey: 1, atIndex: 0)
+         br_LT_Single_2015.FederalTax.insert(0, forKey: 0, atIndex: 0)
+         br_LT_Single_2015.FederalTax.insert(0, forKey: 9225, atIndex: 1)
+         br_LT_Single_2015.FederalTax.insert(0, forKey: 37450, atIndex: 2)
+         br_LT_Single_2015.FederalTax.insert(0.15, forKey: 189399, atIndex: 3)
+         br_LT_Single_2015.FederalTax.insert(0.15, forKey: 411500, atIndex: 4)
+         br_LT_Single_2015.FederalTax.insert(0.15, forKey: 413200, atIndex: 5)
+         br_LT_Single_2015.FederalTax.insert(0.20, forKey: 413201, atIndex: 6)
         
-   /*     br_LT_Single_2015.FederalTax = [0:0]
-        br_LT_Single_2015.FederalTax = [9225:0]
-        br_LT_Single_2015.FederalTax = [189399:0.15]
-        br_LT_Single_2015.FederalTax = [411500:0.15]
-        br_LT_Single_2015.FederalTax = [413200:0.15]
-        br_LT_Single_2015.FederalTax = [413201:0.20]*/
+      //  br_LT_Single_2015.FederalTax = [0:0, 9225:0, 189399:0.15, 411500:0.15, 413200:0.15, 413201:0.20 ]
+      
         
-        br_LT_Single_2015.FederalTax = [0:0, 9225:0, 189399:0.15, 411500:0.15, 413200:0.15, 413201:0.20 ]
-     
+     //   var x = br_LT_Single_2015.
         _taxBracketList.append(br_LT_Single_2015)
         
         
@@ -46,23 +50,24 @@ struct TaxOnCapitalGainLossUp {
         br_ST_Single_2015.Year = 2015
         br_ST_Single_2015.Term = ENumTerm.ShortTerm
         
-       /* br_ST_Single_2015.FederalTax = [0:0]
-        br_ST_Single_2015.FederalTax = [9225:0.10]
-        br_ST_Single_2015.FederalTax = [37450:0.15]
-        br_ST_Single_2015.FederalTax = [90750:0.25]
-        br_ST_Single_2015.FederalTax = [189300:0.28]
-        br_ST_Single_2015.FederalTax = [411500:0.33]
-        br_ST_Single_2015.FederalTax = [413200:0.35]
-        br_ST_Single_2015.FederalTax = [413201:0.396] */
+        br_ST_Single_2015.FederalTax.insert(0, forKey: 0, atIndex: 0)
+        br_ST_Single_2015.FederalTax.insert(0.10, forKey: 9225, atIndex: 1)
+        br_ST_Single_2015.FederalTax.insert(0.15, forKey: 37450, atIndex: 2)
+        br_ST_Single_2015.FederalTax.insert(0.25, forKey: 90750, atIndex: 3)
+        br_ST_Single_2015.FederalTax.insert(0.28, forKey: 189300, atIndex: 4)
+        br_ST_Single_2015.FederalTax.insert(0.33, forKey: 411500, atIndex: 5)
+        br_ST_Single_2015.FederalTax.insert(0.35, forKey: 413200, atIndex: 6)
+        br_ST_Single_2015.FederalTax.insert(0.396, forKey: 413201, atIndex: 7)
+
         
-        br_ST_Single_2015.FederalTax = [0:0, 9225:0.10, 37450:0.15, 90750:0.25, 189300:0.28, 411500:0.33, 413200:0.35, 413201:0.396 ]
+      //  br_ST_Single_2015.FederalTax = [0:0, 9225:0.10, 37450:0.15, 90750:0.25, 189300:0.28, 411500:0.33, 413200:0.35, 413201:0.396 ]
          
         _taxBracketList.append(br_ST_Single_2015)
         
         
         //Joint 2015
         
-        var br_LT_Joint_2015 = TaxBracket()
+    /*    var br_LT_Joint_2015 = TaxBracket()
         
         br_LT_Joint_2015.FilingType = ENumFilingType.Joint
         br_LT_Joint_2015.Year = 2015
@@ -169,7 +174,7 @@ struct TaxOnCapitalGainLossUp {
         br_ST_Separate_2015.FederalTax = [232426:0.396]
         
         _taxBracketList.append(br_ST_Separate_2015)
-
+*/
 
     }
     
