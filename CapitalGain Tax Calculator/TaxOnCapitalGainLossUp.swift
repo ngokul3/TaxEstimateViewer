@@ -8,8 +8,13 @@
 
 import Foundation
 
- class TaxOnCapitalGainLossUp {
+struct TaxOnCapitalGainLossUp {
     
+    init()
+    {
+       // LoadFederalTax()
+        
+    }
     static var _taxBracketList: [TaxBracket] = [TaxBracket]()
     
     
@@ -23,13 +28,15 @@ import Foundation
         br_LT_Single_2015.Year = 2015
         br_LT_Single_2015.Term = ENumTerm.LongTerm
         
-        br_LT_Single_2015.FederalTax = [0:0]
+   /*     br_LT_Single_2015.FederalTax = [0:0]
         br_LT_Single_2015.FederalTax = [9225:0]
         br_LT_Single_2015.FederalTax = [189399:0.15]
         br_LT_Single_2015.FederalTax = [411500:0.15]
         br_LT_Single_2015.FederalTax = [413200:0.15]
-        br_LT_Single_2015.FederalTax = [413201:0.20]
-      
+        br_LT_Single_2015.FederalTax = [413201:0.20]*/
+        
+        br_LT_Single_2015.FederalTax = [0:0, 9225:0, 189399:0.15, 411500:0.15, 413200:0.15, 413201:0.20 ]
+     
         _taxBracketList.append(br_LT_Single_2015)
         
         
@@ -39,15 +46,17 @@ import Foundation
         br_ST_Single_2015.Year = 2015
         br_ST_Single_2015.Term = ENumTerm.ShortTerm
         
-        br_ST_Single_2015.FederalTax = [0:0]
+       /* br_ST_Single_2015.FederalTax = [0:0]
         br_ST_Single_2015.FederalTax = [9225:0.10]
         br_ST_Single_2015.FederalTax = [37450:0.15]
         br_ST_Single_2015.FederalTax = [90750:0.25]
         br_ST_Single_2015.FederalTax = [189300:0.28]
         br_ST_Single_2015.FederalTax = [411500:0.33]
         br_ST_Single_2015.FederalTax = [413200:0.35]
-        br_ST_Single_2015.FederalTax = [413201:0.396]
+        br_ST_Single_2015.FederalTax = [413201:0.396] */
         
+        br_ST_Single_2015.FederalTax = [0:0, 9225:0.10, 37450:0.15, 90750:0.25, 189300:0.28, 411500:0.33, 413200:0.35, 413201:0.396 ]
+         
         _taxBracketList.append(br_ST_Single_2015)
         
         
@@ -164,14 +173,25 @@ import Foundation
 
     }
     
-    static func GetTaxHairCut(filingStatus: FilingStatus) -> TaxBracket
+    static func GetTaxHairCut(filingStatus: FilingStatus) -> [TaxBracket]
     {
-        let taxBracket = TaxBracket()
+         let taxBracketArray = _taxBracketList.filter({m in m.Year == filingStatus.Year && m.FilingType.rawValue == filingStatus.FilingType.rawValue})
         
-       // let x = _taxBracketList.filter({m in m.Year == filingStatus.Year})
-        return taxBracket
+        let lstTaxBracket = taxBracketArray as [TaxBracket]
+        
+     //   let taxBracket = lstTaxBracket.first
+        return lstTaxBracket
     }
+    
+    
     
    
 }
 
+
+//extension TaxOnCapitalGainLossUp: Equatable{}
+
+/*
+func == (lhs: ENumFilingType, rhs: ENumFilingType) -> Bool {
+    return lhs.rawValue == rhs.rawValue
+}*/

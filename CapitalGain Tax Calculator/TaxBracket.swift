@@ -10,7 +10,7 @@ import Foundation
 
 class TaxBracket
 {
-    private var _year: Int32
+    private var _year: Int
     private var _term: ENumTerm
     private var _filingType: ENumFilingType
     private var _federalTax: Dictionary<Double,Double>
@@ -26,7 +26,7 @@ class TaxBracket
         
     }
     
-    var Year: Int32 {
+    var Year: Int {
         get {
             return _year
         }

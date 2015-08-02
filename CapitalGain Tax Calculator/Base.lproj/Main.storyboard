@@ -273,7 +273,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gc-9g-d0n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2788" y="697"/>
+            <point key="canvasLocation" x="5224" y="697"/>
         </scene>
         <!--Investments-->
         <scene sceneID="9ut-Qe-5TL">
@@ -373,7 +373,7 @@
                     <connections>
                         <segue destination="NMN-bp-Ucf" kind="relationship" relationship="viewControllers" id="P6k-i5-ykn"/>
                         <segue destination="eI2-Hu-8vI" kind="relationship" relationship="viewControllers" id="16r-Ip-rIh"/>
-                        <segue destination="rBn-fo-92J" kind="relationship" relationship="viewControllers" id="0z3-h7-vmI"/>
+                        <segue destination="oUI-qd-iJ9" kind="relationship" relationship="viewControllers" id="V7C-ph-fOE"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7AN-DP-wOd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -418,34 +418,51 @@
             </objects>
             <point key="canvasLocation" x="1200" y="125"/>
         </scene>
-        <!--Tax Picture-->
-        <scene sceneID="ter-hu-K9s">
+        <!--Tax View Controller-->
+        <scene sceneID="zj1-Wk-XAP">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="ITM-eq-R3Z" customClass="TaxViewController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Tax Picture" id="pxY-ch-qnX"/>
-                </pageViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XZh-Nq-MVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="haR-g5-Wek" customClass="TaxViewController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="U4g-N6-Ui4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Rat-aK-BYE">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rat-aK-BYE" id="yf2-fI-qhQ">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="haR-g5-Wek" id="cMQ-tg-xBj"/>
+                            <outlet property="delegate" destination="haR-g5-Wek" id="N0u-ZS-0Ef"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="SB0-Ti-hJq"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3dU-AX-o9j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1968" y="1769"/>
+            <point key="canvasLocation" x="1984" y="1153"/>
         </scene>
         <!--Tax-->
-        <scene sceneID="jbY-jb-SJk">
+        <scene sceneID="S6m-La-6Nt">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rBn-fo-92J" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tax" id="2Sm-3T-tM7"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oUI-qd-iJ9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Tax" id="HlX-nx-zoB"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IUm-85-3BK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XK4-LX-pyq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ITM-eq-R3Z" kind="show" id="rvN-zK-q4r"/>
+                        <segue destination="haR-g5-Wek" kind="relationship" relationship="rootViewController" id="DwZ-sA-Mwo"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ALR-c7-6Bz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zX5-MV-gDY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1144" y="1749"/>
+            <point key="canvasLocation" x="1224" y="1145"/>
         </scene>
     </scenes>
 </document>

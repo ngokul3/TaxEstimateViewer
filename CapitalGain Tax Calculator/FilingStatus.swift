@@ -17,7 +17,7 @@ enum ENumFilingType:String{
 
 class FilingStatus
 {
-    var _year:Int
+    var _year:Int //ToDO - Int or int32
     var _filingType: ENumFilingType
     var _currentTaxableIncome: Double
     var _previouslyDeferredLoss : Double

@@ -8,11 +8,16 @@
 
 import UIKit
 import XCTest
+//import Model/LotPosition
 
 class CapitalGain_Tax_CalculatorTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        
+      //  var lotPosition1: LotPosition
+        
+        
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     

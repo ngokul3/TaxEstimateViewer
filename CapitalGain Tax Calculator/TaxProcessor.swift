@@ -10,17 +10,26 @@ import Foundation
 
 class TaxProcessor
 {
-    func GetLotsByTerm(lstLotPosition: NSMutableArray)-> NSMutableArray
+    init()
     {
-        var lstLotTerm = NSMutableArray()
-        lstLotTerm = CapitalGainController.sharedDBInstance.ReturnLotTerm()
+        TaxOnCapitalGainLossUp.LoadFederalTax()
         
-        return lstLotTerm
+    }
+    func GetLotsByTerm()-> NSMutableArray
+    {
+        var arrayLotTerm = NSMutableArray()
+        arrayLotTerm = CapitalGainController.sharedDBInstance.ReturnLotTerm()
+        
+        return arrayLotTerm
     }
     
-    func GetTaxableIncome(lstFilingStatus: NSMutableArray, lstLotPosition: NSMutableArray)
+    func GetTaxableIncome(filingStatus: FilingStatus, arrayLotPosition: NSMutableArray)
     {
+        var lstTaxBracket = TaxOnCapitalGainLossUp.GetTaxHairCut(filingStatus)
         
+        var ShortTermTaxList = lstTaxBracket.filter({m in m.Term.rawValue == ENumTerm.ShortTerm.rawValue})
+        
+        var LongTermTaxList = lstTaxBracket.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue})
     }
     
    // func GetCapitalGainTax(termGL Float, T

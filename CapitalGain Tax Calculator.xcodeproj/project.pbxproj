@@ -12,6 +12,7 @@
 		555F00CC1B6BEACD00EB1EAF /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F00CB1B6BEACC00EB1EAF /* DataManager.swift */; };
 		557BD8261B6D1559003F5CE1 /* TaxBracket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BD8251B6D1559003F5CE1 /* TaxBracket.swift */; };
 		557BD8281B6D1671003F5CE1 /* TaxOnCapitalGainLossUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BD8271B6D1671003F5CE1 /* TaxOnCapitalGainLossUp.swift */; };
+		557BD82B1B6E6704003F5CE1 /* TaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BD82A1B6E6704003F5CE1 /* TaxViewController.swift */; };
 		557E85D71B66FE6100197CBE /* FilingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E85D61B66FE6100197CBE /* FilingTableViewCell.swift */; };
 		557E85D91B66FEFF00197CBE /* FilingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E85D81B66FEFF00197CBE /* FilingStatus.swift */; };
 		557E85DB1B67084300197CBE /* AddFilingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E85DA1B67084300197CBE /* AddFilingController.swift */; };
@@ -35,7 +36,7 @@
 		55C28A741B58751F001D073E /* LotPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A731B58751F001D073E /* LotPosition.swift */; };
 		55D0CF5C1B5DD18C003B1D3F /* FilingDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF5B1B5DD18C003B1D3F /* FilingDetailController.swift */; };
 		55D0CF5E1B5DD1AC003B1D3F /* FilingMasterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF5D1B5DD1AC003B1D3F /* FilingMasterController.swift */; };
-		55D0CF621B5DD431003B1D3F /* TaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF611B5DD431003B1D3F /* TaxViewController.swift */; };
+		55D0CF621B5DD431003B1D3F /* TaxViewController_Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF611B5DD431003B1D3F /* TaxViewController_Page.swift */; };
 		55D0CF6B1B5F1F4E003B1D3F /* CapitalGainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF6A1B5F1F4E003B1D3F /* CapitalGainController.swift */; };
 		55D0CF6D1B5F2145003B1D3F /* CapitalGainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF6C1B5F2145003B1D3F /* CapitalGainManager.swift */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		557BD8251B6D1559003F5CE1 /* TaxBracket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxBracket.swift; sourceTree = "<group>"; };
 		557BD8271B6D1671003F5CE1 /* TaxOnCapitalGainLossUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxOnCapitalGainLossUp.swift; sourceTree = "<group>"; };
 		557BD8291B6DA6E2003F5CE1 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		557BD82A1B6E6704003F5CE1 /* TaxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxViewController.swift; sourceTree = "<group>"; };
 		557E85D61B66FE6100197CBE /* FilingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilingTableViewCell.swift; sourceTree = "<group>"; };
 		557E85D81B66FEFF00197CBE /* FilingStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilingStatus.swift; sourceTree = "<group>"; };
 		557E85DA1B67084300197CBE /* AddFilingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFilingController.swift; sourceTree = "<group>"; };
@@ -91,7 +93,7 @@
 		55C28A731B58751F001D073E /* LotPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotPosition.swift; sourceTree = "<group>"; };
 		55D0CF5B1B5DD18C003B1D3F /* FilingDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilingDetailController.swift; sourceTree = "<group>"; };
 		55D0CF5D1B5DD1AC003B1D3F /* FilingMasterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilingMasterController.swift; sourceTree = "<group>"; };
-		55D0CF611B5DD431003B1D3F /* TaxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxViewController.swift; sourceTree = "<group>"; };
+		55D0CF611B5DD431003B1D3F /* TaxViewController_Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxViewController_Page.swift; sourceTree = "<group>"; };
 		55D0CF6A1B5F1F4E003B1D3F /* CapitalGainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapitalGainController.swift; sourceTree = "<group>"; };
 		55D0CF6C1B5F2145003B1D3F /* CapitalGainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapitalGainManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -223,12 +225,13 @@
 			isa = PBXGroup;
 			children = (
 				55C28A4D1B55F0E2001D073E /* InvestmentDetailController.swift */,
-				55D0CF611B5DD431003B1D3F /* TaxViewController.swift */,
+				55D0CF611B5DD431003B1D3F /* TaxViewController_Page.swift */,
 				55D0CF5B1B5DD18C003B1D3F /* FilingDetailController.swift */,
 				55D0CF5D1B5DD1AC003B1D3F /* FilingMasterController.swift */,
 				55C28A6F1B57C9CB001D073E /* AddInvestmentController.swift */,
 				55C28A6B1B572D9F001D073E /* InvestmentMasterController.swift */,
 				557E85DA1B67084300197CBE /* AddFilingController.swift */,
+				557BD82A1B6E6704003F5CE1 /* TaxViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				557E85F21B6AE44F00197CBE /* FMDatabaseAdditions.m in Sources */,
 				55C28A4E1B55F0E2001D073E /* InvestmentDetailController.swift in Sources */,
 				55C28A741B58751F001D073E /* LotPosition.swift in Sources */,
+				557BD82B1B6E6704003F5CE1 /* TaxViewController.swift in Sources */,
 				557E85DB1B67084300197CBE /* AddFilingController.swift in Sources */,
 				55C28A491B55F0E2001D073E /* AppDelegate.swift in Sources */,
 				557E85DF1B69AC5E00197CBE /* TaxProcessor.swift in Sources */,
@@ -368,7 +372,7 @@
 				5529604F1B65B0DF0035622F /* InvestmentTableViewCell.swift in Sources */,
 				557E85F11B6AE44F00197CBE /* FMDatabaseQueue.m in Sources */,
 				55C28A701B57C9CB001D073E /* AddInvestmentController.swift in Sources */,
-				55D0CF621B5DD431003B1D3F /* TaxViewController.swift in Sources */,
+				55D0CF621B5DD431003B1D3F /* TaxViewController_Page.swift in Sources */,
 				55D0CF5C1B5DD18C003B1D3F /* FilingDetailController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
