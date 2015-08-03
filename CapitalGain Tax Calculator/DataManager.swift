@@ -111,11 +111,10 @@ class DataManager
     }
 
     
-    func ReturnLotTerm()-> NSMutableArray
+    func ReturnLotTerm()-> [LotTerm]
     {
-        let lotTerm = LotTerm()
         
-        let arrayLotTerm = NSMutableArray()
+        var lstLotTerm : [LotTerm] = [LotTerm]()
         
         let selectLotTermSql = "Select " +
         "Term " +
@@ -159,6 +158,9 @@ class DataManager
         
         while results?.next() == true {
             
+                let lotTerm = LotTerm()
+
+            
                 let term = results?.stringForColumn("Term")
                 NSLog(term!)
             
@@ -172,11 +174,12 @@ class DataManager
             
                 NSLog(lotTerm.Year.description)
             
-                arrayLotTerm.addObject(lotTerm)
+                lstLotTerm.append(lotTerm)
+            
             
                   }
 
-        return arrayLotTerm
+        return lstLotTerm
         
         
     }

@@ -20,10 +20,9 @@ class TaxViewController: UITableViewController {
         
         let taxProcessor = TaxProcessor()
         
-       
-        let lotTerm = taxProcessor.GetLotsByTerm()
+        let lstLotTerm = taxProcessor.GetLotsByTerm()
         
-        taxProcessor.GetTaxableIncome(filingStatus, arrayLotPosition: arrayLotPosition)
+        taxProcessor.GetTaxableIncome(filingStatus, lstLotTerm: lstLotTerm)
       
     }
 

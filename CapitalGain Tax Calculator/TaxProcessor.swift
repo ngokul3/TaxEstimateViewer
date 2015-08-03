@@ -15,21 +15,30 @@ class TaxProcessor
         TaxOnCapitalGainLossUp.LoadFederalTax()
         
     }
-    func GetLotsByTerm()-> NSMutableArray
+    func GetLotsByTerm()-> [LotTerm]
     {
-        var arrayLotTerm = NSMutableArray()
-        arrayLotTerm = CapitalGainController.sharedDBInstance.ReturnLotTerm()
+        let lstLotTerm = CapitalGainController.sharedDBInstance.ReturnLotTerm()
         
-        return arrayLotTerm
+        return lstLotTerm
     }
     
-    func GetTaxableIncome(filingStatus: FilingStatus, arrayLotPosition: NSMutableArray)
+    func GetTaxableIncome(filingStatus: FilingStatus, lstLotTerm: [LotTerm])
     {
         var lstTaxBracket = TaxOnCapitalGainLossUp.GetTaxHairCut(filingStatus)
         
-        var ShortTermTaxList = lstTaxBracket.filter({m in m.Term.rawValue == ENumTerm.ShortTerm.rawValue})
+      //  var shortTermTaxList : [TaxBracket]
+        var shortTermTaxList = lstTaxBracket.filter({m in m.Term.rawValue == ENumTerm.ShortTerm.rawValue})
         
-        var LongTermTaxList = lstTaxBracket.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue})
+        var longTermTaxList = lstTaxBracket.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue})
+        
+        
+        let lotTermMap: [Double] = lstLotTerm.map { return $0.TermRealizedGainLoss }
+        let longTermGL = lstLotTerm.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).map { return $0.TermRealizedGainLoss }.reduce(0) { return $0 + $1 }
+        
+        let shortTermGL = lstLotTerm.filter({m in m.Term.rawValue == ENumTerm.ShortTerm.rawValue}).map { return $0.TermRealizedGainLoss }.reduce(0) { return $0 + $1 }
+        
+      //  let shortTermGL
+        
     }
     
    // func GetCapitalGainTax(termGL Float, T
