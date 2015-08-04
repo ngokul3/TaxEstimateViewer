@@ -13,16 +13,16 @@ class TaxViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let arrayLotPosition = CapitalGainController.sharedInstance.GetInvestments()
-        let arrayFilingStatus = CapitalGainController.sharedInstance.GetFilingStatus()
+        let lstLotPosition = CapitalGainController.sharedInstance.GetLotPositions()
+        let lstFilingStatus = CapitalGainController.sharedInstance.GetFilingStatus()
         
-        let filingStatus = arrayFilingStatus.firstObject as! FilingStatus
+        let filingStatus = lstFilingStatus.first
         
         let taxProcessor = TaxProcessor()
         
         let lstLotTerm = taxProcessor.GetLotsByTerm()
         
-        taxProcessor.GetTaxableIncome(filingStatus, lstLotTerm: lstLotTerm)
+        taxProcessor.GetTaxableIncome(filingStatus!, lstLotTerm: lstLotTerm)
       
     }
 

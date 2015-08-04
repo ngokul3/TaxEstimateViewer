@@ -33,7 +33,11 @@ class DataManager
     }
     func CreateTable(){
       //  if !self._filemgr.fileExistsAtPath(_databasePath as String) {
-            
+        
+            if !self._capitalGainCalculatorDB.open()
+            {
+                self._capitalGainCalculatorDB.open()
+            }
             self._capitalGainCalculatorDB = FMDatabase(path: _databasePath as String)
             
             if self._capitalGainCalculatorDB == nil {
@@ -111,6 +115,102 @@ class DataManager
     }
 
     
+    func ReturnLotPosition() -> [LotPosition]
+    {
+        var lstLotPosition : [LotPosition] = [LotPosition]()
+        
+        let selectLotPositionSql = "Select LotPositionID, SymbolCode, InvestmentType, Direction, RealizedGainLoss, Year, IsLongTerm From LotPosition"
+        
+        NSLog(selectLotPositionSql)
+        
+        
+        let results:FMResultSet? = self._capitalGainCalculatorDB.executeQuery(selectLotPositionSql,
+            withArgumentsInArray: nil)
+        
+        if !(results != nil) {
+            println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+        }
+
+        while results?.next() == true {
+            
+            let lotPosition = LotPosition()
+            
+            lotPosition.LotId = results?.intForColumn("LotPositionID") as Int32!
+            
+            NSLog(lotPosition.LotId.description)
+            
+            lotPosition.SymbolCode = (results?.stringForColumn("SymbolCode") as String?)!
+            
+            NSLog(lotPosition.SymbolCode)
+            
+            let investmentType = results?.stringForColumn("InvestmentType")!
+
+            lotPosition.InvestmentType = ENumInvestmentType(rawValue: investmentType!)!
+           
+            NSLog(lotPosition.InvestmentType.rawValue)
+
+            let direction = results?.stringForColumn("Direction")!
+            
+            lotPosition.Direction = ENumDirection(rawValue: direction!)!
+            
+            lotPosition.RealizedGainLoss = results?.doubleForColumn("RealizedGainLoss") as Double!
+            
+            lotPosition.RealizedYear = Int(results?.intForColumn("Year") as Int32!)
+            
+            lotPosition.IsLongTerm = results?.boolForColumn("IsLongTerm") as Bool!
+            lstLotPosition.append(lotPosition)
+            
+            
+        }
+        
+        return lstLotPosition
+    }
+    
+    func ReturnFilingStatus() -> [FilingStatus]
+    {
+        var lstFilingStatus : [FilingStatus] = [FilingStatus]()
+        
+        let selectFilingStatusSql = "Select FilingStatusId, Year, FilingType, CurrentTaxableIncome, PreviouslyDeferredLoss From FilingStatus"
+        
+        NSLog(selectFilingStatusSql)
+        
+        
+        let results:FMResultSet? = self._capitalGainCalculatorDB.executeQuery(selectFilingStatusSql,
+            withArgumentsInArray: nil)
+        
+        if !(results != nil) {
+            println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+        }
+        
+        while results?.next() == true {
+            
+            let filingStatus = FilingStatus()
+            
+            filingStatus.FilingStatusId = results?.intForColumn("FilingStatusId") as Int32!
+            
+            NSLog(filingStatus.FilingStatusId.description)
+            
+            filingStatus.Year = Int(results?.intForColumn("Year") as Int32!)
+            NSLog(filingStatus.Year.description)
+            
+            let filingType = results?.stringForColumn("FilingType")!
+            filingStatus.FilingType =  ENumFilingType(rawValue: filingType! )!
+            
+            filingStatus.CurrentTaxableIncome = results?.doubleForColumn("CurrentTaxableIncome") as Double!
+            
+            NSLog(filingStatus.CurrentTaxableIncome.description)
+            
+            filingStatus.PreviouslyDeferredLoss = results?.doubleForColumn("PreviouslyDeferredLoss") as Double!
+          
+            NSLog(filingStatus.PreviouslyDeferredLoss.description)
+            
+            lstFilingStatus.append(filingStatus)
+            
+            
+        }
+        
+        return lstFilingStatus
+    }
     func ReturnLotTerm()-> [LotTerm]
     {
         

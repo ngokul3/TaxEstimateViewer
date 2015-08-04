@@ -18,23 +18,27 @@ class InvestmentMasterController: UITableViewController {
     var lotPosition =   [LotPosition]()
     var databasePath = NSString()
 
+    @IBOutlet var investmentTableView: UITableView!
 
     @IBOutlet weak var txtLabelTest: UILabel!
     
-  //  @IBOutlet var viewInvestments: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         CapitalGainController.sharedDBInstance.CreateTable()
+        if CapitalGainController.sharedDBInstance.OpenDatabase(){
+
+            
+        let lstLotPosition = CapitalGainController.sharedDBInstance.ReturnLotPosition()
+            
+        LoadLotPosition(lstLotPosition)
+        }
         
     }
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        /*self.lotPosition.append(LotPosition(symbolCode:"AAPL", symbolDesc:"Apple"))
-        self.lotPosition.append(LotPosition(symbolCode:"CTSH", symbolDesc:"Cognizant"))
-               self.lotPosition.append(LotPosition(symbolCode:"TCS", symbolDesc:"TCS"))*/
+     
 
     }
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -42,7 +46,7 @@ class InvestmentMasterController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var recordCount = CapitalGainController.sharedInstance.GetInvestments().count
+        var recordCount = CapitalGainController.sharedInstance.GetLotPositions().count
         return recordCount
     }
 
@@ -50,7 +54,7 @@ class InvestmentMasterController: UITableViewController {
         
         let cellIdentifier = "InvestmentTableViewCell"
         
-        let lotPosition = CapitalGainController.sharedInstance.GetPositionItem(indexPath.row)
+        let lotPosition = CapitalGainController.sharedInstance.GetLotPositionItem(indexPath.row)
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! InvestmentTableViewCell
         cell.lblInvesmentName.text = lotPosition.SymbolCode
@@ -58,20 +62,6 @@ class InvestmentMasterController: UITableViewController {
     }
     
     
-    // UITableViewDelegate Functions
-    
-   /* override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 50
-    }
-    */
-  /*  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let selectedLot = self.lotPosition[indexPath.row]
-       // self.delegate?.lotSelected(selectedLot)
-       /*
-        if let detailViewController = self.delegate as? StockDetailViewController {
-            splitViewController?.showDetailViewController(detailViewController, sender: nil)
-        }*/
-    }*/
     
     override func prepareForSegue(segue: UIStoryboardSegue,
         sender: AnyObject?) {
@@ -80,12 +70,24 @@ class InvestmentMasterController: UITableViewController {
          
     }
     
+    func LoadLotPosition(lstLotPosition: [LotPosition])
+    {
+         if lstLotPosition.count > 0
+         {
+            for lotPosition in lstLotPosition
+            {
+                CapitalGainController.sharedInstance.AddLotPosition(lotPosition)
+            }
+            
+        }
+    }
+    
     @IBAction func unwindToInvestmentList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? AddInvestmentController{
             
-            var arrayInvestments = CapitalGainController.sharedInstance.GetInvestments()
+        //    var arrayInvestments = CapitalGainController.sharedInstance()
             
-            let newIndexPath = NSIndexPath(forRow: 1, inSection: 0)
+          //  let newIndexPath = NSIndexPath(forRow: 1, inSection: 0)
             
            // tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
             

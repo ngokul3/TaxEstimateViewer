@@ -17,10 +17,12 @@ class FilingMasterController: UITableViewController {
 
         
       //  CapitalGainController.sharedDBInstance.InsertInvestments()
-    /*    if CapitalGainController.sharedDBInstance.OpenDatabase(){
+        if CapitalGainController.sharedDBInstance.OpenDatabase(){
           
-            let arr = CapitalGainController.sharedDBInstance.ReturnLotTerm()
-        }*/
+            let lstFilingStatus = CapitalGainController.sharedDBInstance.ReturnFilingStatus()
+            
+            LoadFilingStatus(lstFilingStatus)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,6 +51,17 @@ class FilingMasterController: UITableViewController {
         return cell
     }
 
+    func LoadFilingStatus(lstFilingStatus: [FilingStatus])
+    {
+        if lstFilingStatus.count > 0
+        {
+            for filingStatus in lstFilingStatus
+            {
+                CapitalGainController.sharedInstance.AddFilingStatus(filingStatus)
+            }
+            
+        }
+    }
     @IBAction func unwindToFilingStatusList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? AddFilingController{
             

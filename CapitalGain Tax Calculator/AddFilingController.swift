@@ -91,11 +91,9 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if btnAddFilingStatus === sender {
-            var filingStatusArray = NSMutableArray()
-            filingStatusArray = CapitalGainController.sharedInstance.GetFilingStatus()
-            let itemCount = filingStatusArray.count
+            let itemCount = CapitalGainController.sharedInstance.GetFilingStatus().count
             let filingStatus = FilingStatus()
-            filingStatus.Year = lblYear.text!.toInt()! 
+            filingStatus.Year = lblYear.text!.toInt()!
             filingStatus.FilingType = ENumFilingType(rawValue: txtFilingMode.text)!
             filingStatus.CurrentTaxableIncome = txtCurrentTaxableIncome.text!.toDouble()!
             filingStatus.PreviouslyDeferredLoss = txtPreviouslyDeferredLoss.text!.toDouble()!

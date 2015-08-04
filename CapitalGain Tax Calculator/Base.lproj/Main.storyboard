@@ -303,6 +303,9 @@
                             </tableViewCell>
                         </prototypes>
                         <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="eny-Cq-9WB" id="LMr-Tp-gVx"/>
+                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Investments" id="pfo-E7-Lrj">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xoB-KF-Yu3">
@@ -315,6 +318,9 @@
                         <keyCommand/>
                         <keyCommand actionName=""/>
                     </keyCommands>
+                    <connections>
+                        <outlet property="investmentTableView" destination="aiF-5I-wSD" id="Z2a-rb-qNT"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99w-yj-UtM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

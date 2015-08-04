@@ -16,15 +16,15 @@ class TaxViewController_Page: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let cntPositions = CapitalGainController.sharedInstance.GetInvestments().count
+        let cntPositions = CapitalGainController.sharedInstance.GetLotPositions().count
         
         
         let lotPositionDB = FMDatabase(path: databasePath as String)
-        var arrayInvestments = CapitalGainController.sharedInstance.GetInvestments()
+        var arrayInvestments = CapitalGainController.sharedInstance.GetLotPositions()
         
        for index in 0...cntPositions-1{
         if lotPositionDB.open() {
-            let lotPosition = CapitalGainController.sharedInstance.GetPositionItem(index)
+            let lotPosition = CapitalGainController.sharedInstance.GetLotPositionItem(index)
             
             
             let insertSQL = "INSERT INTO LotPosition (SymbolCode, InvestmentType, Direction, RealizedGainLoss, Year, IsLongTerm) VALUES ('\(lotPosition.SymbolCode)', '\(lotPosition.InvestmentType)', '\(lotPosition.Direction)', '\(lotPosition.RealizedGainLoss)', '\(lotPosition.RealizedYear)', '\(lotPosition.IsLongTerm)')"

@@ -17,6 +17,7 @@ enum ENumFilingType:String{
 
 class FilingStatus
 {
+    var _filingStatusId: Int32
     var _year:Int //ToDO - Int or int32
     var _filingType: ENumFilingType
     var _currentTaxableIncome: Double
@@ -28,6 +29,7 @@ class FilingStatus
  
     init()
     {
+        self._filingStatusId = 0
         self._year = 0
         self._filingType = ENumFilingType.Single //TODO: proper init
         self._currentTaxableIncome = 0
@@ -39,6 +41,15 @@ class FilingStatus
         
     }
     
+    var FilingStatusId: Int32 {
+        get {
+            return _filingStatusId
+        }
+        set {
+            _filingStatusId = newValue
+        }
+    }
+
     
     var Year: Int {
         get {

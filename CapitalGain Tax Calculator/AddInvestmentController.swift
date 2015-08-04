@@ -81,9 +81,7 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
         
         
         // NOT USED : TODO
-        var investArray = NSMutableArray()
-        investArray = CapitalGainController.sharedInstance.GetInvestments()
-        let itemCount = investArray.count
+     /*    let itemCount = CapitalGainController.sharedInstance.GetLotPositions().count
         let lotPosition = LotPosition()
         lotPosition.LotId = itemCount + 1
         lotPosition.SymbolCode = txtSymbol.text
@@ -96,7 +94,7 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
         
        CapitalGainController.sharedInstance.AddInvestment(lotPosition)
         
-        var test = CapitalGainController.sharedDBInstance.InsertInvestment(lotPosition)
+        var test = CapitalGainController.sharedDBInstance.InsertInvestment(lotPosition)*/
         
     }
     
@@ -196,9 +194,7 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if btnAddInvestment === sender {
-            var investArray = NSMutableArray()
-            investArray = CapitalGainController.sharedInstance.GetInvestments()
-            let itemCount = investArray.count
+            let itemCount = CapitalGainController.sharedInstance.GetLotPositions().count
             let lotPosition = LotPosition()
             lotPosition.LotId = itemCount + 1
             lotPosition.SymbolCode = txtSymbol.text
@@ -208,7 +204,7 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
             lotPosition.RealizedYear = lblTradeEndYear.text!.toInt()!
             lotPosition.IsLongTerm = true
             
-            CapitalGainController.sharedInstance.AddInvestment(lotPosition)
+            CapitalGainController.sharedInstance.AddLotPosition(lotPosition)
             var test = CapitalGainController.sharedDBInstance.InsertInvestment(lotPosition)
             
         }

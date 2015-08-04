@@ -10,61 +10,51 @@ import Foundation
 
 
 class CapitalGainControllerManager{
-    var investmentArray =  NSMutableArray()
-    var filingStatusArray = NSMutableArray()
+    var lstLotPosition = [LotPosition]()
+    var lstFilingStatus = [FilingStatus]()
     
     init()
     {
-        let investmentArray = NSMutableArray()
-        let filingStatusArray = NSMutableArray()
+       
     }
     
     
-    func AddInvestment(lotPosition: LotPosition)->NSMutableArray
+    func AddLotPosition(lotPosition: LotPosition)
     {
-        investmentArray.addObject(lotPosition)
-        return investmentArray
-    }
-    func GetInvestments()->NSMutableArray
-    {
-        return investmentArray
-    }
-    
-    func DeleteInvestments(lotPosition: LotPosition)->NSMutableArray
-    {
-        let investDict = NSMutableArray()
+        lstLotPosition.append(lotPosition)
         
-        return investDict
     }
     
-    func EditInvestment()->NSMutableArray
+    func GetLotPositions() ->[LotPosition]
     {
-        let investDict = NSMutableArray()
+        return lstLotPosition
         
-        return investDict
     }
     
-    func GetPositionItem(index: Int)-> LotPosition
+    
+    func GetLotPositionItem(index: Int)-> LotPosition
     {
-        let lotPosition: LotPosition = investmentArray.objectAtIndex(index) as! LotPosition
+        let lotPosition: LotPosition = lstLotPosition[index]
         return lotPosition
-
-    }
-    
-    func AddFilingStatus(filingStatus: FilingStatus)->NSMutableArray
-    {
-        filingStatusArray.addObject(filingStatus)
-        return filingStatusArray
         
     }
-    func GetFilingStatus()->NSMutableArray
+    
+  
+  
+    func AddFilingStatus(filingStatus: FilingStatus)->[FilingStatus]
     {
-        return filingStatusArray
+        lstFilingStatus.append(filingStatus)
+        return lstFilingStatus
+        
+    }
+    func GetFilingStatus()->[FilingStatus]
+    {
+        return lstFilingStatus
     }
     
     func GetFilingStatusItem(index: Int)-> FilingStatus
     {
-        let filingStatus: FilingStatus = filingStatusArray.objectAtIndex(index) as! FilingStatus
+        let filingStatus: FilingStatus = lstFilingStatus[index]
         return filingStatus
         
     }
