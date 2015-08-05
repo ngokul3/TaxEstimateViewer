@@ -114,7 +114,53 @@ class DataManager
         return ""//ToDO
     }
 
+    func DeleteLotPosition(lotPosition: LotPosition) -> Bool?
+    {
+        if self._capitalGainCalculatorDB.open()
+        {
+
+        let deleteLotPositionSql = "Delete From LotPosition Where LotPositionID =  \(lotPosition.LotId) "
+       
+        NSLog(deleteLotPositionSql)
+        
+        
+        let results:Bool? = self._capitalGainCalculatorDB.executeUpdate (deleteLotPositionSql,
+            withArgumentsInArray: nil)
+        
+        if !(results != nil) {
+            println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+            
+        }
+       
+        return results
+        }
+        
+        return false
+    }
     
+    func DeleteFilingStatus(filingStatus: FilingStatus) -> Bool?
+    {
+        if self._capitalGainCalculatorDB.open()
+        {
+            
+            let deleteFilingStatusSql = "Delete From FilingStatus Where FilingStatusID =  \(filingStatus.FilingStatusId) "
+            
+            NSLog(deleteFilingStatusSql)
+            
+            
+            let results:Bool? = self._capitalGainCalculatorDB.executeUpdate (deleteFilingStatusSql,
+                withArgumentsInArray: nil)
+            
+            if !(results != nil) {
+                println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+                
+            }
+            
+            return results
+        }
+        
+        return false
+    }
     func ReturnLotPosition() -> [LotPosition]
     {
         var lstLotPosition : [LotPosition] = [LotPosition]()

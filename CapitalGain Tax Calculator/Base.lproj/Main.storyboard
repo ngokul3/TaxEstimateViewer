@@ -308,6 +308,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Investments" id="pfo-E7-Lrj">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="xs1-d9-zfh"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xoB-KF-Yu3">
                             <connections>
                                 <segue destination="COO-sV-LRS" kind="show" identifier="AddInvestment" id="ur2-f8-IJ1"/>
@@ -355,6 +356,7 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Filing Mode" id="Fzh-w9-0rz">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="XlZ-QP-PTs"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="fEu-4h-wom">
                             <connections>
                                 <segue destination="6SW-hu-ik5" kind="show" identifier="AddFiling" id="Ebe-wr-Rtk"/>

@@ -39,6 +39,11 @@ class CapitalGainControllerManager{
         
     }
     
+    func DeleteLotPositionItem(index: Int)
+    {
+        
+        lstLotPosition.removeAtIndex(index) //ToDO - Defensive Coding required
+    }
   
   
     func AddFilingStatus(filingStatus: FilingStatus)->[FilingStatus]
@@ -59,6 +64,10 @@ class CapitalGainControllerManager{
         
     }
     
+    func DeleteFilingStatusItem(index: Int)
+    {
+        lstFilingStatus.removeAtIndex(index) //ToDO - Defensive Coding required
+    }
     
 
 }

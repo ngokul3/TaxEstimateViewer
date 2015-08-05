@@ -22,7 +22,11 @@ class FilingMasterController: UITableViewController {
             let lstFilingStatus = CapitalGainController.sharedDBInstance.ReturnFilingStatus()
             
             LoadFilingStatus(lstFilingStatus)
+            
         }
+        
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +55,19 @@ class FilingMasterController: UITableViewController {
         return cell
     }
 
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    {
+        let filingStatus = CapitalGainController.sharedInstance.GetFilingStatusItem(indexPath.row)
+        let isSuccess = CapitalGainController.sharedDBInstance.DeleteFilingStatus(filingStatus)
+        
+        if ((isSuccess) != nil)
+        {
+            CapitalGainController.sharedInstance.DeleteFilingStatusItem(indexPath.row)
+            tableView.reloadData()
+            
+        }
+        
+    }
     func LoadFilingStatus(lstFilingStatus: [FilingStatus])
     {
         if lstFilingStatus.count > 0
@@ -62,6 +79,8 @@ class FilingMasterController: UITableViewController {
             
         }
     }
+    
+    
     @IBAction func unwindToFilingStatusList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? AddFilingController{
             

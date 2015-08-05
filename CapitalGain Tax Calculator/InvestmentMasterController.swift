@@ -34,6 +34,8 @@ class InvestmentMasterController: UITableViewController {
         LoadLotPosition(lstLotPosition)
         }
         
+        
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -61,7 +63,19 @@ class InvestmentMasterController: UITableViewController {
         return cell
     }
     
-    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    {
+        let lotPosition = CapitalGainController.sharedInstance.GetLotPositionItem(indexPath.row)
+        let isSuccess = CapitalGainController.sharedDBInstance.DeleteLotPosition(lotPosition)
+        
+        if ((isSuccess) != nil)
+        {
+            CapitalGainController.sharedInstance.DeleteLotPositionItem(indexPath.row)
+            tableView.reloadData()
+
+        }
+        
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue,
         sender: AnyObject?) {
