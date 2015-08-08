@@ -17,15 +17,15 @@ enum ENumFilingType:String{
 
 class FilingStatus
 {
-    var _filingStatusId: Int32
-    var _year:Int //ToDO - Int or int32
-    var _filingType: ENumFilingType
-    var _currentTaxableIncome: Double
-    var _previouslyDeferredLoss : Double
-    var _taxOnSTCapitalGain: Double
-    var _taxOnLTCapitalGain: Double
-    var _netLoss : Double
-    var _taxOnLTSTCapitalGain : Double
+    private var _filingStatusId: Int32
+    private var _year:Int //ToDO - Int or int32
+    private var _filingType: ENumFilingType
+    private var _currentTaxableIncome: Double
+    private var _previouslyDeferredLoss : Double
+    private var _taxOnSTCapitalGain: Double
+    private var _taxOnLTCapitalGain: Double
+    private var _netLoss : Double
+    private var _taxOnLTSTCapitalGain : Double
  
     init()
     {

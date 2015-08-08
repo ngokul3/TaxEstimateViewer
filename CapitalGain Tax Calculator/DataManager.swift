@@ -114,6 +114,52 @@ class DataManager
         return ""//ToDO
     }
 
+    func UpdateInvestment(lotPosition: LotPosition) -> NSString
+    {
+        self._capitalGainCalculatorDB = FMDatabase(path: _databasePath as String)
+        
+        if self._capitalGainCalculatorDB.open()
+        {
+            
+            let updateSQL = "Update LotPosition set SymbolCode = '\(lotPosition.SymbolCode)', InvestmentType = '\(lotPosition.InvestmentType.rawValue)', Direction = '\(lotPosition.Direction.rawValue)', RealizedGainLoss = \(lotPosition.RealizedGainLoss), Year = \(lotPosition.RealizedYear), IsLongTerm = \(1) Where LotPositionId = \(lotPosition.LotId)" //TODO
+            
+            let result = self._capitalGainCalculatorDB.executeUpdate(updateSQL,
+                withArgumentsInArray: nil)
+            
+            if !result {
+                println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+            }
+        } else {
+            println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+            return "Error" //ToDO
+        }
+        
+        return ""//ToDO
+    }
+    
+    func UpdateFilingStatus(filingStatus: FilingStatus) -> NSString
+    {
+        self._capitalGainCalculatorDB = FMDatabase(path: _databasePath as String)
+        
+        if self._capitalGainCalculatorDB.open()
+        {
+            
+            let updateSQL = "Update FilingStatus set Year = \(filingStatus.Year), FilingType = '\(filingStatus.FilingType.rawValue)', CurrentTaxableIncome = \(filingStatus.CurrentTaxableIncome), PreviouslyDeferredLoss = \(filingStatus.PreviouslyDeferredLoss) Where FilingStatusId = \(filingStatus.FilingStatusId)"
+            
+            let result = self._capitalGainCalculatorDB.executeUpdate(updateSQL,
+                withArgumentsInArray: nil)
+            
+            if !result {
+                println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+            }
+        } else {
+            println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+            return "Error" //ToDO
+        }
+        
+        return ""//ToDO
+    }
+
     func DeleteLotPosition(lotPosition: LotPosition) -> Bool?
     {
         if self._capitalGainCalculatorDB.open()

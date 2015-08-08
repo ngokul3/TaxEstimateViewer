@@ -29,7 +29,9 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
     
     @IBOutlet weak var txtProfitLoss: UITextField!
     
-     weak var lotPosition = LotPosition()
+     weak var lotPosition = LotPosition() // TODO: is it used?
+    
+    var selectedLotPosition : LotPosition?
     
     var directionArray = [ENumDirection.Long.rawValue, ENumDirection.CoveredShort.rawValue, ENumDirection.UnCoveredShort.rawValue]
     var investmentTypeArray = [ENumInvestmentType.Equity.rawValue, ENumInvestmentType.Dividend.rawValue, ENumInvestmentType.Section1256.rawValue]
@@ -52,12 +54,17 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
         stpYear.maximumValue = 2030 // TODO:
         stpYear.stepValue = 1
         
-        txtDirection.text = ENumDirection.CoveredShort.rawValue
-        txtInvestmentType.text = ENumInvestmentType.Section1256.rawValue
-        txtProfitLoss.text = "1213"
-        txtSymbol.text = "Zensar"
+        if (selectedLotPosition != nil)
+        {
+            println("This is investment edit")
+            txtSymbol.text = selectedLotPosition?.SymbolCode
+            txtInvestmentType.text = selectedLotPosition?.InvestmentType.rawValue
+            txtProfitLoss.text = selectedLotPosition?.RealizedGainLoss.description
+            txtDirection.text = selectedLotPosition?.Direction.rawValue
+        }
         
-       println("This is investment add")
+        
+       
         
     }
     
@@ -193,19 +200,38 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if btnAddInvestment === sender {
-            let itemCount = CapitalGainController.sharedInstance.GetLotPositions().count
-            let lotPosition = LotPosition()
-            lotPosition.LotId = itemCount + 1
-            lotPosition.SymbolCode = txtSymbol.text
-            lotPosition.InvestmentType = ENumInvestmentType(rawValue: txtInvestmentType.text)!
-            lotPosition.Direction = ENumDirection( rawValue : txtDirection.text)!
-            lotPosition.RealizedGainLoss = txtProfitLoss.text.toDouble()!
-            lotPosition.RealizedYear = lblTradeEndYear.text!.toInt()!
-            lotPosition.IsLongTerm = true
+        if btnAddInvestment === sender
+        {
+            if (self.selectedLotPosition == nil)
+            {
+                let itemCount = CapitalGainController.sharedInstance.GetLotPositions().count
+                let lotPosition = LotPosition()
+             //   lotPosition.LotId = itemCount + 1
+                lotPosition.SymbolCode = txtSymbol.text
+                lotPosition.InvestmentType = ENumInvestmentType(rawValue: txtInvestmentType.text)!
+                lotPosition.Direction = ENumDirection( rawValue : txtDirection.text)!
+                lotPosition.RealizedGainLoss = txtProfitLoss.text.toDouble()!
+                lotPosition.RealizedYear = lblTradeEndYear.text!.toInt()!
+                lotPosition.IsLongTerm = true //TODO
             
-            CapitalGainController.sharedInstance.AddLotPosition(lotPosition)
-            var test = CapitalGainController.sharedDBInstance.InsertInvestment(lotPosition)
+                CapitalGainController.sharedInstance.AddLotPosition(lotPosition)
+                var test = CapitalGainController.sharedDBInstance.InsertInvestment(lotPosition)
+            }
+            
+            else if (self.selectedLotPosition != nil)
+            {
+                let lotPosition = LotPosition()
+                lotPosition.LotId = selectedLotPosition!.LotId
+                lotPosition.SymbolCode = txtSymbol.text
+                lotPosition.InvestmentType = ENumInvestmentType(rawValue: txtInvestmentType.text)!
+                lotPosition.Direction = ENumDirection( rawValue : txtDirection.text)!
+                lotPosition.RealizedGainLoss = txtProfitLoss.text.toDouble()!
+                lotPosition.RealizedYear = lblTradeEndYear.text!.toInt()!
+                lotPosition.IsLongTerm = true //TODO
+                
+                CapitalGainController.sharedInstance.UpdateLotPosition(lotPosition)
+                var test = CapitalGainController.sharedDBInstance.UpdateInvestment(lotPosition)
+            }
             
         }
     }

@@ -20,13 +20,13 @@ enum ENumInvestmentType:String{
     case Section1256 = "Section 1256"
 }
 class LotPosition{
-    var _lotId:Int32
-    var _symbolCode:String
-    var _investmentType:ENumInvestmentType
-    var _direction:ENumDirection
-    var _realizedGainLoss: Double
-    var _realizedYear: Int
-    var _isLongTerm : Bool
+    private var _lotId:Int32
+    private var _symbolCode:String
+    private var _investmentType:ENumInvestmentType
+    private var _direction:ENumDirection
+    private var _realizedGainLoss: Double
+    private var _realizedYear: Int
+    private var _isLongTerm : Bool
   
     init()
     {

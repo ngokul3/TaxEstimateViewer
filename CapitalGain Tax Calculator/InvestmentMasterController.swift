@@ -80,10 +80,35 @@ class InvestmentMasterController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue,
         sender: AnyObject?) {
        
-            var x = 10
-         
+           if (segue.identifier == "AddInvestment")
+            {
+                
+                if let addViewController = segue.destinationViewController as? AddInvestmentController{
+                    addViewController.navigationItem.title = "Add Investment"
+                    addViewController.selectedLotPosition = nil
+                }
+                
+                
+            }
+            else if (segue.identifier == "EditInvestment")
+            {
+                
+                if let editViewController = segue.destinationViewController as? AddInvestmentController{
+                    
+                    if let index = tableView.indexPathForSelectedRow()?.row
+                    {
+                        let selectedLotPosition = CapitalGainController.sharedInstance.GetLotPositionItem(index)
+                        editViewController.selectedLotPosition = selectedLotPosition
+                        editViewController.navigationItem.title = "Edit Investment"
+                    }
+                 
+                }
+                
+            }
+            
     }
     
+  
     func LoadLotPosition(lstLotPosition: [LotPosition])
     {
          if lstLotPosition.count > 0

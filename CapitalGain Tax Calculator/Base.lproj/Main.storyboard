@@ -142,37 +142,6 @@
             </objects>
             <point key="canvasLocation" x="2845.5" y="-2011.5"/>
         </scene>
-        <!--Investment View-->
-        <scene sceneID="5me-Ay-Lxn">
-            <objects>
-                <viewController id="I98-bq-knc" customClass="InvestmentDetailController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ZpL-Li-gNg"/>
-                        <viewControllerLayoutGuide type="bottom" id="sB6-1j-YGo"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="EqB-Eo-IUo">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AAPL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XxA-0E-vy6">
-                                <rect key="frame" x="165" y="64" width="43" height="21"/>
-                                <accessibility key="accessibilityConfiguration" label=""/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Investment View" id="CmQ-Ac-FIg"/>
-                    <connections>
-                        <outlet property="nameLabel" destination="XxA-0E-vy6" id="tPf-D8-5ee"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8EN-SY-I9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2772" y="-1090"/>
-        </scene>
         <!--Add Filing Detail-->
         <scene sceneID="GvQ-fj-WTP">
             <objects>
@@ -284,7 +253,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="InvestmentTableViewCell" id="o7u-E4-9dk" customClass="InvestmentTableViewCell" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="InvestmentTableViewCell" id="o7u-E4-9dk" customClass="InvestmentTableViewCell" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o7u-E4-9dk" id="sIy-wa-yvy">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -299,6 +268,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="lblInvesmentName" destination="15g-Kb-XWp" id="QEZ-1Z-qhV"/>
+                                    <segue destination="COO-sV-LRS" kind="show" identifier="EditInvestment" id="Wus-nc-gLo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -336,7 +306,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FilingTableViewCell" id="Flc-YH-t17" customClass="FilingTableViewCell" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FilingTableViewCell" id="Flc-YH-t17" customClass="FilingTableViewCell" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Flc-YH-t17" id="1vR-eg-2NI">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -351,6 +321,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="lblFilingStatus" destination="y8B-XE-IWC" id="RUb-1t-s1U"/>
+                                    <segue destination="6SW-hu-ik5" kind="show" identifier="EditFilingDetail" id="jTS-FV-eqX"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -473,4 +444,8 @@
             <point key="canvasLocation" x="1224" y="1145"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Wus-nc-gLo"/>
+        <segue reference="jTS-FV-eqX"/>
+    </inferredMetricsTieBreakers>
 </document>

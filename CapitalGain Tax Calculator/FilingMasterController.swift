@@ -80,6 +80,36 @@ class FilingMasterController: UITableViewController {
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue,
+        sender: AnyObject?) {
+            
+            if (segue.identifier == "AddFilingDetail")
+            {
+                
+                if let addViewController = segue.destinationViewController as? AddFilingController{
+                    addViewController.navigationItem.title = "Add Filing Detail"
+                    addViewController.selectedFilingDetail = nil
+                }
+                
+                
+            }
+            else if (segue.identifier == "EditFilingDetail")
+            {
+                
+                if let editViewController = segue.destinationViewController as? AddFilingController{
+                    
+                    if let index = tableView.indexPathForSelectedRow()?.row
+                    {
+                        let selectedFilingDetail = CapitalGainController.sharedInstance.GetFilingStatusItem(index)
+                        editViewController.selectedFilingDetail = selectedFilingDetail
+                        editViewController.navigationItem.title = "Edit Filing Detail"
+                    }
+                    
+                }
+                
+            }
+            
+    }
     
     @IBAction func unwindToFilingStatusList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? AddFilingController{

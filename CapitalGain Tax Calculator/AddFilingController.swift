@@ -24,6 +24,8 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
     
     @IBOutlet weak var btnAddFilingStatus: UIBarButtonItem!
     
+    var selectedFilingDetail : FilingStatus?
+    
     var filingModeArray = [ENumFilingType.Single.rawValue,ENumFilingType.Joint.rawValue,ENumFilingType.Separate.rawValue,ENumFilingType.HoH.rawValue]
     
    
@@ -44,6 +46,14 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
         stpYear.maximumValue = 2030 // TODO:
         stpYear.stepValue = 1
         
+        if (selectedFilingDetail != nil)
+        {
+            println("This is filing detail edit")
+            lblYear.text = selectedFilingDetail?.Year.description
+            txtCurrentTaxableIncome.text = selectedFilingDetail?.CurrentTaxableIncome.description
+            txtFilingMode.text = selectedFilingDetail?.FilingType.rawValue
+            txtPreviouslyDeferredLoss.text = selectedFilingDetail?.PreviouslyDeferredLoss.description
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,16 +100,34 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
   
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if btnAddFilingStatus === sender {
-            let itemCount = CapitalGainController.sharedInstance.GetFilingStatus().count
-            let filingStatus = FilingStatus()
-            filingStatus.Year = lblYear.text!.toInt()!
-            filingStatus.FilingType = ENumFilingType(rawValue: txtFilingMode.text)!
-            filingStatus.CurrentTaxableIncome = txtCurrentTaxableIncome.text!.toDouble()!
-            filingStatus.PreviouslyDeferredLoss = txtPreviouslyDeferredLoss.text!.toDouble()!
-            CapitalGainController.sharedInstance.AddFilingStatus(filingStatus)
+        if btnAddFilingStatus === sender
+        {
+            if(self.selectedFilingDetail == nil)
+            {
+                let itemCount = CapitalGainController.sharedInstance.GetFilingStatus().count
+                let filingStatus = FilingStatus()
+                filingStatus.Year = lblYear.text!.toInt()!
+                filingStatus.FilingType = ENumFilingType(rawValue: txtFilingMode.text)!
+                filingStatus.CurrentTaxableIncome = txtCurrentTaxableIncome.text!.toDouble()!
+                filingStatus.PreviouslyDeferredLoss = txtPreviouslyDeferredLoss.text!.toDouble()!
+                CapitalGainController.sharedInstance.AddFilingStatus(filingStatus)
             
-            var returnString = CapitalGainController.sharedDBInstance.InsertFilingStatus(filingStatus)
+                var returnString = CapitalGainController.sharedDBInstance.InsertFilingStatus(filingStatus)
+            }
+            else if (self.selectedFilingDetail != nil)
+            {
+                let filingStatus = FilingStatus()
+                filingStatus.FilingStatusId = selectedFilingDetail!.FilingStatusId
+                filingStatus.Year = lblYear.text!.toInt()!
+                filingStatus.FilingType = ENumFilingType(rawValue: txtFilingMode.text)!
+                filingStatus.CurrentTaxableIncome = txtCurrentTaxableIncome.text!.toDouble()!
+                filingStatus.PreviouslyDeferredLoss = txtPreviouslyDeferredLoss.text!.toDouble()!
+
+                
+                CapitalGainController.sharedInstance.UpdateFilingStatus(filingStatus)
+                var test = CapitalGainController.sharedDBInstance.UpdateFilingStatus(filingStatus)
+            }
+
         }
     }
 }
