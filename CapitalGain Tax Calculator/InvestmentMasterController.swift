@@ -20,9 +20,6 @@ class InvestmentMasterController: UITableViewController {
 
     @IBOutlet var investmentTableView: UITableView!
 
-    @IBOutlet weak var txtLabelTest: UILabel!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         CapitalGainController.sharedDBInstance.CreateTable()

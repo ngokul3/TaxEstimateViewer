@@ -249,7 +249,7 @@
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="eny-Cq-9WB" customClass="InvestmentMasterController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aiF-5I-wSD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="257"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -338,6 +338,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o29-Ou-MFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1900" y="-793"/>
+        </scene>
+        <!--Container Investment Controller-->
+        <scene sceneID="ggK-SA-8X5">
+            <objects>
+                <tableViewController id="XGP-fu-3fm" customClass="ContainerInvestmentController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ezK-FQ-YjR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InvestmentTableViewCell" id="kLy-f1-SKO" customClass="InvestmentTableViewCell" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kLy-f1-SKO" id="6Hy-gv-biP">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VY0-ce-joE">
+                                            <rect key="frame" x="23" y="11" width="135" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="lblInvesmentName" destination="VY0-ce-joE" id="Cu4-jT-WGj"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="XGP-fu-3fm" id="3ly-HN-Hh1"/>
+                            <outlet property="delegate" destination="XGP-fu-3fm" id="zMj-Wu-Gz5"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="investmentTableView" destination="ezK-FQ-YjR" id="MrC-t9-0dG"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WMD-yJ-iNv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1787.5" y="-110.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yh3-02-29V">
@@ -468,7 +509,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ILV-hL-5HY">
                                 <rect key="frame" x="0.0" y="199" width="375" height="257"/>
                                 <connections>
-                                    <segue destination="eny-Cq-9WB" kind="embed" id="gBZ-HZ-MXo"/>
+                                    <segue destination="XGP-fu-3fm" kind="embed" id="WtM-LI-nbW"/>
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TaxOnLongTermCapitalGain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEr-Cq-3IH">
@@ -543,7 +584,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gBZ-HZ-MXo"/>
         <segue reference="Wus-nc-gLo"/>
         <segue reference="jTS-FV-eqX"/>
     </inferredMetricsTieBreakers>

@@ -2,6 +2,24 @@
 
 import UIKit
 
+var set = Set([1, 2, 3, 2, 1])
+
+// Add single elements:
+set.insert(4)
+set.insert(3)
+
+// Add multiple elements:
+set.unionInPlace([ 4, 5, 6 ])
+
+// Remove single element:
+set.remove(2)
+
+// Remove multiple elements:
+set.subtractInPlace([ 6, 7 ])
+
+println(set) // [5, 3, 1, 4]
+
+/*
 var str = "Hello, playground"
 
 
@@ -127,3 +145,5 @@ let ages: [Int] = people.map { return $0.age }
 let agesTotal   = ages.reduce(0) { return $0 + $1 }
 
 println(agesTotal)
+*
+/
