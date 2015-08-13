@@ -24,7 +24,6 @@ class ContainerInvestmentController: UITableViewController {
 
     }
 
- //   override func
     override func viewWillAppear(animated: Bool) {
           let taxViewController =  self.presentedViewController
     }
@@ -86,6 +85,11 @@ class ContainerInvestmentController: UITableViewController {
         
         let filingStatus = CapitalGainController.sharedInstance.GetFilingStatusForYear(year!)
         
+        let taxProcessor = TaxProcessor()
+        
+        let lstLotTerm = taxProcessor.GetLotsByTerm(lstLotPositionSelected)
+        
+        taxProcessor.GetTaxableIncome(filingStatus, lstLotTerm: lstLotTerm)
         
     }
 }

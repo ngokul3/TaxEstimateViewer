@@ -27,8 +27,9 @@ class InvestmentMasterController: UITableViewController {
 
             
         let lstLotPosition = CapitalGainController.sharedDBInstance.ReturnLotPosition()
-            
+        let lstFilingStatus = CapitalGainController.sharedDBInstance.ReturnFilingStatus()
         LoadLotPosition(lstLotPosition)
+        LoadFilingStatus(lstFilingStatus)
         }
         
         
@@ -113,6 +114,18 @@ class InvestmentMasterController: UITableViewController {
             for lotPosition in lstLotPosition
             {
                 CapitalGainController.sharedInstance.AddLotPosition(lotPosition)
+            }
+            
+        }
+    }
+    
+    func LoadFilingStatus(lstFilingStatus: [FilingStatus])
+    {
+        if lstFilingStatus.count > 0
+        {
+            for filingStatus in lstFilingStatus
+            {
+                CapitalGainController.sharedInstance.AddFilingStatus(filingStatus)
             }
             
         }

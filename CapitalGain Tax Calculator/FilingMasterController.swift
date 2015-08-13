@@ -16,14 +16,13 @@ class FilingMasterController: UITableViewController {
         super.viewDidLoad()
 
         
-      //  CapitalGainController.sharedDBInstance.InsertInvestments()
-        if CapitalGainController.sharedDBInstance.OpenDatabase(){
+   /*     if CapitalGainController.sharedDBInstance.OpenDatabase(){
           
             let lstFilingStatus = CapitalGainController.sharedDBInstance.ReturnFilingStatus()
             
             LoadFilingStatus(lstFilingStatus)
             
-        }
+        }*/
         
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
@@ -68,7 +67,7 @@ class FilingMasterController: UITableViewController {
         }
         
     }
-    func LoadFilingStatus(lstFilingStatus: [FilingStatus])
+  /*  func LoadFilingStatus(lstFilingStatus: [FilingStatus])
     {
         if lstFilingStatus.count > 0
         {
@@ -78,7 +77,7 @@ class FilingMasterController: UITableViewController {
             }
             
         }
-    }
+    }*/
     
     override func prepareForSegue(segue: UIStoryboardSegue,
         sender: AnyObject?) {

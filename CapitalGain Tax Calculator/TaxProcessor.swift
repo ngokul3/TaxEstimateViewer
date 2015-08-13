@@ -15,9 +15,9 @@ class TaxProcessor
         TaxOnCapitalGainLossUp.LoadFederalTax()
         
     }
-    func GetLotsByTerm()-> [LotTerm]
+    func GetLotsByTerm(lstLotPosition : [LotPosition])-> [LotTerm]
     {
-        let lstLotTerm = CapitalGainController.sharedDBInstance.ReturnLotTerm()
+        let lstLotTerm = CapitalGainController.sharedDBInstance.ReturnLotTerm(lstLotPosition)
         
         return lstLotTerm
     }
