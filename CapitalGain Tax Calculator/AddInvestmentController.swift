@@ -61,6 +61,8 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
             txtInvestmentType.text = selectedLotPosition?.InvestmentType.rawValue
             txtProfitLoss.text = selectedLotPosition?.RealizedGainLoss.description
             txtDirection.text = selectedLotPosition?.Direction.rawValue
+            lblTradeEndYear.text = selectedLotPosition?.RealizedYear.description
+            //TODO IsLongTerm
         }
         
         

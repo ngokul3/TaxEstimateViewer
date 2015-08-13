@@ -118,7 +118,7 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
             {
                 let filingStatus = FilingStatus()
                 filingStatus.FilingStatusId = selectedFilingDetail!.FilingStatusId
-                filingStatus.Year = lblYear.text!.toInt()!
+                filingStatus.Year = lblYear.text!.toInt()! //ToDO Validation
                 filingStatus.FilingType = ENumFilingType(rawValue: txtFilingMode.text)!
                 filingStatus.CurrentTaxableIncome = txtCurrentTaxableIncome.text!.toDouble()!
                 filingStatus.PreviouslyDeferredLoss = txtPreviouslyDeferredLoss.text!.toDouble()!

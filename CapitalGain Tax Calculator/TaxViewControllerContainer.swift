@@ -12,14 +12,15 @@ class TaxViewControllerContainer: UIViewController , UIPickerViewDelegate {
 
     @IBOutlet weak var pickerYear: UIPickerView!
     
-    var yearArray = ["2014", "2013"]
+    
+    @IBOutlet weak var txtYear: UITextField!
+   
+    
+    var yearArray = ["2015", "2014", "2013"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-
-        
+        pickerYear.hidden = true
     }
     
     func GetUniqueFilingYear()
@@ -47,10 +48,48 @@ class TaxViewControllerContainer: UIViewController , UIPickerViewDelegate {
     
     }
     
+    
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         
+        txtYear.text = yearArray[row]
+        
+    }
+    @IBAction func OnYearEditEnd(sender: AnyObject)
+    {
+        pickerYear.hidden = true
+        
+        if(self.childViewControllers.count > 0)
+        {
+            let x = self.childViewControllers[0] as! ContainerInvestmentController
+            
+            let y = txtYear.text.toInt()!
+            x.lstLotPositionForYear = CapitalGainController.sharedInstance.GetLotPositionForYear(y) //ToDO Validation)
+    
+            let containerViewController = self.childViewControllers[0] as! UITableViewController
+            containerViewController.tableView.reloadData()
+        }
+        
     }
     
+    @IBAction func OnYearEditBegin(sender: AnyObject)
+    {
+          pickerYear.hidden = false
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue,
+        sender: AnyObject?) {
+            
+            let viewController = segue.destinationViewController as! ContainerInvestmentController
+            
+            self.addChildViewController(viewController)
+    }
+    
+    @IBAction func btnRefresh(sender: AnyObject) {
+        
+        let containerViewController = self.childViewControllers[0] as! ContainerInvestmentController
+        containerViewController.CalculateCapitalGain()
+        
+    }
 
 }

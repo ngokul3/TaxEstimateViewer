@@ -27,6 +27,7 @@ class LotPosition{
     private var _realizedGainLoss: Double
     private var _realizedYear: Int
     private var _isLongTerm : Bool
+    private var _isSelected : Bool
   
     init()
     {
@@ -37,6 +38,7 @@ class LotPosition{
         self._realizedGainLoss = 0
         self._realizedYear=0
         self._isLongTerm = false
+        self._isSelected = true
     }
     init(lotId:Int32,symbolCode:String,investmentType:ENumInvestmentType,direction: ENumDirection,realizedGainLoss:Double,realizedYear:Int,IsLongTerm:Bool
         )
@@ -48,7 +50,7 @@ class LotPosition{
         self._realizedGainLoss = realizedGainLoss
         self._realizedYear = realizedYear
         self._isLongTerm = false
-        
+         self._isSelected = true
         
     }   
     
@@ -116,7 +118,14 @@ class LotPosition{
         }
     }
     
-  
+    var IsSelected: Bool {
+        get {
+            return _isSelected
+        }
+        set {
+            _isSelected = newValue
+        }
+    }
 
     func GetStockDetail()->String?{
         switch self._symbolCode

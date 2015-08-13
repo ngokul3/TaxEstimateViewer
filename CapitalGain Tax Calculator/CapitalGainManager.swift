@@ -39,6 +39,19 @@ class CapitalGainControllerManager{
         
     }
     
+    func GetLotPositionForYear(year: Int)-> [LotPosition]
+    {
+        if(lstLotPosition.filter({m in m.RealizedYear == year}).count > 0)
+        {
+            let lstLotPositionForYear = lstLotPosition.filter({m in m.RealizedYear == year})
+            return lstLotPositionForYear
+        }
+        else
+        {
+            return [LotPosition]()
+        }
+        
+    }
     func UpdateLotPosition(lotPosition: LotPosition)
     {
        // var selectedLotPosition : LotPosition
@@ -78,6 +91,19 @@ class CapitalGainControllerManager{
         
     }
     
+    func GetFilingStatusForYear(year: Int)-> FilingStatus
+    {
+        if(lstFilingStatus.filter({m in m.Year == year}).count > 0 )
+        {
+            let filingStatus = lstFilingStatus.filter({m in m.Year == year}).first
+            return filingStatus!
+        }
+        else
+        {
+            return FilingStatus()
+        }
+        
+    }
     func UpdateFilingStatus(filingStatus: FilingStatus)
     {
         let selectedFilingStatus = lstFilingStatus.filter({m in m.FilingStatusId == filingStatus.FilingStatusId}).first
