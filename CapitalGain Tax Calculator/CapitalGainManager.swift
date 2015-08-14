@@ -91,7 +91,7 @@ class CapitalGainControllerManager{
         
     }
     
-    func GetFilingStatusForYear(year: Int)-> FilingStatus
+    func GetFilingStatusForYear(year: Int)-> FilingStatus?
     {
         if(lstFilingStatus.filter({m in m.Year == year}).count > 0 )
         {
@@ -100,7 +100,7 @@ class CapitalGainControllerManager{
         }
         else
         {
-            return FilingStatus()
+            return nil
         }
         
     }

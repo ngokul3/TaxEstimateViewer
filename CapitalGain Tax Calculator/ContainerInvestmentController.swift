@@ -78,18 +78,30 @@ class ContainerInvestmentController: UITableViewController {
         }
     }
     
-    func CalculateCapitalGain()
+    func CalculateCapitalGain()->FilingStatus?
     {
-        let lstLotPositionSelected = lstLotPositionForYear.filter({m in m.IsSelected == true})
-        let year = lstLotPositionForYear.map{ return $0.RealizedYear }.first
+        if (lstLotPositionForYear.filter({m in m.IsSelected == true}).count > 0)
+        {
+            
+            let lstLotPositionSelected = lstLotPositionForYear.filter({m in m.IsSelected == true})
+            let year = lstLotPositionForYear.map{ return $0.RealizedYear }.first
+            
+            let filingStatus = CapitalGainController.sharedInstance.GetFilingStatusForYear(year!)
+            
+            let taxProcessor = TaxProcessor()
+            
+            let lstLotTerm = taxProcessor.GetLotsByTerm(lstLotPositionSelected)
+            
+            if(lstLotTerm.count > 0 && filingStatus != nil)
+            {
+            
+                let filingStatus = taxProcessor.GetTaxableIncome(filingStatus!, lstLotTerm: lstLotTerm)
+                
+                return filingStatus
+            }
+        }
         
-        let filingStatus = CapitalGainController.sharedInstance.GetFilingStatusForYear(year!)
-        
-        let taxProcessor = TaxProcessor()
-        
-        let lstLotTerm = taxProcessor.GetLotsByTerm(lstLotPositionSelected)
-        
-        taxProcessor.GetTaxableIncome(filingStatus, lstLotTerm: lstLotTerm)
+        return nil
         
     }
 }

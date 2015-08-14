@@ -227,8 +227,8 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
                 lotPosition.SymbolCode = txtSymbol.text
                 lotPosition.InvestmentType = ENumInvestmentType(rawValue: txtInvestmentType.text)!
                 lotPosition.Direction = ENumDirection( rawValue : txtDirection.text)!
-                lotPosition.RealizedGainLoss = txtProfitLoss.text.toDouble()!
-                lotPosition.RealizedYear = lblTradeEndYear.text!.toInt()!
+                lotPosition.RealizedGainLoss = txtProfitLoss.text.toDouble()! //ToDO
+                lotPosition.RealizedYear = lblTradeEndYear.text!.toInt()! //TODO
                 lotPosition.IsLongTerm = true //TODO
                 
                 CapitalGainController.sharedInstance.UpdateLotPosition(lotPosition)

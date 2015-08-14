@@ -12,7 +12,12 @@ class TaxViewControllerContainer: UIViewController , UIPickerViewDelegate {
 
     @IBOutlet weak var pickerYear: UIPickerView!
     
+    @IBOutlet weak var txtLTCapitalGain: UILabel!
     
+    @IBOutlet weak var txtSTCapitalGain: UILabel!
+    
+    
+    @IBOutlet weak var txtTotalTax: UILabel!
     @IBOutlet weak var txtYear: UITextField!
    
     
@@ -88,7 +93,16 @@ class TaxViewControllerContainer: UIViewController , UIPickerViewDelegate {
     @IBAction func btnRefresh(sender: AnyObject) {
         
         let containerViewController = self.childViewControllers[0] as! ContainerInvestmentController
-        containerViewController.CalculateCapitalGain()
+        let filingStatus = containerViewController.CalculateCapitalGain()
+        
+        if(filingStatus != nil)
+        {
+          txtLTCapitalGain.text = filingStatus?.TaxOnLTCapitalGain.description
+          txtSTCapitalGain.text = filingStatus?.TaxOnSTCapitalGain.description
+          let total = (filingStatus?.TaxOnLTCapitalGain as Double?)!  + (filingStatus?.TaxOnSTCapitalGain as Double?)!
+        
+          txtTotalTax.text = total.description
+        }
         
     }
 
