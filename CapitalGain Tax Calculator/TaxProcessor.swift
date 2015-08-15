@@ -15,12 +15,12 @@ class TaxProcessor
         TaxOnCapitalGainLossUp.LoadFederalTax()
         
     }
-    func GetLotsByTerm(lstLotPosition : [LotPosition])-> [LotTerm]
+    /*func GetLotsByTerm(lstLotPosition : [LotPosition])-> [LotTerm]
     {
         let lstLotTerm = CapitalGainController.sharedDBInstance.ReturnLotTerm(lstLotPosition)
         
         return lstLotTerm
-    }
+    }*/
     
     func GetTaxableIncome(filingStatus: FilingStatus, lstLotTerm: [LotTerm]) -> FilingStatus
     {
@@ -79,7 +79,7 @@ class TaxProcessor
         return filingStatus
     }
     
-    func GetCapitalGainTax(termGL: Double, termTaxDictionary : TaxBracket, taxableIncome : Double ) -> Double
+    func GetCapitalGainTax(var termGL: Double, termTaxDictionary : TaxBracket, var taxableIncome : Double ) -> Double
     {
         var totalIncomeIncludiingCapitalGain : Double
         var taxOnCapitalGain : Double = 0
@@ -100,24 +100,26 @@ class TaxProcessor
             {
                 let x = totalIncomeIncludiingCapitalGain - item
                 
+                let hairCutPerc =  termTaxDictionary.FederalTax.dictionary[item]!
+                    
                 if(x < 0)
                 {
-                    taxOnCapitalGain = taxOnCapitalGain + (termGL * termTaxDictionary.FederalTax.dictionary[item]!)
+                    taxOnCapitalGain = taxOnCapitalGain + (termGL * hairCutPerc)
                     break;
                 }
                 
                 else
                 {
-                    let taxOnCapitalGain = (item - taxableIncome) * termTaxDictionary.FederalTax.dictionary[item]!
-                    let termGL = x
-                    let taxableIncome = totalIncomeIncludiingCapitalGain
+                    taxOnCapitalGain = (item - taxableIncome) * hairCutPerc
+                    termGL = x
+                    taxableIncome = totalIncomeIncludiingCapitalGain
                     continue
                 }
             }
             
-            else if (item == maxTaxItem)
+            else if (item == maxTaxValue)
             {
-                 taxOnCapitalGain = taxOnCapitalGain + (termGL * maxTaxValue)
+                 taxOnCapitalGain = taxOnCapitalGain + (termGL * maxTaxItem!)
             }
         }
         

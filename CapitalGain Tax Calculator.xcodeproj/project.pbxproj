@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		5529604D1B6327A50035622F /* SevenSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5529604C1B6327A50035622F /* SevenSwitch.swift */; };
 		5529604F1B65B0DF0035622F /* InvestmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5529604E1B65B0DF0035622F /* InvestmentTableViewCell.swift */; };
+		553E2FC91B7F5A400014B3BE /* TaxBracket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BD8251B6D1559003F5CE1 /* TaxBracket.swift */; };
+		553E2FCA1B7F5A540014B3BE /* LotTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E85DC1B69AA2E00197CBE /* LotTerm.swift */; };
+		553E2FCB1B7F5A570014B3BE /* LotPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A731B58751F001D073E /* LotPosition.swift */; };
+		553E2FCC1B7F5A5A0014B3BE /* FilingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E85D81B66FEFF00197CBE /* FilingStatus.swift */; };
+		553E2FCE1B7F5A690014B3BE /* CapitalGainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF6C1B5F2145003B1D3F /* CapitalGainManager.swift */; };
+		553E2FD01B7F5A710014B3BE /* SortedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DD2B471B6ED2AC002B7400 /* SortedDictionary.swift */; };
+		553E2FD11B7F5AF40014B3BE /* TaxOnCapitalGainLossUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BD8271B6D1671003F5CE1 /* TaxOnCapitalGainLossUp.swift */; };
+		553E2FD21B7F5BF00014B3BE /* TaxProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E85DE1B69AC5E00197CBE /* TaxProcessor.swift */; };
 		555F00CC1B6BEACD00EB1EAF /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F00CB1B6BEACC00EB1EAF /* DataManager.swift */; };
 		556065D01B769D4A0054E00E /* TaxViewControllerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556065CF1B769D490054E00E /* TaxViewControllerContainer.swift */; };
 		557BD8261B6D1559003F5CE1 /* TaxBracket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BD8251B6D1559003F5CE1 /* TaxBracket.swift */; };
@@ -385,6 +393,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				553E2FCB1B7F5A570014B3BE /* LotPosition.swift in Sources */,
+				553E2FD21B7F5BF00014B3BE /* TaxProcessor.swift in Sources */,
+				553E2FC91B7F5A400014B3BE /* TaxBracket.swift in Sources */,
+				553E2FD01B7F5A710014B3BE /* SortedDictionary.swift in Sources */,
+				553E2FD11B7F5AF40014B3BE /* TaxOnCapitalGainLossUp.swift in Sources */,
+				553E2FCE1B7F5A690014B3BE /* CapitalGainManager.swift in Sources */,
+				553E2FCA1B7F5A540014B3BE /* LotTerm.swift in Sources */,
+				553E2FCC1B7F5A5A0014B3BE /* FilingStatus.swift in Sources */,
 				55C28A621B55F0E3001D073E /* CapitalGain_Tax_CalculatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
