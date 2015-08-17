@@ -140,7 +140,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M6s-qH-k6U" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="W7P-Dn-Fjv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2845.5" y="-2011.5"/>
+            <point key="canvasLocation" x="1959.5" y="-1464.5"/>
         </scene>
         <!--Add Filing Detail-->
         <scene sceneID="GvQ-fj-WTP">
@@ -223,7 +223,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9G-zQ-xfx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="yzh-84-N3r" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3591.5" y="-240.5"/>
+            <point key="canvasLocation" x="1959.5" y="-738.5"/>
         </scene>
         <!--Filing Mode View-->
         <scene sceneID="AbS-1M-BJT">
@@ -296,7 +296,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99w-yj-UtM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="-1458"/>
+            <point key="canvasLocation" x="1539.5" y="-1451.5"/>
         </scene>
         <!--Filing Mode-->
         <scene sceneID="A0A-O9-tcm">
@@ -339,7 +339,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o29-Ou-MFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="-793"/>
+            <point key="canvasLocation" x="1539.5" y="-727.5"/>
         </scene>
         <!--Container Investment Controller-->
         <scene sceneID="ggK-SA-8X5">
@@ -381,7 +381,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WMD-yJ-iNv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1875.5" y="-54.5"/>
+            <point key="canvasLocation" x="1959.5" y="-17.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yh3-02-29V">
@@ -389,6 +389,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8Ul-UE-fK1" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="sYk-fL-dpo">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -396,7 +397,6 @@
                     <connections>
                         <segue destination="NMN-bp-Ucf" kind="relationship" relationship="viewControllers" id="P6k-i5-ykn"/>
                         <segue destination="eI2-Hu-8vI" kind="relationship" relationship="viewControllers" id="16r-Ip-rIh"/>
-                        <segue destination="oUI-qd-iJ9" kind="relationship" relationship="viewControllers" id="V7C-ph-fOE"/>
                         <segue destination="lig-i9-8om" kind="relationship" relationship="viewControllers" id="Tfa-67-5WD"/>
                     </connections>
                 </tabBarController>
@@ -444,54 +444,6 @@
             </objects>
             <point key="canvasLocation" x="1112" y="-793"/>
         </scene>
-        <!--Tax View Controller-->
-        <scene sceneID="zj1-Wk-XAP">
-            <objects>
-                <tableViewController id="haR-g5-Wek" customClass="TaxViewController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="U4g-N6-Ui4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Rat-aK-BYE">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rat-aK-BYE" id="yf2-fI-qhQ">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="haR-g5-Wek" id="cMQ-tg-xBj"/>
-                            <outlet property="delegate" destination="haR-g5-Wek" id="N0u-ZS-0Ef"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="SB0-Ti-hJq"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3dU-AX-o9j" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2007.5" y="1000.5"/>
-        </scene>
-        <!--Tax-->
-        <scene sceneID="S6m-La-6Nt">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oUI-qd-iJ9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tax" id="HlX-nx-zoB"/>
-                    <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XK4-LX-pyq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="haR-g5-Wek" kind="relationship" relationship="rootViewController" id="DwZ-sA-Mwo"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zX5-MV-gDY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1212" y="957"/>
-        </scene>
         <!--Tax View Controller Container-->
         <scene sceneID="SaV-Q3-bJ7">
             <objects>
@@ -507,52 +459,9 @@
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ILV-hL-5HY">
                                 <rect key="frame" x="0.0" y="164" width="375" height="203"/>
                                 <connections>
-                                    <segue destination="XGP-fu-3fm" kind="embed" id="3sj-dn-DaP"/>
+                                    <segue destination="XGP-fu-3fm" kind="embed" identifier="ShowInvestments" id="3sj-dn-DaP"/>
                                 </connections>
                             </containerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TaxOnLongTermCapitalGain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEr-Cq-3IH">
-                                <rect key="frame" x="11" y="480" width="224" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xn1-XQ-dYM">
-                                <rect key="frame" x="243" y="480" width="121" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TaxOnShortTermCapitalGain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQp-Ml-OHW">
-                                <rect key="frame" x="11" y="514" width="219" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOf-Wv-YcI">
-                                <rect key="frame" x="243" y="514" width="116" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TotalTax" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyj-QR-QjY">
-                                <rect key="frame" x="16" y="565" width="157" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPQ-jO-r8b">
-                                <rect key="frame" x="243" y="565" width="116" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Puc-ob-WNz">
-                                <rect key="frame" x="0.0" y="388" width="375" height="90"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="JR2-O9-KcR" id="0Fq-wK-QO3"/>
-                                    <outlet property="delegate" destination="JR2-O9-KcR" id="jkh-fz-GXJ"/>
-                                </connections>
-                            </pickerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MRv-gN-Exv">
                                 <rect key="frame" x="0.0" y="72" width="375" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -567,6 +476,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fAt-MV-HID">
+                                <rect key="frame" x="0.0" y="467" width="375" height="151"/>
+                                <connections>
+                                    <segue destination="aSO-aT-m5j" kind="embed" id="yPp-ib-PeQ"/>
+                                </connections>
+                            </containerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Puc-ob-WNz">
+                                <rect key="frame" x="0.0" y="375" width="375" height="90"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="JR2-O9-KcR" id="0Fq-wK-QO3"/>
+                                    <outlet property="delegate" destination="JR2-O9-KcR" id="jkh-fz-GXJ"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -581,15 +503,12 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="pickerYear" destination="Puc-ob-WNz" id="k9L-Or-75W"/>
-                        <outlet property="txtLTCapitalGain" destination="xn1-XQ-dYM" id="0l1-qy-SAA"/>
-                        <outlet property="txtSTCapitalGain" destination="bOf-Wv-YcI" id="vcn-Dr-L3A"/>
-                        <outlet property="txtTotalTax" destination="UPQ-jO-r8b" id="i4t-8b-fJO"/>
                         <outlet property="txtYear" destination="MRv-gN-Exv" id="1Qp-r2-e2d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l3i-1P-aKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1111.5" y="-72.5"/>
+            <point key="canvasLocation" x="1539.5" y="1.5"/>
         </scene>
         <!--Container-->
         <scene sceneID="d5A-8V-88O">
@@ -609,7 +528,133 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iKC-TC-pa5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="143.5" y="1312.5"/>
+            <point key="canvasLocation" x="1117.5" y="-17.5"/>
+        </scene>
+        <!--Results Long Term Graph Controller-->
+        <scene sceneID="nYL-uh-VHD">
+            <objects>
+                <viewController storyboardIdentifier="ResultLongTermGraphID" id="fga-6Z-OAK" customClass="ResultsLongTermGraphController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VFK-Hf-sL5"/>
+                        <viewControllerLayoutGuide type="bottom" id="loJ-mW-hkk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bAZ-Bl-MDs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LongTerm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcU-XI-2d9">
+                                <rect key="frame" x="35" y="20" width="103" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="151"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DwE-el-19J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1707.5" y="1003.5"/>
+        </scene>
+        <!--Container Multi Result Controller-->
+        <scene sceneID="kZg-4W-B5J">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="TwO-90-mPL" customClass="ContainerMultiResultController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wDQ-lK-Xaa"/>
+                        <viewControllerLayoutGuide type="bottom" id="eC1-uZ-Uyj"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uVF-HM-OG1">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="50" height="50"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HyD-Vh-lwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2072" y="834"/>
+        </scene>
+        <!--Result Label Controller-->
+        <scene sceneID="Up9-YD-lar">
+            <objects>
+                <viewController storyboardIdentifier="ResultLabelID" id="ClO-5U-WLI" customClass="ResultLabelController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y1S-H3-LF1"/>
+                        <viewControllerLayoutGuide type="bottom" id="9v2-7a-sl1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jEH-Tq-hd5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ST Tax" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsT-IM-iLs">
+                                <rect key="frame" x="16" y="55" width="82" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VRP-lJ-Gwb">
+                                <rect key="frame" x="166" y="52" width="185" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n3Y-Cb-FZK">
+                                <rect key="frame" x="166" y="96" width="185" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Tax" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yas-nN-abI">
+                                <rect key="frame" x="16" y="96" width="82" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="375" height="151"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="150"/>
+                    <connections>
+                        <outlet property="lblShortTermTax" destination="wsT-IM-iLs" id="sMJ-k0-iN5"/>
+                        <outlet property="lblTotalTax" destination="Yas-nN-abI" id="tke-h6-Iem"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dRm-g1-2nK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1809.5" y="472"/>
+        </scene>
+        <!--Tax Page Controller-->
+        <scene sceneID="5fp-ed-DLa">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="none" id="aSO-aT-m5j" customClass="TaxPageController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hbR-c7-1FY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1030" y="763"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="nW2-o6-nL2">
+            <objects>
+                <viewController id="q7X-Zg-KCy" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mDy-4j-gGo"/>
+                        <viewControllerLayoutGuide type="bottom" id="NB0-z4-ZUy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Id-P4-oUr">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.1803539894" blue="0.087275709640000004" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="50" height="50"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vPv-UG-tQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2138" y="834"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

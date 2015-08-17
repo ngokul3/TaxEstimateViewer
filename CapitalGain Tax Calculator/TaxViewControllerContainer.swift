@@ -85,9 +85,16 @@ class TaxViewControllerContainer: UIViewController , UIPickerViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue,
         sender: AnyObject?) {
             
-            let viewController = segue.destinationViewController as! ContainerInvestmentController
+        let identifier = segue.identifier
+        if ( identifier == "ShowInvestments")
+        {
+        
+            let viewController1 = segue.destinationViewController as! ContainerInvestmentController
+        
+            self.addChildViewController(viewController1)
+        }
             
-            self.addChildViewController(viewController)
+        
     }
     
     @IBAction func btnRefresh(sender: AnyObject) {
