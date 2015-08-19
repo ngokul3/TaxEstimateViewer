@@ -104,11 +104,15 @@ class TaxViewControllerContainer: UIViewController , UIPickerViewDelegate {
         
         if(filingStatus != nil)
         {
-          txtLTCapitalGain.text = filingStatus?.TaxOnLTCapitalGain.description
-          txtSTCapitalGain.text = filingStatus?.TaxOnSTCapitalGain.description
+       //   txtLTCapitalGain.text = filingStatus?.TaxOnLTCapitalGain.description
+         // txtSTCapitalGain.text = filingStatus?.TaxOnSTCapitalGain.description
           let total = (filingStatus?.TaxOnLTCapitalGain as Double?)!  + (filingStatus?.TaxOnSTCapitalGain as Double?)!
         
-          txtTotalTax.text = total.description
+       //   txtTotalTax.text = total.description
+            
+          let containerGraphController = self.childViewControllers[1] as! ResultsGraphController
+          containerGraphController.FilingStatusForGraph = filingStatus!
+          containerGraphController.DrawLongTermShortTermGraph()
         }
         
     }

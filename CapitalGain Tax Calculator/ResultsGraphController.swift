@@ -10,11 +10,36 @@ import UIKit
 
 class ResultsGraphController: UIViewController {
 
+    private var _filingStatus = FilingStatus()
+    private var _lstTaxBracket = [TaxBracket]()
+    
+    var FilingStatusForGraph: FilingStatus {
+        get {
+            return _filingStatus
+        }
+        set {
+            _filingStatus = newValue
+        }
+    }
+    
+    var TaxBracketForGraph: [TaxBracket] {
+        get {
+            return _lstTaxBracket
+        }
+        set {
+            _lstTaxBracket = newValue
+        }
+    }
+
+    
     private var chart: Chart?
     
     private let dirSelectorHeight: CGFloat = 50
     
     private func barsChart(#horizontal: Bool) -> Chart {
+        
+        let x = TaxBracketForGraph.first!.FederalTax.dictionary.values
+        
         let labelSettings = ChartLabelSettings(font: ExamplesDefaults.labelFont)
         
         let groupsData: [(title: String, bars: [(start: CGFloat, quantities: [Double])])] = [
@@ -27,53 +52,7 @@ class ResultsGraphController: UIViewController {
                 )
                 ])
         ]
-        /*        let groupsData: [(title: String, bars: [(start: CGFloat, quantities: [Double])])] = [
-        ("A", [
-        (0,
-        [-20, -5, -10]
-        ),
-        (0,
-        [10, 20, 30]
-        ),
-        (0,
-        [30, 14, 5]
-        )
-        ]),
-        ("B", [
-        (0,
-        [-10, -15, -5]
-        ),
-        (0,
-        [30, 25, 40]
-        ),
-        (0,
-        [25, 40, 10]
-        )
-        ]),
-        ("C", [
-        (0,
-        [-15, -30, -10]
-        ),
-        (0,
-        [-10, -10, -5]
-        ),
-        (0,
-        [15, 30, 10]
-        )
-        ]),
-        ("D", [
-        (0,
-        [-20, -10, -10]
-        ),
-        (0,
-        [30, 15, 27]
-        ),
-        (0,
-        [8, 10, 25]
-        )
-        ])
-        ]
-        */
+      
         
         let frameColors = [UIColor.redColor().colorWithAlphaComponent(0.6), UIColor.blueColor().colorWithAlphaComponent(0.6), UIColor.greenColor().colorWithAlphaComponent(0.6)]
         
@@ -153,13 +132,31 @@ class ResultsGraphController: UIViewController {
     }
     
     override func viewDidLoad() {
-        self.showChart(horizontal: false)
-        if let chart = self.chart {
-      //      let dirSelector = DirSelector(frame: CGRectMake(0, chart.frame.origin.y + chart.frame.size.height, self.view.frame.size.width, self.dirSelectorHeight), controller: self)
+      if (self.FilingStatusForGraph.Year == 0)
+      {
+        return
+      }
+      else
+      {
+        DrawLongTermShortTermGraph()
+      }
+    }
+    
+    func DrawLongTermShortTermGraph()
+    {
+        if (self.FilingStatusForGraph.Year != 0)
+        {
+            self.TaxBracketForGraph = TaxOnCapitalGainLossUp.GetTaxHairCut(self.FilingStatusForGraph)
             
-            let dirSelector = DirSelector(frame: CGRectMake(0,0,375,243), controller: self)
-            
-            self.view.addSubview(dirSelector)
+            self.showChart(horizontal: false)
+            if let chart = self.chart {
+                
+                //      let dirSelector = DirSelector(frame: CGRectMake(0, chart.frame.origin.y + chart.frame.size.height, self.view.frame.size.width, self.dirSelectorHeight), controller: self)
+                
+                let dirSelector = DirSelector(frame: CGRectMake(0,0,375,243), controller: self)
+                
+                self.view.addSubview(dirSelector)
+            }
         }
     }
     
