@@ -75,6 +75,20 @@ class ResultsGraphController: UIViewController {
         )
         /* */
         var xTaxBracket = [ChartAxisValueFloat]()
+        
+        let LTTaxBracket = TaxBracketForGraph.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).first! as TaxBracket
+        
+       
+            for item in LTTaxBracket.FederalTax.array
+            {
+                var x  = CGFloat(item)
+               // x = item
+                var taxItem =  ChartAxisValueFloat(x,labelSettings: labelSettings)
+                xTaxBracket.append(taxItem)
+            }
+    
+        
+      /*
         var x0 = ChartAxisValueFloat(0,labelSettings: labelSettings)
         
         var x1 = ChartAxisValueFloat(20000,labelSettings: labelSettings)
@@ -88,7 +102,7 @@ class ResultsGraphController: UIViewController {
         xTaxBracket.append(x2)
         xTaxBracket.append(x3)
         xTaxBracket.append(x4)
-   
+   */
         
           let (xValues, yValues) = horizontal ? (xTaxBracket, axisValues2) : (axisValues2, xTaxBracket)
         /* */
