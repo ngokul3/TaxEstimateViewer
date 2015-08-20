@@ -53,6 +53,47 @@ class CapitalGain_Tax_CalculatorTests: XCTestCase {
         XCTAssertEqual(filingStatus.TaxOnLTSTCapitalGain, 3399.8, "Single")
     }
     
+    func testSingleTaxEstimate_2015_Single_FilingStatusTax()
+    {
+        let taxProcessor = TaxProcessor()
+        
+        var lstLotTerm = [LotTerm]()
+        let lotTerm1 = LotTerm()
+        lotTerm1.Term = ENumTerm.LongTerm
+        lotTerm1.TermRealizedGainLoss = 30000
+        lotTerm1.Year = 2015
+        lstLotTerm.append(lotTerm1)
+        
+        let lotTerm2 = LotTerm()
+        lotTerm2.Term = ENumTerm.ShortTerm
+        lotTerm2.TermRealizedGainLoss = 25000
+        lotTerm2.Year = 2015
+        lstLotTerm.append(lotTerm2)
+        
+        var filingStatus = FilingStatus()
+        
+        filingStatus.FilingType = ENumFilingType.Single
+        filingStatus.CurrentTaxableIncome = 170000
+        filingStatus.Year = 2015
+        
+        filingStatus = taxProcessor.GetTaxableIncome(filingStatus, lstLotTerm: lstLotTerm)
+        
+        let lstFilingStatusTax = filingStatus.FilingStatusTax
+        
+        let LTTaxFirst = lstFilingStatusTax.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).map{ return $0.Limit}.first
+        let LTTaxTotal = lstFilingStatusTax.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).map{ return $0.Limit}.reduce(0) { return $0 + $1 }
+        
+        let STTaxFirst = lstFilingStatusTax.filter({m in m.Term.rawValue == ENumTerm.ShortTerm.rawValue}).map{ return $0.Limit}.first
+        let STTaxTotal = lstFilingStatusTax.filter({m in m.Term.rawValue == ENumTerm.ShortTerm.rawValue}).map{ return $0.Limit}.reduce(0) { return $0 + $1 }
+        
+        XCTAssertEqual(round(LTTaxFirst!), round(2895))
+        XCTAssertEqual(round(LTTaxTotal), round(4500))
+        XCTAssertEqual(round(STTaxFirst!), round(5404))
+        XCTAssertEqual(round(STTaxTotal), round(7285))
+
+    }
+
+    
     func testSingleTaxEstimate_2015_Single_Base_1256()
     {
         let taxProcessor = TaxProcessor()

@@ -15,6 +15,48 @@ enum ENumFilingType:String{
     case Separate = "Separate"
 }
 
+class FilingStatusTaxAt
+{
+    private var _limit: Double
+    private var _limitTaxedAt: Double //ToDO
+    private var _longShort: ENumTerm
+    
+    init()
+    {
+        self._limit = 0
+        self._limitTaxedAt = 0
+        self._longShort = ENumTerm.LongTerm
+    }
+    
+    var Limit: Double {
+        get {
+            return _limit
+        }
+        set {
+            _limit = newValue
+        }
+    }
+    
+    var LimitTaxedAt: Double {
+        get {
+            return _limitTaxedAt
+        }
+        set {
+            _limitTaxedAt = newValue
+        }
+    }
+    
+    var Term:ENumTerm{
+        get {
+            return _longShort
+        }
+        set {
+            _longShort = newValue
+        }
+    }
+
+}
+
 class FilingStatus
 {
     private var _filingStatusId: Int32
@@ -26,7 +68,8 @@ class FilingStatus
     private var _taxOnLTCapitalGain: Double
     private var _netLoss : Double
     private var _taxOnLTSTCapitalGain : Double
- 
+    private var _filingStatusTaxAt : [FilingStatusTaxAt]
+    
     init()
     {
         self._filingStatusId = 0
@@ -38,6 +81,7 @@ class FilingStatus
         self._taxOnSTCapitalGain = 0
         self._netLoss = 0
         self._taxOnLTSTCapitalGain = 0
+        self._filingStatusTaxAt = [FilingStatusTaxAt]()
         
     }
     
@@ -123,5 +167,12 @@ class FilingStatus
         }
     }
     
-    
+    var FilingStatusTax: [FilingStatusTaxAt] {
+        get {
+            return _filingStatusTaxAt
+        }
+        set {
+            _filingStatusTaxAt = newValue
+        }
+    }
 }

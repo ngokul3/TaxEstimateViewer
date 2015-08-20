@@ -15,12 +15,7 @@ class TaxProcessor
         TaxOnCapitalGainLossUp.LoadFederalTax()
         
     }
-    /*func GetLotsByTerm(lstLotPosition : [LotPosition])-> [LotTerm]
-    {
-        let lstLotTerm = CapitalGainController.sharedDBInstance.ReturnLotTerm(lstLotPosition)
-        
-        return lstLotTerm
-    }*/
+  
     
     func GetTaxableIncome(filingStatus: FilingStatus, lstLotTerm: [LotTerm]) -> FilingStatus
     {
@@ -43,15 +38,15 @@ class TaxProcessor
         
         if(longTermGLIncluding1256 >= 0 && shortTermGLIncluding1256 >= 0)
         {
-            filingStatus.TaxOnLTCapitalGain = GetCapitalGainTax(longTermGLIncluding1256, termTaxDictionary: longTermTax!, taxableIncome: filingStatus.CurrentTaxableIncome)
-            filingStatus.TaxOnSTCapitalGain = GetCapitalGainTax(shortTermGLIncluding1256, termTaxDictionary: shortTermTax!, taxableIncome: filingStatus.CurrentTaxableIncome)
+            filingStatus.TaxOnLTCapitalGain = GetCapitalGainTax(longTermGLIncluding1256, termTaxDictionary: longTermTax!, taxableIncome: filingStatus.CurrentTaxableIncome, lstFilingStatusTaxAt: &filingStatus.FilingStatusTax)
+            filingStatus.TaxOnSTCapitalGain = GetCapitalGainTax(shortTermGLIncluding1256, termTaxDictionary: shortTermTax!, taxableIncome: filingStatus.CurrentTaxableIncome, lstFilingStatusTaxAt: &filingStatus.FilingStatusTax)
             
         }
         else if(longTermGLIncluding1256 < 0 && shortTermGLIncluding1256 >= 0)
         {
             if(longTermGLIncluding1256 + shortTermGLIncluding1256 > 0)
             {
-                filingStatus.TaxOnSTCapitalGain = GetCapitalGainTax(longTermGLIncluding1256 + shortTermGLIncluding1256, termTaxDictionary: shortTermTax!, taxableIncome: filingStatus.CurrentTaxableIncome)
+                filingStatus.TaxOnSTCapitalGain = GetCapitalGainTax(longTermGLIncluding1256 + shortTermGLIncluding1256, termTaxDictionary: shortTermTax!, taxableIncome: filingStatus.CurrentTaxableIncome, lstFilingStatusTaxAt: &filingStatus.FilingStatusTax)
             }
             else
             {
@@ -62,7 +57,7 @@ class TaxProcessor
         {
             if(longTermGLIncluding1256 + shortTermGLIncluding1256 > 0)
             {
-                filingStatus.TaxOnLTCapitalGain = GetCapitalGainTax(longTermGLIncluding1256 + shortTermGLIncluding1256, termTaxDictionary: longTermTax!, taxableIncome: filingStatus.CurrentTaxableIncome)
+                filingStatus.TaxOnLTCapitalGain = GetCapitalGainTax(longTermGLIncluding1256 + shortTermGLIncluding1256, termTaxDictionary: longTermTax!, taxableIncome: filingStatus.CurrentTaxableIncome, lstFilingStatusTaxAt: &filingStatus.FilingStatusTax)
             }
             else
             {
@@ -79,9 +74,9 @@ class TaxProcessor
         return filingStatus
     }
     
-    func GetCapitalGainTax(var termGL: Double, termTaxDictionary : TaxBracket, var taxableIncome : Double ) -> Double
+    func GetCapitalGainTax(var termGL: Double, termTaxDictionary : TaxBracket, var taxableIncome : Double, inout  lstFilingStatusTaxAt: [FilingStatusTaxAt] ) -> Double
     {
-        var totalIncomeIncludiingCapitalGain : Double
+        var totalIncomeIncludingCapitalGain : Double
         var taxOnCapitalGain : Double = 0
         var testDict : Dictionary<Double,Double> = Dictionary<Double,Double>()
         
@@ -91,35 +86,58 @@ class TaxProcessor
         let maxTaxValue = termTaxDictionary.FederalTax.array[cntTaxDictionary - 1]
         let maxTaxItem = termTaxDictionary.FederalTax.dictionary[maxTaxValue] //TODO - Double can't be value
         
-        totalIncomeIncludiingCapitalGain = taxableIncome + termGL
+        totalIncomeIncludingCapitalGain = taxableIncome + termGL
       
         
         for item in termTaxDictionary.FederalTax.array
         {
             if(item >= taxableIncome)
             {
-                let x = totalIncomeIncludiingCapitalGain - item
+                let x = totalIncomeIncludingCapitalGain - item
                 
                 let hairCutPerc =  termTaxDictionary.FederalTax.dictionary[item]!
                     
                 if(x < 0)
                 {
+                    
                     taxOnCapitalGain = taxOnCapitalGain + (termGL * hairCutPerc)
+
+                    let filingStatusTaxAt = FilingStatusTaxAt()
+                    filingStatusTaxAt.Term = termTaxDictionary.Term
+                    filingStatusTaxAt.Limit = (termGL * hairCutPerc)
+                    filingStatusTaxAt.LimitTaxedAt = hairCutPerc
+                    lstFilingStatusTaxAt.append(filingStatusTaxAt)
+
                     break;
                 }
                 
                 else
                 {
+                    
                     taxOnCapitalGain = (item - taxableIncome) * hairCutPerc
                     termGL = x
-                    taxableIncome = totalIncomeIncludiingCapitalGain
+                    taxableIncome = totalIncomeIncludingCapitalGain
+
+                    let filingStatusTaxAt = FilingStatusTaxAt()
+                    filingStatusTaxAt.Term = termTaxDictionary.Term
+                    filingStatusTaxAt.Limit = taxOnCapitalGain
+                    filingStatusTaxAt.LimitTaxedAt = hairCutPerc
+                    lstFilingStatusTaxAt.append(filingStatusTaxAt)
+                    
+
                     continue
                 }
             }
             
             else if (item == maxTaxValue)
             {
-                 taxOnCapitalGain = taxOnCapitalGain + (termGL * maxTaxItem!)
+                taxOnCapitalGain = taxOnCapitalGain + (termGL * maxTaxItem!)
+              
+                let filingStatusTaxAt = FilingStatusTaxAt()
+                filingStatusTaxAt.Term = termTaxDictionary.Term //ToDO - test
+                filingStatusTaxAt.Limit = taxOnCapitalGain
+                filingStatusTaxAt.LimitTaxedAt = maxTaxItem!
+                lstFilingStatusTaxAt.append(filingStatusTaxAt)
             }
         }
         

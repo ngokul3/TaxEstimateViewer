@@ -32,7 +32,7 @@ struct TaxOnCapitalGainLossUp {
          br_LT_Single_2015.FederalTax.insert(0, forKey: 9225, atIndex: 1)
          br_LT_Single_2015.FederalTax.insert(0, forKey: 37450, atIndex: 2)
          br_LT_Single_2015.FederalTax.insert(0.15, forKey: 90750, atIndex: 3)
-         br_LT_Single_2015.FederalTax.insert(0.15, forKey: 189399, atIndex: 4)
+         br_LT_Single_2015.FederalTax.insert(0.15, forKey: 189300, atIndex: 4)
          br_LT_Single_2015.FederalTax.insert(0.15, forKey: 411500, atIndex: 5)
          br_LT_Single_2015.FederalTax.insert(0.15, forKey: 413200, atIndex: 6)
          br_LT_Single_2015.FederalTax.insert(0.20, forKey: 413201, atIndex: 7)

@@ -73,8 +73,29 @@ class ResultsGraphController: UIViewController {
                 Array(enumerate(groupsData)).map {index, tuple in ChartAxisValueString(tuple.0, order: index, labelSettings: labelSettings)} +
                 [ChartAxisValueString(order: groupsData.count)]
         )
-        let (xValues, yValues) = horizontal ? (axisValues1, axisValues2) : (axisValues2, axisValues1)
+        /* */
+        var xTaxBracket = [ChartAxisValueFloat]()
+        var x0 = ChartAxisValueFloat(0,labelSettings: labelSettings)
         
+        var x1 = ChartAxisValueFloat(20000,labelSettings: labelSettings)
+        
+        var x2 = ChartAxisValueFloat(32000,labelSettings: labelSettings)
+        var x3 = ChartAxisValueFloat(90000,labelSettings: labelSettings)
+        var x4 = ChartAxisValueFloat(190000,labelSettings: labelSettings)
+     
+        xTaxBracket.append(x0)
+        xTaxBracket.append(x1)
+        xTaxBracket.append(x2)
+        xTaxBracket.append(x3)
+        xTaxBracket.append(x4)
+   
+        
+          let (xValues, yValues) = horizontal ? (xTaxBracket, axisValues2) : (axisValues2, xTaxBracket)
+        /* */
+        
+        //let (xValues, yValues) = horizontal ? (axisValues1, axisValues2) : (axisValues2, axisValues1)
+        
+      
         let xModel = ChartAxisModel(axisValues: xValues, axisTitleLabel: ChartAxisLabel(text: "Axis title", settings: labelSettings))
         let yModel = ChartAxisModel(axisValues: yValues, axisTitleLabel: ChartAxisLabel(text: "Axis title", settings: labelSettings.defaultVertical()))
         let frame = ExamplesDefaults.chartFrame(self.view.bounds)
