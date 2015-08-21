@@ -19,6 +19,11 @@ class TaxProcessor
     
     func GetTaxableIncome(filingStatus: FilingStatus, lstLotTerm: [LotTerm]) -> FilingStatus
     {
+        filingStatus.FilingStatusTax = [FilingStatusTaxAt]()
+        filingStatus.TaxOnLTCapitalGain = 0
+        filingStatus.TaxOnLTCapitalGain = 0
+        filingStatus.TaxOnSTCapitalGain = 0
+        
         var lstTaxBracket = TaxOnCapitalGainLossUp.GetTaxHairCut(filingStatus)
  
         var shortTermTax = lstTaxBracket.filter({m in m.Term.rawValue == ENumTerm.ShortTerm.rawValue}).first
@@ -26,7 +31,7 @@ class TaxProcessor
         var longTermTax = lstTaxBracket.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).first
         
         
-        let lotTermMap: [Double] = lstLotTerm.map { return $0.TermRealizedGainLoss }
+    //    let lotTermMap: [Double] = lstLotTerm.map { return $0.TermRealizedGainLoss }
         let longTermGL = lstLotTerm.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).map { return $0.TermRealizedGainLoss }.reduce(0) { return $0 + $1 }
         
         let shortTermGL = lstLotTerm.filter({m in m.Term.rawValue == ENumTerm.ShortTerm.rawValue}).map { return $0.TermRealizedGainLoss }.reduce(0) { return $0 + $1 }
@@ -104,7 +109,7 @@ class TaxProcessor
 
                     let filingStatusTaxAt = FilingStatusTaxAt()
                     filingStatusTaxAt.Term = termTaxDictionary.Term
-                    filingStatusTaxAt.Limit = (termGL * hairCutPerc)
+                    filingStatusTaxAt.Limit = termGL
                     filingStatusTaxAt.LimitTaxedAt = hairCutPerc
                     lstFilingStatusTaxAt.append(filingStatusTaxAt)
 
@@ -115,15 +120,15 @@ class TaxProcessor
                 {
                     
                     taxOnCapitalGain = (item - taxableIncome) * hairCutPerc
-                    termGL = x
-                    taxableIncome = totalIncomeIncludingCapitalGain
-
+ 
                     let filingStatusTaxAt = FilingStatusTaxAt()
                     filingStatusTaxAt.Term = termTaxDictionary.Term
-                    filingStatusTaxAt.Limit = taxOnCapitalGain
+                    filingStatusTaxAt.Limit = item - taxableIncome
                     filingStatusTaxAt.LimitTaxedAt = hairCutPerc
                     lstFilingStatusTaxAt.append(filingStatusTaxAt)
                     
+                    termGL = x
+                    taxableIncome = totalIncomeIncludingCapitalGain
 
                     continue
                 }

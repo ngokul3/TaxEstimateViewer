@@ -86,10 +86,10 @@ class CapitalGain_Tax_CalculatorTests: XCTestCase {
         let STTaxFirst = lstFilingStatusTax.filter({m in m.Term.rawValue == ENumTerm.ShortTerm.rawValue}).map{ return $0.Limit}.first
         let STTaxTotal = lstFilingStatusTax.filter({m in m.Term.rawValue == ENumTerm.ShortTerm.rawValue}).map{ return $0.Limit}.reduce(0) { return $0 + $1 }
         
-        XCTAssertEqual(round(LTTaxFirst!), round(2895))
-        XCTAssertEqual(round(LTTaxTotal), round(4500))
-        XCTAssertEqual(round(STTaxFirst!), round(5404))
-        XCTAssertEqual(round(STTaxTotal), round(7285))
+        XCTAssertEqual(round(LTTaxFirst!), round(19300))
+        XCTAssertEqual(round(LTTaxTotal), round(30000))
+        XCTAssertEqual(round(STTaxFirst!), round(19300))
+        XCTAssertEqual(round(STTaxTotal), round(25000))
 
     }
 

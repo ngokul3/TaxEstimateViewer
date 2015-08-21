@@ -42,18 +42,48 @@ class ResultsGraphController: UIViewController {
         
         let labelSettings = ChartLabelSettings(font: ExamplesDefaults.labelFont)
         
+        /**/
+        
+        var stackedLongTermIncomeLevel = [Double]()
+        var stackedShortTermIncomeLevel = [Double]()
+
+        
+        let currentIncome = FilingStatusForGraph.CurrentTaxableIncome
+        
+        stackedLongTermIncomeLevel.append(currentIncome)
+        stackedShortTermIncomeLevel.append(currentIncome)
+        
+        for item in FilingStatusForGraph.FilingStatusTax
+        {
+            
+            if (item.Term.rawValue == ENumTerm.LongTerm.rawValue)
+            {
+                let ltStackedCapitalGain = item.Limit
+                stackedLongTermIncomeLevel.append(ltStackedCapitalGain)
+            }
+            else if(item.Term.rawValue == ENumTerm.ShortTerm.rawValue)
+            {
+                let stStackedCapitalGain = item.Limit
+                stackedShortTermIncomeLevel.append(stStackedCapitalGain)
+            }
+        }
+        
         let groupsData: [(title: String, bars: [(start: CGFloat, quantities: [Double])])] = [
-            ("A", [
-                (0,
-                    [20000,2000 , 2000]
-                ),
-                (0,
-                    [20000, 200]
+            ("Long Term", [
+                (CGFloat(currentIncome),
+                    stackedLongTermIncomeLevel
+                )
+                ]),
+            ("Short Term", [
+                (CGFloat(currentIncome),
+                    stackedShortTermIncomeLevel
                 )
                 ])
         ]
-      
+
         
+        /**/
+  
         let frameColors = [UIColor.redColor().colorWithAlphaComponent(0.6), UIColor.blueColor().colorWithAlphaComponent(0.6), UIColor.greenColor().colorWithAlphaComponent(0.6)]
         
         let groups: [ChartPointsBarGroup<ChartStackedBarModel>] = Array(enumerate(groupsData)).map {index, entry in
@@ -76,18 +106,50 @@ class ResultsGraphController: UIViewController {
         /* */
         var xTaxBracket = [ChartAxisValueFloat]()
         
+     //   let baseItem = ChartAxisValueFloat(CGFloat(0),labelSettings: labelSettings)
+       // xTaxBracket.append(baseItem)
+        
+        let incomeItem =  ChartAxisValueFloat(CGFloat(currentIncome),labelSettings: labelSettings)
+        xTaxBracket.append(incomeItem)
+        
+        let lstFilingStatusTax = FilingStatusForGraph.FilingStatusTax
+  
+        let LTTaxTotal = lstFilingStatusTax.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).map{ return $0.Limit}.reduce(0) { return $0 + $1 }
+    
+        let STTaxTotal = lstFilingStatusTax.filter({m in m.Term.rawValue == ENumTerm.ShortTerm.rawValue}).map{ return $0.Limit}.reduce(0) { return $0 + $1 }
+
+        var maxTermCapitalGain : Double = Double(LTTaxTotal > STTaxTotal ? LTTaxTotal : STTaxTotal)
+        
         let LTTaxBracket = TaxBracketForGraph.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).first! as TaxBracket
         
-       
+        if maxTermCapitalGain > 0
+        {
+            var oneLevelDownCurrentIncome :ChartAxisValueFloat = ChartAxisValueFloat(0)
+            
             for item in LTTaxBracket.FederalTax.array
             {
-                var x  = CGFloat(item)
-               // x = item
-                var taxItem =  ChartAxisValueFloat(x,labelSettings: labelSettings)
-                xTaxBracket.append(taxItem)
+                
+                if ((currentIncome + maxTermCapitalGain) < item)
+                {
+                    xTaxBracket.append(oneLevelDownCurrentIncome)
+                    var taxItem =  ChartAxisValueFloat(CGFloat(currentIncome + maxTermCapitalGain),labelSettings: labelSettings)
+                    xTaxBracket.append(taxItem)
+                    taxItem =  ChartAxisValueFloat(CGFloat(item),labelSettings: labelSettings)
+                    xTaxBracket.append(taxItem)
+                    break
+                }
+                
+                else
+                {
+                    oneLevelDownCurrentIncome =  ChartAxisValueFloat(CGFloat(item),labelSettings: labelSettings)
+                    
+                }
             }
-    
+        }
         
+        
+        
+    
       /*
         var x0 = ChartAxisValueFloat(0,labelSettings: labelSettings)
         
@@ -110,8 +172,8 @@ class ResultsGraphController: UIViewController {
         //let (xValues, yValues) = horizontal ? (axisValues1, axisValues2) : (axisValues2, axisValues1)
         
       
-        let xModel = ChartAxisModel(axisValues: xValues, axisTitleLabel: ChartAxisLabel(text: "Axis title", settings: labelSettings))
-        let yModel = ChartAxisModel(axisValues: yValues, axisTitleLabel: ChartAxisLabel(text: "Axis title", settings: labelSettings.defaultVertical()))
+        let xModel = ChartAxisModel(axisValues: xValues, axisTitleLabel: ChartAxisLabel(text: "Term", settings: labelSettings))
+        let yModel = ChartAxisModel(axisValues: yValues, axisTitleLabel: ChartAxisLabel(text: "Federal Tax Slab", settings: labelSettings.defaultVertical()))
         let frame = ExamplesDefaults.chartFrame(self.view.bounds)
 //        let chartFrame = self.chart?.frame ?? CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height - self.dirSelectorHeight)
         

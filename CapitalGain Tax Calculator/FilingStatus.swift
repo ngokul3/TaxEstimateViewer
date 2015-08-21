@@ -68,7 +68,7 @@ class FilingStatus
     private var _taxOnLTCapitalGain: Double
     private var _netLoss : Double
     private var _taxOnLTSTCapitalGain : Double
-    private var _filingStatusTaxAt : [FilingStatusTaxAt]
+    private var _lstFilingStatusTaxAt : [FilingStatusTaxAt]
     
     init()
     {
@@ -81,7 +81,7 @@ class FilingStatus
         self._taxOnSTCapitalGain = 0
         self._netLoss = 0
         self._taxOnLTSTCapitalGain = 0
-        self._filingStatusTaxAt = [FilingStatusTaxAt]()
+        self._lstFilingStatusTaxAt = [FilingStatusTaxAt]()
         
     }
     
@@ -169,10 +169,10 @@ class FilingStatus
     
     var FilingStatusTax: [FilingStatusTaxAt] {
         get {
-            return _filingStatusTaxAt
+            return _lstFilingStatusTaxAt
         }
         set {
-            _filingStatusTaxAt = newValue
+            _lstFilingStatusTaxAt = newValue
         }
     }
 }
