@@ -530,10 +530,10 @@
             </objects>
             <point key="canvasLocation" x="1117.5" y="-17.5"/>
         </scene>
-        <!--Results Graph Controller-->
+        <!--Result Graph Controller-->
         <scene sceneID="nYL-uh-VHD">
             <objects>
-                <viewController storyboardIdentifier="ResultLongTermGraphID" id="fga-6Z-OAK" customClass="ResultsGraphController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultLongTermGraphID" id="fga-6Z-OAK" customClass="ResultGraphController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VFK-Hf-sL5"/>
                         <viewControllerLayoutGuide type="bottom" id="loJ-mW-hkk"/>
@@ -541,13 +541,14 @@
                     <view key="view" contentMode="scaleToFill" id="bAZ-Bl-MDs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="243"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.1803539894" blue="0.087275709640000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="243"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DwE-el-19J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1707.5" y="1003.5"/>
+            <point key="canvasLocation" x="1794.5" y="849.5"/>
         </scene>
         <!--Container Multi Result Controller-->
         <scene sceneID="kZg-4W-B5J">
@@ -582,14 +583,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="243"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ST Tax" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsT-IM-iLs">
-                                <rect key="frame" x="16" y="55" width="82" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ann Inc" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsT-IM-iLs">
+                                <rect key="frame" x="5" y="7" width="123" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VRP-lJ-Gwb">
-                                <rect key="frame" x="166" y="52" width="185" height="30"/>
+                                <rect key="frame" x="160" y="9" width="185" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -605,7 +606,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="wsT-IM-iLs" firstAttribute="leading" secondItem="jEH-Tq-hd5" secondAttribute="leadingMargin" id="TfZ-nK-uVx"/>
+                            <constraint firstItem="wsT-IM-iLs" firstAttribute="top" secondItem="jEH-Tq-hd5" secondAttribute="topMargin" constant="7" id="X3d-TO-Uee"/>
+                        </constraints>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="375" height="243"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -613,6 +618,7 @@
                     <connections>
                         <outlet property="lblShortTermTax" destination="wsT-IM-iLs" id="sMJ-k0-iN5"/>
                         <outlet property="lblTotalTax" destination="Yas-nN-abI" id="tke-h6-Iem"/>
+                        <outlet property="txtAnnualIncome" destination="VRP-lJ-Gwb" id="vjA-8Q-Qgw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRm-g1-2nK" userLabel="First Responder" sceneMemberID="firstResponder"/>

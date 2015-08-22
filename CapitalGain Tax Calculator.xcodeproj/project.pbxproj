@@ -22,7 +22,7 @@
 		555F15761B7FFFD700A34EC4 /* ResultLabelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F15751B7FFFD700A34EC4 /* ResultLabelController.swift */; };
 		555F15781B80017000A34EC4 /* ResultsSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F15771B80017000A34EC4 /* ResultsSegue.swift */; };
 		555F157A1B815C1500A34EC4 /* TaxPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F15791B815C1500A34EC4 /* TaxPageController.swift */; };
-		555F157C1B81786E00A34EC4 /* ResultsGraphController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F157B1B81786E00A34EC4 /* ResultsGraphController.swift */; };
+		555F157C1B81786E00A34EC4 /* ResultGraphController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F157B1B81786E00A34EC4 /* ResultGraphController.swift */; };
 		556065D01B769D4A0054E00E /* TaxViewControllerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556065CF1B769D490054E00E /* TaxViewControllerContainer.swift */; };
 		55689C4B1B83FE3700F8FAA2 /* BarsChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55689C2E1B83FE3700F8FAA2 /* BarsChart.swift */; };
 		55689C4C1B83FE3700F8FAA2 /* ChartAxisLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55689C2F1B83FE3700F8FAA2 /* ChartAxisLabel.swift */; };
@@ -96,7 +96,6 @@
 		55C28A701B57C9CB001D073E /* AddInvestmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A6F1B57C9CB001D073E /* AddInvestmentController.swift */; };
 		55C28A741B58751F001D073E /* LotPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A731B58751F001D073E /* LotPosition.swift */; };
 		55D0CF5E1B5DD1AC003B1D3F /* FilingMasterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF5D1B5DD1AC003B1D3F /* FilingMasterController.swift */; };
-		55D0CF621B5DD431003B1D3F /* TaxViewController_Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF611B5DD431003B1D3F /* TaxViewController_Page.swift */; };
 		55D0CF6B1B5F1F4E003B1D3F /* CapitalGainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF6A1B5F1F4E003B1D3F /* CapitalGainController.swift */; };
 		55D0CF6D1B5F2145003B1D3F /* CapitalGainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF6C1B5F2145003B1D3F /* CapitalGainManager.swift */; };
 		55DD2B481B6ED2AC002B7400 /* SortedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DD2B471B6ED2AC002B7400 /* SortedDictionary.swift */; };
@@ -121,7 +120,7 @@
 		555F15751B7FFFD700A34EC4 /* ResultLabelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultLabelController.swift; sourceTree = "<group>"; };
 		555F15771B80017000A34EC4 /* ResultsSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsSegue.swift; sourceTree = "<group>"; };
 		555F15791B815C1500A34EC4 /* TaxPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxPageController.swift; sourceTree = "<group>"; };
-		555F157B1B81786E00A34EC4 /* ResultsGraphController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsGraphController.swift; sourceTree = "<group>"; };
+		555F157B1B81786E00A34EC4 /* ResultGraphController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultGraphController.swift; sourceTree = "<group>"; };
 		556065CF1B769D490054E00E /* TaxViewControllerContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxViewControllerContainer.swift; sourceTree = "<group>"; };
 		55689C2E1B83FE3700F8FAA2 /* BarsChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BarsChart.swift; path = SwiftCharts/BarsChart.swift; sourceTree = "<group>"; };
 		55689C2F1B83FE3700F8FAA2 /* ChartAxisLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartAxisLabel.swift; path = SwiftCharts/ChartAxisLabel.swift; sourceTree = "<group>"; };
@@ -207,7 +206,6 @@
 		55C28A6F1B57C9CB001D073E /* AddInvestmentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddInvestmentController.swift; sourceTree = "<group>"; };
 		55C28A731B58751F001D073E /* LotPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotPosition.swift; sourceTree = "<group>"; };
 		55D0CF5D1B5DD1AC003B1D3F /* FilingMasterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilingMasterController.swift; sourceTree = "<group>"; };
-		55D0CF611B5DD431003B1D3F /* TaxViewController_Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxViewController_Page.swift; sourceTree = "<group>"; };
 		55D0CF6A1B5F1F4E003B1D3F /* CapitalGainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapitalGainController.swift; sourceTree = "<group>"; };
 		55D0CF6C1B5F2145003B1D3F /* CapitalGainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapitalGainManager.swift; sourceTree = "<group>"; };
 		55DD2B471B6ED2AC002B7400 /* SortedDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedDictionary.swift; sourceTree = "<group>"; };
@@ -399,7 +397,6 @@
 			children = (
 				555F15771B80017000A34EC4 /* ResultsSegue.swift */,
 				555F15751B7FFFD700A34EC4 /* ResultLabelController.swift */,
-				55D0CF611B5DD431003B1D3F /* TaxViewController_Page.swift */,
 				55D0CF5D1B5DD1AC003B1D3F /* FilingMasterController.swift */,
 				55C28A6F1B57C9CB001D073E /* AddInvestmentController.swift */,
 				55C28A6B1B572D9F001D073E /* InvestmentMasterController.swift */,
@@ -408,7 +405,7 @@
 				55E7D2F61B778AC40012D1CB /* ContainerInvestmentController.swift */,
 				555F15731B7FFF8D00A34EC4 /* ContainerMultiResultController.swift */,
 				555F15791B815C1500A34EC4 /* TaxPageController.swift */,
-				555F157B1B81786E00A34EC4 /* ResultsGraphController.swift */,
+				555F157B1B81786E00A34EC4 /* ResultGraphController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -604,8 +601,7 @@
 				55689C6B1B83FE8C00F8FAA2 /* ChartLayerBase.swift in Sources */,
 				55689C7D1B8401C800F8FAA2 /* ChartPointViewBarStacked.swift in Sources */,
 				55689C7B1B84015300F8FAA2 /* ChartGuideLinesLayer.swift in Sources */,
-				55D0CF621B5DD431003B1D3F /* TaxViewController_Page.swift in Sources */,
-				555F157C1B81786E00A34EC4 /* ResultsGraphController.swift in Sources */,
+				555F157C1B81786E00A34EC4 /* ResultGraphController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -99,21 +99,36 @@ class TaxViewControllerContainer: UIViewController , UIPickerViewDelegate {
     
     @IBAction func btnRefresh(sender: AnyObject) {
         
-        let containerViewController = self.childViewControllers[0] as! ContainerInvestmentController
-        let filingStatus = containerViewController.CalculateCapitalGain()
+        var filingStatus = FilingStatus()
         
-        if(filingStatus != nil)
+        if (self.childViewControllers.count == 2)
         {
-       //   txtLTCapitalGain.text = filingStatus?.TaxOnLTCapitalGain.description
-         // txtSTCapitalGain.text = filingStatus?.TaxOnSTCapitalGain.description
-          let total = (filingStatus?.TaxOnLTCapitalGain as Double?)!  + (filingStatus?.TaxOnSTCapitalGain as Double?)!
+            let containerViewController = self.childViewControllers[0] as! ContainerInvestmentController
+            let filingStatus = containerViewController.CalculateCapitalGain()
         
-       //   txtTotalTax.text = total.description
             
-        //  let containerGraphController = self.childViewControllers[1] as! ResultsGraphController
-    //    let containerGraphController = self.childViewControllers[1] as! TaxPageController
-       //   containerGraphController.FilingStatusForGraph = filingStatus!
-         // containerGraphController.DrawLongTermShortTermGraph()
+            if(filingStatus!.CurrentTaxableIncome != 0)
+            {
+                CapitalGainController.sharedInstance.SetResultFilingStatus(filingStatus!)
+                
+              //  let containerLabelController = self.childViewControllers[1] as! TaxPageController
+            //    containerLabelController.FilingStatusForGraph = filingStatus!
+               // containerLabelController.show
+           //   txtLTCapitalGain.text = filingStatus?.TaxOnLTCapitalGain.description
+             // txtSTCapitalGain.text = filingStatus?.TaxOnSTCapitalGain.description
+           //   let total = (filingStatus?.TaxOnLTCapitalGain as Double?)!  + (filingStatus?.TaxOnSTCapitalGain as Double?)!
+            
+           //   txtTotalTax.text = total.description
+                
+            //  let containerGraphController = self.childViewControllers[1] as! ResultGraphController
+        //    let containerGraphController = self.childViewControllers[1] as! TaxPageController
+           //   containerGraphController.FilingStatusForGraph = filingStatus!
+             // containerGraphController.DrawLongTermShortTermGraph()
+            }
+            else
+            {
+                //ToDo Display Show segue to enter tax
+            }
         }
         
     }

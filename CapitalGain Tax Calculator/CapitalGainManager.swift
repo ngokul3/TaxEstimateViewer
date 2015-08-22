@@ -12,12 +12,24 @@ import Foundation
 class CapitalGainControllerManager{
     var lstLotPosition = [LotPosition]()
     var lstFilingStatus = [FilingStatus]()
+    private var _resultFilingStatus : FilingStatus
     
     init()
     {
-       
+       _resultFilingStatus = FilingStatus()
+        //ToDO private member variables for all
     }
     
+    func SetResultFilingStatus(filingStatus : FilingStatus )
+    {
+        _resultFilingStatus = filingStatus
+    
+    }
+    
+    func GetResultFilingStatus() -> FilingStatus
+    {
+        return _resultFilingStatus
+    }
     
     func AddLotPosition(lotPosition: LotPosition)
     {
@@ -114,6 +126,7 @@ class CapitalGainControllerManager{
         selectedFilingStatus?.PreviouslyDeferredLoss = filingStatus.PreviouslyDeferredLoss
     }
     
+  
     func DeleteFilingStatusItem(index: Int)
     {
         lstFilingStatus.removeAtIndex(index) //ToDO - Defensive Coding required

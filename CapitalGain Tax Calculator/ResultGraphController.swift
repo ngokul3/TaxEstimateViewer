@@ -8,13 +8,14 @@
 
 import UIKit
 
-class ResultsGraphController: UIViewController {
+class ResultGraphController: UIViewController {
 
     private var _filingStatus = FilingStatus()
     private var _lstTaxBracket = [TaxBracket]()
     
     var FilingStatusForGraph: FilingStatus {
         get {
+           _filingStatus = CapitalGainController.sharedInstance.GetResultFilingStatus()
             return _filingStatus
         }
         set {
@@ -274,11 +275,11 @@ class ResultsGraphController: UIViewController {
         let horizontal: UIButton
         let vertical: UIButton
         
-        weak var controller: ResultsGraphController?
+        weak var controller: ResultGraphController?
         
         private let buttonDirs: [UIButton : Bool]
         
-        init(frame: CGRect, controller: ResultsGraphController) {
+        init(frame: CGRect, controller: ResultGraphController) {
             
             self.controller = controller
             

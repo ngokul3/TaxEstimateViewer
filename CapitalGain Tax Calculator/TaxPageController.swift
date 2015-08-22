@@ -13,6 +13,28 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
     private var _controllerEnum: ControllerEnum = ControllerEnum()
     private var _dict: [UIViewController: ControllerEnum] = [:]
     
+    private var _filingStatus = FilingStatus()
+    private var _lstTaxBracket = [TaxBracket]()
+    
+    var FilingStatusForGraph: FilingStatus {
+        get {
+            return _filingStatus
+        }
+        set {
+            _filingStatus = newValue
+        }
+    }
+    
+    var TaxBracketForGraph: [TaxBracket] {
+        get {
+            return _lstTaxBracket
+        }
+        set {
+            _lstTaxBracket = newValue
+        }
+    }
+
+    
     private var myViewControllers = NSArray()
    
     override func viewDidLoad() {
@@ -21,14 +43,25 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
         dataSource = self
         self.dataSource = self
         
-        let page1 = self.storyboard?.instantiateViewControllerWithIdentifier("ResultLabelID") as! UIViewController
-        let page2 = self.storyboard?.instantiateViewControllerWithIdentifier("ResultLongTermGraphID") as! UIViewController
-        
+        let page1 = self.storyboard?.instantiateViewControllerWithIdentifier("ResultLabelID") as! ResultLabelController
+        let page2 = self.storyboard?.instantiateViewControllerWithIdentifier("ResultLongTermGraphID") as! ResultGraphController
+       
         myViewControllers = [page1, page2]
         
  
         self.setViewControllers([page1], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
         
+        
+        for uiView in self.view.subviews
+        {
+            if (uiView.isKindOfClass(UIPageControl))
+            {
+                let pageControl = uiView as! UIPageControl
+                pageControl.pageIndicatorTintColor = UIColor.redColor()
+                
+            }
+        }
+
         NSLog("loaded!");
         
         
@@ -50,7 +83,7 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
         return myViewControllers.count
-       
+        //return ControllerEnum.GetCount()
     }
     
     func viewControllerAtIndex(index: Int) -> UIViewController
@@ -66,7 +99,7 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
         currentIndex = currentIndex - 1
         currentIndex = currentIndex % (myViewControllers.count)
         return myViewControllers.objectAtIndex(currentIndex) as? UIViewController
-       // return getController(_dict[viewController]!.prevIndex())
+        //return getController(_dict[viewController]!.prevIndex())
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
@@ -77,15 +110,17 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
         currentIndex = currentIndex % (myViewControllers.count)
         return myViewControllers.objectAtIndex(currentIndex) as? UIViewController
         
-        //  return getController(_dict[viewController]!.nextIndex())
+         // return getController(_dict[viewController]!.nextIndex())
     }
     
     private func getController(value: ControllerEnum) -> UIViewController? {
         var vc: UIViewController?
         switch value {
         case .ResultLabel:
-            vc = ResultLabelController()
-            vc!.view.backgroundColor = UIColor.redColor()
+            let resultLabelController = ResultLabelController()
+            resultLabelController.ShowLongTermShortTermLabel()
+            vc = resultLabelController
+         //   vc!.view.backgroundColor = UIColor.redColor()
             
         case .Center:
             vc = UIViewController()
@@ -110,7 +145,7 @@ private enum ControllerEnum: Int {
     case Nil = -1, ResultLabel, Center, Debts
     
     init() {
-        self = .Center
+        self = .ResultLabel
     }
     
     func prevIndex() -> ControllerEnum {
@@ -122,4 +157,10 @@ private enum ControllerEnum: Int {
         if value > ControllerEnum.allValues.count-1 { value = Nil.rawValue }
         return ControllerEnum(rawValue: value)!
     }
+    
+    static func GetCount() -> Int
+    {
+        return allValues.count
+    }
+    
 }

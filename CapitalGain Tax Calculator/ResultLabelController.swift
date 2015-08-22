@@ -10,6 +10,30 @@ import UIKit
 
 class ResultLabelController: UIViewController {
 
+    private var _filingStatus = FilingStatus()
+    private var _lstTaxBracket = [TaxBracket]()
+    
+    var FilingStatusForGraph: FilingStatus {
+        get {
+             _filingStatus = CapitalGainController.sharedInstance.GetResultFilingStatus()
+            return _filingStatus
+        }
+        set {
+            _filingStatus = newValue
+        }
+    }
+    
+    var TaxBracketForGraph: [TaxBracket] {
+        get {
+            return _lstTaxBracket
+        }
+        set {
+            _lstTaxBracket = newValue
+        }
+    }
+
+    
+    @IBOutlet weak var txtAnnualIncome: UITextField!
     @IBOutlet weak var lblShortTermTax: UILabel!
 
     @IBOutlet weak var test23: UILabel!
@@ -31,14 +55,16 @@ class ResultLabelController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func ShowLongTermShortTermLabel()
+    {
+        if (self.FilingStatusForGraph.Year != 0)
+        {
+            self.TaxBracketForGraph = TaxOnCapitalGainLossUp.GetTaxHairCut(self.FilingStatusForGraph)
+            
+            self.txtAnnualIncome.text = FilingStatusForGraph.CurrentTaxableIncome.description
+       
+        }
     }
-    */
+
 
 }
