@@ -122,12 +122,24 @@ class ResultsGraphController: UIViewController {
         
         let LTTaxBracket = TaxBracketForGraph.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).first! as TaxBracket
         
+        let interval = round(((currentIncome + maxTermCapitalGain) - currentIncome) / 5)
+        
         if maxTermCapitalGain > 0
         {
             var oneLevelDownCurrentIncome :ChartAxisValueFloat = ChartAxisValueFloat(0)
             
-            for item in LTTaxBracket.FederalTax.array
+            for var i = currentIncome; i < currentIncome + maxTermCapitalGain; i++
             {
+                i = i + interval
+                var taxItem =  ChartAxisValueFloat(CGFloat(i),labelSettings: labelSettings)
+                xTaxBracket.append(taxItem)
+                
+            }
+            
+           
+           /* for item in LTTaxBracket.FederalTax.array
+            {
+                
                 
                 if ((currentIncome + maxTermCapitalGain) < item)
                 {
@@ -139,12 +151,12 @@ class ResultsGraphController: UIViewController {
                     break
                 }
                 
-                else
+                else if(currentIncome < item)
                 {
                     oneLevelDownCurrentIncome =  ChartAxisValueFloat(CGFloat(item),labelSettings: labelSettings)
                     
                 }
-            }
+            }*/
         }
         
         
@@ -250,9 +262,9 @@ class ResultsGraphController: UIViewController {
                 
                 //      let dirSelector = DirSelector(frame: CGRectMake(0, chart.frame.origin.y + chart.frame.size.height, self.view.frame.size.width, self.dirSelectorHeight), controller: self)
                 
-                let dirSelector = DirSelector(frame: CGRectMake(0,0,375,243), controller: self)
+              //  let dirSelector = DirSelector(frame: CGRectMake(0,0,375,243), controller: self)
                 
-                self.view.addSubview(dirSelector)
+              //  self.view.addSubview(dirSelector)
             }
         }
     }

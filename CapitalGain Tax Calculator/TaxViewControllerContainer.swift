@@ -110,9 +110,10 @@ class TaxViewControllerContainer: UIViewController , UIPickerViewDelegate {
         
        //   txtTotalTax.text = total.description
             
-          let containerGraphController = self.childViewControllers[1] as! ResultsGraphController
-          containerGraphController.FilingStatusForGraph = filingStatus!
-          containerGraphController.DrawLongTermShortTermGraph()
+        //  let containerGraphController = self.childViewControllers[1] as! ResultsGraphController
+    //    let containerGraphController = self.childViewControllers[1] as! TaxPageController
+       //   containerGraphController.FilingStatusForGraph = filingStatus!
+         // containerGraphController.DrawLongTermShortTermGraph()
         }
         
     }
