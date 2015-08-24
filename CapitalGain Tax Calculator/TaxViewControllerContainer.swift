@@ -111,7 +111,11 @@ class TaxViewControllerContainer: UIViewController , UIPickerViewDelegate {
             {
                 CapitalGainController.sharedInstance.SetResultFilingStatus(filingStatus!)
                 
-              //  let containerLabelController = self.childViewControllers[1] as! TaxPageController
+                // let containerGraphController = self.childViewControllers[1] as! ResultGraphController
+              //  containerGraphController.DrawLongTermShortTermGraph()
+                let taxPageController = self.childViewControllers[1] as! TaxPageController
+                taxPageController.RefreshTaxViewPages()
+                
             //    containerLabelController.FilingStatusForGraph = filingStatus!
                // containerLabelController.show
            //   txtLTCapitalGain.text = filingStatus?.TaxOnLTCapitalGain.description
@@ -133,4 +137,10 @@ class TaxViewControllerContainer: UIViewController , UIPickerViewDelegate {
         
     }
 
+}
+
+protocol ResultsFilingStatus
+{
+    func GetResultsFilingStatus() -> FilingStatus
+   
 }

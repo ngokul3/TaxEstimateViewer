@@ -22,7 +22,6 @@
 		555F15761B7FFFD700A34EC4 /* ResultLabelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F15751B7FFFD700A34EC4 /* ResultLabelController.swift */; };
 		555F15781B80017000A34EC4 /* ResultsSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F15771B80017000A34EC4 /* ResultsSegue.swift */; };
 		555F157A1B815C1500A34EC4 /* TaxPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F15791B815C1500A34EC4 /* TaxPageController.swift */; };
-		555F157C1B81786E00A34EC4 /* ResultGraphController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F157B1B81786E00A34EC4 /* ResultGraphController.swift */; };
 		556065D01B769D4A0054E00E /* TaxViewControllerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556065CF1B769D490054E00E /* TaxViewControllerContainer.swift */; };
 		55689C4B1B83FE3700F8FAA2 /* BarsChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55689C2E1B83FE3700F8FAA2 /* BarsChart.swift */; };
 		55689C4C1B83FE3700F8FAA2 /* ChartAxisLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55689C2F1B83FE3700F8FAA2 /* ChartAxisLabel.swift */; };
@@ -86,6 +85,7 @@
 		557E85F11B6AE44F00197CBE /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 557E85EA1B6AE44F00197CBE /* FMDatabaseQueue.m */; };
 		557E85F21B6AE44F00197CBE /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 557E85EC1B6AE44F00197CBE /* FMDatabaseAdditions.m */; };
 		557E85F31B6AE44F00197CBE /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 557E85EE1B6AE44F00197CBE /* FMDatabasePool.m */; };
+		5597E7F11B8AC0D200605BBD /* ResultGraphController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5597E7F01B8AC0D200605BBD /* ResultGraphController.swift */; };
 		55C28A491B55F0E2001D073E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A481B55F0E2001D073E /* AppDelegate.swift */; };
 		55C28A4C1B55F0E2001D073E /* CapitalGain_Tax_Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A4A1B55F0E2001D073E /* CapitalGain_Tax_Calculator.xcdatamodeld */; };
 		55C28A511B55F0E2001D073E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55C28A4F1B55F0E2001D073E /* Main.storyboard */; };
@@ -120,7 +120,6 @@
 		555F15751B7FFFD700A34EC4 /* ResultLabelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultLabelController.swift; sourceTree = "<group>"; };
 		555F15771B80017000A34EC4 /* ResultsSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsSegue.swift; sourceTree = "<group>"; };
 		555F15791B815C1500A34EC4 /* TaxPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxPageController.swift; sourceTree = "<group>"; };
-		555F157B1B81786E00A34EC4 /* ResultGraphController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultGraphController.swift; sourceTree = "<group>"; };
 		556065CF1B769D490054E00E /* TaxViewControllerContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxViewControllerContainer.swift; sourceTree = "<group>"; };
 		55689C2E1B83FE3700F8FAA2 /* BarsChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BarsChart.swift; path = SwiftCharts/BarsChart.swift; sourceTree = "<group>"; };
 		55689C2F1B83FE3700F8FAA2 /* ChartAxisLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartAxisLabel.swift; path = SwiftCharts/ChartAxisLabel.swift; sourceTree = "<group>"; };
@@ -192,6 +191,7 @@
 		557E85EC1B6AE44F00197CBE /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = DataLibrary/src/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
 		557E85ED1B6AE44F00197CBE /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = DataLibrary/src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
 		557E85EE1B6AE44F00197CBE /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = DataLibrary/src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
+		5597E7F01B8AC0D200605BBD /* ResultGraphController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultGraphController.swift; sourceTree = "<group>"; };
 		55C28A431B55F0E2001D073E /* CapitalGain Tax Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CapitalGain Tax Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C28A471B55F0E2001D073E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55C28A481B55F0E2001D073E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -395,6 +395,7 @@
 		55D0CF671B5F16CC003B1D3F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5597E7F01B8AC0D200605BBD /* ResultGraphController.swift */,
 				555F15771B80017000A34EC4 /* ResultsSegue.swift */,
 				555F15751B7FFFD700A34EC4 /* ResultLabelController.swift */,
 				55D0CF5D1B5DD1AC003B1D3F /* FilingMasterController.swift */,
@@ -405,7 +406,6 @@
 				55E7D2F61B778AC40012D1CB /* ContainerInvestmentController.swift */,
 				555F15731B7FFF8D00A34EC4 /* ContainerMultiResultController.swift */,
 				555F15791B815C1500A34EC4 /* TaxPageController.swift */,
-				555F157B1B81786E00A34EC4 /* ResultGraphController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -581,6 +581,7 @@
 				555F157A1B815C1500A34EC4 /* TaxPageController.swift in Sources */,
 				55689C511B83FE3700F8FAA2 /* ChartAxisValueDate.swift in Sources */,
 				55689C661B83FE3700F8FAA2 /* LineChart.swift in Sources */,
+				5597E7F11B8AC0D200605BBD /* ResultGraphController.swift in Sources */,
 				55689C721B83FF4500F8FAA2 /* ChartCoordsSpace.swift in Sources */,
 				55689C6D1B83FECF00F8FAA2 /* ChartUtils.swift in Sources */,
 				55689C561B83FE3700F8FAA2 /* ChartAxisValueString.swift in Sources */,
@@ -601,7 +602,6 @@
 				55689C6B1B83FE8C00F8FAA2 /* ChartLayerBase.swift in Sources */,
 				55689C7D1B8401C800F8FAA2 /* ChartPointViewBarStacked.swift in Sources */,
 				55689C7B1B84015300F8FAA2 /* ChartGuideLinesLayer.swift in Sources */,
-				555F157C1B81786E00A34EC4 /* ResultGraphController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

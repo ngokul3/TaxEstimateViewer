@@ -15,6 +15,8 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
     
     private var _filingStatus = FilingStatus()
     private var _lstTaxBracket = [TaxBracket]()
+    private var _page1 = ResultLabelController()
+    private var _page2 = ResultGraphController()
     
     var FilingStatusForGraph: FilingStatus {
         get {
@@ -43,14 +45,16 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
         dataSource = self
         self.dataSource = self
         
-        let page1 = self.storyboard?.instantiateViewControllerWithIdentifier("ResultLabelID") as! ResultLabelController
-        let page2 = self.storyboard?.instantiateViewControllerWithIdentifier("ResultLongTermGraphID") as! ResultGraphController
-       
-        myViewControllers = [page1, page2]
+      //  RefreshTaxViewPages()
         
- 
-        self.setViewControllers([page1], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+        _page1 = self.storyboard?.instantiateViewControllerWithIdentifier("ResultLabelID") as! ResultLabelController
+        _page2 = self.storyboard?.instantiateViewControllerWithIdentifier("ResultLongTermGraphID") as! ResultGraphController
         
+        myViewControllers = [_page1, _page2]
+        
+        self.setViewControllers([_page2], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+   
+        self.setViewControllers([_page1], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
         
         for uiView in self.view.subviews
         {
@@ -75,7 +79,11 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func RefreshTaxViewPages()
+    {
+       _page1.ShowLongTermShortTermLabel()
+        _page2.DrawLongTermShortTermGraph()
+    }
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
         return 0
        // return _controllerEnum.rawValue

@@ -479,7 +479,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fAt-MV-HID">
                                 <rect key="frame" x="0.0" y="375" width="375" height="243"/>
                                 <connections>
-                                    <segue destination="aSO-aT-m5j" kind="embed" id="sXV-ff-UBJ"/>
+                                    <segue destination="aSO-aT-m5j" kind="embed" id="nFS-c0-3Ox"/>
                                 </connections>
                             </containerView>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Puc-ob-WNz">
@@ -541,14 +541,13 @@
                     <view key="view" contentMode="scaleToFill" id="bAZ-Bl-MDs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="243"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.1803539894" blue="0.087275709640000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="243"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DwE-el-19J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1794.5" y="849.5"/>
+            <point key="canvasLocation" x="1602.5" y="812.5"/>
         </scene>
         <!--Container Multi Result Controller-->
         <scene sceneID="kZg-4W-B5J">
@@ -586,7 +585,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ann Inc" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsT-IM-iLs">
                                 <rect key="frame" x="5" y="7" width="123" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VRP-lJ-Gwb">
@@ -602,11 +601,10 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Tax" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yas-nN-abI">
                                 <rect key="frame" x="16" y="96" width="82" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="wsT-IM-iLs" firstAttribute="leading" secondItem="jEH-Tq-hd5" secondAttribute="leadingMargin" id="TfZ-nK-uVx"/>
                             <constraint firstItem="wsT-IM-iLs" firstAttribute="top" secondItem="jEH-Tq-hd5" secondAttribute="topMargin" constant="7" id="X3d-TO-Uee"/>

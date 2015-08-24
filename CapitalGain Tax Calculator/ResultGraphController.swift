@@ -39,7 +39,7 @@ class ResultGraphController: UIViewController {
     
     private func barsChart(#horizontal: Bool) -> Chart {
         
-        let x = TaxBracketForGraph.first!.FederalTax.dictionary.values
+      //  let x = TaxBracketForGraph.first!.FederalTax.dictionary.values
         
         let labelSettings = ChartLabelSettings(font: ExamplesDefaults.labelFont)
         
@@ -51,8 +51,8 @@ class ResultGraphController: UIViewController {
         
         let currentIncome = FilingStatusForGraph.CurrentTaxableIncome
         
-        stackedLongTermIncomeLevel.append(currentIncome)
-        stackedShortTermIncomeLevel.append(currentIncome)
+    //    stackedLongTermIncomeLevel.append(currentIncome)
+      //  stackedShortTermIncomeLevel.append(currentIncome)
         
         for item in FilingStatusForGraph.FilingStatusTax
         {
@@ -73,16 +73,19 @@ class ResultGraphController: UIViewController {
             ("Long Term", [
                 (CGFloat(currentIncome),
                     stackedLongTermIncomeLevel
+                ),
+                (CGFloat(currentIncome),
+                    stackedShortTermIncomeLevel
                 )
-                ]),
+                ])/*,
             ("Short Term", [
                 (CGFloat(currentIncome),
                     stackedShortTermIncomeLevel
                 )
-                ])
+                ])*/
         ]
 
-        
+     
         /**/
   
         let frameColors = [UIColor.redColor().colorWithAlphaComponent(0.6), UIColor.blueColor().colorWithAlphaComponent(0.6), UIColor.greenColor().colorWithAlphaComponent(0.6)]
@@ -98,20 +101,15 @@ class ResultGraphController: UIViewController {
             return ChartPointsBarGroup(constant: constant, bars: bars)
         }
         
-        let (axisValues1: [ChartAxisValue], axisValues2: [ChartAxisValue]) = (
-            Array(stride(from: 0, through: 50000, by: 5000)).map {ChartAxisValueFloat($0, labelSettings: labelSettings)},
-            [ChartAxisValueString(order: -1)] +
-                Array(enumerate(groupsData)).map {index, tuple in ChartAxisValueString(tuple.0, order: index, labelSettings: labelSettings)} +
-                [ChartAxisValueString(order: groupsData.count)]
-        )
+       
+
+        //101004
         /* */
         var xTaxBracket = [ChartAxisValueFloat]()
         
-     //   let baseItem = ChartAxisValueFloat(CGFloat(0),labelSettings: labelSettings)
-       // xTaxBracket.append(baseItem)
         
         let incomeItem =  ChartAxisValueFloat(CGFloat(currentIncome),labelSettings: labelSettings)
-        xTaxBracket.append(incomeItem)
+     //   xTaxBracket.append(incomeItem)
         
         let lstFilingStatusTax = FilingStatusForGraph.FilingStatusTax
   
@@ -121,68 +119,40 @@ class ResultGraphController: UIViewController {
 
         var maxTermCapitalGain : Double = Double(LTTaxTotal > STTaxTotal ? LTTaxTotal : STTaxTotal)
         
-        let LTTaxBracket = TaxBracketForGraph.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).first! as TaxBracket
+        if maxTermCapitalGain < 0
+        {
+            maxTermCapitalGain = 0
+        }
         
         let interval = round(((currentIncome + maxTermCapitalGain) - currentIncome) / 5)
         
+        let (axisValues1: [ChartAxisValue], axisValues2: [ChartAxisValue]) = (
+            Array(stride(from: CGFloat(currentIncome), through: CGFloat(currentIncome + maxTermCapitalGain), by: CGFloat(interval))).map {ChartAxisValueFloat($0, labelSettings: labelSettings)},
+            [ChartAxisValueString(order: -1)] +
+                Array(enumerate(groupsData)).map {index, tuple in ChartAxisValueString(tuple.0, order: index, labelSettings: labelSettings)} +
+                [ChartAxisValueString(order: groupsData.count)]
+        )
+        
         if maxTermCapitalGain > 0
         {
-            var oneLevelDownCurrentIncome :ChartAxisValueFloat = ChartAxisValueFloat(0)
-            
-            for var i = currentIncome; i < currentIncome + maxTermCapitalGain; i++
+          
+        /*    for var i = currentIncome; i < currentIncome + maxTermCapitalGain; i++
             {
                 i = i + interval
                 var taxItem =  ChartAxisValueFloat(CGFloat(i),labelSettings: labelSettings)
                 xTaxBracket.append(taxItem)
                 
             }
+         */   
             
-           
-           /* for item in LTTaxBracket.FederalTax.array
-            {
-                
-                
-                if ((currentIncome + maxTermCapitalGain) < item)
-                {
-                    xTaxBracket.append(oneLevelDownCurrentIncome)
-                    var taxItem =  ChartAxisValueFloat(CGFloat(currentIncome + maxTermCapitalGain),labelSettings: labelSettings)
-                    xTaxBracket.append(taxItem)
-                    taxItem =  ChartAxisValueFloat(CGFloat(item),labelSettings: labelSettings)
-                    xTaxBracket.append(taxItem)
-                    break
-                }
-                
-                else if(currentIncome < item)
-                {
-                    oneLevelDownCurrentIncome =  ChartAxisValueFloat(CGFloat(item),labelSettings: labelSettings)
-                    
-                }
-            }*/
+   
         }
         
         
-        
-    
-      /*
-        var x0 = ChartAxisValueFloat(0,labelSettings: labelSettings)
-        
-        var x1 = ChartAxisValueFloat(20000,labelSettings: labelSettings)
-        
-        var x2 = ChartAxisValueFloat(32000,labelSettings: labelSettings)
-        var x3 = ChartAxisValueFloat(90000,labelSettings: labelSettings)
-        var x4 = ChartAxisValueFloat(190000,labelSettings: labelSettings)
-     
-        xTaxBracket.append(x0)
-        xTaxBracket.append(x1)
-        xTaxBracket.append(x2)
-        xTaxBracket.append(x3)
-        xTaxBracket.append(x4)
-   */
-        
-          let (xValues, yValues) = horizontal ? (xTaxBracket, axisValues2) : (axisValues2, xTaxBracket)
+      //  let (xValues, yValues) = horizontal ? (xTaxBracket, axisValues2) : (axisValues2, xTaxBracket)
         /* */
         
-        //let (xValues, yValues) = horizontal ? (axisValues1, axisValues2) : (axisValues2, axisValues1)
+        let (xValues, yValues) = horizontal ? (axisValues1, axisValues2) : (axisValues2, axisValues1)
         
       
         let xModel = ChartAxisModel(axisValues: xValues, axisTitleLabel: ChartAxisLabel(text: "Term", settings: labelSettings))
@@ -256,9 +226,10 @@ class ResultGraphController: UIViewController {
     {
         if (self.FilingStatusForGraph.Year != 0)
         {
+            self.showChart(horizontal: false)
+            
             self.TaxBracketForGraph = TaxOnCapitalGainLossUp.GetTaxHairCut(self.FilingStatusForGraph)
             
-            self.showChart(horizontal: false)
             if let chart = self.chart {
                 
                 //      let dirSelector = DirSelector(frame: CGRectMake(0, chart.frame.origin.y + chart.frame.size.height, self.view.frame.size.width, self.dirSelectorHeight), controller: self)
