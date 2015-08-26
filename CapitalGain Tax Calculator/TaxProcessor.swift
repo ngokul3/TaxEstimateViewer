@@ -140,7 +140,7 @@ class TaxProcessor
               
                 let filingStatusTaxAt = FilingStatusTaxAt()
                 filingStatusTaxAt.Term = termTaxDictionary.Term //ToDO - test
-                filingStatusTaxAt.Limit = taxOnCapitalGain
+                filingStatusTaxAt.Limit = termGL
                 filingStatusTaxAt.LimitTaxedAt = maxTaxItem!
                 lstFilingStatusTaxAt.append(filingStatusTaxAt)
             }

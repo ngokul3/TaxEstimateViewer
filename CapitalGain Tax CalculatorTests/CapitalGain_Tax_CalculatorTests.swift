@@ -222,9 +222,19 @@ class CapitalGain_Tax_CalculatorTests: XCTestCase {
         
         filingStatus = taxProcessor.GetTaxableIncome(filingStatus, lstLotTerm: lstLotTerm)
         
-        XCTAssertEqual(round(filingStatus.TaxOnLTSTCapitalGain), round(109455), "Joint")
+        let lstFilingStatusTax = filingStatus.FilingStatusTax
+        
+     
+        let LTTaxFirst = lstFilingStatusTax.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).map{ return $0.Limit}.first
+        let LTTaxTotal = lstFilingStatusTax.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).map{ return $0.Limit}.reduce(0) { return $0 + $1 }
+        
+        let STTaxFirst = lstFilingStatusTax.filter({m in m.Term.rawValue == ENumTerm.ShortTerm.rawValue}).map{ return $0.Limit}.first
+        let STTaxTotal = lstFilingStatusTax.filter({m in m.Term.rawValue == ENumTerm.ShortTerm.rawValue}).map{ return $0.Limit}.reduce(0) { return $0 + $1 }
+        
+        XCTAssertEqual(round(filingStatus.TaxOnLTSTCapitalGain), round(109455), "Joint")//59910 + 67.5 +126 + 49351
+        XCTAssertEqual(round(LTTaxFirst!),450)
+        XCTAssertEqual(round(LTTaxTotal),300000)
     }
-
     func testJointTaxEstimate_2015_2TaxBrackets2()
     {
         let taxProcessor = TaxProcessor()

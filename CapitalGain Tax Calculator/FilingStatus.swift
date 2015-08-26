@@ -63,7 +63,7 @@ class FilingStatus
     private var _year:Int //ToDO - Int or int32
     private var _filingType: ENumFilingType
     private var _currentTaxableIncome: Double
-    private var _previouslyDeferredLoss : Double
+    private var _previouslyDeferredLoss : Double //ToDo - Handle Deferred Loss
     private var _taxOnSTCapitalGain: Double
     private var _taxOnLTCapitalGain: Double
     private var _netLoss : Double

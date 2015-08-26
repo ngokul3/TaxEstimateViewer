@@ -457,7 +457,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ILV-hL-5HY">
-                                <rect key="frame" x="0.0" y="164" width="375" height="203"/>
+                                <rect key="frame" x="0.0" y="141" width="375" height="203"/>
                                 <connections>
                                     <segue destination="XGP-fu-3fm" kind="embed" identifier="ShowInvestments" id="3sj-dn-DaP"/>
                                 </connections>
@@ -476,19 +476,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fAt-MV-HID">
-                                <rect key="frame" x="0.0" y="375" width="375" height="243"/>
-                                <connections>
-                                    <segue destination="aSO-aT-m5j" kind="embed" id="nFS-c0-3Ox"/>
-                                </connections>
-                            </containerView>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Puc-ob-WNz">
-                                <rect key="frame" x="0.0" y="337" width="375" height="45"/>
+                                <rect key="frame" x="0.0" y="337" width="375" height="56"/>
                                 <connections>
                                     <outlet property="dataSource" destination="JR2-O9-KcR" id="0Fq-wK-QO3"/>
                                     <outlet property="delegate" destination="JR2-O9-KcR" id="jkh-fz-GXJ"/>
                                 </connections>
                             </pickerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fAt-MV-HID">
+                                <rect key="frame" x="0.0" y="343" width="375" height="243"/>
+                                <connections>
+                                    <segue destination="aSO-aT-m5j" kind="embed" id="nFS-c0-3Ox"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -547,28 +547,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DwE-el-19J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1602.5" y="812.5"/>
-        </scene>
-        <!--Container Multi Result Controller-->
-        <scene sceneID="kZg-4W-B5J">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="TwO-90-mPL" customClass="ContainerMultiResultController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wDQ-lK-Xaa"/>
-                        <viewControllerLayoutGuide type="bottom" id="eC1-uZ-Uyj"/>
-                    </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uVF-HM-OG1">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <toolbarItems/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="50" height="50"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HyD-Vh-lwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2072" y="834"/>
+            <point key="canvasLocation" x="1794.5" y="833.5"/>
         </scene>
         <!--Result Label Controller-->
         <scene sceneID="Up9-YD-lar">
@@ -582,41 +561,104 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="243"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ann Inc" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsT-IM-iLs">
-                                <rect key="frame" x="5" y="7" width="123" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tax Based on Income" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsT-IM-iLs">
+                                <rect key="frame" x="5" y="7" width="166" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VRP-lJ-Gwb">
-                                <rect key="frame" x="160" y="9" width="185" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100.2k" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VRP-lJ-Gwb">
+                                <rect key="frame" x="237" y="2" width="127" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n3Y-Cb-FZK">
-                                <rect key="frame" x="166" y="96" width="185" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="23002" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n3Y-Cb-FZK">
+                                <rect key="frame" x="237" y="141" width="130" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Tax" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yas-nN-abI">
-                                <rect key="frame" x="16" y="96" width="82" height="33"/>
+                                <rect key="frame" x="8" y="141" width="82" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="icO-N0-B6q">
+                                <rect key="frame" x="5" y="36" width="359" height="2"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LTGain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fh7-8k-ak2">
+                                <rect key="frame" x="5" y="55" width="59" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ST Gain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7A-WI-yje">
+                                <rect key="frame" x="191" y="53" width="82" height="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100000000" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="40S-im-YZQ">
+                                <rect key="frame" x="95" y="50" width="76" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100000000" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hG7-MJ-U4O">
+                                <rect key="frame" x="288" y="50" width="76" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v8s-0V-i0f">
+                                <rect key="frame" x="5" y="86" width="359" height="2"/>
+                            </progressView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LAt-Nd-PBz">
+                                <rect key="frame" x="8" y="131" width="359" height="2"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tax on L" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Xy-YF-DG4">
+                                <rect key="frame" x="5" y="102" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tax on S" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FdW-IZ-au5">
+                                <rect key="frame" x="191" y="102" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10000" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="053-Ol-bx0">
+                                <rect key="frame" x="95" y="98" width="76" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10000" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MQf-yP-RG7">
+                                <rect key="frame" x="288" y="97" width="76" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g0q-dA-Ab1">
+                                <rect key="frame" x="8" y="182" width="359" height="2"/>
+                            </progressView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="wsT-IM-iLs" firstAttribute="leading" secondItem="jEH-Tq-hd5" secondAttribute="leadingMargin" id="TfZ-nK-uVx"/>
                             <constraint firstItem="wsT-IM-iLs" firstAttribute="top" secondItem="jEH-Tq-hd5" secondAttribute="topMargin" constant="7" id="X3d-TO-Uee"/>
+                            <constraint firstItem="wsT-IM-iLs" firstAttribute="leading" secondItem="jEH-Tq-hd5" secondAttribute="leadingMargin" constant="-11" id="gd5-2Z-FvX"/>
+                            <constraint firstItem="wsT-IM-iLs" firstAttribute="top" secondItem="jEH-Tq-hd5" secondAttribute="topMargin" constant="7" id="l3B-XX-FIF"/>
+                            <constraint firstItem="wsT-IM-iLs" firstAttribute="top" secondItem="jEH-Tq-hd5" secondAttribute="topMargin" constant="7" id="ooN-VX-4Gs"/>
+                            <constraint firstItem="wsT-IM-iLs" firstAttribute="leading" secondItem="jEH-Tq-hd5" secondAttribute="leadingMargin" constant="2" id="yLd-CY-5XS"/>
                         </constraints>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="375" height="243"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="243"/>
                     <connections>
-                        <outlet property="lblShortTermTax" destination="wsT-IM-iLs" id="sMJ-k0-iN5"/>
-                        <outlet property="lblTotalTax" destination="Yas-nN-abI" id="tke-h6-Iem"/>
                         <outlet property="txtAnnualIncome" destination="VRP-lJ-Gwb" id="vjA-8Q-Qgw"/>
+                        <outlet property="txtLTGain" destination="40S-im-YZQ" id="jWx-An-Cdc"/>
+                        <outlet property="txtSTGain" destination="hG7-MJ-U4O" id="EUE-GD-NyR"/>
+                        <outlet property="txtTaxOnLT" destination="053-Ol-bx0" id="zXs-gy-c4F"/>
+                        <outlet property="txtTaxOnST" destination="MQf-yP-RG7" id="4gT-R6-rmO"/>
+                        <outlet property="txtTotalTax" destination="n3Y-Cb-FZK" id="7ig-fI-oXE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRm-g1-2nK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -626,30 +668,10 @@
         <!--Tax Page Controller-->
         <scene sceneID="5fp-ed-DLa">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="none" id="aSO-aT-m5j" customClass="TaxPageController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="aSO-aT-m5j" customClass="TaxPageController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbR-c7-1FY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1030" y="763"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="nW2-o6-nL2">
-            <objects>
-                <viewController id="q7X-Zg-KCy" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mDy-4j-gGo"/>
-                        <viewControllerLayoutGuide type="bottom" id="NB0-z4-ZUy"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4Id-P4-oUr">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.1803539894" blue="0.087275709640000004" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="50" height="50"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vPv-UG-tQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2138" y="834"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

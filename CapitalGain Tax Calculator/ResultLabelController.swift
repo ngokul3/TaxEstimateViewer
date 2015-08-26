@@ -13,6 +13,18 @@ class ResultLabelController: UIViewController {
     private var _filingStatus = FilingStatus()
     private var _lstTaxBracket = [TaxBracket]()
     
+    @IBOutlet weak var txtAnnualIncome: UITextField!
+    
+    @IBOutlet weak var txtLTGain: UITextField!
+    
+    @IBOutlet weak var txtSTGain: UITextField!
+    
+    @IBOutlet weak var txtTaxOnLT: UITextField!
+    
+    @IBOutlet weak var txtTaxOnST: UITextField!
+    
+    @IBOutlet weak var txtTotalTax: UITextField!
+    
     var FilingStatusForGraph: FilingStatus {
         get {
              _filingStatus = CapitalGainController.sharedInstance.GetResultFilingStatus()
@@ -23,30 +35,9 @@ class ResultLabelController: UIViewController {
         }
     }
     
-    var TaxBracketForGraph: [TaxBracket] {
-        get {
-            return _lstTaxBracket
-        }
-        set {
-            _lstTaxBracket = newValue
-        }
-    }
-
-    
-    @IBOutlet weak var txtAnnualIncome: UITextField!
-    @IBOutlet weak var lblShortTermTax: UILabel!
-
-    @IBOutlet weak var test23: UILabel!
-    @IBOutlet weak var tes2: UILabel!
-    @IBOutlet weak var tst1: UILabel!
-    @IBOutlet weak var lblTotalTax: UILabel!
-    
     override func viewDidLoad() {
-        super.viewDidLoad()
+    super.viewDidLoad()
 
-        let x = 10
-  //      lblShortTermTax.text = "This is a short Term invesment"
-        // Do any additional setup after loading the view.
     }
   
     override func didReceiveMemoryWarning() {
@@ -59,9 +50,15 @@ class ResultLabelController: UIViewController {
     {
         if (self.FilingStatusForGraph.Year != 0)
         {
-            self.TaxBracketForGraph = TaxOnCapitalGainLossUp.GetTaxHairCut(self.FilingStatusForGraph)
-            
             self.txtAnnualIncome.text = FilingStatusForGraph.CurrentTaxableIncome.description
+            self.txtLTGain.text = FilingStatusForGraph.FilingStatusTax.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).map{ return $0.Limit }.reduce(0) { return $0 + $1 }.description
+            
+            self.txtSTGain.text = FilingStatusForGraph.FilingStatusTax.filter({m in m.Term.rawValue == ENumTerm.ShortTerm.rawValue}).map{ return $0.Limit }.reduce(0) { return $0 + $1 }.description
+       
+            self.txtTaxOnLT.text = FilingStatusForGraph.TaxOnLTCapitalGain.description
+            self.txtTaxOnST.text = FilingStatusForGraph.TaxOnSTCapitalGain.description
+            self.txtTotalTax.text = (FilingStatusForGraph.TaxOnLTCapitalGain + FilingStatusForGraph.TaxOnSTCapitalGain).description
+            
        
         }
     }

@@ -104,7 +104,13 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
         var currentIndex : NSInteger
         currentIndex = myViewControllers.indexOfObject(viewController)
         
+        if (currentIndex == 0)
+        {
+            return nil;
+        }
+        
         currentIndex = currentIndex - 1
+        
         currentIndex = currentIndex % (myViewControllers.count)
         return myViewControllers.objectAtIndex(currentIndex) as? UIViewController
         //return getController(_dict[viewController]!.prevIndex())
@@ -114,7 +120,14 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
       
         var currentIndex : NSInteger
         currentIndex = myViewControllers.indexOfObject(viewController)
+        
+        if (currentIndex == myViewControllers.count - 1)
+        {
+            return nil;
+        }
+        
         currentIndex = currentIndex + 1
+        
         currentIndex = currentIndex % (myViewControllers.count)
         return myViewControllers.objectAtIndex(currentIndex) as? UIViewController
         

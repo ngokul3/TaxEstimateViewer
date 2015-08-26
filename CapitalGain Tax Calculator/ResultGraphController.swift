@@ -73,16 +73,13 @@ class ResultGraphController: UIViewController {
             ("Long Term", [
                 (CGFloat(currentIncome),
                     stackedLongTermIncomeLevel
-                ),
-                (CGFloat(currentIncome),
-                    stackedShortTermIncomeLevel
                 )
-                ])/*,
+                ]),
             ("Short Term", [
                 (CGFloat(currentIncome),
                     stackedShortTermIncomeLevel
                 )
-                ])*/
+                ])
         ]
 
      
@@ -133,22 +130,7 @@ class ResultGraphController: UIViewController {
                 [ChartAxisValueString(order: groupsData.count)]
         )
         
-        if maxTermCapitalGain > 0
-        {
-          
-        /*    for var i = currentIncome; i < currentIncome + maxTermCapitalGain; i++
-            {
-                i = i + interval
-                var taxItem =  ChartAxisValueFloat(CGFloat(i),labelSettings: labelSettings)
-                xTaxBracket.append(taxItem)
-                
-            }
-         */   
-            
-   
-        }
-        
-        
+       
       //  let (xValues, yValues) = horizontal ? (xTaxBracket, axisValues2) : (axisValues2, xTaxBracket)
         /* */
         
