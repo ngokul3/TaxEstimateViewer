@@ -15,8 +15,9 @@ enum ENumDirection:String{
 }
 
 enum ENumInvestmentType:String{
-    case Equity="Equity"
-    case Dividend="Regular Income / Dividend"
+    case Equity="Stock / Bond / Option / ETF ..etc"
+    case Dividend="Qualified Dividend"
+    case NonQualifiedDividend="Non-qualified Dividend"
     case Section1256 = "Section 1256"
 }
 class LotPosition{

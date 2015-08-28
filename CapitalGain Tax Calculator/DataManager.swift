@@ -239,13 +239,31 @@ class DataManager
                 
                 let investmentType = results?.stringForColumn("InvestmentType")!
 
-                lotPosition.InvestmentType = ENumInvestmentType(rawValue: investmentType!)!
+                if (ENumInvestmentType(rawValue: investmentType!) != nil)
+                {
+                    lotPosition.InvestmentType = ENumInvestmentType(rawValue: investmentType!)!
+                }
+                else
+                {
+                    lotPosition.InvestmentType = ENumInvestmentType.Equity
+                    
+                }
+                
                
                 NSLog(lotPosition.InvestmentType.rawValue)
 
                 let direction = results?.stringForColumn("Direction")!
                 
-                lotPosition.Direction = ENumDirection(rawValue: direction!)!
+                if (ENumDirection(rawValue: direction!) != nil)
+                {
+                    lotPosition.Direction = ENumDirection(rawValue: direction!)!
+                }
+                else
+                {
+                    lotPosition.Direction = ENumDirection.Long
+                }
+                
+                
                 
                 lotPosition.RealizedGainLoss = results?.doubleForColumn("RealizedGainLoss") as Double!
                 

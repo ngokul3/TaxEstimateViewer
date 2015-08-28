@@ -18,26 +18,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Asset" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="X0N-Sv-GE9">
-                                <rect key="frame" x="0.0" y="99" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <pickerView tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5SX-G0-RRA" userLabel="DirectionPicker">
-                                <rect key="frame" x="0.0" y="466" width="375" height="88"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="COO-sV-LRS" id="1KU-Gr-wfs"/>
-                                    <outlet property="delegate" destination="COO-sV-LRS" id="WDV-cY-RR1"/>
-                                </connections>
-                            </pickerView>
-                            <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ixz-xK-XnJ" userLabel="InvestmentPicker">
-                                <rect key="frame" x="-8" y="457" width="375" height="105"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="COO-sV-LRS" id="R9J-ue-EDP"/>
-                                    <outlet property="delegate" destination="COO-sV-LRS" id="CTn-L0-mM8"/>
-                                </connections>
-                            </pickerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Asset Type" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HNy-13-dVs">
-                                <rect key="frame" x="0.0" y="145" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="134" width="375" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -45,32 +31,20 @@
                                     <action selector="OnInvestmentTypeEditEnd:" destination="COO-sV-LRS" eventType="editingDidEnd" id="aT7-Tk-MAj"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Direction" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UZy-Hi-0Ex" userLabel="Direction">
-                                <rect key="frame" x="0.0" y="198" width="375" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="OnDirectionEditBegin:" destination="COO-sV-LRS" eventType="editingDidBegin" id="cTX-qk-2Wl"/>
-                                    <action selector="OnDirectionEditEnd:" destination="COO-sV-LRS" eventType="editingDidEnd" id="XEB-Cj-miV"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Is Asset held for more than 365 days" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8Y-ld-Qnr">
-                                <rect key="frame" x="8" y="361" width="289" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Asset held for more than 365 days" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8Y-ld-Qnr">
+                                <rect key="frame" x="12" y="355" width="270" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TcE-Gu-UfX">
-                                <rect key="frame" x="310" y="356" width="51" height="31"/>
-                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="P/L Realized Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZT-mC-AEZ">
-                                <rect key="frame" x="8" y="313" width="142" height="21"/>
+                                <rect key="frame" x="12" y="303" width="142" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DC5-ph-eQN">
-                                <rect key="frame" x="8" y="261" width="123" height="29"/>
+                                <rect key="frame" x="12" y="190" width="123" height="29"/>
                                 <segments>
                                     <segment title="Profit"/>
                                     <segment title="Loss"/>
@@ -80,7 +54,7 @@
                                 </connections>
                             </segmentedControl>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5k2-hv-8br">
-                                <rect key="frame" x="190" y="259" width="169" height="30"/>
+                                <rect key="frame" x="200" y="188" width="169" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -89,30 +63,48 @@
                                 </connections>
                             </textField>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="2020" translatesAutoresizingMaskIntoConstraints="NO" id="U5s-1t-p9t">
-                                <rect key="frame" x="265" y="309" width="94" height="29"/>
+                                <rect key="frame" x="265" y="303" width="94" height="29"/>
                                 <connections>
                                     <action selector="stpYearValueChanged:" destination="COO-sV-LRS" eventType="valueChanged" id="AS6-gf-Hst"/>
                                 </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9S9-ke-WEy">
-                                <rect key="frame" x="190" y="313" width="55" height="21"/>
+                                <rect key="frame" x="194" y="303" width="55" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QuJ-Pt-ThO">
-                                <rect key="frame" x="173" y="263" width="13" height="21"/>
+                                <rect key="frame" x="179" y="192" width="13" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Short Sell Transaction" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKt-91-KH6">
+                                <rect key="frame" x="12" y="256" width="178" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="110-AN-JMe">
+                                <rect key="frame" x="304" y="246" width="51" height="31"/>
+                            </switch>
+                            <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ixz-xK-XnJ" userLabel="InvestmentPicker">
+                                <rect key="frame" x="-12" y="505" width="375" height="105"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="COO-sV-LRS" id="R9J-ue-EDP"/>
+                                    <outlet property="delegate" destination="COO-sV-LRS" id="CTn-L0-mM8"/>
+                                </connections>
+                            </pickerView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TcE-Gu-UfX">
+                                <rect key="frame" x="314" y="355" width="51" height="31"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="HNy-13-dVs" secondAttribute="trailing" id="KkM-ng-SVK"/>
                             <constraint firstItem="HNy-13-dVs" firstAttribute="top" secondItem="X0N-Sv-GE9" secondAttribute="bottom" constant="16" id="WWJ-tH-Rt3"/>
                             <constraint firstItem="HNy-13-dVs" firstAttribute="leading" secondItem="CWV-AK-3Wk" secondAttribute="leadingMargin" id="hMG-sb-1Nl"/>
-                            <constraint firstItem="UZy-Hi-0Ex" firstAttribute="top" secondItem="HNy-13-dVs" secondAttribute="bottom" constant="23" id="nzL-c5-YcN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Investment" id="KFn-EM-FrG">
@@ -128,10 +120,10 @@
                         <outlet property="btnAddInvestment" destination="9PO-rQ-gn3" id="YRS-5M-563"/>
                         <outlet property="btnProfitLoss" destination="DC5-ph-eQN" id="7Zf-3m-s8n"/>
                         <outlet property="lblTradeEndYear" destination="9S9-ke-WEy" id="LxX-Xw-RZw"/>
-                        <outlet property="pickerDirection" destination="5SX-G0-RRA" id="ZWg-kD-oAJ"/>
                         <outlet property="pickerInvestmentType" destination="ixz-xK-XnJ" id="cab-Li-F9v"/>
                         <outlet property="stpYear" destination="U5s-1t-p9t" id="oJ2-Ew-Hjk"/>
-                        <outlet property="txtDirection" destination="UZy-Hi-0Ex" id="Mha-Ak-K8s"/>
+                        <outlet property="swtIsLongTerm" destination="TcE-Gu-UfX" id="CSL-Rg-bDM"/>
+                        <outlet property="swtIsShortDirection" destination="110-AN-JMe" id="Mih-fj-nVs"/>
                         <outlet property="txtInvestmentType" destination="HNy-13-dVs" id="0K0-hV-KWg"/>
                         <outlet property="txtProfitLoss" destination="5k2-hv-8br" id="0Cd-fK-ktG"/>
                         <outlet property="txtSymbol" destination="X0N-Sv-GE9" id="OaY-MZ-7U4"/>
@@ -547,7 +539,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DwE-el-19J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1794.5" y="833.5"/>
+            <point key="canvasLocation" x="1794.5" y="887.5"/>
         </scene>
         <!--Result Label Controller-->
         <scene sceneID="Up9-YD-lar">
@@ -636,6 +628,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TestHeight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgd-Vo-EnI">
+                                <rect key="frame" x="157" y="414" width="92" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g0q-dA-Ab1">
                                 <rect key="frame" x="8" y="182" width="359" height="2"/>
                             </progressView>

@@ -25,6 +25,9 @@ class ResultLabelController: UIViewController {
     
     @IBOutlet weak var txtTotalTax: UITextField!
     
+   // toViewController.view.frame = CGRect(x: 0,y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height);
+   // fromViewController.willMoveToParentViewController(nil)
+    
     var FilingStatusForGraph: FilingStatus {
         get {
              _filingStatus = CapitalGainController.sharedInstance.GetResultFilingStatus()
@@ -38,6 +41,11 @@ class ResultLabelController: UIViewController {
     override func viewDidLoad() {
     super.viewDidLoad()
 
+    //let pageViewController = TaxPageController()
+  //  let thisWidth = pageViewController.view.frame.size. width
+    //let thisHeight = pageViewController.view.frame.size.height
+        
+       self.view.frame = CGRect(x: 0, y: 0, width: 375, height: 243)
     }
   
     override func didReceiveMemoryWarning() {
@@ -46,6 +54,10 @@ class ResultLabelController: UIViewController {
     }
     
 
+    func labelTest(thisWidth: CGFloat, thisHeight: CGFloat)
+    {
+        self.view.frame = CGRect(x: 0, y: 0, width: thisWidth, height: thisHeight)
+    }
     func ShowLongTermShortTermLabel()
     {
         if (self.FilingStatusForGraph.Year != 0)
