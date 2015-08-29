@@ -189,14 +189,56 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
        // if(stpYear.)
     }
     
+   override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool // Invoked immediately prior to 
+   {
+    
+    var alertAssetDesc = UIAlertController(title: "Asset Description", message: "Asset Description is required", preferredStyle: UIAlertControllerStyle.Alert)
+    alertAssetDesc.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+        println("Handle Cancel Logic here")
+    }))
+    
+    var alertAssetType = UIAlertController(title: "Asset Type", message: "Asset Type is required", preferredStyle: UIAlertControllerStyle.Alert)
+    alertAssetType.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+        println("Handle Cancel Logic here")
+    }))
+    
+    var alertProfitLoss = UIAlertController(title: "Profit / Loss", message: "Profit / Loss should be numeric", preferredStyle: UIAlertControllerStyle.Alert)
+    alertProfitLoss.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+        println("Handle Cancel Logic here")
+    }))
+    
+
+        if (txtSymbol.text.isEmpty)
+        {
+             presentViewController(alertAssetDesc, animated: true, completion: nil)
+            return false
+        }
+        else if(txtInvestmentType.text.isEmpty)
+        {
+            presentViewController(alertAssetType, animated: true, completion: nil)
+            return false
+        }
+        else if(txtProfitLoss.text.toDouble() == nil)
+        {
+            presentViewController(alertProfitLoss, animated: true, completion: nil)
+            return false
+        }
+    
+        else
+        {
+            return true
+        }
+    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         var lotPosition = LotPosition()
+        var errorMessage = String()
 
         if btnAddInvestment === sender
         {
             
             lotPosition.SymbolCode = txtSymbol.text
+            
             
             if (ENumInvestmentType(rawValue: txtInvestmentType.text!) != nil)
             {
@@ -217,6 +259,7 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
                 lotPosition.Direction = ENumDirection.Long
             }
             
+           
             lotPosition.RealizedGainLoss = txtProfitLoss.text.toDouble()!
             lotPosition.RealizedYear = lblTradeEndYear.text!.toInt()!
             lotPosition.IsLongTerm = swtIsLongTerm.on

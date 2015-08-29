@@ -49,6 +49,7 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
         if (selectedFilingDetail != nil)
         {
             println("This is filing detail edit")
+            stpYear.enabled = false
             lblYear.text = selectedFilingDetail?.Year.description
             txtCurrentTaxableIncome.text = selectedFilingDetail?.CurrentTaxableIncome.description
             txtFilingMode.text = selectedFilingDetail?.FilingType.rawValue
@@ -96,6 +97,47 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
     
     @IBAction func OnFilingModeEditBegin(sender: AnyObject) {
         pickerFilingMode.hidden = false
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool // Invoked immediately prior to
+    {
+        
+        var alertFilingMode = UIAlertController(title: "Filing Mode", message: "Filing Mode is required", preferredStyle: UIAlertControllerStyle.Alert)
+        alertFilingMode.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+            println("Handle Cancel Logic here")
+        }))
+        
+        var alertAnnualIncome = UIAlertController(title: "Annual Income", message: "Annual Income should be numeric", preferredStyle: UIAlertControllerStyle.Alert)
+        alertAnnualIncome.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+            println("Handle Cancel Logic here")
+        }))
+        
+        var alertDeferredLoss = UIAlertController(title: "Deferred Loss", message: "Deferred Loss should be numeric", preferredStyle: UIAlertControllerStyle.Alert)
+        alertDeferredLoss.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+            println("Handle Cancel Logic here")
+        }))
+        
+        
+        if (txtFilingMode.text.isEmpty)
+        {
+            presentViewController(alertFilingMode, animated: true, completion: nil)
+            return false
+        }
+        else if(txtCurrentTaxableIncome.text.toDouble() == nil)
+        {
+            presentViewController(alertAnnualIncome, animated: true, completion: nil)
+            return false
+        }
+        else if(txtPreviouslyDeferredLoss.text.toDouble() == nil)
+        {
+            presentViewController(alertDeferredLoss, animated: true, completion: nil)
+            return false
+        }
+            
+        else
+        {
+            return true
+        }
     }
   
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
