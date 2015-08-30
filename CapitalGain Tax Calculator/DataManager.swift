@@ -73,9 +73,11 @@ class DataManager
                // let lotPosition = CapitalGainController.sharedInstance.GetPositionItem(index)
             
                 let isLongTerm = lotPosition.IsLongTerm ? 1 : 0
-                
-                let insertSQL = "INSERT INTO LotPosition (SymbolCode, InvestmentType, Direction, RealizedGainLoss, Year, IsLongTerm) VALUES ('\(lotPosition.SymbolCode)', '\(lotPosition.InvestmentType.rawValue)', '\(lotPosition.Direction.rawValue)', \(lotPosition.RealizedGainLoss), \(lotPosition.RealizedYear), \(isLongTerm))" //TODO
-                
+                let investmentType = lotPosition.InvestmentType.description
+            
+                let insertSQL = "INSERT INTO LotPosition (SymbolCode, InvestmentType, Direction, RealizedGainLoss, Year, IsLongTerm) VALUES ('\(lotPosition.SymbolCode)', '\(investmentType)', '\(lotPosition.Direction.rawValue)', \(lotPosition.RealizedGainLoss), \(lotPosition.RealizedYear), \(isLongTerm))" //TODO
+            
+                NSLog(insertSQL)
                 let result = self._capitalGainCalculatorDB.executeUpdate(insertSQL,
                     withArgumentsInArray: nil)
                 

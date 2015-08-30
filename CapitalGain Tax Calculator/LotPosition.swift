@@ -19,6 +19,12 @@ enum ENumInvestmentType:String{
     case Dividend="Qualified Dividend"
     case NonQualifiedDividend="Non-qualified Dividend"
     case Section1256 = "Section 1256"
+    
+    var description : String {
+        get {
+            return self.rawValue
+        }
+    }
 }
 class LotPosition{
     private var _lotId:Int32

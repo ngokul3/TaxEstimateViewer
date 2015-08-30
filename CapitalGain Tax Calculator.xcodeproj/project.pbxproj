@@ -13,6 +13,7 @@
 		5505E4491B9328C000E95F93 /* Long.png in Resources */ = {isa = PBXBuildFile; fileRef = 5505E4431B9328C000E95F93 /* Long.png */; };
 		5505E44A1B9328C000E95F93 /* Short Term.png in Resources */ = {isa = PBXBuildFile; fileRef = 5505E4441B9328C000E95F93 /* Short Term.png */; };
 		5505E44B1B9328C000E95F93 /* Short.png in Resources */ = {isa = PBXBuildFile; fileRef = 5505E4451B9328C000E95F93 /* Short.png */; };
+		5505E44D1B935A0B00E95F93 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5505E44C1B935A0B00E95F93 /* Utils.swift */; };
 		5529604D1B6327A50035622F /* SevenSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5529604C1B6327A50035622F /* SevenSwitch.swift */; };
 		5529604F1B65B0DF0035622F /* InvestmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5529604E1B65B0DF0035622F /* InvestmentTableViewCell.swift */; };
 		553E2FC91B7F5A400014B3BE /* TaxBracket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BD8251B6D1559003F5CE1 /* TaxBracket.swift */; };
@@ -125,6 +126,7 @@
 		5505E4431B9328C000E95F93 /* Long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Long.png; sourceTree = "<group>"; };
 		5505E4441B9328C000E95F93 /* Short Term.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Short Term.png"; sourceTree = "<group>"; };
 		5505E4451B9328C000E95F93 /* Short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Short.png; sourceTree = "<group>"; };
+		5505E44C1B935A0B00E95F93 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		5529604C1B6327A50035622F /* SevenSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SevenSwitch.swift; sourceTree = "<group>"; };
 		5529604E1B65B0DF0035622F /* InvestmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestmentTableViewCell.swift; sourceTree = "<group>"; };
 		555F00CB1B6BEACC00EB1EAF /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 				557E85DE1B69AC5E00197CBE /* TaxProcessor.swift */,
 				555F00CB1B6BEACC00EB1EAF /* DataManager.swift */,
 				55DD2B471B6ED2AC002B7400 /* SortedDictionary.swift */,
+				5505E44C1B935A0B00E95F93 /* Utils.swift */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				55C28A6C1B572D9F001D073E /* InvestmentMasterController.swift in Sources */,
 				55689C531B83FE3700F8FAA2 /* ChartAxisValueFloatScreenLoc.swift in Sources */,
 				55689C871B84071900F8FAA2 /* ExamplesDefaults.swift in Sources */,
+				5505E44D1B935A0B00E95F93 /* Utils.swift in Sources */,
 				55689C891B84076600F8FAA2 /* Env.swift in Sources */,
 				55689C831B84028800F8FAA2 /* ChartLinesView.swift in Sources */,
 				55689C4F1B83FE3700F8FAA2 /* ChartAxisModel.swift in Sources */,

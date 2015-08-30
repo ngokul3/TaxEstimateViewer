@@ -51,6 +51,15 @@ class ContainerInvestmentController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! InvestmentTableViewCell
         cell.lblInvesmentName.text = lotPosition.SymbolCode
+        cell.lblProfitLoss.text = lotPosition.RealizedGainLoss.description
+        
+        let imgLTSTImageView = cell.viewWithTag(30) as! UIImageView
+        imgLTSTImageView.image = cell.ImageForLTST(lotPosition.Direction)
+        
+        let img365View = cell.viewWithTag(40) as! UIImageView
+        img365View.image = cell.ImageFor365(lotPosition.IsLongTerm)
+        
+        
         return cell
     }
 
@@ -103,4 +112,6 @@ class ContainerInvestmentController: UITableViewController {
         return nil
         
     }
+    
+   
 }

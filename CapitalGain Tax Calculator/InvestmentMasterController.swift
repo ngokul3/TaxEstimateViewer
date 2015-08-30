@@ -61,10 +61,10 @@ class InvestmentMasterController: UITableViewController {
         cell.lblProfitLoss.text = lotPosition.RealizedGainLoss.description
         
         let imgLTSTImageView = cell.viewWithTag(30) as! UIImageView
-        imgLTSTImageView.image = ImageForLTST(lotPosition.Direction)
+        imgLTSTImageView.image = cell.ImageForLTST(lotPosition.Direction)
         
         let img365View = cell.viewWithTag(40) as! UIImageView
-        img365View.image = ImageFor365(lotPosition.IsLongTerm)
+        img365View.image = cell.ImageFor365(lotPosition.IsLongTerm)
         
    
         return cell
@@ -143,17 +143,11 @@ class InvestmentMasterController: UITableViewController {
     @IBAction func unwindToInvestmentList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? AddInvestmentController{
             
-        //    var arrayInvestments = CapitalGainController.sharedInstance()
-            
-          //  let newIndexPath = NSIndexPath(forRow: 1, inSection: 0)
-            
-           // tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
-            
-            tableView.reloadData()
+             tableView.reloadData()
         }
     }
     
-    func ImageForLTST(direction: ENumDirection ) -> UIImage!
+ /*   func ImageForLTST(direction: ENumDirection ) -> UIImage!
     {
         var assetName = String()
         
@@ -184,7 +178,7 @@ class InvestmentMasterController: UITableViewController {
         }
         return  UIImage(named: (assetName))
     }
-
+*/
 
 }
 
