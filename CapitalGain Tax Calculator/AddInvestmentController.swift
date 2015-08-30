@@ -194,17 +194,17 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
     
     var alertAssetDesc = UIAlertController(title: "Asset Description", message: "Asset Description is required", preferredStyle: UIAlertControllerStyle.Alert)
     alertAssetDesc.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-        println("Handle Cancel Logic here")
+  
     }))
     
     var alertAssetType = UIAlertController(title: "Asset Type", message: "Asset Type is required", preferredStyle: UIAlertControllerStyle.Alert)
     alertAssetType.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-        println("Handle Cancel Logic here")
+  
     }))
     
     var alertProfitLoss = UIAlertController(title: "Profit / Loss", message: "Profit / Loss should be numeric", preferredStyle: UIAlertControllerStyle.Alert)
     alertProfitLoss.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-        println("Handle Cancel Logic here")
+  
     }))
     
 

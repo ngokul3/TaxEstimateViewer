@@ -104,19 +104,29 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
         
         var alertFilingMode = UIAlertController(title: "Filing Mode", message: "Filing Mode is required", preferredStyle: UIAlertControllerStyle.Alert)
         alertFilingMode.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-            println("Handle Cancel Logic here")
         }))
         
         var alertAnnualIncome = UIAlertController(title: "Annual Income", message: "Annual Income should be numeric", preferredStyle: UIAlertControllerStyle.Alert)
         alertAnnualIncome.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-            println("Handle Cancel Logic here")
         }))
         
         var alertDeferredLoss = UIAlertController(title: "Deferred Loss", message: "Deferred Loss should be numeric", preferredStyle: UIAlertControllerStyle.Alert)
         alertDeferredLoss.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-            println("Handle Cancel Logic here")
+        }))
+ 
+        var alertYear = UIAlertController(title: "Filing Year", message: "Year should be in YYYY format", preferredStyle: UIAlertControllerStyle.Alert)
+        alertYear.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+         }))
+        
+
+        var alertFilingAlreadyAvailable = UIAlertController(title: "Filing Year", message: "Filing information already added for this Year", preferredStyle: UIAlertControllerStyle.Alert)
+        alertFilingAlreadyAvailable.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+           // println("Filing information already added for this Year")
         }))
         
+        let lstFilingStatus = CapitalGainController.sharedInstance.GetFilingStatus()
+        
+        let recordCount = lstFilingStatus.filter({m in m.Year == self.lblYear.text!.toInt()}).count as Int!
         
         if (txtFilingMode.text.isEmpty)
         {
@@ -128,12 +138,23 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
             presentViewController(alertAnnualIncome, animated: true, completion: nil)
             return false
         }
-        else if(txtPreviouslyDeferredLoss.text.toDouble() == nil)
+        else if(txtPreviouslyDeferredLoss.text.isEmpty == false && txtPreviouslyDeferredLoss.text.toDouble() == nil)
         {
             presentViewController(alertDeferredLoss, animated: true, completion: nil)
             return false
         }
+        else if(lblYear.text!.toInt() == nil)
+        {
             
+            presentViewController(alertYear, animated: true, completion: nil)
+            return false
+        }
+        else if (self.selectedFilingDetail == nil && recordCount != nil && recordCount > 0)
+        {
+            presentViewController(alertFilingAlreadyAvailable, animated: true, completion: nil)
+
+            return false
+        }
         else
         {
             return true
@@ -142,32 +163,27 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
   
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        var filingStatus = FilingStatus()
+
         if btnAddFilingStatus === sender
         {
-            if(self.selectedFilingDetail == nil)
-            {
-                let itemCount = CapitalGainController.sharedInstance.GetFilingStatus().count
-                let filingStatus = FilingStatus()
-                filingStatus.Year = lblYear.text!.toInt()!
-                filingStatus.FilingType = ENumFilingType(rawValue: txtFilingMode.text)!
-                filingStatus.CurrentTaxableIncome = txtCurrentTaxableIncome.text!.toDouble()!
-                filingStatus.PreviouslyDeferredLoss = txtPreviouslyDeferredLoss.text!.toDouble()!
-                CapitalGainController.sharedInstance.AddFilingStatus(filingStatus)
-            
-                var returnString = CapitalGainController.sharedDBInstance.InsertFilingStatus(filingStatus)
-            }
-            else if (self.selectedFilingDetail != nil)
-            {
-                let filingStatus = FilingStatus()
-                filingStatus.FilingStatusId = selectedFilingDetail!.FilingStatusId
-                filingStatus.Year = lblYear.text!.toInt()! //ToDO Validation
-                filingStatus.FilingType = ENumFilingType(rawValue: txtFilingMode.text)!
-                filingStatus.CurrentTaxableIncome = txtCurrentTaxableIncome.text!.toDouble()!
-                filingStatus.PreviouslyDeferredLoss = txtPreviouslyDeferredLoss.text!.toDouble()!
+            filingStatus.Year = lblYear.text!.toInt()!
+            filingStatus.FilingType = ENumFilingType(rawValue: txtFilingMode.text)!
+            filingStatus.CurrentTaxableIncome = txtCurrentTaxableIncome.text!.toDouble()!
+            filingStatus.PreviouslyDeferredLoss = txtPreviouslyDeferredLoss.text!.toDouble()!
 
-                
+            if(self.selectedFilingDetail != nil)
+            {
+                filingStatus.FilingStatusId = selectedFilingDetail!.FilingStatusId
                 CapitalGainController.sharedInstance.UpdateFilingStatus(filingStatus)
-                var test = CapitalGainController.sharedDBInstance.UpdateFilingStatus(filingStatus)
+                CapitalGainController.sharedDBInstance.UpdateFilingStatus(filingStatus)
+            }
+            else
+            {
+                
+                CapitalGainController.sharedInstance.AddFilingStatus(filingStatus)
+                CapitalGainController.sharedDBInstance.InsertFilingStatus(filingStatus)
+            
             }
 
         }

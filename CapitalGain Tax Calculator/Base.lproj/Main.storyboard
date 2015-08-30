@@ -250,16 +250,31 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o7u-E4-9dk" id="sIy-wa-yvy">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15g-Kb-XWp">
-                                            <rect key="frame" x="31" y="11" width="326" height="24"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="S" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15g-Kb-XWp">
+                                            <rect key="frame" x="7" y="8" width="134" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="A" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r23-gO-p4Y">
+                                            <rect key="frame" x="153" y="5" width="77" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" tag="30" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qIs-ET-7px">
+                                            <rect key="frame" x="244" y="6" width="46" height="22"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" tag="40" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uqo-P3-kfU">
+                                            <rect key="frame" x="294" y="6" width="46" height="22"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="img360" destination="uqo-P3-kfU" id="uJ7-yD-CjS"/>
+                                    <outlet property="imgLTST" destination="qIs-ET-7px" id="ryG-j6-V4M"/>
                                     <outlet property="lblInvesmentName" destination="15g-Kb-XWp" id="QEZ-1Z-qhV"/>
+                                    <outlet property="lblProfitLoss" destination="r23-gO-p4Y" id="dzW-c6-PPm"/>
                                     <segue destination="COO-sV-LRS" kind="show" identifier="EditInvestment" id="Wus-nc-gLo"/>
                                 </connections>
                             </tableViewCell>

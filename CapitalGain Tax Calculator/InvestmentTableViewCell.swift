@@ -11,6 +11,13 @@ import UIKit
 class InvestmentTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lblInvesmentName: UILabel!
+    
+    @IBOutlet weak var lblProfitLoss: UILabel!
+    
+    @IBOutlet weak var imgLTST: UIImageView!
+    
+    @IBOutlet weak var img360: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,5 +28,6 @@ class InvestmentTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+   
 }

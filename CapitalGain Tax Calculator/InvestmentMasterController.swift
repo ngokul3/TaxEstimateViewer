@@ -58,6 +58,15 @@ class InvestmentMasterController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! InvestmentTableViewCell
         cell.lblInvesmentName.text = lotPosition.SymbolCode
+        cell.lblProfitLoss.text = lotPosition.RealizedGainLoss.description
+        
+        let imgLTSTImageView = cell.viewWithTag(30) as! UIImageView
+        imgLTSTImageView.image = ImageForLTST(lotPosition.Direction)
+        
+        let img365View = cell.viewWithTag(40) as! UIImageView
+        img365View.image = ImageFor365(lotPosition.IsLongTerm)
+        
+   
         return cell
     }
     
@@ -143,6 +152,40 @@ class InvestmentMasterController: UITableViewController {
             tableView.reloadData()
         }
     }
+    
+    func ImageForLTST(direction: ENumDirection ) -> UIImage!
+    {
+        var assetName = String()
+        
+        if (direction.rawValue == ENumDirection.Long.rawValue)
+        {
+            assetName = "Long"
+        }
+        else if (direction.rawValue == ENumDirection.UnCoveredShort.rawValue)
+        {
+            assetName = "Short"
+
+        }
+        return  UIImage(named: (assetName))
+    }
+    
+    func ImageFor365(IsLongTerm: Bool ) -> UIImage!
+    {
+        var assetName = String()
+        
+        if (IsLongTerm)
+        {
+            assetName = "365"
+        }
+        else if (IsLongTerm == false)
+        {
+            assetName = "365-No"
+            
+        }
+        return  UIImage(named: (assetName))
+    }
+
+
 }
-  
+
 

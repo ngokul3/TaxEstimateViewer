@@ -71,9 +71,10 @@ class DataManager
         if self._capitalGainCalculatorDB.open()
         {
                // let lotPosition = CapitalGainController.sharedInstance.GetPositionItem(index)
+            
+                let isLongTerm = lotPosition.IsLongTerm ? 1 : 0
                 
-                
-                let insertSQL = "INSERT INTO LotPosition (SymbolCode, InvestmentType, Direction, RealizedGainLoss, Year, IsLongTerm) VALUES ('\(lotPosition.SymbolCode)', '\(lotPosition.InvestmentType.rawValue)', '\(lotPosition.Direction.rawValue)', \(lotPosition.RealizedGainLoss), \(lotPosition.RealizedYear), \(1))" //TODO
+                let insertSQL = "INSERT INTO LotPosition (SymbolCode, InvestmentType, Direction, RealizedGainLoss, Year, IsLongTerm) VALUES ('\(lotPosition.SymbolCode)', '\(lotPosition.InvestmentType.rawValue)', '\(lotPosition.Direction.rawValue)', \(lotPosition.RealizedGainLoss), \(lotPosition.RealizedYear), \(isLongTerm))" //TODO
                 
                 let result = self._capitalGainCalculatorDB.executeUpdate(insertSQL,
                     withArgumentsInArray: nil)
@@ -120,8 +121,10 @@ class DataManager
         
         if self._capitalGainCalculatorDB.open()
         {
+            let isLongTerm = lotPosition.IsLongTerm ? 1 : 0
             
-            let updateSQL = "Update LotPosition set SymbolCode = '\(lotPosition.SymbolCode)', InvestmentType = '\(lotPosition.InvestmentType.rawValue)', Direction = '\(lotPosition.Direction.rawValue)', RealizedGainLoss = \(lotPosition.RealizedGainLoss), Year = \(lotPosition.RealizedYear), IsLongTerm = \(1) Where LotPositionId = \(lotPosition.LotId)" //TODO
+            
+            let updateSQL = "Update LotPosition set SymbolCode = '\(lotPosition.SymbolCode)', InvestmentType = '\(lotPosition.InvestmentType.rawValue)', Direction = '\(lotPosition.Direction.rawValue)', RealizedGainLoss = \(lotPosition.RealizedGainLoss), Year = \(lotPosition.RealizedYear), IsLongTerm = \(isLongTerm) Where LotPositionId = \(lotPosition.LotId)" //TODO
             
             let result = self._capitalGainCalculatorDB.executeUpdate(updateSQL,
                 withArgumentsInArray: nil)
