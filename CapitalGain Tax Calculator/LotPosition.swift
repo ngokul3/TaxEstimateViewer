@@ -20,9 +20,35 @@ enum ENumInvestmentType:String{
     case NonQualifiedDividend="Non-qualified Dividend"
     case Section1256 = "Section 1256"
     
-    var description : String {
-        get {
-            return self.rawValue
+    func associatedValue(investmentType : ENumInvestmentType) -> String {
+        switch investmentType {
+        case .Equity:
+            return "Equity"
+        case .Dividend:
+            return "Dividend"
+        case .NonQualifiedDividend:
+            return "NonQualifiedDividend"
+        case .Section1256:
+            return "Section1256"
+
+        default:
+            return ""
+        }
+    }
+    
+    func associatedEnum(strInvestmentType : String) -> ENumInvestmentType {
+        switch strInvestmentType {
+        case "Equity":
+            return ENumInvestmentType.Equity
+        case "Dividend":
+            return ENumInvestmentType.Dividend
+        case "NonQualifiedDividend":
+            return ENumInvestmentType.NonQualifiedDividend
+        case "Section1256":
+            return ENumInvestmentType.Section1256
+            
+        default:
+            return ENumInvestmentType.Equity
         }
     }
 }

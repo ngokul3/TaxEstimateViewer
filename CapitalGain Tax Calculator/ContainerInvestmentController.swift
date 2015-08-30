@@ -100,6 +100,8 @@ class ContainerInvestmentController: UITableViewController {
             let lstLotTerm = CapitalGainController.sharedDBInstance.ReturnLotTerm(lstLotPositionSelected)
             let taxProcessor = TaxProcessor()
             
+            RefreshInvestments()
+
             if(lstLotTerm.count > 0 && filingStatus != nil)
             {
             
@@ -113,5 +115,9 @@ class ContainerInvestmentController: UITableViewController {
         
     }
     
-   
+   func RefreshInvestments()
+   {
+        tableView.reloadData()
+
+    }
 }

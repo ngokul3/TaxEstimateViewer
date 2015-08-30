@@ -73,9 +73,9 @@ class DataManager
                // let lotPosition = CapitalGainController.sharedInstance.GetPositionItem(index)
             
                 let isLongTerm = lotPosition.IsLongTerm ? 1 : 0
-                let investmentType = lotPosition.InvestmentType.description
+                let investmentType = lotPosition.InvestmentType.associatedValue(lotPosition.InvestmentType)
             
-                let insertSQL = "INSERT INTO LotPosition (SymbolCode, InvestmentType, Direction, RealizedGainLoss, Year, IsLongTerm) VALUES ('\(lotPosition.SymbolCode)', '\(investmentType)', '\(lotPosition.Direction.rawValue)', \(lotPosition.RealizedGainLoss), \(lotPosition.RealizedYear), \(isLongTerm))" //TODO
+                let insertSQL = "INSERT INTO LotPosition (SymbolCode, InvestmentType, Direction, RealizedGainLoss, Year, IsLongTerm) VALUES ('\(lotPosition.SymbolCode)', '\(lotPosition.InvestmentType.rawValue)', '\(lotPosition.Direction.rawValue)', \(lotPosition.RealizedGainLoss), \(lotPosition.RealizedYear), \(isLongTerm))" //TODO
             
                 NSLog(insertSQL)
                 let result = self._capitalGainCalculatorDB.executeUpdate(insertSQL,
@@ -242,11 +242,13 @@ class DataManager
                 
                 NSLog(lotPosition.SymbolCode)
                 
-                let investmentType = results?.stringForColumn("InvestmentType")!
+                let investmentType = results!.stringForColumn("InvestmentType")
 
                 if (ENumInvestmentType(rawValue: investmentType!) != nil)
+                   
                 {
-                    lotPosition.InvestmentType = ENumInvestmentType(rawValue: investmentType!)!
+                   lotPosition.InvestmentType = ENumInvestmentType(rawValue: investmentType!)!
+                    // ENumInvestmentType(rawValue: investmentType!)!
                 }
                 else
                 {
@@ -345,6 +347,8 @@ class DataManager
             
             var selectedLots : String
             
+            let equityInvestmentType = ENumInvestmentType.Equity.rawValue
+            
              selectedLots = "(-1"
             
             for lot in lstLotPosition
@@ -372,8 +376,8 @@ class DataManager
             ",  sum(RealizedGainLoss) as RealizedGainLoss " +
             ", IsLongTerm " +
             ", Year " +
-            ", Case When InvestmentType = 'Equity' and Direction ='Long' and IsLongTerm = 1 Then 'LongTerm' " +
-            "When InvestmentType = 'Equity' and Direction = 'CoveredShort' and IsLongTerm = 1 Then 'LongTerm' " +
+            ", Case When InvestmentType = '" + equityInvestmentType + "' and Direction ='Long' and IsLongTerm = 1 Then 'LongTerm' " +
+            "When InvestmentType = '" + equityInvestmentType + "' and Direction = 'CoveredShort' and IsLongTerm = 1 Then 'LongTerm' " +
             "When InvestmentType = 'Section 1256' Then 'Section1256' Else 'ShortTerm' " +
             "End as Term " +
             "From " +

@@ -147,38 +147,7 @@ class InvestmentMasterController: UITableViewController {
         }
     }
     
- /*   func ImageForLTST(direction: ENumDirection ) -> UIImage!
-    {
-        var assetName = String()
-        
-        if (direction.rawValue == ENumDirection.Long.rawValue)
-        {
-            assetName = "Long"
-        }
-        else if (direction.rawValue == ENumDirection.UnCoveredShort.rawValue)
-        {
-            assetName = "Short"
 
-        }
-        return  UIImage(named: (assetName))
-    }
-    
-    func ImageFor365(IsLongTerm: Bool ) -> UIImage!
-    {
-        var assetName = String()
-        
-        if (IsLongTerm)
-        {
-            assetName = "365"
-        }
-        else if (IsLongTerm == false)
-        {
-            assetName = "365-No"
-            
-        }
-        return  UIImage(named: (assetName))
-    }
-*/
 
 }
 
