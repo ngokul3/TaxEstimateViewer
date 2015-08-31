@@ -348,6 +348,8 @@ class DataManager
             var selectedLots : String
             
             let equityInvestmentType = ENumInvestmentType.Equity.rawValue
+            let qualifiedDividendInvestmentType = ENumInvestmentType.Dividend.rawValue
+            let NonQualifiedDividendInvestmentType = ENumInvestmentType.NonQualifiedDividend.rawValue
             
              selectedLots = "(-1"
             
@@ -378,6 +380,8 @@ class DataManager
             ", Year " +
             ", Case When InvestmentType = '" + equityInvestmentType + "' and Direction ='Long' and IsLongTerm = 1 Then 'LongTerm' " +
             "When InvestmentType = '" + equityInvestmentType + "' and Direction = 'CoveredShort' and IsLongTerm = 1 Then 'LongTerm' " +
+            "When InvestmentType = '" + qualifiedDividendInvestmentType + "'  Then 'LongTerm' " +
+            "When InvestmentType = '" + NonQualifiedDividendInvestmentType + "'  Then 'ShortTerm' " +
             "When InvestmentType = 'Section 1256' Then 'Section1256' Else 'ShortTerm' " +
             "End as Term " +
             "From " +
