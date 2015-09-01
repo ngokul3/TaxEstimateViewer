@@ -79,7 +79,9 @@ class TaxViewControllerContainer: UIViewController , UIPickerViewDelegate {
     
     @IBAction func OnYearEditBegin(sender: AnyObject)
     {
-          pickerYear.hidden = false
+        pickerYear.hidden = false
+        pickerYear.bringSubviewToFront(self.view)
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue,
