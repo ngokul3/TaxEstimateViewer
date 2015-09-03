@@ -8,9 +8,11 @@
 
 import UIKit
 
+
 class ResultGraphController: UIViewController {
 
-    private var _filingStatus = FilingStatus()
+    private var _utils = Utils()
+/*    private var _filingStatus = FilingStatus()
     private var _lstTaxBracket = [TaxBracket]()
     
     var FilingStatusForGraph: FilingStatus {
@@ -31,15 +33,13 @@ class ResultGraphController: UIViewController {
             _lstTaxBracket = newValue
         }
     }
-
+*/
     
     private var chart: Chart?
     
     private let dirSelectorHeight: CGFloat = 50
     
     private func barsChart(#horizontal: Bool) -> Chart {
-        
-      //  let x = TaxBracketForGraph.first!.FederalTax.dictionary.values
         
         let labelSettings = ChartLabelSettings(font: ExamplesDefaults.labelFont)
         
@@ -49,12 +49,10 @@ class ResultGraphController: UIViewController {
         var stackedShortTermIncomeLevel = [Double]()
 
         
-        let currentIncome = FilingStatusForGraph.CurrentTaxableIncome
+        let currentIncome = _utils.FilingStatusForGraph.CurrentTaxableIncome
         
-    //    stackedLongTermIncomeLevel.append(currentIncome)
-      //  stackedShortTermIncomeLevel.append(currentIncome)
         
-        for item in FilingStatusForGraph.FilingStatusTax
+        for item in _utils.FilingStatusForGraph.FilingStatusTax
         {
             
             if (item.Term.rawValue == ENumTerm.LongTerm.rawValue)
@@ -108,7 +106,7 @@ class ResultGraphController: UIViewController {
         let incomeItem =  ChartAxisValueFloat(CGFloat(currentIncome),labelSettings: labelSettings)
      //   xTaxBracket.append(incomeItem)
         
-        let lstFilingStatusTax = FilingStatusForGraph.FilingStatusTax
+        let lstFilingStatusTax = _utils.FilingStatusForGraph.FilingStatusTax
   
         let LTTaxTotal = lstFilingStatusTax.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).map{ return $0.Limit}.reduce(0) { return $0 + $1 }
     
@@ -194,7 +192,7 @@ class ResultGraphController: UIViewController {
     }
     
     override func viewDidLoad() {
-      if (self.FilingStatusForGraph.Year == 0)
+      if (_utils.FilingStatusForGraph.Year == 0)
       {
         return
       }
@@ -206,12 +204,12 @@ class ResultGraphController: UIViewController {
     
     func DrawLongTermShortTermGraph()
     {
-        if (self.FilingStatusForGraph.Year != 0)
+        if (_utils.FilingStatusForGraph.Year != 0)
         {
             self.showChart(horizontal: false)
             
-            self.TaxBracketForGraph = TaxOnCapitalGainLossUp.GetTaxHairCut(self.FilingStatusForGraph)
-            
+     //       _utils.TaxBracketForGraph = TaxOnCapitalGainLossUp.GetTaxHairCut(_utils.FilingStatusForGraph)
+     
             if let chart = self.chart {
                 
                 //      let dirSelector = DirSelector(frame: CGRectMake(0, chart.frame.origin.y + chart.frame.size.height, self.view.frame.size.width, self.dirSelectorHeight), controller: self)

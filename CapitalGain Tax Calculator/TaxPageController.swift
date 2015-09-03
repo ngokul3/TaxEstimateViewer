@@ -17,6 +17,8 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
     private var _lstTaxBracket = [TaxBracket]()
     private var _page1 = ResultLabelController()
     private var _page2 = ResultGraphController()
+    private var _page3 = ResultLongTermPieController()
+    private var _page4 = ResultShortTermPieController()
     
     var FilingStatusForGraph: FilingStatus {
         get {
@@ -49,9 +51,15 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
         
         _page1 = self.storyboard?.instantiateViewControllerWithIdentifier("ResultLabelID") as! ResultLabelController
         _page2 = self.storyboard?.instantiateViewControllerWithIdentifier("ResultLongTermGraphID") as! ResultGraphController
+        _page3 = self.storyboard?.instantiateViewControllerWithIdentifier("ResultLongTermPieID") as! ResultLongTermPieController
+        _page4 = self.storyboard?.instantiateViewControllerWithIdentifier("ResultShortTermPieID") as! ResultShortTermPieController
         
-        myViewControllers = [_page1, _page2]
+        myViewControllers = [_page1, _page2, _page3, _page4]
         
+        self.setViewControllers([_page4], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+
+        self.setViewControllers([_page3], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+
         self.setViewControllers([_page2], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
    
         self.setViewControllers([_page1], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
@@ -82,8 +90,11 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
     func RefreshTaxViewPages()
     {
         _page1.labelTest(self.view.frame.size.width, thisHeight: self.view.frame.size.height)
-       _page1.ShowLongTermShortTermLabel()
+        _page1.ShowLongTermShortTermLabel()
         _page2.DrawLongTermShortTermGraph()
+        _page3.DrawLongTermPieChart()
+        _page4.DrawShortTermPieChart()
+        
     }
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
         return 0

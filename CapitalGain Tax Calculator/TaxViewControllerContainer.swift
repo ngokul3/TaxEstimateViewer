@@ -113,23 +113,14 @@ class TaxViewControllerContainer: UIViewController , UIPickerViewDelegate {
             {
                 CapitalGainController.sharedInstance.SetResultFilingStatus(filingStatus!)
                 
-                // let containerGraphController = self.childViewControllers[1] as! ResultGraphController
-              //  containerGraphController.DrawLongTermShortTermGraph()
                 let taxPageController = self.childViewControllers[1] as! TaxPageController
                 taxPageController.RefreshTaxViewPages()
+
+                // let containerGraphController = self.childViewControllers[1] as! ResultGraphController
+              //  containerGraphController.DrawLongTermShortTermGraph()
+                 //let containerGraphController = self.childViewControllers[1] as! ResultLongTermPieController
+                  //containerGraphController.DrawLongTermShortTermPieChart()
                 
-            //    containerLabelController.FilingStatusForGraph = filingStatus!
-               // containerLabelController.show
-           //   txtLTCapitalGain.text = filingStatus?.TaxOnLTCapitalGain.description
-             // txtSTCapitalGain.text = filingStatus?.TaxOnSTCapitalGain.description
-           //   let total = (filingStatus?.TaxOnLTCapitalGain as Double?)!  + (filingStatus?.TaxOnSTCapitalGain as Double?)!
-            
-           //   txtTotalTax.text = total.description
-                
-            //  let containerGraphController = self.childViewControllers[1] as! ResultGraphController
-        //    let containerGraphController = self.childViewControllers[1] as! TaxPageController
-           //   containerGraphController.FilingStatusForGraph = filingStatus!
-             // containerGraphController.DrawLongTermShortTermGraph()
             }
             else
             {
