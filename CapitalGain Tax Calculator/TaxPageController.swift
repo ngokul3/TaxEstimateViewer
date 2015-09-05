@@ -54,14 +54,15 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
         _page3 = self.storyboard?.instantiateViewControllerWithIdentifier("ResultLongTermPieID") as! ResultLongTermPieController
         _page4 = self.storyboard?.instantiateViewControllerWithIdentifier("ResultShortTermPieID") as! ResultShortTermPieController
         
-        myViewControllers = [_page1, _page2, _page3, _page4]
+        myViewControllers = [_page1, _page3, _page4,_page2]
+        
+        self.setViewControllers([_page2], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
         
         self.setViewControllers([_page4], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
 
         self.setViewControllers([_page3], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
 
-        self.setViewControllers([_page2], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
-   
+        
         self.setViewControllers([_page1], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
         
         for uiView in self.view.subviews

@@ -73,10 +73,11 @@ class ResultLongTermPieController: UIViewController {
         //x = a.description + "%"
         for item in lstFilingStatusAt
         {
-            index = index + 1
             
             if (item.Term.rawValue == ENumTerm.LongTerm.rawValue)
             {
+                index = index + 1
+                
                 let ltStackedCapitalGain = item.Limit
                 let taxEntry = ChartDataEntry(value: ltStackedCapitalGain, xIndex: index)
                 let limitTaxAt = item.LimitTaxedAt
@@ -87,25 +88,28 @@ class ResultLongTermPieController: UIViewController {
            
         }
         
-        let pieChartDataSet = PieChartDataSet(yVals: taxLimit, label: "Tax Slab")
+        let pieChartDataSet = PieChartDataSet(yVals: taxLimit, label: "Long Term Tax Slab")
         let pieChartData = PieChartData(xVals: taxPerc, dataSet: pieChartDataSet)
         pieChartView.data = pieChartData
         
         var colors: [UIColor] = []
         
-        for i in 0..<lstFilingStatusAt.count {
-            let red = Double(arc4random_uniform(256))
-            let green = Double(arc4random_uniform(256))
-            let blue = Double(arc4random_uniform(256))
+        for i in 0..<index {
             
+            if (i == 0)
+            {
+                let color = UIColor.redColor().colorWithAlphaComponent(0.6)
+                colors.append(color)
+            }
+            else
+            {
+                let color = UIColor.blueColor().colorWithAlphaComponent(0.6)
+                colors.append(color)
+            }
             
-            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
-            colors.append(color)
         }
         
         pieChartDataSet.colors = colors
-        
-
         
     }
     

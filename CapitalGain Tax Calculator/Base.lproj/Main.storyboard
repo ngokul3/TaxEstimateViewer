@@ -510,7 +510,7 @@
                                 </connections>
                             </pickerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fAt-MV-HID">
-                                <rect key="frame" x="0.0" y="343" width="375" height="243"/>
+                                <rect key="frame" x="0.0" y="343" width="375" height="275"/>
                                 <connections>
                                     <segue destination="aSO-aT-m5j" kind="embed" id="5ax-mG-qBW"/>
                                 </connections>
@@ -600,7 +600,7 @@
                         <viewControllerLayoutGuide type="bottom" id="uN9-OT-Sqm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="80z-KL-EBf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="243"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ih8-MJ-fQJ" customClass="PieChartView" customModule="CapitalGain_Tax_Calculator">
@@ -611,14 +611,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="243"/>
+                    <size key="freeformSize" width="375" height="255"/>
                     <connections>
                         <outlet property="pieChartView" destination="Ih8-MJ-fQJ" id="sz8-Qi-VUT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OEh-en-wSs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1218" y="940"/>
+            <point key="canvasLocation" x="2063.5" y="951.5"/>
         </scene>
         <!--Result Graph Controller-->
         <scene sceneID="nYL-uh-VHD">
