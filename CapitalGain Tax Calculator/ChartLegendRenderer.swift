@@ -69,8 +69,8 @@ public class ChartLegendRenderer: ChartRendererBase
                     
                     for (var j = 0; j < clrs.count && j < entryCount && j < xVals.count; j++)
                     {
-                        labels.append(xVals[j]);
-                        colors.append(clrs[j]);
+                       // labels.append(xVals[j]); //omit
+                       // colors.append(clrs[j]); //omit
                     }
                     
                     if (pds.label != nil)

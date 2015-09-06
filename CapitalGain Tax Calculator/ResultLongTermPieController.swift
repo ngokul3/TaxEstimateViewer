@@ -170,7 +170,7 @@ class ResultLongTermPieController: UIViewController {
         }
         
         pieChartDataSet.colors = colors
-        
+        //notifyDataSetChanged()
     }
 
 }
