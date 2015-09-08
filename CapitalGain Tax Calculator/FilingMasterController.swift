@@ -16,14 +16,6 @@ class FilingMasterController: UITableViewController {
         super.viewDidLoad()
 
         
-   /*     if CapitalGainController.sharedDBInstance.OpenDatabase(){
-          
-            let lstFilingStatus = CapitalGainController.sharedDBInstance.ReturnFilingStatus()
-            
-            LoadFilingStatus(lstFilingStatus)
-            
-        }*/
-        
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
     }
