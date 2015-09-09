@@ -483,24 +483,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ILV-hL-5HY">
-                                <rect key="frame" x="0.0" y="141" width="375" height="203"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="244"/>
                                 <connections>
                                     <segue destination="XGP-fu-3fm" kind="embed" identifier="ShowInvestments" id="3sj-dn-DaP"/>
                                 </connections>
                             </containerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YYYY" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MRv-gN-Exv">
-                                <rect key="frame" x="0.0" y="72" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="67" width="375" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="OnYearEditBegin:" destination="JR2-O9-KcR" eventType="editingDidBegin" id="JeF-4s-R7e"/>
                                     <action selector="OnYearEditEnd:" destination="JR2-O9-KcR" eventType="editingDidEnd" id="ajt-b9-23B"/>
                                 </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y1o-PW-fyZ">
-                                <rect key="frame" x="0.0" y="110" width="375" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Puc-ob-WNz">
                                 <rect key="frame" x="0.0" y="337" width="375" height="56"/>

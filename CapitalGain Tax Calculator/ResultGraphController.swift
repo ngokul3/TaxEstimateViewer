@@ -11,7 +11,7 @@ import UIKit
 
 class ResultGraphController: UIViewController {
 
-    private var _utils = Utils()
+  //  private var _utils = Utils()
 
     
     private var chart: Chart?
@@ -19,6 +19,8 @@ class ResultGraphController: UIViewController {
     private let dirSelectorHeight: CGFloat = 50
     
     private func barsChart(#horizontal: Bool) -> Chart {
+        
+        let resultFilingStatus = CapitalGainController.sharedInstance.GetResultFilingStatus()
         
         let labelSettings = ChartLabelSettings(font: ExamplesDefaults.labelFont)
         
@@ -28,10 +30,10 @@ class ResultGraphController: UIViewController {
         var stackedShortTermIncomeLevel = [Double]()
 
         
-        let currentIncome = _utils.FilingStatusForGraph.CurrentTaxableIncome
+        let currentIncome = resultFilingStatus.CurrentTaxableIncome
         
         
-        for item in _utils.FilingStatusForGraph.FilingStatusTax
+        for item in resultFilingStatus.FilingStatusTax
         {
             
             if (item.Term.rawValue == ENumTerm.LongTerm.rawValue)
@@ -85,7 +87,7 @@ class ResultGraphController: UIViewController {
         let incomeItem =  ChartAxisValueFloat(CGFloat(currentIncome),labelSettings: labelSettings)
      //   xTaxBracket.append(incomeItem)
         
-        let lstFilingStatusTax = _utils.FilingStatusForGraph.FilingStatusTax
+        let lstFilingStatusTax = resultFilingStatus.FilingStatusTax
   
         let LTTaxTotal = lstFilingStatusTax.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).map{ return $0.Limit}.reduce(0) { return $0 + $1 }
     
@@ -100,15 +102,23 @@ class ResultGraphController: UIViewController {
         
         let interval = round(((currentIncome + maxTermCapitalGain) - currentIncome) / 5)
         
-        let (axisValues1: [ChartAxisValue], axisValues2: [ChartAxisValue]) = (
-            Array(stride(from: CGFloat(currentIncome), through: CGFloat(currentIncome + maxTermCapitalGain), by: CGFloat(interval))).map {ChartAxisValueFloat($0, labelSettings: labelSettings)},
-            [ChartAxisValueString(order: -1)] +
-                Array(enumerate(groupsData)).map {index, tuple in ChartAxisValueString(tuple.0, order: index, labelSettings: labelSettings)} +
-                [ChartAxisValueString(order: groupsData.count)]
-        )
+        var axisValues1 = [ChartAxisValue]()
+        var axisValues2 = [ChartAxisValue]()
         
-       
-      //  let (xValues, yValues) = horizontal ? (xTaxBracket, axisValues2) : (axisValues2, xTaxBracket)
+       // if (currentIncome + maxTermCapitalGain != 0)
+       // {
+             (axisValues1, axisValues2) = (
+                Array(stride(from: CGFloat(currentIncome), through: CGFloat(currentIncome + maxTermCapitalGain), by: CGFloat(interval))).map {ChartAxisValueFloat($0, labelSettings: labelSettings)},
+                [ChartAxisValueString(order: -1)] +
+                    Array(enumerate(groupsData)).map {index, tuple in ChartAxisValueString(tuple.0, order: index, labelSettings: labelSettings)} +
+                    [ChartAxisValueString(order: groupsData.count)]
+                )
+        
+            
+                
+      //  }
+      
+        
         /* */
         
         let (xValues, yValues) = horizontal ? (axisValues1, axisValues2) : (axisValues2, axisValues1)
@@ -117,7 +127,6 @@ class ResultGraphController: UIViewController {
         let xModel = ChartAxisModel(axisValues: xValues, axisTitleLabel: ChartAxisLabel(text: "Term", settings: labelSettings))
         let yModel = ChartAxisModel(axisValues: yValues, axisTitleLabel: ChartAxisLabel(text: "Federal Tax Slab", settings: labelSettings.defaultVertical()))
         let frame = ExamplesDefaults.chartFrame(self.view.bounds)
-//        let chartFrame = self.chart?.frame ?? CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height - self.dirSelectorHeight)
         
         let chartFrame = self.chart?.frame ?? CGRectMake(0,0,375,243)
         let coordsSpace = ChartCoordsSpaceLeftBottomSingleAxis(chartSettings: ExamplesDefaults.chartSettings, chartFrame: chartFrame, xModel: xModel, yModel: yModel)
@@ -129,9 +138,10 @@ class ResultGraphController: UIViewController {
         let guidelinesLayer = ChartGuideLinesLayer(xAxis: xAxis, yAxis: yAxis, innerFrame: innerFrame, axis: horizontal ? .X : .Y, settings: settings)
         
         let dummyZeroChartPoint = ChartPoint(x: ChartAxisValueFloat(0), y: ChartAxisValueFloat(0))
+
         let zeroGuidelineLayer = ChartPointsViewsLayer(xAxis: xAxis, yAxis: yAxis, innerFrame: innerFrame, chartPoints: [dummyZeroChartPoint], viewGenerator: {(chartPointModel, layer, chart) -> UIView? in
             let width: CGFloat = 2
-            
+
          
             let viewFrame: CGRect = {
                 if horizontal {
@@ -171,7 +181,7 @@ class ResultGraphController: UIViewController {
     }
     
     override func viewDidLoad() {
-      if (_utils.FilingStatusForGraph.Year == 0)
+      if (CapitalGainController.sharedInstance.GetResultFilingStatus().Year == 0)
       {
         return
       }
@@ -183,11 +193,9 @@ class ResultGraphController: UIViewController {
     
     func DrawLongTermShortTermGraph()
     {
-        if (_utils.FilingStatusForGraph.Year != 0)
+        if (CapitalGainController.sharedInstance.GetResultFilingStatus().Year != 0)
         {
             self.showChart(horizontal: false)
-            
-     //       _utils.TaxBracketForGraph = TaxOnCapitalGainLossUp.GetTaxHairCut(_utils.FilingStatusForGraph)
      
             if let chart = self.chart {
                 
@@ -197,6 +205,11 @@ class ResultGraphController: UIViewController {
                 
               //  self.view.addSubview(dirSelector)
             }
+        }
+        else
+        {
+            self.chart?.clearView()
+            
         }
     }
     

@@ -51,15 +51,18 @@ class TaxViewControllerContainer: UIViewController , UIPickerViewDelegate {
             }))
 
             presentViewController(alertNilYear, animated: true, completion: nil)
+            
+            RefreshContainers(FilingStatus())
+    
+            
             return
         }
         
-        if (self.childViewControllers.count == 2)
+        if (self.childViewControllers.count > 0)
         {
             let containerViewController = self.childViewControllers[0] as! ContainerInvestmentController
             
-            containerViewController.lstLotPositionForYear = CapitalGainController.sharedInstance.GetLotPositionForYear(year!) //ToDO Validation)
-            
+            containerViewController.lstLotPositionForYear = CapitalGainController.sharedInstance.GetLotPositionForYear(year!)
            // let containerViewController = self.childViewControllers[0] as! UITableViewController
             containerViewController.tableView.reloadData()
             
@@ -73,6 +76,9 @@ class TaxViewControllerContainer: UIViewController , UIPickerViewDelegate {
                 }))
                 
                 presentViewController(alertNilFiling, animated: true, completion: nil)
+                
+                RefreshContainers(FilingStatus())
+                
                 return
 
             }
@@ -80,19 +86,24 @@ class TaxViewControllerContainer: UIViewController , UIPickerViewDelegate {
             
             if(filingStatus!.CurrentTaxableIncome != 0)
             {
-                CapitalGainController.sharedInstance.SetResultFilingStatus(filingStatus!)
-                
-                let taxPageController = self.childViewControllers[1] as! TaxPageController
-                taxPageController.RefreshTaxViewPages()
-                
+                RefreshContainers(filingStatus!)
             }
             else
             {
-                //ToDo Display Show segue to enter tax
+                RefreshContainers(FilingStatus())
             }
         }
     }
 
+    func RefreshContainers(filingStatus : FilingStatus)
+    {
+        CapitalGainController.sharedInstance.SetResultFilingStatus(filingStatus)
+        
+        let taxPageController = self.childViewControllers[1] as! TaxPageController
+        taxPageController.RefreshTaxViewPages()
+        
+
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -144,6 +155,7 @@ class TaxViewControllerContainer: UIViewController , UIPickerViewDelegate {
         
     }
     
+    //ToDo - ?
     override func prepareForSegue(segue: UIStoryboardSegue,
         sender: AnyObject?) {
             

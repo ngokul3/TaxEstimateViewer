@@ -60,8 +60,8 @@ class ResultLabelController: UIViewController {
     }
     func ShowLongTermShortTermLabel()
     {
-        if (self.FilingStatusForGraph.Year != 0)
-        {
+      //  if (self.FilingStatusForGraph.Year != 0)
+        //{
             self.txtAnnualIncome.text = FilingStatusForGraph.CurrentTaxableIncome.description
             self.txtLTGain.text = FilingStatusForGraph.FilingStatusTax.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).map{ return $0.Limit }.reduce(0) { return $0 + $1 }.description
             
@@ -72,7 +72,7 @@ class ResultLabelController: UIViewController {
             self.txtTotalTax.text = (FilingStatusForGraph.TaxOnLTCapitalGain + FilingStatusForGraph.TaxOnSTCapitalGain).description
             
        
-        }
+        //}
     }
 
 

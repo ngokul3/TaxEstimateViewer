@@ -126,8 +126,7 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
         
         currentIndex = currentIndex % (myViewControllers.count)
         return myViewControllers.objectAtIndex(currentIndex) as? UIViewController
-        //return getController(_dict[viewController]!.prevIndex())
-    }
+        }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
       
@@ -147,7 +146,7 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
          // return getController(_dict[viewController]!.nextIndex())
     }
     
-    private func getController(value: ControllerEnum) -> UIViewController? {
+   /* private func getController(value: ControllerEnum) -> UIViewController? {
         var vc: UIViewController?
         switch value {
         case .ResultLabel:
@@ -169,7 +168,7 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
         // store relative enum to view controller
         _dict[vc!] = value
         return vc!
-    }
+    }*/
 
 }
 

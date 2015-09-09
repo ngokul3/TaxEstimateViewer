@@ -10,7 +10,7 @@ import UIKit
 
 class ResultShortTermPieController: UIViewController {
 
-    private var _utils = Utils()
+    //private var _utils = Utils()
     
     @IBOutlet weak var pieChartView: PieChartView!
     
@@ -22,7 +22,7 @@ class ResultShortTermPieController: UIViewController {
         super.viewDidLoad()
 
         
-        if (_utils.FilingStatusForGraph.Year == 0)
+        if (CapitalGainController.sharedInstance.GetResultFilingStatus().Year == 0)
         {
             return
         }
@@ -34,19 +34,13 @@ class ResultShortTermPieController: UIViewController {
 
     func DrawShortTermPieChart()
     {
-        if (_utils.FilingStatusForGraph.Year != 0)
-        {
+        let resultFilingStatus = CapitalGainController.sharedInstance.GetResultFilingStatus()
+        
+        var lstTaxBracket = TaxOnCapitalGainLossUp.GetTaxHairCut(resultFilingStatus)
+        var shortTermTaxBracket = lstTaxBracket.filter({m in m.Term.rawValue == ENumTerm.ShortTerm.rawValue}).first
+        setSTPieChart(resultFilingStatus.FilingStatusTax)
             
-            
-            var lstTaxBracket = TaxOnCapitalGainLossUp.GetTaxHairCut(_utils.FilingStatusForGraph)
-            
-            
-            var shortTermTaxBracket = lstTaxBracket.filter({m in m.Term.rawValue == ENumTerm.ShortTerm.rawValue}).first
-            
-            
-             setSTPieChart(_utils.FilingStatusForGraph.FilingStatusTax)
-            
-        }
+       
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -76,28 +70,35 @@ class ResultShortTermPieController: UIViewController {
             
         }
         
-        let pieChartDataSet = PieChartDataSet(yVals: taxLimit, label: "Short Term Tax Slab")
-        let pieChartData = PieChartData(xVals: taxPerc, dataSet: pieChartDataSet)
-        pieChartView.data = pieChartData
-        
-        var colors: [UIColor] = []
-        
-        for i in 0..<index {
-            if (i == 0)
-            {
-                let color = UIColor.redColor().colorWithAlphaComponent(0.6)
-                colors.append(color)
-            }
-            else
-            {
-                let color = UIColor.blueColor().colorWithAlphaComponent(0.6)
-                colors.append(color)
-            }
-
+        if (taxLimit.count == 0)
+        {
+            pieChartView.clearsContextBeforeDrawing = true
+            pieChartView.clear()
         }
-        
-        pieChartDataSet.colors = colors
-        
+        else
+        {
+            let pieChartDataSet = PieChartDataSet(yVals: taxLimit, label: "Short Term Tax Slab")
+            let pieChartData = PieChartData(xVals: taxPerc, dataSet: pieChartDataSet)
+            pieChartView.data = pieChartData
+            
+            var colors: [UIColor] = []
+            
+            for i in 0..<index {
+                if (i == 0)
+                {
+                    let color = UIColor.redColor().colorWithAlphaComponent(0.6)
+                    colors.append(color)
+                }
+                else
+                {
+                    let color = UIColor.blueColor().colorWithAlphaComponent(0.6)
+                    colors.append(color)
+                }
+
+            }
+            
+            pieChartDataSet.colors = colors
+        }
         
         
     }
