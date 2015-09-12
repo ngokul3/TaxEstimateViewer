@@ -143,32 +143,9 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
         currentIndex = currentIndex % (myViewControllers.count)
         return myViewControllers.objectAtIndex(currentIndex) as? UIViewController
         
-         // return getController(_dict[viewController]!.nextIndex())
-    }
-    
-   /* private func getController(value: ControllerEnum) -> UIViewController? {
-        var vc: UIViewController?
-        switch value {
-        case .ResultLabel:
-            let resultLabelController = ResultLabelController()
-            resultLabelController.ShowLongTermShortTermLabel()
-            vc = resultLabelController
-         //   vc!.view.backgroundColor = UIColor.redColor()
-            
-        case .Center:
-            vc = UIViewController()
-            vc!.view.backgroundColor = UIColor.greenColor()
-            
-        case .Debts:
-            vc = UIViewController()
-            vc!.view.backgroundColor = UIColor.blueColor()
-            
-        default: return nil
         }
-        // store relative enum to view controller
-        _dict[vc!] = value
-        return vc!
-    }*/
+    
+ 
 
 }
 

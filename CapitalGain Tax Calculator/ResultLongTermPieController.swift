@@ -35,21 +35,15 @@ class ResultLongTermPieController: UIViewController {
 
     func DrawLongTermPieChart()
     {
-       // if (_utils.FilingStatusForGraph.Year != 0)
-        //{
-            
         
-            let resultFilingStatus = CapitalGainController.sharedInstance.GetResultFilingStatus()
-            
-             var lstTaxBracket = TaxOnCapitalGainLossUp.GetTaxHairCut(resultFilingStatus)
-            
-            
-            var longTermTaxBracket = lstTaxBracket.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).first
+        let resultFilingStatus = CapitalGainController.sharedInstance.GetResultFilingStatus()
         
-            
-            setLTPieChart(resultFilingStatus.FilingStatusTax)
-           
-       // }
+        var lstTaxBracket = TaxOnCapitalGainLossUp.GetTaxHairCut(resultFilingStatus)
+        
+        var longTermTaxBracket = lstTaxBracket.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).first
+        
+        setLTPieChart(resultFilingStatus.FilingStatusTax)
+       
     }
     
     override func didReceiveMemoryWarning() {
@@ -66,7 +60,7 @@ class ResultLongTermPieController: UIViewController {
         for item in lstFilingStatusAt
         {
             
-            if (item.Term.rawValue == ENumTerm.LongTerm.rawValue)
+            if (item.Term.rawValue == ENumTerm.LongTerm.rawValue && item.Limit != 0)
             {
                 index = index + 1
                 
@@ -82,7 +76,7 @@ class ResultLongTermPieController: UIViewController {
         
         if (taxLimit.count == 0)
         {
-             pieChartView.clearsContextBeforeDrawing = true
+            pieChartView.clearsContextBeforeDrawing = true
             pieChartView.clear()
         }
         else

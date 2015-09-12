@@ -13,8 +13,6 @@
 		5505E4491B9328C000E95F93 /* Long.png in Resources */ = {isa = PBXBuildFile; fileRef = 5505E4431B9328C000E95F93 /* Long.png */; };
 		5505E44A1B9328C000E95F93 /* Short Term.png in Resources */ = {isa = PBXBuildFile; fileRef = 5505E4441B9328C000E95F93 /* Short Term.png */; };
 		5505E44B1B9328C000E95F93 /* Short.png in Resources */ = {isa = PBXBuildFile; fileRef = 5505E4451B9328C000E95F93 /* Short.png */; };
-		5505E44D1B935A0B00E95F93 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5505E44C1B935A0B00E95F93 /* Utils.swift */; };
-		5529604D1B6327A50035622F /* SevenSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5529604C1B6327A50035622F /* SevenSwitch.swift */; };
 		5529604F1B65B0DF0035622F /* InvestmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5529604E1B65B0DF0035622F /* InvestmentTableViewCell.swift */; };
 		553E2FC91B7F5A400014B3BE /* TaxBracket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BD8251B6D1559003F5CE1 /* TaxBracket.swift */; };
 		553E2FCA1B7F5A540014B3BE /* LotTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E85DC1B69AA2E00197CBE /* LotTerm.swift */; };
@@ -107,6 +105,9 @@
 		55D0CF5E1B5DD1AC003B1D3F /* FilingMasterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF5D1B5DD1AC003B1D3F /* FilingMasterController.swift */; };
 		55D0CF6B1B5F1F4E003B1D3F /* CapitalGainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF6A1B5F1F4E003B1D3F /* CapitalGainController.swift */; };
 		55D0CF6D1B5F2145003B1D3F /* CapitalGainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF6C1B5F2145003B1D3F /* CapitalGainManager.swift */; };
+		55DAF8451BA44FA100CD2273 /* Short_No.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DAF8431BA44FA100CD2273 /* Short_No.png */; };
+		55DAF8461BA44FA100CD2273 /* Short_Yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DAF8441BA44FA100CD2273 /* Short_Yes.png */; };
+		55DAF8481BA45E2300CD2273 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DAF8471BA45E2300CD2273 /* TabBarController.swift */; };
 		55DD2B481B6ED2AC002B7400 /* SortedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DD2B471B6ED2AC002B7400 /* SortedDictionary.swift */; };
 		55E7D2F71B778AC40012D1CB /* ContainerInvestmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7D2F61B778AC40012D1CB /* ContainerInvestmentController.swift */; };
 		55EB87F91B953FBC00CA5561 /* PieChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB87F81B953FBC00CA5561 /* PieChartData.swift */; };
@@ -166,8 +167,6 @@
 		5505E4431B9328C000E95F93 /* Long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Long.png; sourceTree = "<group>"; };
 		5505E4441B9328C000E95F93 /* Short Term.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Short Term.png"; sourceTree = "<group>"; };
 		5505E4451B9328C000E95F93 /* Short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Short.png; sourceTree = "<group>"; };
-		5505E44C1B935A0B00E95F93 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		5529604C1B6327A50035622F /* SevenSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SevenSwitch.swift; sourceTree = "<group>"; };
 		5529604E1B65B0DF0035622F /* InvestmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestmentTableViewCell.swift; sourceTree = "<group>"; };
 		555F00CB1B6BEACC00EB1EAF /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		555F15731B7FFF8D00A34EC4 /* ContainerMultiResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerMultiResultController.swift; sourceTree = "<group>"; };
@@ -264,6 +263,9 @@
 		55D0CF5D1B5DD1AC003B1D3F /* FilingMasterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilingMasterController.swift; sourceTree = "<group>"; };
 		55D0CF6A1B5F1F4E003B1D3F /* CapitalGainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapitalGainController.swift; sourceTree = "<group>"; };
 		55D0CF6C1B5F2145003B1D3F /* CapitalGainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapitalGainManager.swift; sourceTree = "<group>"; };
+		55DAF8431BA44FA100CD2273 /* Short_No.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Short_No.png; sourceTree = "<group>"; };
+		55DAF8441BA44FA100CD2273 /* Short_Yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Short_Yes.png; sourceTree = "<group>"; };
+		55DAF8471BA45E2300CD2273 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		55DD2B471B6ED2AC002B7400 /* SortedDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedDictionary.swift; sourceTree = "<group>"; };
 		55E7D2F61B778AC40012D1CB /* ContainerInvestmentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerInvestmentController.swift; sourceTree = "<group>"; };
 		55EB87F81B953FBC00CA5561 /* PieChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartData.swift; sourceTree = "<group>"; };
@@ -328,6 +330,8 @@
 		5505E43F1B93280D00E95F93 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				55DAF8431BA44FA100CD2273 /* Short_No.png */,
+				55DAF8441BA44FA100CD2273 /* Short_Yes.png */,
 				5505E4401B9328C000E95F93 /* 365-No.png */,
 				5505E4411B9328C000E95F93 /* 365.png */,
 				5505E4421B9328C000E95F93 /* Long Term.png */,
@@ -496,7 +500,6 @@
 			children = (
 				557E85D61B66FE6100197CBE /* FilingTableViewCell.swift */,
 				5529604E1B65B0DF0035622F /* InvestmentTableViewCell.swift */,
-				5529604C1B6327A50035622F /* SevenSwitch.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				555F15791B815C1500A34EC4 /* TaxPageController.swift */,
 				55AA04761B97C8CF003A1734 /* ResultLongTermPieController.swift */,
 				55AA04781B97FA8F003A1734 /* ResultShortTermPieController.swift */,
+				55DAF8471BA45E2300CD2273 /* TabBarController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -529,7 +533,6 @@
 				557E85DE1B69AC5E00197CBE /* TaxProcessor.swift */,
 				555F00CB1B6BEACC00EB1EAF /* DataManager.swift */,
 				55DD2B471B6ED2AC002B7400 /* SortedDictionary.swift */,
-				5505E44C1B935A0B00E95F93 /* Utils.swift */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55C28A511B55F0E2001D073E /* Main.storyboard in Resources */,
+				55DAF8461BA44FA100CD2273 /* Short_Yes.png in Resources */,
 				5505E44A1B9328C000E95F93 /* Short Term.png in Resources */,
 				5505E4471B9328C000E95F93 /* 365.png in Resources */,
 				5505E4461B9328C000E95F93 /* 365-No.png in Resources */,
@@ -668,6 +672,7 @@
 				5505E4481B9328C000E95F93 /* Long Term.png in Resources */,
 				55C28A531B55F0E2001D073E /* Images.xcassets in Resources */,
 				5505E44B1B9328C000E95F93 /* Short.png in Resources */,
+				55DAF8451BA44FA100CD2273 /* Short_No.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -715,6 +720,7 @@
 				55689C5E1B83FE3700F8FAA2 /* ChartContextDrawer.swift in Sources */,
 				55689C5A1B83FE3700F8FAA2 /* ChartAxisYHighLayerDefault.swift in Sources */,
 				555F15781B80017000A34EC4 /* ResultsSegue.swift in Sources */,
+				55DAF8481BA45E2300CD2273 /* TabBarController.swift in Sources */,
 				55D0CF5E1B5DD1AC003B1D3F /* FilingMasterController.swift in Sources */,
 				55689C4D1B83FE3700F8FAA2 /* ChartAxisLayer.swift in Sources */,
 				55689C5D1B83FE3700F8FAA2 /* ChartConfig.swift in Sources */,
@@ -726,7 +732,6 @@
 				55689C531B83FE3700F8FAA2 /* ChartAxisValueFloatScreenLoc.swift in Sources */,
 				55689C871B84071900F8FAA2 /* ExamplesDefaults.swift in Sources */,
 				55EB88211B9547FE00CA5561 /* ChartViewPortHandler.swift in Sources */,
-				5505E44D1B935A0B00E95F93 /* Utils.swift in Sources */,
 				55689C891B84076600F8FAA2 /* Env.swift in Sources */,
 				55689C831B84028800F8FAA2 /* ChartLinesView.swift in Sources */,
 				55689C4F1B83FE3700F8FAA2 /* ChartAxisModel.swift in Sources */,
@@ -740,7 +745,6 @@
 				55689C8F1B8408AA00F8FAA2 /* ChartViewsConflictSolver.swift in Sources */,
 				55689C651B83FE3700F8FAA2 /* ChartStackedBarsLayer.swift in Sources */,
 				55DD2B481B6ED2AC002B7400 /* SortedDictionary.swift in Sources */,
-				5529604D1B6327A50035622F /* SevenSwitch.swift in Sources */,
 				55E7D2F71B778AC40012D1CB /* ContainerInvestmentController.swift in Sources */,
 				55EB883B1B954F4C00CA5561 /* ChartAxisRendererBase.swift in Sources */,
 				557BD8261B6D1559003F5CE1 /* TaxBracket.swift in Sources */,

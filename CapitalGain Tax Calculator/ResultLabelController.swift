@@ -25,6 +25,9 @@ class ResultLabelController: UIViewController {
     
     @IBOutlet weak var txtTotalTax: UITextField!
     
+    
+    @IBOutlet weak var imgLongTerm: UIImageView!
+    
    // toViewController.view.frame = CGRect(x: 0,y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height);
    // fromViewController.willMoveToParentViewController(nil)
     
@@ -45,7 +48,9 @@ class ResultLabelController: UIViewController {
   //  let thisWidth = pageViewController.view.frame.size. width
     //let thisHeight = pageViewController.view.frame.size.height
         
-       self.view.frame = CGRect(x: 0, y: 0, width: 375, height: 243)
+    self.view.frame = CGRect(x: 0, y: 0, width: 375, height: 243)
+        
+   
     }
   
     override func didReceiveMemoryWarning() {

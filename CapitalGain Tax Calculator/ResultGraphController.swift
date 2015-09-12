@@ -14,40 +14,20 @@ class ResultGraphController: UIViewController {
   //  private var _utils = Utils()
 
     
+    @IBOutlet weak var graphPieChartView: PieChartView!
+    
     private var chart: Chart?
     
     private let dirSelectorHeight: CGFloat = 50
     
-    private func barsChart(#horizontal: Bool) -> Chart {
+    private func barsChart(#horizontal: Bool,stackedLongTermIncomeLevel : [Double], stackedShortTermIncomeLevel : [Double] ) -> Chart {
         
         let resultFilingStatus = CapitalGainController.sharedInstance.GetResultFilingStatus()
         
         let labelSettings = ChartLabelSettings(font: ExamplesDefaults.labelFont)
         
-        /**/
-        
-        var stackedLongTermIncomeLevel = [Double]()
-        var stackedShortTermIncomeLevel = [Double]()
-
-        
         let currentIncome = resultFilingStatus.CurrentTaxableIncome
-        
-        
-        for item in resultFilingStatus.FilingStatusTax
-        {
-            
-            if (item.Term.rawValue == ENumTerm.LongTerm.rawValue)
-            {
-                let ltStackedCapitalGain = item.Limit
-                stackedLongTermIncomeLevel.append(ltStackedCapitalGain)
-            }
-            else if(item.Term.rawValue == ENumTerm.ShortTerm.rawValue)
-            {
-                let stStackedCapitalGain = item.Limit
-                stackedShortTermIncomeLevel.append(stStackedCapitalGain)
-            }
-        }
-        
+
         let groupsData: [(title: String, bars: [(start: CGFloat, quantities: [Double])])] = [
             ("Long Term", [
                 (CGFloat(currentIncome),
@@ -79,13 +59,11 @@ class ResultGraphController: UIViewController {
         
        
 
-        //101004
         /* */
         var xTaxBracket = [ChartAxisValueFloat]()
         
         
         let incomeItem =  ChartAxisValueFloat(CGFloat(currentIncome),labelSettings: labelSettings)
-     //   xTaxBracket.append(incomeItem)
         
         let lstFilingStatusTax = resultFilingStatus.FilingStatusTax
   
@@ -175,9 +153,38 @@ class ResultGraphController: UIViewController {
     private func showChart(#horizontal: Bool) {
         self.chart?.clearView()
         
-        let chart = self.barsChart(horizontal: horizontal)
-        self.view.addSubview(chart.view)
-        self.chart = chart
+        var stackedLongTermIncomeLevel = [Double]()
+        var stackedShortTermIncomeLevel = [Double]()
+        
+        let resultFilingStatus = CapitalGainController.sharedInstance.GetResultFilingStatus()
+        
+        for item in resultFilingStatus.FilingStatusTax
+        {
+            
+            if (item.Term.rawValue == ENumTerm.LongTerm.rawValue)
+            {
+                let ltStackedCapitalGain = item.Limit
+                stackedLongTermIncomeLevel.append(ltStackedCapitalGain)
+            }
+            else if(item.Term.rawValue == ENumTerm.ShortTerm.rawValue)
+            {
+                let stStackedCapitalGain = item.Limit
+                stackedShortTermIncomeLevel.append(stStackedCapitalGain)
+            }
+        }
+        
+        if(stackedLongTermIncomeLevel.count == 0 && stackedShortTermIncomeLevel.count == 0)
+        {
+            self.chart?.clearView()
+            graphPieChartView.hidden = false
+        }
+        else
+        {
+            let chart = self.barsChart(horizontal: horizontal, stackedLongTermIncomeLevel: stackedLongTermIncomeLevel,stackedShortTermIncomeLevel : stackedShortTermIncomeLevel )
+            
+            self.view.addSubview(chart.view)
+            self.chart = chart
+        }
     }
     
     override func viewDidLoad() {
@@ -195,6 +202,7 @@ class ResultGraphController: UIViewController {
     {
         if (CapitalGainController.sharedInstance.GetResultFilingStatus().Year != 0)
         {
+            graphPieChartView.hidden = true
             self.showChart(horizontal: false)
      
             if let chart = self.chart {
@@ -209,6 +217,7 @@ class ResultGraphController: UIViewController {
         else
         {
             self.chart?.clearView()
+            graphPieChartView.hidden = false
             
         }
     }

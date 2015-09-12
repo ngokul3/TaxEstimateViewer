@@ -56,7 +56,7 @@ class ResultShortTermPieController: UIViewController {
          for item in lstFilingStatusAt
         {
             
-            if (item.Term.rawValue == ENumTerm.ShortTerm.rawValue)
+            if (item.Term.rawValue == ENumTerm.ShortTerm.rawValue && item.Limit != 0)
             {
                 index = index + 1
                 
