@@ -2,24 +2,23 @@
 
 import UIKit
 
-let x = round(1379.8000000000002)
+let x = 80000
+
+let pp = x.description
+
+var price : Double
+price = 900
 
 
+var formatter = NSNumberFormatter()
+formatter.numberStyle = .CurrencyStyle
+let profitLoss = formatter.stringFromNumber(price)
 
-var set = Set([1, 2, 3, 2, 1])
 
-// Add single elements:
-set.insert(4)
-set.insert(3)
+let strPrice = formatter.numberFromString(profitLoss!)
+print(strPrice)
 
-// Add multiple elements:
-set.unionInPlace([ 4, 5, 6 ])
+//let strPrice = formatter.numberFromString("$900,00")
 
-// Remove single element:
-set.remove(2)
 
-// Remove multiple elements:
-set.subtractInPlace([ 6, 7 ])
-
-println(set) // [5, 3, 1, 4]
 

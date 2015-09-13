@@ -34,6 +34,8 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
     
     var selectedLotPosition : LotPosition?
     
+    var utils = Utils()
+    
     var directionArray = [ENumDirection.Long.rawValue, ENumDirection.CoveredShort.rawValue, ENumDirection.UnCoveredShort.rawValue]
     var investmentTypeArray =  [ENumInvestmentType.Equity.rawValue, ENumInvestmentType.Dividend.rawValue, ENumInvestmentType.NonQualifiedDividend.rawValue, ENumInvestmentType.Section1256.rawValue]
     override func viewDidLoad() {
@@ -56,7 +58,10 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
             println("This is investment edit")
             txtSymbol.text = selectedLotPosition?.SymbolCode
             txtInvestmentType.text = selectedLotPosition?.InvestmentType.rawValue
-            txtProfitLoss.text = selectedLotPosition?.RealizedGainLoss.description
+            
+            //txtProfitLoss.text = selectedLotPosition?.RealizedGainLoss.description
+            
+            txtProfitLoss.text = utils.ConvertStringToCurrency(selectedLotPosition?.RealizedGainLoss.description)
             if(selectedLotPosition?.Direction.rawValue == ENumDirection.UnCoveredShort.rawValue)
             {
                 swtIsShortDirection.on = true
@@ -82,19 +87,15 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
         
     }
     
+    @IBAction func OntxtProfitLossEditDidBegin(sender: AnyObject) {
+        txtProfitLoss.text = utils.ConvertCurrencyToString(txtProfitLoss.text)
+        
+    }
+    
     
     @IBAction func OntxtProfitLossEditDidEnd(sender: AnyObject) {
-    
-        /*var formatter = NSNumberFormatter()
-        formatter.numberStyle = .CurrencyStyle
-        // formatter.locale = NSLocale.currentLocale() // This is the default
-        let txtPrice = formatter.stringFromNumber(txtProfitLoss.text) // "$123.44"
         
-        formatter.locale = NSLocale(localeIdentifier: "es_CL")
-         txtPrice = formatter.stringFromNumber(price) // $123"
-        
-      //  formatter.locale = NSLocale(localeIdentifier: "es_ES")
-        //formatter.stringFromNumber(price) // "123,44 €"*/
+        txtProfitLoss.text = utils.ConvertStringToCurrency(txtProfitLoss.text)
     }
     
     
@@ -191,6 +192,8 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
     
    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool // Invoked immediately prior to 
    {
+    
+    txtProfitLoss.text = utils.ConvertCurrencyToString(txtProfitLoss.text)
     
     var alertAssetDesc = UIAlertController(title: "Asset Description", message: "Asset Description is required", preferredStyle: UIAlertControllerStyle.Alert)
     alertAssetDesc.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in

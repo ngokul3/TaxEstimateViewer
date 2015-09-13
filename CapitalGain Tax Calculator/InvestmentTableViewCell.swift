@@ -35,11 +35,11 @@ class InvestmentTableViewCell: UITableViewCell {
         
         if (direction.rawValue == ENumDirection.Long.rawValue)
         {
-            assetName = "Short_No"
+            assetName = "Reg"
         }
         else if (direction.rawValue == ENumDirection.UnCoveredShort.rawValue)
         {
-            assetName = "Short_Yes"
+            assetName = "ShortSell"
             
         }
         return  UIImage(named: (assetName))
