@@ -10,6 +10,7 @@ import UIKit
 
 class AddFilingController: UIViewController , UIPickerViewDelegate{
 
+    var utils = Utils()
     @IBOutlet weak var lblYear: UILabel!
     
     @IBOutlet weak var stpYear: UIStepper!
@@ -51,9 +52,12 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
             println("This is filing detail edit")
             stpYear.enabled = false
             lblYear.text = selectedFilingDetail?.Year.description
-            txtCurrentTaxableIncome.text = selectedFilingDetail?.CurrentTaxableIncome.description
+            txtCurrentTaxableIncome.text = utils.ConvertStringToCurrency(selectedFilingDetail?.CurrentTaxableIncome.description)
             txtFilingMode.text = selectedFilingDetail?.FilingType.rawValue
-            txtPreviouslyDeferredLoss.text = selectedFilingDetail?.PreviouslyDeferredLoss.description
+            
+           // txtPreviouslyDeferredLoss.text = selectedFilingDetail?.PreviouslyDeferredLoss.description
+            txtPreviouslyDeferredLoss.text = utils.ConvertStringToCurrency(selectedFilingDetail?.PreviouslyDeferredLoss.description)
+            
         }
     }
 
@@ -62,6 +66,24 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func OntxtCurrentTaxableIncomeEditDidBegin(sender: AnyObject) {
+        txtCurrentTaxableIncome.text = utils.ConvertCurrencyToString(txtCurrentTaxableIncome.text)
+        
+    }
+    @IBAction func OntxtCurrentTaxableIncomeEditDidEnd(sender: AnyObject) {
+        txtCurrentTaxableIncome.text = utils.ConvertStringToCurrency(txtCurrentTaxableIncome.text)
+        
+    }
+    
+    @IBAction func OntxtPreviouslyDeferredLossEditDidBegin(sender: AnyObject) {
+        txtPreviouslyDeferredLoss.text = utils.ConvertCurrencyToString(txtPreviouslyDeferredLoss.text)
+
+    }
+    @IBAction func OntxtPreviouslyDeferredLossEditDidEnd(sender: AnyObject) {
+        txtPreviouslyDeferredLoss.text = utils.ConvertStringToCurrency(txtPreviouslyDeferredLoss.text)
+        
+    }
+
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -101,6 +123,9 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
     
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool // Invoked immediately prior to
     {
+        txtCurrentTaxableIncome.text = utils.ConvertCurrencyToString(txtCurrentTaxableIncome.text)
+        txtPreviouslyDeferredLoss.text = utils.ConvertCurrencyToString(txtPreviouslyDeferredLoss.text)
+        
         
         var alertFilingMode = UIAlertController(title: "Filing Mode", message: "Filing Mode is required", preferredStyle: UIAlertControllerStyle.Alert)
         alertFilingMode.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in

@@ -217,11 +217,19 @@
                                 <rect key="frame" x="0.0" y="193" width="375" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="OntxtCurrentTaxableIncomeEditDidBegin:" destination="6SW-hu-ik5" eventType="editingDidBegin" id="ybv-GM-24K"/>
+                                    <action selector="OntxtCurrentTaxableIncomeEditDidEnd:" destination="6SW-hu-ik5" eventType="editingDidEnd" id="iQ0-gj-vXq"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Previously Deferred Loss" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5zt-vg-afa">
                                 <rect key="frame" x="0.0" y="244" width="375" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="OntxtPreviouslyDeferredLossEditDidBegin:" destination="6SW-hu-ik5" eventType="editingDidBegin" id="Stb-jC-PpY"/>
+                                    <action selector="OntxtPreviouslyDeferredLossEditDidEnd:" destination="6SW-hu-ik5" eventType="editingDidEnd" id="PyQ-rO-2Ge"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

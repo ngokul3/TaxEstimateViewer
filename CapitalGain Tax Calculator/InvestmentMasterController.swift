@@ -59,7 +59,6 @@ class InvestmentMasterController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! InvestmentTableViewCell
         cell.lblInvesmentName.text = lotPosition.SymbolCode
-    //    cell.lblProfitLoss.text = lotPosition.RealizedGainLoss.description
         cell.lblProfitLoss.text = utils.ConvertStringToCurrency(lotPosition.RealizedGainLoss.description)
         
         let imgLTSTImageView = cell.viewWithTag(30) as! UIImageView

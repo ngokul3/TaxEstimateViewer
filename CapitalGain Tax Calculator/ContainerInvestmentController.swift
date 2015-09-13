@@ -12,6 +12,7 @@ class ContainerInvestmentController: UITableViewController {
 
     @IBOutlet var investmentTableView: UITableView!
  
+    var utils = Utils()
     var lstLotPositionForYear = [LotPosition]()
     
     override func viewDidLoad() {
@@ -51,8 +52,7 @@ class ContainerInvestmentController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! InvestmentTableViewCell
         cell.lblInvesmentName.text = lotPosition.SymbolCode
-        cell.lblProfitLoss.text = lotPosition.RealizedGainLoss.description
-        
+        cell.lblProfitLoss.text = utils.ConvertStringToCurrency(lotPosition.RealizedGainLoss.description)
         let imgLTSTImageView = cell.viewWithTag(30) as! UIImageView
         imgLTSTImageView.image = cell.ImageForLTST(lotPosition.Direction)
         
