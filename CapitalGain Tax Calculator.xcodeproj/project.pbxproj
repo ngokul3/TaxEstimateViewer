@@ -23,7 +23,6 @@
 		553E2FD11B7F5AF40014B3BE /* TaxOnCapitalGainLossUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BD8271B6D1671003F5CE1 /* TaxOnCapitalGainLossUp.swift */; };
 		553E2FD21B7F5BF00014B3BE /* TaxProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E85DE1B69AC5E00197CBE /* TaxProcessor.swift */; };
 		555F00CC1B6BEACD00EB1EAF /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F00CB1B6BEACC00EB1EAF /* DataManager.swift */; };
-		555F15741B7FFF8D00A34EC4 /* ContainerMultiResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F15731B7FFF8D00A34EC4 /* ContainerMultiResultController.swift */; };
 		555F15761B7FFFD700A34EC4 /* ResultLabelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F15751B7FFFD700A34EC4 /* ResultLabelController.swift */; };
 		555F15781B80017000A34EC4 /* ResultsSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F15771B80017000A34EC4 /* ResultsSegue.swift */; };
 		555F157A1B815C1500A34EC4 /* TaxPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F15791B815C1500A34EC4 /* TaxPageController.swift */; };
@@ -173,7 +172,6 @@
 		5505E4451B9328C000E95F93 /* Short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Short.png; sourceTree = "<group>"; };
 		5529604E1B65B0DF0035622F /* InvestmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestmentTableViewCell.swift; sourceTree = "<group>"; };
 		555F00CB1B6BEACC00EB1EAF /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		555F15731B7FFF8D00A34EC4 /* ContainerMultiResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerMultiResultController.swift; sourceTree = "<group>"; };
 		555F15751B7FFFD700A34EC4 /* ResultLabelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultLabelController.swift; sourceTree = "<group>"; };
 		555F15771B80017000A34EC4 /* ResultsSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsSegue.swift; sourceTree = "<group>"; };
 		555F15791B815C1500A34EC4 /* TaxPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxPageController.swift; sourceTree = "<group>"; };
@@ -527,7 +525,6 @@
 				557E85DA1B67084300197CBE /* AddFilingController.swift */,
 				556065CF1B769D490054E00E /* TaxViewControllerContainer.swift */,
 				55E7D2F61B778AC40012D1CB /* ContainerInvestmentController.swift */,
-				555F15731B7FFF8D00A34EC4 /* ContainerMultiResultController.swift */,
 				555F15791B815C1500A34EC4 /* TaxPageController.swift */,
 				55AA04761B97C8CF003A1734 /* ResultLongTermPieController.swift */,
 				55AA04781B97FA8F003A1734 /* ResultShortTermPieController.swift */,
@@ -725,7 +722,6 @@
 				55EB882D1B954B9B00CA5561 /* ChartLegend.swift in Sources */,
 				55A693831BA5C0D700665F2B /* Utils.swift in Sources */,
 				557E85EF1B6AE44F00197CBE /* FMDatabase.m in Sources */,
-				555F15741B7FFF8D00A34EC4 /* ContainerMultiResultController.swift in Sources */,
 				55689C4C1B83FE3700F8FAA2 /* ChartAxisLabel.swift in Sources */,
 				55689C8D1B84084000F8FAA2 /* ChartPointsViewsLayer.swift in Sources */,
 				55EB88431B95525800CA5561 /* RadarChartRenderer.swift in Sources */,

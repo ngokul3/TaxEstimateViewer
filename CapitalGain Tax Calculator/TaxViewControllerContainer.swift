@@ -20,8 +20,6 @@ class TaxViewControllerContainer: UIViewController  {
     @IBOutlet weak var txtYear: UITextField!
    
     
-   // var yearArray = ["2015", "2014", "2013"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

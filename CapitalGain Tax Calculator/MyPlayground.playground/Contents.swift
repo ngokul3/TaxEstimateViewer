@@ -20,5 +20,8 @@ print(strPrice)
 
 //let strPrice = formatter.numberFromString("$900,00")
 
+let maxNumber = Array(1...10)
+    .reduce(0) { (total, number) in max(total, number) }
+println(maxNumber)
 
 

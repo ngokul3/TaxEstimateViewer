@@ -14,6 +14,7 @@ class ContainerInvestmentController: UITableViewController {
  
     var utils = Utils()
     var lstLotPositionForYear = [LotPosition]()
+    var taxProcessor = TaxProcessor()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,7 +99,7 @@ class ContainerInvestmentController: UITableViewController {
             let filingStatus = CapitalGainController.sharedInstance.GetFilingStatusForYear(year!)
             
             let lstLotTerm = CapitalGainController.sharedDBInstance.ReturnLotTerm(lstLotPositionSelected)
-            let taxProcessor = TaxProcessor()
+           // let taxProcessor = TaxProcessor()
             
             RefreshInvestments()
 

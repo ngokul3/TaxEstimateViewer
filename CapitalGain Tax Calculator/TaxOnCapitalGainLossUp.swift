@@ -180,11 +180,23 @@ struct TaxOnCapitalGainLossUp {
     
     static func GetTaxHairCut(filingStatus: FilingStatus) -> [TaxBracket]
     {
-         let taxBracketArray = _taxBracketList.filter({m in m.Year == filingStatus.Year && m.FilingType.rawValue == filingStatus.FilingType.rawValue})
+        var lstTaxBracket = [TaxBracket]()
         
-        let lstTaxBracket = taxBracketArray as [TaxBracket]
         
-     //   let taxBracket = lstTaxBracket.first
+       // let taxBracketArray = _taxBracketList.filter({m in m.Year == filingStatus.Year && m.FilingType.rawValue == filingStatus.FilingType.rawValue})
+        
+        let maxYear = _taxBracketList.map{ return $0.Year }.reduce(Int.min, combine: {max($0, $1)} )
+        
+        lstTaxBracket = _taxBracketList.filter({m in m.Year == filingStatus.Year && m.FilingType.rawValue == filingStatus.FilingType.rawValue}) as [TaxBracket]
+        
+        if (lstTaxBracket.count == 0 )
+        {
+            lstTaxBracket = _taxBracketList.filter({m in m.Year == maxYear && m.FilingType.rawValue == filingStatus.FilingType.rawValue}) as [TaxBracket]
+            
+        }
+     //    .reduce(0) { (total, number) in max(total, number) }
+     //   let lstTaxBracket = taxBracketArray as [TaxBracket]
+        
         return lstTaxBracket
     }
     
