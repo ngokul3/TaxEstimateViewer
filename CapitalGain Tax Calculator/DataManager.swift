@@ -218,7 +218,7 @@ class DataManager
         {
             var lstLotPosition : [LotPosition] = [LotPosition]()
             
-            let selectLotPositionSql = "Select LotPositionID, SymbolCode, InvestmentType, Direction, RealizedGainLoss, Year, IsLongTerm From LotPosition"
+            let selectLotPositionSql = "Select LotPositionID, SymbolCode, InvestmentType, Direction, RealizedGainLoss, Year, IsLongTerm From LotPosition Order By SymbolCode"
             
             NSLog(selectLotPositionSql)
             
@@ -340,6 +340,9 @@ class DataManager
         return [FilingStatus]()
     }
     
+    
+  
+    
     func ReturnLotTerm(lstLotPosition : [LotPosition])-> [LotTerm]
     {
         if self._capitalGainCalculatorDB.open()
@@ -434,6 +437,42 @@ class DataManager
             
         }
         return [LotTerm]()
+    }
+    
+    func ReturnDistinctYears() -> Array<Int32>
+    {
+        var arrYear = Array<Int32>()
+        
+        if self._capitalGainCalculatorDB.open()
+        {
+            let selectYearSql = "Select distinct(Year) From LotPosition order by Year Desc"
+            
+            NSLog(selectYearSql)
+            
+            let results:FMResultSet? = self._capitalGainCalculatorDB.executeQuery(selectYearSql,
+                withArgumentsInArray: nil)
+            
+            if !(results != nil) {
+                println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+                
+            }
+            
+            while results?.next() == true {
+                
+                let lotTerm = LotTerm()
+                
+                
+                let year = results?.intForColumn("Year") as Int32!
+                
+                NSLog(year.description)
+                
+                arrYear.append(year)
+                
+            }
+            
+        }
+        
+        return arrYear
     }
     
     

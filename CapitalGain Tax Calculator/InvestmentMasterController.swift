@@ -7,17 +7,12 @@
 //
 
 import UIKit
-/*protocol LotSelectionDelegate: class {
-    func lotSelected(newlotPosition: LotPosition)
-}*/
-
-
 
 class InvestmentMasterController: UITableViewController {
-//weak var delegate:LotSelectionDelegate?
     var lotPosition =   [LotPosition]()
     var databasePath = NSString()
     var utils = Utils()
+    var arrYears = Array<Int32>()
 
     @IBOutlet var investmentTableView: UITableView!
 
@@ -43,19 +38,35 @@ class InvestmentMasterController: UITableViewController {
 
     }
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1 // TODO:
+        arrYears = CapitalGainController.sharedDBInstance.ReturnDistinctYears()
+        return arrYears.count
+       
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return arrYears[section].description
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var recordCount = CapitalGainController.sharedInstance.GetLotPositions().count
-        return recordCount
-    }
+        
+        let year = arrYears[section].description.toInt()
+        
+        let lstLotPositionForYear = CapitalGainController.sharedInstance.GetLotPositionForYear(year!)
+        
+        return lstLotPositionForYear.count
+        }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->   UITableViewCell {
         
         let cellIdentifier = "InvestmentTableViewCell"
         
-        let lotPosition = CapitalGainController.sharedInstance.GetLotPositionItem(indexPath.row)
+        let year = arrYears[indexPath.section].description.toInt()
+        
+        let lstLotPositionForYear = CapitalGainController.sharedInstance.GetLotPositionForYear(year!)
+        let lotPosition = lstLotPositionForYear[indexPath.row]
+        
+        //let lotPosition = CapitalGainController.sharedInstance.GetLotPositionItem(indexPath.row)
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! InvestmentTableViewCell
         cell.lblInvesmentName.text = lotPosition.SymbolCode

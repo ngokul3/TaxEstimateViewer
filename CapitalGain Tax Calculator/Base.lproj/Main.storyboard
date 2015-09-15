@@ -284,10 +284,10 @@
         <scene sceneID="9ut-Qe-5TL">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="eny-Cq-9WB" customClass="InvestmentMasterController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aiF-5I-wSD">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="aiF-5I-wSD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="InvestmentTableViewCell" id="o7u-E4-9dk" customClass="InvestmentTableViewCell" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
