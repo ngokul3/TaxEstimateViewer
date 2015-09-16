@@ -84,12 +84,22 @@ class InvestmentMasterController: UITableViewController {
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
     {
-        let lotPosition = CapitalGainController.sharedInstance.GetLotPositionItem(indexPath.row)
-        let isSuccess = CapitalGainController.sharedDBInstance.DeleteLotPosition(lotPosition)
+        let section = indexPath.section
+        
+        let row = indexPath.row
+        
+        let year = arrYears[section].description.toInt()
+        
+        let lstLotPositionForYear = CapitalGainController.sharedInstance.GetLotPositionForYear(year!)
+        
+        let selectedLotPosition = lstLotPositionForYear[row]
+        
+       // let lotPosition = CapitalGainController.sharedInstance.GetLotPositionItem(indexPath.row)
+        let isSuccess = CapitalGainController.sharedDBInstance.DeleteLotPosition(selectedLotPosition)
         
         if ((isSuccess) != nil)
         {
-            CapitalGainController.sharedInstance.DeleteLotPositionItem(indexPath.row)
+            CapitalGainController.sharedInstance.DeleteLotPositionItem(selectedLotPosition)
             tableView.reloadData()
 
         }
@@ -114,12 +124,18 @@ class InvestmentMasterController: UITableViewController {
                 
                 if let editViewController = segue.destinationViewController as? AddInvestmentController{
                     
-                    if let index = tableView.indexPathForSelectedRow()?.row
-                    {
-                        let selectedLotPosition = CapitalGainController.sharedInstance.GetLotPositionItem(index)
-                        editViewController.selectedLotPosition = selectedLotPosition
-                        editViewController.navigationItem.title = "Edit Investment"
-                    }
+                    let section = tableView.indexPathForSelectedRow()?.section
+                    
+                    let row = tableView.indexPathForSelectedRow()?.row
+                    
+                    let year = arrYears[section!].description.toInt()
+                    
+                    let lstLotPositionForYear = CapitalGainController.sharedInstance.GetLotPositionForYear(year!)
+                    
+                    let selectedLotPosition = lstLotPositionForYear[row!]
+                    
+                    editViewController.selectedLotPosition = selectedLotPosition
+                    editViewController.navigationItem.title = "Edit Investment"
                  
                 }
                 

@@ -52,7 +52,7 @@ enum ENumInvestmentType:String{
         }
     }
 }
-class LotPosition{
+class LotPosition : Equatable {
     private var _lotId:Int32
     private var _symbolCode:String
     private var _investmentType:ENumInvestmentType
@@ -160,18 +160,8 @@ class LotPosition{
         }
     }
 
-    func GetStockDetail()->String?{
-        switch self._symbolCode
-        {
-            case "AAPL":
-            return "Apple"
-            
-            case "CTSH":
-            return "Cogniaznant"
-            
-        default:
-            return "TCS"
-            
-        }
-    }
+    
+}
+ func ==(lhs: LotPosition, rhs: LotPosition) -> Bool {
+    return lhs.LotId == rhs.LotId
 }

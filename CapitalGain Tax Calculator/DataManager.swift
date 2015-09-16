@@ -218,7 +218,7 @@ class DataManager
         {
             var lstLotPosition : [LotPosition] = [LotPosition]()
             
-            let selectLotPositionSql = "Select LotPositionID, SymbolCode, InvestmentType, Direction, RealizedGainLoss, Year, IsLongTerm From LotPosition Order By SymbolCode"
+            let selectLotPositionSql = "Select LotPositionID, SymbolCode, InvestmentType, Direction, RealizedGainLoss, Year, IsLongTerm From LotPosition Order By RealizedGainLoss Desc, SymbolCode Asc"
             
             NSLog(selectLotPositionSql)
             

@@ -78,10 +78,13 @@ class CapitalGainControllerManager{
     }
     
     
-    func DeleteLotPositionItem(index: Int)
+    func DeleteLotPositionItem(lotPosition: LotPosition)
     {
-        
-        lstLotPosition.removeAtIndex(index) //ToDO - Defensive Coding required
+       if let foundIndex = find(self.lstLotPosition, lotPosition)
+       {
+        self.lstLotPosition.removeAtIndex(foundIndex)
+
+        }
     }
   
   
@@ -133,4 +136,20 @@ class CapitalGainControllerManager{
     }
     
 
+}
+
+extension Array {
+    mutating func removeObject<T: Equatable>(object: T) {
+        var index: Int?
+        for (idx, objectToCompare) in enumerate(self) {
+            let to = objectToCompare as! T
+            if object == to {
+                index = idx
+            }
+        }
+        
+        if((index) != nil) {
+            self.removeAtIndex(index!)
+        }
+    }
 }
