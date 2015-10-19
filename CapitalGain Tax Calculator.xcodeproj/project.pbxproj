@@ -119,7 +119,6 @@
 		55EB87FF1B95418800CA5561 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB87FE1B95418800CA5561 /* ChartData.swift */; };
 		55EB88011B9541F000CA5561 /* PieChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB88001B9541F000CA5561 /* PieChartDataSet.swift */; };
 		55EB88031B9542CD00CA5561 /* ChartUtils_Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB88021B9542CD00CA5561 /* ChartUtils_Pie.swift */; };
-		55EB880B1B95447D00CA5561 /* Darwin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB880A1B95447D00CA5561 /* Darwin.swift */; };
 		55EB880D1B9545A500CA5561 /* ChartSelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB880C1B9545A500CA5561 /* ChartSelInfo.swift */; };
 		55EB880F1B9545DC00CA5561 /* ChartYAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB880E1B9545DC00CA5561 /* ChartYAxis.swift */; };
 		55EB88111B95463F00CA5561 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EB88101B95463F00CA5561 /* PieChartView.swift */; };
@@ -280,7 +279,6 @@
 		55EB87FE1B95418800CA5561 /* ChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
 		55EB88001B9541F000CA5561 /* PieChartDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartDataSet.swift; sourceTree = "<group>"; };
 		55EB88021B9542CD00CA5561 /* ChartUtils_Pie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartUtils_Pie.swift; sourceTree = "<group>"; };
-		55EB880A1B95447D00CA5561 /* Darwin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Darwin.swift; sourceTree = "<group>"; };
 		55EB880C1B9545A500CA5561 /* ChartSelInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartSelInfo.swift; sourceTree = "<group>"; };
 		55EB880E1B9545DC00CA5561 /* ChartYAxis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartYAxis.swift; sourceTree = "<group>"; };
 		55EB88101B95463F00CA5561 /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
@@ -556,7 +554,6 @@
 				55EB87FE1B95418800CA5561 /* ChartData.swift */,
 				55EB88001B9541F000CA5561 /* PieChartDataSet.swift */,
 				55EB88021B9542CD00CA5561 /* ChartUtils_Pie.swift */,
-				55EB880A1B95447D00CA5561 /* Darwin.swift */,
 				55EB880C1B9545A500CA5561 /* ChartSelInfo.swift */,
 				55EB880E1B9545DC00CA5561 /* ChartYAxis.swift */,
 				55EB88101B95463F00CA5561 /* PieChartView.swift */,
@@ -819,7 +816,6 @@
 				55EB881B1B95476800CA5561 /* ChartDataRendererBase.swift in Sources */,
 				55EB88251B95486300CA5561 /* ChartComponentBase.swift in Sources */,
 				55689C7D1B8401C800F8FAA2 /* ChartPointViewBarStacked.swift in Sources */,
-				55EB880B1B95447D00CA5561 /* Darwin.swift in Sources */,
 				55689C7B1B84015300F8FAA2 /* ChartGuideLinesLayer.swift in Sources */,
 				55EB87F91B953FBC00CA5561 /* PieChartData.swift in Sources */,
 			);
