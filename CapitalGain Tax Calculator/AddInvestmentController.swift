@@ -14,10 +14,10 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
     
     @IBOutlet weak var txtSymbol: UITextField!
     
-    @IBOutlet weak var txtInvestmentType: UITextField!
+    //@IBOutlet weak var txtInvestmentType: UITextField!
    
     @IBOutlet weak var txtDirection: UITextField!
-    @IBOutlet weak var pickerInvestmentType: UIPickerView!
+   // @IBOutlet weak var pickerInvestmentType: UIPickerView!
     
     @IBOutlet weak var btnProfitLoss: UISegmentedControl!
     
@@ -41,7 +41,7 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        pickerInvestmentType.hidden = true
+       // pickerInvestmentType.hidden = true
         
         let date = NSDate()
         var dateFormatter = NSDateFormatter()
@@ -57,7 +57,7 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
         {
             println("This is investment edit")
             txtSymbol.text = selectedLotPosition?.SymbolCode
-            txtInvestmentType.text = selectedLotPosition?.InvestmentType.rawValue
+           // txtInvestmentType.text = selectedLotPosition?.InvestmentType.rawValue
             
             //txtProfitLoss.text = selectedLotPosition?.RealizedGainLoss.description
             
@@ -146,7 +146,7 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
   {
     switch(pickerView.tag){
     case 1:
-        txtInvestmentType.text = investmentTypeArray[row]
+      //  txtInvestmentType.text = investmentTypeArray[row]
         break
         
     default:
@@ -157,16 +157,16 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
 
     @IBAction func OnInvestmentTypeEditBegin(sender: AnyObject)
     {
-        if txtInvestmentType.text.isEmpty
+      /*  if txtInvestmentType.text.isEmpty
         {
             txtInvestmentType.text = ENumInvestmentType.Equity.rawValue
         }
-        
-        pickerInvestmentType.hidden = false
+        */
+       // pickerInvestmentType.hidden = false
     }
     
     @IBAction func OnInvestmentTypeEditEnd(sender: AnyObject) {
-        pickerInvestmentType.hidden = true
+      //  pickerInvestmentType.hidden = true
        
     }
    
@@ -216,11 +216,6 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
              presentViewController(alertAssetDesc, animated: true, completion: nil)
             return false
         }
-        else if(txtInvestmentType.text.isEmpty)
-        {
-            presentViewController(alertAssetType, animated: true, completion: nil)
-            return false
-        }
         else if(txtProfitLoss.text.toDouble() == nil)
         {
             presentViewController(alertProfitLoss, animated: true, completion: nil)
@@ -243,15 +238,6 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
             lotPosition.SymbolCode = txtSymbol.text
             
             
-            if (ENumInvestmentType(rawValue: txtInvestmentType.text!) != nil)
-            {
-                lotPosition.InvestmentType = ENumInvestmentType(rawValue: txtInvestmentType.text)!
-            }
-            else
-            {
-                lotPosition.InvestmentType = ENumInvestmentType.Equity
-                
-            }
             
             if(swtIsShortDirection.on)
             {

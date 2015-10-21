@@ -71,7 +71,7 @@ class CapitalGainControllerManager{
         
         selectedLotPosition?.SymbolCode = lotPosition.SymbolCode
         selectedLotPosition?.Direction = lotPosition.Direction
-        selectedLotPosition?.InvestmentType = lotPosition.InvestmentType
+       // selectedLotPosition?.InvestmentType = lotPosition.InvestmentType
         selectedLotPosition?.RealizedGainLoss = lotPosition.RealizedGainLoss
         selectedLotPosition?.RealizedYear = lotPosition.RealizedYear
         selectedLotPosition?.IsLongTerm = lotPosition.IsLongTerm

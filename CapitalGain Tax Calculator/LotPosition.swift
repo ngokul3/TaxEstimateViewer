@@ -55,7 +55,7 @@ enum ENumInvestmentType:String{
 class LotPosition : Equatable {
     private var _lotId:Int32
     private var _symbolCode:String
-    private var _investmentType:ENumInvestmentType
+   // private var _investmentType:ENumInvestmentType
     private var _direction:ENumDirection
     private var _realizedGainLoss: Double
     private var _realizedYear: Int
@@ -65,7 +65,7 @@ class LotPosition : Equatable {
     init()
     {
         self._symbolCode = ""
-        self._investmentType = ENumInvestmentType.Equity
+      //  self._investmentType = ENumInvestmentType.Equity
         self._direction = ENumDirection.Long
         self._lotId = 0
         self._realizedGainLoss = 0
@@ -78,7 +78,7 @@ class LotPosition : Equatable {
     {
         self._lotId = lotId
         self._symbolCode = symbolCode
-        self._investmentType = investmentType
+      //  self._investmentType = investmentType
         self._direction = direction
         self._realizedGainLoss = realizedGainLoss
         self._realizedYear = realizedYear
@@ -105,7 +105,7 @@ class LotPosition : Equatable {
         }
     }
     
-    var InvestmentType: ENumInvestmentType {
+   /* var InvestmentType: ENumInvestmentType {
         get {
             return _investmentType
         }
@@ -113,7 +113,7 @@ class LotPosition : Equatable {
             _investmentType = newValue
         }
     }
-  
+  */
     var Direction: ENumDirection {
         get {
             return _direction

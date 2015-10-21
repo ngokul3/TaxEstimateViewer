@@ -31,6 +31,31 @@ class DataManager
         
         return self._capitalGainCalculatorDB.open()
     }
+    
+    func DeleteAll() -> Bool?
+    {
+        if self._capitalGainCalculatorDB.open()
+        {
+            
+            let deleteLotPositionSql = "delete from LotPosition "
+            
+            
+            let results:Bool? = self._capitalGainCalculatorDB.executeUpdate (deleteLotPositionSql,
+                withArgumentsInArray: nil)
+            
+            if !(results != nil) {
+                println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+                
+            }
+            
+            return results
+        }
+        
+        return false
+    }
+
+    
+    
     func CreateTable(){
       //  if !self._filemgr.fileExistsAtPath(_databasePath as String) {
         
@@ -45,7 +70,7 @@ class DataManager
             }
             
             if self._capitalGainCalculatorDB.open() {
-                let lotPositionTable = "CREATE TABLE IF NOT EXISTS LotPosition (LotPositionID INTEGER PRIMARY KEY AUTOINCREMENT, SymbolCode TEXT, InvestmentType TEXT, Direction TEXT, RealizedGainLoss DOUBLE, Year INTEGER, IsLongTerm BOOLEAN)"
+                let lotPositionTable = "CREATE TABLE IF NOT EXISTS LotPosition (LotPositionID INTEGER PRIMARY KEY AUTOINCREMENT, SymbolCode TEXT,  Direction TEXT, RealizedGainLoss DOUBLE, Year INTEGER, IsLongTerm BOOLEAN)"
                 if !self._capitalGainCalculatorDB.executeStatements(lotPositionTable) {
                     println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
                 }
@@ -67,22 +92,33 @@ class DataManager
         //TODO: Check for already existing lots
         self._capitalGainCalculatorDB = FMDatabase(path: _databasePath as String)
         
-      //  for index in 0...cntPositions-1 {
+     
         if self._capitalGainCalculatorDB.open()
         {
                // let lotPosition = CapitalGainController.sharedInstance.GetPositionItem(index)
             
                 let isLongTerm = lotPosition.IsLongTerm ? 1 : 0
-                let investmentType = lotPosition.InvestmentType.associatedValue(lotPosition.InvestmentType)
+                //let investmentType = lotPosition.InvestmentType.associatedValue(lotPosition.InvestmentType)
             
-                let insertSQL = "INSERT INTO LotPosition (SymbolCode, InvestmentType, Direction, RealizedGainLoss, Year, IsLongTerm) VALUES ('\(lotPosition.SymbolCode)', '\(lotPosition.InvestmentType.rawValue)', '\(lotPosition.Direction.rawValue)', \(lotPosition.RealizedGainLoss), \(lotPosition.RealizedYear), \(isLongTerm))" //TODO
+                let insertSQL = "INSERT INTO LotPosition (SymbolCode, Direction, RealizedGainLoss, Year, IsLongTerm) VALUES ('\(lotPosition.SymbolCode)', '\(lotPosition.Direction.rawValue)', \(lotPosition.RealizedGainLoss), \(lotPosition.RealizedYear), \(isLongTerm))" //TODO
             
                 NSLog(insertSQL)
                 let result = self._capitalGainCalculatorDB.executeUpdate(insertSQL,
                     withArgumentsInArray: nil)
                 
-                if !result {
+                if result {
+                    let lastInsertedSql = "SELECT max(LotPositionID) as LotPositionID from LotPosition"
+                    
+                    let insertedResult:FMResultSet?  = self._capitalGainCalculatorDB.executeQuery(lastInsertedSql,
+                        withArgumentsInArray: nil)
+                    while insertedResult?.next() == true {
+                    lotPosition.LotId = insertedResult!.intForColumn("LotPositionId") as Int32!
+                    }
+                }
+            else
+                {
                     println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+   
                 }
             } else {
                 println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
@@ -126,7 +162,7 @@ class DataManager
             let isLongTerm = lotPosition.IsLongTerm ? 1 : 0
             
             
-            let updateSQL = "Update LotPosition set SymbolCode = '\(lotPosition.SymbolCode)', InvestmentType = '\(lotPosition.InvestmentType.rawValue)', Direction = '\(lotPosition.Direction.rawValue)', RealizedGainLoss = \(lotPosition.RealizedGainLoss), Year = \(lotPosition.RealizedYear), IsLongTerm = \(isLongTerm) Where LotPositionId = \(lotPosition.LotId)" //TODO
+            let updateSQL = "Update LotPosition set SymbolCode = '\(lotPosition.SymbolCode)', Direction = '\(lotPosition.Direction.rawValue)', RealizedGainLoss = \(lotPosition.RealizedGainLoss), Year = \(lotPosition.RealizedYear), IsLongTerm = \(isLongTerm) Where LotPositionId = \(lotPosition.LotId)" //TODO
             
             let result = self._capitalGainCalculatorDB.executeUpdate(updateSQL,
                 withArgumentsInArray: nil)
@@ -218,7 +254,7 @@ class DataManager
         {
             var lstLotPosition : [LotPosition] = [LotPosition]()
             
-            let selectLotPositionSql = "Select LotPositionID, SymbolCode, InvestmentType, Direction, RealizedGainLoss, Year, IsLongTerm From LotPosition Order By RealizedGainLoss Desc, SymbolCode Asc"
+            let selectLotPositionSql = "Select LotPositionID, SymbolCode, Direction, RealizedGainLoss, Year, IsLongTerm From LotPosition Order By RealizedGainLoss Desc, SymbolCode Asc"
             
             NSLog(selectLotPositionSql)
             
@@ -242,7 +278,7 @@ class DataManager
                 
                 NSLog(lotPosition.SymbolCode)
                 
-                let investmentType = results!.stringForColumn("InvestmentType")
+              /*  let investmentType = results!.stringForColumn("InvestmentType")
 
                 if (ENumInvestmentType(rawValue: investmentType!) != nil)
                    
@@ -255,10 +291,8 @@ class DataManager
                     lotPosition.InvestmentType = ENumInvestmentType.Equity
                     
                 }
-                
+                */
                
-                NSLog(lotPosition.InvestmentType.rawValue)
-
                 let direction = results?.stringForColumn("Direction")!
                 
                 if (ENumDirection(rawValue: direction!) != nil)
@@ -350,9 +384,9 @@ class DataManager
             
             var selectedLots : String
             
-            let equityInvestmentType = ENumInvestmentType.Equity.rawValue
-            let qualifiedDividendInvestmentType = ENumInvestmentType.Dividend.rawValue
-            let NonQualifiedDividendInvestmentType = ENumInvestmentType.NonQualifiedDividend.rawValue
+            //let equityInvestmentType = ENumInvestmentType.Equity.rawValue
+            //let qualifiedDividendInvestmentType = ENumInvestmentType.Dividend.rawValue
+           // let NonQualifiedDividendInvestmentType = ENumInvestmentType.NonQualifiedDividend.rawValue
             
              selectedLots = "(-1"
             
@@ -376,22 +410,18 @@ class DataManager
             "( " +
             "Select " +
             "SymbolCode " +
-            ", InvestmentType " +
             ", Direction " +
             ",  sum(RealizedGainLoss) as RealizedGainLoss " +
             ", IsLongTerm " +
             ", Year " +
-            ", Case When InvestmentType = '" + equityInvestmentType + "' and Direction ='Long' and IsLongTerm = 1 Then 'LongTerm' " +
-            "When InvestmentType = '" + equityInvestmentType + "' and Direction = 'CoveredShort' and IsLongTerm = 1 Then 'LongTerm' " +
-            "When InvestmentType = '" + qualifiedDividendInvestmentType + "'  Then 'LongTerm' " +
-            "When InvestmentType = '" + NonQualifiedDividendInvestmentType + "'  Then 'ShortTerm' " +
-            "When InvestmentType = 'Section 1256' Then 'Section1256' Else 'ShortTerm' " +
+            ", Case When Direction ='Long' and IsLongTerm = 1 Then 'LongTerm' " +
+            "When Direction = 'CoveredShort' and IsLongTerm = 1 Then 'LongTerm' " +
+            "Else 'ShortTerm' " +
             "End as Term " +
             "From " +
             "LotPosition Where LotPositionId in " + selectedLots +
             " Group By " +
             "SymbolCode " +
-            ", InvestmentType " +
             ", Direction " +
             ", IsLongTerm " +
             ", Year " +
