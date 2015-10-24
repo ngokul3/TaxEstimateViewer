@@ -20,7 +20,7 @@ class InvestmentMasterController: UITableViewController {
         super.viewDidLoad()
         CapitalGainController.sharedDBInstance.CreateTable()
         if CapitalGainController.sharedDBInstance.OpenDatabase(){
-       let x = CapitalGainController.sharedDBInstance.DeleteAll()
+       //let x = CapitalGainController.sharedDBInstance.DeleteAll()
         let lstLotPosition = CapitalGainController.sharedDBInstance.ReturnLotPosition()
         let lstFilingStatus = CapitalGainController.sharedDBInstance.ReturnFilingStatus()
         LoadLotPosition(lstLotPosition)

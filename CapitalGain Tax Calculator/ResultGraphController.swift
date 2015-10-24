@@ -103,7 +103,7 @@ class ResultGraphController: UIViewController {
         
       
         let xModel = ChartAxisModel(axisValues: xValues, axisTitleLabel: ChartAxisLabel(text: "Term", settings: labelSettings))
-        let yModel = ChartAxisModel(axisValues: yValues, axisTitleLabel: ChartAxisLabel(text: "Federal Tax Slab", settings: labelSettings.defaultVertical()))
+        let yModel = ChartAxisModel(axisValues: yValues, axisTitleLabel: ChartAxisLabel(text: "Base Income + Capital Gain", settings: labelSettings.defaultVertical()))
         let frame = ExamplesDefaults.chartFrame(self.view.bounds)
         
         let chartFrame = self.chart?.frame ?? CGRectMake(0,0,375,243)
