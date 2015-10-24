@@ -13,11 +13,8 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
     @IBOutlet weak var btnAddInvestment: UIBarButtonItem!
     
     @IBOutlet weak var txtSymbol: UITextField!
-    
-    //@IBOutlet weak var txtInvestmentType: UITextField!
    
     @IBOutlet weak var txtDirection: UITextField!
-   // @IBOutlet weak var pickerInvestmentType: UIPickerView!
     
     @IBOutlet weak var btnProfitLoss: UISegmentedControl!
     
@@ -155,20 +152,7 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
     }
   }
 
-    @IBAction func OnInvestmentTypeEditBegin(sender: AnyObject)
-    {
-      /*  if txtInvestmentType.text.isEmpty
-        {
-            txtInvestmentType.text = ENumInvestmentType.Equity.rawValue
-        }
-        */
-       // pickerInvestmentType.hidden = false
-    }
-    
-    @IBAction func OnInvestmentTypeEditEnd(sender: AnyObject) {
-      //  pickerInvestmentType.hidden = true
-       
-    }
+   
    
    
     @IBAction func OnProfitLossValueChanged(sender: AnyObject) {
@@ -276,10 +260,13 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
 
 extension String {
     func toDouble() -> Double? {
-        return NSNumberFormatter().numberFromString(self)?.doubleValue
+        let x = NSNumberFormatter().numberFromString(self)?.doubleValue
+        return round(x!)
     }
     
     func toInt() -> Int? {
         return NSNumberFormatter().numberFromString(self)?.integerValue
     }
+    
+   
 }

@@ -13,10 +13,10 @@ public class Utils
     func ConvertStringToCurrency(strPrice : String!) -> String!
     {
         
-        var formatter = NSNumberFormatter()
+var formatter = NSNumberFormatter()
         
         formatter.numberStyle = .CurrencyStyle
-        
+        formatter.maximumFractionDigits = 0
         
         if(strPrice.toDouble() != nil)
         {

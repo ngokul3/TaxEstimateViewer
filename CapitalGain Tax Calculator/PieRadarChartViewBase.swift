@@ -355,6 +355,8 @@ public class PieRadarChartViewBase: ChartViewBase
     {
         var vals = [ChartSelInfo]();
         
+        if (_data != nil) //todo
+        {
         for (var i = 0; i < _data.dataSetCount; i++)
         {
             var dataSet = _data.getDataSetByIndex(i);
@@ -366,6 +368,7 @@ public class PieRadarChartViewBase: ChartViewBase
             {
                 vals.append(ChartSelInfo(value: yVal, dataSetIndex: i, dataSet: dataSet!));
             }
+        }
         }
         
         return vals;

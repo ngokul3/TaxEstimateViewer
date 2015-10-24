@@ -278,21 +278,6 @@ class DataManager
                 
                 NSLog(lotPosition.SymbolCode)
                 
-              /*  let investmentType = results!.stringForColumn("InvestmentType")
-
-                if (ENumInvestmentType(rawValue: investmentType!) != nil)
-                   
-                {
-                   lotPosition.InvestmentType = ENumInvestmentType(rawValue: investmentType!)!
-                    // ENumInvestmentType(rawValue: investmentType!)!
-                }
-                else
-                {
-                    lotPosition.InvestmentType = ENumInvestmentType.Equity
-                    
-                }
-                */
-               
                 let direction = results?.stringForColumn("Direction")!
                 
                 if (ENumDirection(rawValue: direction!) != nil)
@@ -384,9 +369,6 @@ class DataManager
             
             var selectedLots : String
             
-            //let equityInvestmentType = ENumInvestmentType.Equity.rawValue
-            //let qualifiedDividendInvestmentType = ENumInvestmentType.Dividend.rawValue
-           // let NonQualifiedDividendInvestmentType = ENumInvestmentType.NonQualifiedDividend.rawValue
             
              selectedLots = "(-1"
             
