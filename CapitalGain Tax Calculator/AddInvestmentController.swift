@@ -260,8 +260,7 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
 
 extension String {
     func toDouble() -> Double? {
-        let x = NSNumberFormatter().numberFromString(self)?.doubleValue
-        return round(x!)
+        return NSNumberFormatter().numberFromString(self)?.doubleValue
     }
     
     func toInt() -> Int? {

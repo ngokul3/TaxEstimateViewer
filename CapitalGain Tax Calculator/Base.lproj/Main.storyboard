@@ -625,7 +625,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Br3-ln-ty2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ees-M8-dWN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="243"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aey-BB-WVs" customClass="PieChartView" customModule="CapitalGain_Tax_Calculator">
@@ -638,8 +638,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="243"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="pieChartView" destination="Aey-BB-WVs" id="5YW-xX-gev"/>
                     </connections>
@@ -657,7 +656,7 @@
                         <viewControllerLayoutGuide type="bottom" id="uN9-OT-Sqm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="80z-KL-EBf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ih8-MJ-fQJ" customClass="PieChartView" customModule="CapitalGain_Tax_Calculator">
@@ -671,14 +670,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="255"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="pieChartView" destination="Ih8-MJ-fQJ" id="sz8-Qi-VUT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OEh-en-wSs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2063.5" y="951.5"/>
+            <point key="canvasLocation" x="2441.5" y="765.5"/>
         </scene>
         <!--Result Graph Controller-->
         <scene sceneID="nYL-uh-VHD">
@@ -689,7 +688,7 @@
                         <viewControllerLayoutGuide type="bottom" id="loJ-mW-hkk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bAZ-Bl-MDs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="243"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B5A-o0-F3H" customClass="PieChartView" customModule="CapitalGain_Tax_Calculator">
@@ -698,15 +697,14 @@
                             </view>
                         </subviews>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="243"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="graphPieChartView" destination="B5A-o0-F3H" id="Wxp-DB-eQ1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DwE-el-19J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1624.5" y="919.5"/>
+            <point key="canvasLocation" x="1726.5" y="1112.5"/>
         </scene>
         <!--Result Label Controller-->
         <scene sceneID="1aF-qL-bxz">
