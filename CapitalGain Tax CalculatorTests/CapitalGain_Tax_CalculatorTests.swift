@@ -659,9 +659,9 @@ class CapitalGain_Tax_CalculatorTests: XCTestCase {
         filingStatus.CurrentTaxableIncome = 179300
         filingStatus.Year = 2014
      
-     //   filingStatus = taxProcessor.GetTaxableIncome(filingStatus, lstLotTerm: lstLotTerm)
+       filingStatus = taxProcessor.GetTaxableIncome(filingStatus, lstLotTerm: lstLotTerm)
         
-     //   XCTAssertEqual(round(filingStatus.TaxOnLTSTCapitalGain), round(17972.5), "HOH")
+        XCTAssertEqual(round(filingStatus.TaxOnLTSTCapitalGain), round(17972.5), "HOH")
         
         
         lstLotTerm = [LotTerm]()
@@ -687,9 +687,9 @@ class CapitalGain_Tax_CalculatorTests: XCTestCase {
         filingStatus.CurrentTaxableIncome = 179300
         filingStatus.Year = 2013
         
-        //   filingStatus = taxProcessor.GetTaxableIncome(filingStatus, lstLotTerm: lstLotTerm)
+        filingStatus = taxProcessor.GetTaxableIncome(filingStatus, lstLotTerm: lstLotTerm)
         
-        //   XCTAssertEqual(round(filingStatus.TaxOnLTSTCapitalGain), round(25076.5), "HOH")
+           XCTAssertEqual(round(filingStatus.TaxOnLTSTCapitalGain), round(25076.5), "HOH")
 
 
     }
@@ -750,9 +750,9 @@ class CapitalGain_Tax_CalculatorTests: XCTestCase {
         filingStatus.CurrentTaxableIncome = 179300
         filingStatus.Year = 2014
         
-        //   filingStatus = taxProcessor.GetTaxableIncome(filingStatus, lstLotTerm: lstLotTerm)
+           filingStatus = taxProcessor.GetTaxableIncome(filingStatus, lstLotTerm: lstLotTerm)
         
-        //   XCTAssertEqual(round(filingStatus.TaxOnLTSTCapitalGain), round(33956.5), "HOH")
+           XCTAssertEqual(round(filingStatus.TaxOnLTSTCapitalGain), round(33956.5), "HOH")
         
         
         lstLotTerm = [LotTerm]()
@@ -773,13 +773,13 @@ class CapitalGain_Tax_CalculatorTests: XCTestCase {
         lstLotTerm.append(lotTerm3)
         
         
-        filingStatus.FilingType = ENumFilingType.Single
+        filingStatus.FilingType = ENumFilingType.HoH
         filingStatus.CurrentTaxableIncome = 179300
         filingStatus.Year = 2013
         
-        //   filingStatus = taxProcessor.GetTaxableIncome(filingStatus, lstLotTerm: lstLotTerm)
+        filingStatus = taxProcessor.GetTaxableIncome(filingStatus, lstLotTerm: lstLotTerm)
         
-        //   XCTAssertEqual(round(filingStatus.TaxOnLTSTCapitalGain), round(25076.5), "HOH")
+        XCTAssertEqual(round(filingStatus.TaxOnLTSTCapitalGain), round(25076.5), "HOH")
         
         
     }
