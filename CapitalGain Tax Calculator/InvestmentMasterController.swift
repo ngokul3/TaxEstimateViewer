@@ -65,12 +65,18 @@ class InvestmentMasterController: UITableViewController {
         let lstLotPositionForYear = CapitalGainController.sharedInstance.GetLotPositionForYear(year!)
         let lotPosition = lstLotPositionForYear[indexPath.row]
         
-        //let lotPosition = CapitalGainController.sharedInstance.GetLotPositionItem(indexPath.row)
-        
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! InvestmentTableViewCell
         cell.lblInvesmentName.text = lotPosition.SymbolCode
         cell.lblProfitLoss.text = utils.ConvertStringToCurrency(lotPosition.RealizedGainLoss.description)
         
+        if(lotPosition.RealizedGainLoss > 0)
+        {
+            cell.lblProfitLoss.textColor = UIColor.greenColor()
+        }
+        else
+        {
+            cell.lblProfitLoss.textColor = UIColor.redColor()
+        }
         let imgLTSTImageView = cell.viewWithTag(30) as! UIImageView
         imgLTSTImageView.image = cell.ImageForLTST(lotPosition.Direction)
         

@@ -39,8 +39,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DC5-ph-eQN">
-                                <rect key="frame" x="12" y="153" width="93" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DC5-ph-eQN">
+                                <rect key="frame" x="12" y="153" width="102" height="29"/>
                                 <segments>
                                     <segment title="Profit"/>
                                     <segment title="Loss"/>
@@ -77,13 +77,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ixz-xK-XnJ" userLabel="InvestmentPicker">
-                                <rect key="frame" x="-12" y="692" width="320" height="162"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="COO-sV-LRS" id="R9J-ue-EDP"/>
-                                    <outlet property="delegate" destination="COO-sV-LRS" id="CTn-L0-mM8"/>
-                                </connections>
-                            </pickerView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TcE-Gu-UfX">
                                 <rect key="frame" x="313" y="325" width="51" height="31"/>
                             </switch>
@@ -106,7 +99,6 @@
                             <constraint firstItem="CKt-91-KH6" firstAttribute="bottom" secondItem="110-AN-JMe" secondAttribute="bottom" constant="-5" id="4b5-IP-DfQ"/>
                             <constraint firstItem="CKt-91-KH6" firstAttribute="centerY" secondItem="110-AN-JMe" secondAttribute="centerY" id="5ol-uA-lM3"/>
                             <constraint firstItem="IZT-mC-AEZ" firstAttribute="bottom" secondItem="U5s-1t-p9t" secondAttribute="bottom" constant="-4" id="5tM-p6-DGR"/>
-                            <constraint firstItem="ixz-xK-XnJ" firstAttribute="leading" secondItem="CWV-AK-3Wk" secondAttribute="leadingMargin" constant="-28" id="6G4-wa-O6B"/>
                             <constraint firstItem="5k2-hv-8br" firstAttribute="leading" secondItem="QuJ-Pt-ThO" secondAttribute="trailing" constant="8" symbolic="YES" id="9sw-Bn-Y7Q"/>
                             <constraint firstItem="9S9-ke-WEy" firstAttribute="top" secondItem="CWV-AK-3Wk" secondAttribute="top" constant="278" id="Byi-wJ-azv"/>
                             <constraint firstItem="TcE-Gu-UfX" firstAttribute="trailing" secondItem="U5s-1t-p9t" secondAttribute="trailing" id="E91-C5-HjU"/>
@@ -118,7 +110,6 @@
                             <constraint firstItem="X0N-Sv-GE9" firstAttribute="leading" secondItem="CWV-AK-3Wk" secondAttribute="leading" id="OGI-eG-Z3H"/>
                             <constraint firstAttribute="trailingMargin" secondItem="110-AN-JMe" secondAttribute="trailing" constant="2" id="OZ1-bh-Bpa"/>
                             <constraint firstItem="IZT-mC-AEZ" firstAttribute="leading" secondItem="O8Y-ld-Qnr" secondAttribute="leading" id="PNT-Br-q6B"/>
-                            <constraint firstItem="ixz-xK-XnJ" firstAttribute="top" secondItem="JIw-he-LnV" secondAttribute="bottom" constant="74" id="PeY-pF-yvJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5k2-hv-8br" secondAttribute="trailing" constant="-7" id="QiU-kt-1z2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="110-AN-JMe" secondAttribute="trailing" constant="-5" id="RRX-Ba-6Ln"/>
                             <constraint firstItem="DC5-ph-eQN" firstAttribute="baseline" secondItem="5k2-hv-8br" secondAttribute="firstBaseline" id="T8g-c2-vwo"/>

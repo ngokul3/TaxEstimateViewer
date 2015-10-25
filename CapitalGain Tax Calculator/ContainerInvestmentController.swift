@@ -60,6 +60,15 @@ class ContainerInvestmentController: UITableViewController {
         let img365View = cell.viewWithTag(40) as! UIImageView
         img365View.image = cell.ImageFor365(lotPosition.IsLongTerm)
         
+        if(lotPosition.RealizedGainLoss > 0)
+        {
+            cell.lblProfitLoss.textColor = UIColor.greenColor()
+        }
+        else
+        {
+            cell.lblProfitLoss.textColor = UIColor.redColor()
+        }
+
         
         return cell
     }

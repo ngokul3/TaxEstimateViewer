@@ -19,6 +19,7 @@ class ResultGraphController: UIViewController {
     private var chart: Chart?
     
     private let dirSelectorHeight: CGFloat = 50
+    private let CONST_GRAPH_INTERVAL: Double = 5
     
     private func barsChart(#horizontal: Bool,stackedLongTermIncomeLevel : [Double], stackedShortTermIncomeLevel : [Double] ) -> Chart {
         
@@ -77,8 +78,12 @@ class ResultGraphController: UIViewController {
         {
             maxTermCapitalGain = 0
         }
+        else if(maxTermCapitalGain > 0 && maxTermCapitalGain < CONST_GRAPH_INTERVAL)
+        {
+            maxTermCapitalGain = maxTermCapitalGain + CONST_GRAPH_INTERVAL
+        }
         
-        let interval = round(((currentIncome + maxTermCapitalGain) - currentIncome) / 5)
+        let interval = round(((currentIncome + maxTermCapitalGain) - currentIncome) / CONST_GRAPH_INTERVAL)
         
         var axisValues1 = [ChartAxisValue]()
         var axisValues2 = [ChartAxisValue]()

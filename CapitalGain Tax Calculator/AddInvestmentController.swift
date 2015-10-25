@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddInvestmentController: UIViewController, UIPickerViewDelegate{
+class AddInvestmentController: UIViewController{
     
     @IBOutlet weak var btnAddInvestment: UIBarButtonItem!
     
@@ -33,13 +33,10 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
     
     var utils = Utils()
     
-    var directionArray = [ENumDirection.Long.rawValue, ENumDirection.CoveredShort.rawValue, ENumDirection.UnCoveredShort.rawValue]
-    var investmentTypeArray =  [ENumInvestmentType.Equity.rawValue, ENumInvestmentType.Dividend.rawValue, ENumInvestmentType.NonQualifiedDividend.rawValue, ENumInvestmentType.Section1256.rawValue]
     override func viewDidLoad() {
         
         super.viewDidLoad()
-       // pickerInvestmentType.hidden = true
-        
+
         let date = NSDate()
         var dateFormatter = NSDateFormatter()
         
@@ -54,11 +51,20 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
         {
             println("This is investment edit")
             txtSymbol.text = selectedLotPosition?.SymbolCode
-           // txtInvestmentType.text = selectedLotPosition?.InvestmentType.rawValue
-            
-            //txtProfitLoss.text = selectedLotPosition?.RealizedGainLoss.description
             
             txtProfitLoss.text = utils.ConvertStringToCurrency(selectedLotPosition?.RealizedGainLoss.description)
+            
+            if(selectedLotPosition?.RealizedGainLoss > 0)
+            {
+                txtProfitLoss.textColor = UIColor.greenColor()
+                btnProfitLoss.selectedSegmentIndex = 0
+            }
+            else
+            {
+                txtProfitLoss.textColor = UIColor.redColor()
+                btnProfitLoss.selectedSegmentIndex = 1
+            }
+            
             if(selectedLotPosition?.Direction.rawValue == ENumDirection.UnCoveredShort.rawValue)
             {
                 swtIsShortDirection.on = true
@@ -85,14 +91,30 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
     }
     
     @IBAction func OntxtProfitLossEditDidBegin(sender: AnyObject) {
-        txtProfitLoss.text = utils.ConvertCurrencyToString(txtProfitLoss.text)
+        
+        if(txtProfitLoss.text != nil)
+        {
+            txtProfitLoss.text = utils.ConvertCurrencyToString(txtProfitLoss.text)
+            
+            if(btnProfitLoss.selectedSegmentIndex == 0)
+            {
+                txtProfitLoss.textColor = UIColor.greenColor()
+            }
+            else if(btnProfitLoss.selectedSegmentIndex == 1)
+            {
+                txtProfitLoss.textColor = UIColor.redColor()
+                
+            }
+        }
         
     }
     
     
     @IBAction func OntxtProfitLossEditDidEnd(sender: AnyObject) {
-        
-        txtProfitLoss.text = utils.ConvertStringToCurrency(txtProfitLoss.text)
+        if(txtProfitLoss.text != nil)
+        {
+            txtProfitLoss.text = utils.ConvertStringToCurrency(txtProfitLoss.text)
+        }
     }
     
     
@@ -101,77 +123,23 @@ class AddInvestmentController: UIViewController, UIPickerViewDelegate{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
-        switch(pickerView.tag){
-        case 1:
-            return investmentTypeArray.count
-        case 2:
-           
-            return directionArray.count
-
-            
-        default:
-            return 0
-            
-        
-    }
-    }
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        switch(pickerView.tag){
-        case 1:
-           
-            return investmentTypeArray[row]
-        case 2:
-            return directionArray[row]
-            
-        default:
-            return ""
-            
-        }
-        
-       
-    }
-   
-  func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
-  {
-    switch(pickerView.tag){
-    case 1:
-      //  txtInvestmentType.text = investmentTypeArray[row]
-        break
-        
-    default:
-        break
-        
-    }
-  }
-
-   
    
    
     @IBAction func OnProfitLossValueChanged(sender: AnyObject) {
         if(btnProfitLoss.selectedSegmentIndex==0)
         {
             txtProfitLoss.textColor = UIColor.greenColor()
-       //  txtProfitLoss.text = "Profit"
-         //   txtProfitLoss.backgroundColor
         }
         else if(btnProfitLoss.selectedSegmentIndex==1)
         {
          txtProfitLoss.textColor = UIColor.redColor()
         }
-       // if (sender.btnProfitLoss.)
+       
     }
 
     @IBAction func stpYearValueChanged(sender: AnyObject) {
         lblTradeEndYear.text = Int(stpYear.value).description
-       // if(stpYear.)
+       
     }
     
    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool // Invoked immediately prior to 
