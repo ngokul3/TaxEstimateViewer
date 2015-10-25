@@ -152,16 +152,16 @@ class AddInvestmentController: UIViewController{
   
     }))
     
-    var alertAssetType = UIAlertController(title: "Asset Type", message: "Asset Type is required", preferredStyle: UIAlertControllerStyle.Alert)
-    alertAssetType.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-  
-    }))
     
     var alertProfitLoss = UIAlertController(title: "Profit / Loss", message: "Profit / Loss should be numeric", preferredStyle: UIAlertControllerStyle.Alert)
     alertProfitLoss.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
   
     }))
-    
+   
+    var alertProfitNotLessThanZero = UIAlertController(title: "Profit / Loss", message: "Profit cannot be less than Zero", preferredStyle: UIAlertControllerStyle.Alert)
+    alertProfitNotLessThanZero.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+        
+    }))
 
         if (txtSymbol.text.isEmpty)
         {
@@ -173,7 +173,11 @@ class AddInvestmentController: UIViewController{
             presentViewController(alertProfitLoss, animated: true, completion: nil)
             return false
         }
-    
+        else if(txtProfitLoss.text.toDouble() < 0 && btnProfitLoss.selectedSegmentIndex == 0 )
+        {
+            presentViewController(alertProfitNotLessThanZero, animated: true, completion: nil)
+            return false
+        }
         else
         {
             return true
@@ -188,9 +192,7 @@ class AddInvestmentController: UIViewController{
         {
             
             lotPosition.SymbolCode = txtSymbol.text
-            
-            
-            
+ 
             if(swtIsShortDirection.on)
             {
                 lotPosition.Direction = ENumDirection.UnCoveredShort
@@ -200,8 +202,16 @@ class AddInvestmentController: UIViewController{
                 lotPosition.Direction = ENumDirection.Long
             }
             
+            if(btnProfitLoss.selectedSegmentIndex == 1 && txtProfitLoss.text.toDouble() > 0)
+            {
+                lotPosition.RealizedGainLoss = txtProfitLoss.text.toDouble()! * -1
+            }
+            else
+            {
+                lotPosition.RealizedGainLoss = txtProfitLoss.text.toDouble()!
+            }
            
-            lotPosition.RealizedGainLoss = txtProfitLoss.text.toDouble()!
+            
             lotPosition.RealizedYear = lblTradeEndYear.text!.toInt()!
             lotPosition.IsLongTerm = swtIsLongTerm.on
 
