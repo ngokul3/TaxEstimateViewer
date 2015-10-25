@@ -35,7 +35,7 @@ class InvestmentTableViewCell: UITableViewCell {
         
         if (direction.rawValue == ENumDirection.Long.rawValue)
         {
-            assetName = "Reg"
+            assetName = "LongSell"
         }
         else if (direction.rawValue == ENumDirection.UnCoveredShort.rawValue)
         {
