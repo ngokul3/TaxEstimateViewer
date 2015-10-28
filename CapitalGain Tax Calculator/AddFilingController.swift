@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddFilingController: UIViewController , UIPickerViewDelegate{
+class AddFilingController: UIViewController , UIPickerViewDelegate, UITextFieldDelegate{
 
     var utils = Utils()
     @IBOutlet weak var lblYear: UILabel!
@@ -46,6 +46,10 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
         
         stpYear.maximumValue = 2030 // TODO:
         stpYear.stepValue = 1
+        
+        self.txtCurrentTaxableIncome.delegate = self
+        self.txtFilingMode.delegate = self
+        self.txtPreviouslyDeferredLoss.delegate = self
         
         if (selectedFilingDetail != nil)
         {
@@ -212,6 +216,11 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
             }
 
         }
+    }
+    
+    func textFieldShouldReturn(userText: UITextField!) -> Bool {
+        userText.resignFirstResponder()
+        return true;
     }
 }
 

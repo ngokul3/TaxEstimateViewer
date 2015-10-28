@@ -8,14 +8,12 @@
 
 import UIKit
 
-class AddInvestmentController: UIViewController{
+class AddInvestmentController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var btnAddInvestment: UIBarButtonItem!
     
     @IBOutlet weak var txtSymbol: UITextField!
    
-    @IBOutlet weak var txtDirection: UITextField!
-    
     @IBOutlet weak var btnProfitLoss: UISegmentedControl!
     
     @IBOutlet weak var lblTradeEndYear: UILabel!
@@ -37,6 +35,9 @@ class AddInvestmentController: UIViewController{
         
         super.viewDidLoad()
 
+       self.txtSymbol.delegate = self
+       self.txtProfitLoss.delegate = self
+        
         let date = NSDate()
         var dateFormatter = NSDateFormatter()
         
@@ -233,6 +234,10 @@ class AddInvestmentController: UIViewController{
         }
     }
     
+    func textFieldShouldReturn(userText: UITextField) -> Bool {
+        userText.resignFirstResponder()
+        return true;
+    }
     
 }
 

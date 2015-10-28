@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TaxViewControllerContainer: UIViewController  {
+class TaxViewControllerContainer: UIViewController, UITextFieldDelegate  {
 
     
     @IBOutlet weak var txtLTCapitalGain: UILabel!
@@ -22,6 +22,8 @@ class TaxViewControllerContainer: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.txtYear.delegate = self
         
         var lstFilingStatus = CapitalGainController.sharedInstance.GetFilingStatus()
         
@@ -127,6 +129,11 @@ class TaxViewControllerContainer: UIViewController  {
         self.Refresh()
       
         
+    }
+    
+    func textFieldShouldReturn(userText: UITextField!) -> Bool {
+        userText.resignFirstResponder()
+        return true;
     }
 
 }
