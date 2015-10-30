@@ -123,6 +123,7 @@ class AddFilingController: UIViewController , UIPickerViewDelegate, UITextFieldD
     
     @IBAction func OnFilingModeEditBegin(sender: AnyObject) {
         pickerFilingMode.hidden = false
+        //pickerFilingMode.bringSubviewToFront(<#view: UIView#>)
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool // Invoked immediately prior to

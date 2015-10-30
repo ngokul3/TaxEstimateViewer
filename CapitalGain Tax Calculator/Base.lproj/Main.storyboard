@@ -25,7 +25,7 @@
                                     <constraint firstAttribute="height" constant="30" id="Qbn-th-62P"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Is holding period  &gt; 1 year ?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8Y-ld-Qnr">
                                 <rect key="frame" x="8" y="336" width="272" height="21"/>
@@ -49,14 +49,14 @@
                                     <action selector="OnProfitLossValueChanged:" destination="COO-sV-LRS" eventType="valueChanged" id="eet-AZ-ajV"/>
                                 </connections>
                             </segmentedControl>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="justified" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5k2-hv-8br">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Profit / Loss" textAlignment="justified" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5k2-hv-8br">
                                 <rect key="frame" x="214" y="153" width="150" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="9R3-ym-BXY"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 <connections>
                                     <action selector="OntxtProfitLossEditDidBegin:" destination="COO-sV-LRS" eventType="editingDidBegin" id="C6r-Am-jej"/>
                                     <action selector="OntxtProfitLossEditDidEnd:" destination="COO-sV-LRS" eventType="editingDidEnd" id="kNI-JV-Ibu"/>
@@ -142,10 +142,10 @@
                             <mask key="constraints">
                                 <exclude reference="Ecr-ua-SiV"/>
                                 <exclude reference="haO-u0-BoK"/>
-                                <exclude reference="CGi-b5-ouJ"/>
-                                <exclude reference="hLF-nK-aVN"/>
                                 <exclude reference="4b5-IP-DfQ"/>
                                 <exclude reference="iQN-3F-5A5"/>
+                                <exclude reference="CGi-b5-ouJ"/>
+                                <exclude reference="hLF-nK-aVN"/>
                                 <exclude reference="PNT-Br-q6B"/>
                                 <exclude reference="eOx-Hx-UQs"/>
                                 <exclude reference="y8h-gk-TTs"/>
@@ -202,34 +202,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="fIR-HG-YxC">
-                                <rect key="frame" x="1" y="160" width="320" height="162"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="6SW-hu-ik5" id="qvY-g9-BvZ"/>
-                                    <outlet property="delegate" destination="6SW-hu-ik5" id="VeT-RL-0yz"/>
-                                </connections>
-                            </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Taxable Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXu-gT-7ch">
-                                <rect key="frame" x="16" y="93" width="154" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taxable Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXu-gT-7ch">
+                                <rect key="frame" x="8" y="84" width="154" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="154" id="d0x-fp-H1x"/>
+                                    <constraint firstAttribute="height" constant="30" id="dHD-On-h6s"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="2020" translatesAutoresizingMaskIntoConstraints="NO" id="0zd-wE-gQK">
-                                <rect key="frame" x="265" y="89" width="94" height="29"/>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="2020" translatesAutoresizingMaskIntoConstraints="NO" id="0zd-wE-gQK">
+                                <rect key="frame" x="270" y="84" width="94" height="29"/>
                                 <connections>
                                     <action selector="OnStpYearValueChanged:" destination="6SW-hu-ik5" eventType="valueChanged" id="naq-YH-Jxs"/>
                                     <action selector="stpYearValueChanged:" destination="COO-sV-LRS" eventType="valueChanged" id="aU0-AG-5qZ"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwc-La-Wef">
-                                <rect key="frame" x="184" y="93" width="55" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwc-La-Wef">
+                                <rect key="frame" x="204" y="88" width="61" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Filing Mode" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ofD-r9-jEQ">
-                                <rect key="frame" x="0.0" y="148" width="375" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Filing Mode" textAlignment="justified" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ofD-r9-jEQ">
+                                <rect key="frame" x="189" y="133" width="175" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -237,30 +234,104 @@
                                     <action selector="OnFilingModeEditEnd:" destination="6SW-hu-ik5" eventType="editingDidEnd" id="vMR-hi-Gvo"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Annual Income For year xxxx" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="05I-yg-A7M">
-                                <rect key="frame" x="0.0" y="193" width="375" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Annual Income" textAlignment="justified" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="05I-yg-A7M">
+                                <rect key="frame" x="189" y="183" width="175" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 <connections>
                                     <action selector="OntxtCurrentTaxableIncomeEditDidBegin:" destination="6SW-hu-ik5" eventType="editingDidBegin" id="ybv-GM-24K"/>
                                     <action selector="OntxtCurrentTaxableIncomeEditDidEnd:" destination="6SW-hu-ik5" eventType="editingDidEnd" id="iQ0-gj-vXq"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Previously Deferred Loss" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5zt-vg-afa">
-                                <rect key="frame" x="0.0" y="244" width="375" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Previously Deferred Loss" textAlignment="justified" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5zt-vg-afa">
+                                <rect key="frame" x="214" y="233" width="150" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 <connections>
                                     <action selector="OntxtPreviouslyDeferredLossEditDidBegin:" destination="6SW-hu-ik5" eventType="editingDidBegin" id="Stb-jC-PpY"/>
                                     <action selector="OntxtPreviouslyDeferredLossEditDidEnd:" destination="6SW-hu-ik5" eventType="editingDidEnd" id="PyQ-rO-2Ge"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filing Mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYx-no-F2X">
+                                <rect key="frame" x="8" y="134" width="154" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="OL1-vD-u0k"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Income for the Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NmB-hM-xje">
+                                <rect key="frame" x="8" y="183" width="154" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Previously Deferred Loss" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCa-Fo-7Bv">
+                                <rect key="frame" x="8" y="233" width="198" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="fIR-HG-YxC">
+                                <rect key="frame" x="1" y="160" width="320" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="6SW-hu-ik5" id="qvY-g9-BvZ"/>
+                                    <outlet property="delegate" destination="6SW-hu-ik5" id="VeT-RL-0yz"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="XXu-gT-7ch" firstAttribute="top" secondItem="YU7-3i-HQG" secondAttribute="bottom" constant="20" id="3UX-zk-IOq"/>
+                            <constraint firstItem="PYx-no-F2X" firstAttribute="leading" secondItem="XXu-gT-7ch" secondAttribute="leading" id="7hY-85-eSR"/>
+                            <constraint firstItem="PYx-no-F2X" firstAttribute="top" secondItem="XXu-gT-7ch" secondAttribute="bottom" constant="20" id="7qa-j4-xGR"/>
                             <constraint firstAttribute="centerY" secondItem="fIR-HG-YxC" secondAttribute="centerY" constant="92.5" id="8WG-f5-UYo"/>
+                            <constraint firstItem="NmB-hM-xje" firstAttribute="top" secondItem="PYx-no-F2X" secondAttribute="bottom" constant="19" id="9jM-uH-W1D"/>
+                            <constraint firstItem="ofD-r9-jEQ" firstAttribute="trailing" secondItem="05I-yg-A7M" secondAttribute="trailing" id="A8P-Uq-eWn"/>
+                            <constraint firstItem="ofD-r9-jEQ" firstAttribute="top" secondItem="0zd-wE-gQK" secondAttribute="bottom" constant="24" id="AuK-Is-ZYu"/>
+                            <constraint firstItem="5zt-vg-afa" firstAttribute="top" secondItem="05I-yg-A7M" secondAttribute="bottom" constant="24" id="BRC-Nc-Zvv"/>
+                            <constraint firstItem="ofD-r9-jEQ" firstAttribute="leading" secondItem="5zt-vg-afa" secondAttribute="leading" constant="-25" id="Ch1-oG-g1P"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="05I-yg-A7M" secondAttribute="trailing" constant="-5" id="Cnc-4Y-kCR"/>
+                            <constraint firstItem="YCa-Fo-7Bv" firstAttribute="top" secondItem="NmB-hM-xje" secondAttribute="bottom" constant="20" id="D2m-Sk-SUg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0zd-wE-gQK" secondAttribute="trailing" constant="-5" id="FtQ-fE-VBl"/>
+                            <constraint firstItem="ofD-r9-jEQ" firstAttribute="leading" secondItem="05I-yg-A7M" secondAttribute="leading" id="HEK-T7-9eo"/>
+                            <constraint firstItem="YCa-Fo-7Bv" firstAttribute="bottom" secondItem="5zt-vg-afa" secondAttribute="bottom" id="Hll-7U-Esx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5zt-vg-afa" secondAttribute="trailing" constant="-5" id="ITx-Mq-3R3"/>
+                            <constraint firstItem="PYx-no-F2X" firstAttribute="top" secondItem="XXu-gT-7ch" secondAttribute="bottom" constant="19" id="Kat-h0-vza"/>
+                            <constraint firstItem="5zt-vg-afa" firstAttribute="leading" secondItem="YCa-Fo-7Bv" secondAttribute="trailing" constant="8" symbolic="YES" id="Krb-q3-IF1"/>
+                            <constraint firstItem="XXu-gT-7ch" firstAttribute="top" secondItem="YU7-3i-HQG" secondAttribute="bottom" constant="24" id="M0j-9f-u6S"/>
+                            <constraint firstItem="YCa-Fo-7Bv" firstAttribute="leading" secondItem="NmB-hM-xje" secondAttribute="leading" id="NAC-Aa-lRX"/>
+                            <constraint firstItem="ofD-r9-jEQ" firstAttribute="top" secondItem="0zd-wE-gQK" secondAttribute="bottom" constant="20" id="Nc6-Kc-WG1"/>
+                            <constraint firstItem="dwc-La-Wef" firstAttribute="leading" secondItem="XXu-gT-7ch" secondAttribute="trailing" constant="42" id="RA6-at-EJY"/>
+                            <constraint firstItem="NmB-hM-xje" firstAttribute="top" secondItem="PYx-no-F2X" secondAttribute="bottom" constant="20" id="TiZ-Ia-TQw"/>
+                            <constraint firstItem="ofD-r9-jEQ" firstAttribute="leading" secondItem="PYx-no-F2X" secondAttribute="trailing" constant="27" id="X4l-RC-dGf"/>
+                            <constraint firstItem="dwc-La-Wef" firstAttribute="top" secondItem="YU7-3i-HQG" secondAttribute="bottom" constant="24" id="Zeg-QX-xGV"/>
+                            <constraint firstItem="05I-yg-A7M" firstAttribute="top" secondItem="ofD-r9-jEQ" secondAttribute="bottom" constant="24" id="ZhF-XR-ADo"/>
+                            <constraint firstItem="YCa-Fo-7Bv" firstAttribute="top" secondItem="5zt-vg-afa" secondAttribute="top" id="aas-81-esG"/>
+                            <constraint firstItem="PYx-no-F2X" firstAttribute="leading" secondItem="NmB-hM-xje" secondAttribute="leading" id="bq7-k5-lhq"/>
                             <constraint firstAttribute="centerX" secondItem="fIR-HG-YxC" secondAttribute="centerX" constant="26.5" id="egS-Lf-RLV"/>
+                            <constraint firstItem="XXu-gT-7ch" firstAttribute="trailing" secondItem="NmB-hM-xje" secondAttribute="trailing" id="f9q-98-UTK"/>
+                            <constraint firstItem="0zd-wE-gQK" firstAttribute="leading" secondItem="dwc-La-Wef" secondAttribute="trailing" constant="5" id="fvq-T5-mFW"/>
+                            <constraint firstItem="PYx-no-F2X" firstAttribute="trailing" secondItem="NmB-hM-xje" secondAttribute="trailing" id="fw3-0F-az8"/>
+                            <constraint firstItem="0zd-wE-gQK" firstAttribute="top" secondItem="XXu-gT-7ch" secondAttribute="top" id="gXA-RV-Qo7"/>
+                            <constraint firstItem="05I-yg-A7M" firstAttribute="top" secondItem="ofD-r9-jEQ" secondAttribute="bottom" constant="20" id="mgc-dr-Tsr"/>
+                            <constraint firstItem="NmB-hM-xje" firstAttribute="leading" secondItem="ejZ-eO-pkI" secondAttribute="leadingMargin" constant="-8" id="mpm-3U-SS7"/>
+                            <constraint firstItem="5zt-vg-afa" firstAttribute="top" secondItem="05I-yg-A7M" secondAttribute="bottom" constant="20" id="pV3-Mr-ebD"/>
+                            <constraint firstItem="ofD-r9-jEQ" firstAttribute="trailing" secondItem="0zd-wE-gQK" secondAttribute="trailing" id="xDP-ik-ulh"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="M0j-9f-u6S"/>
+                                <exclude reference="Kat-h0-vza"/>
+                                <exclude reference="TiZ-Ia-TQw"/>
+                                <exclude reference="RA6-at-EJY"/>
+                                <exclude reference="AuK-Is-ZYu"/>
+                                <exclude reference="xDP-ik-ulh"/>
+                                <exclude reference="ZhF-XR-ADo"/>
+                                <exclude reference="BRC-Nc-Zvv"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Add Filing Detail" id="S4L-c4-9OB">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="SB9-EC-wPO">
