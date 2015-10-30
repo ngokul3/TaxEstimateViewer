@@ -273,8 +273,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="fIR-HG-YxC">
-                                <rect key="frame" x="1" y="160" width="320" height="162"/>
+                            <pickerView contentMode="center" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fIR-HG-YxC">
+                                <rect key="frame" x="27" y="271" width="320" height="162"/>
                                 <connections>
                                     <outlet property="dataSource" destination="6SW-hu-ik5" id="qvY-g9-BvZ"/>
                                     <outlet property="delegate" destination="6SW-hu-ik5" id="VeT-RL-0yz"/>
@@ -294,6 +294,7 @@
                             <constraint firstItem="ofD-r9-jEQ" firstAttribute="leading" secondItem="5zt-vg-afa" secondAttribute="leading" constant="-25" id="Ch1-oG-g1P"/>
                             <constraint firstAttribute="trailingMargin" secondItem="05I-yg-A7M" secondAttribute="trailing" constant="-5" id="Cnc-4Y-kCR"/>
                             <constraint firstItem="YCa-Fo-7Bv" firstAttribute="top" secondItem="NmB-hM-xje" secondAttribute="bottom" constant="20" id="D2m-Sk-SUg"/>
+                            <constraint firstItem="fIR-HG-YxC" firstAttribute="top" secondItem="YCa-Fo-7Bv" secondAttribute="bottom" constant="8" id="E4z-ZJ-79f"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0zd-wE-gQK" secondAttribute="trailing" constant="-5" id="FtQ-fE-VBl"/>
                             <constraint firstItem="ofD-r9-jEQ" firstAttribute="leading" secondItem="05I-yg-A7M" secondAttribute="leading" id="HEK-T7-9eo"/>
                             <constraint firstItem="YCa-Fo-7Bv" firstAttribute="bottom" secondItem="5zt-vg-afa" secondAttribute="bottom" id="Hll-7U-Esx"/>
@@ -329,6 +330,8 @@
                                 <exclude reference="AuK-Is-ZYu"/>
                                 <exclude reference="xDP-ik-ulh"/>
                                 <exclude reference="ZhF-XR-ADo"/>
+                                <exclude reference="8WG-f5-UYo"/>
+                                <exclude reference="egS-Lf-RLV"/>
                                 <exclude reference="BRC-Nc-Zvv"/>
                             </mask>
                         </variation>

@@ -61,7 +61,6 @@ class TaxViewControllerContainer: UIViewController, UITextFieldDelegate  {
             let containerViewController = self.childViewControllers[0] as! ContainerInvestmentController
             
             containerViewController.lstLotPositionForYear = CapitalGainController.sharedInstance.GetLotPositionForYear(year!)
-           // let containerViewController = self.childViewControllers[0] as! UITableViewController
             containerViewController.tableView.reloadData()
             
             let filingStatus = containerViewController.CalculateCapitalGain()

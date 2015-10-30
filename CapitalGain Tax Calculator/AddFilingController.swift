@@ -47,9 +47,11 @@ class AddFilingController: UIViewController , UIPickerViewDelegate, UITextFieldD
         stpYear.maximumValue = 2030 // TODO:
         stpYear.stepValue = 1
         
-        self.txtCurrentTaxableIncome.delegate = self
+       // self.txtCurrentTaxableIncome.delegate = self
         self.txtFilingMode.delegate = self
-        self.txtPreviouslyDeferredLoss.delegate = self
+        //self.txtPreviouslyDeferredLoss.delegate = self
+        addToolBar(self.txtPreviouslyDeferredLoss)
+        addToolBar(self.txtCurrentTaxableIncome)
         
         if (selectedFilingDetail != nil)
         {
@@ -123,8 +125,20 @@ class AddFilingController: UIViewController , UIPickerViewDelegate, UITextFieldD
     
     @IBAction func OnFilingModeEditBegin(sender: AnyObject) {
         pickerFilingMode.hidden = false
+        view.endEditing(true)
         //pickerFilingMode.bringSubviewToFront(<#view: UIView#>)
     }
+    
+   /* func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+      if(textField == txtFilingMode)
+       {
+        return false
+       }
+        else
+       {
+        return true
+        }
+    }*/
     
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool // Invoked immediately prior to
     {
@@ -136,8 +150,20 @@ class AddFilingController: UIViewController , UIPickerViewDelegate, UITextFieldD
         alertFilingMode.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
         }))
         
+        var alertInvalidFilingMode = UIAlertController(title: "Invalid Filing Mode", message: "Filing Mode is invalid", preferredStyle: UIAlertControllerStyle.Alert)
+        alertInvalidFilingMode.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+        }))
+        
         var alertAnnualIncome = UIAlertController(title: "Annual Income", message: "Annual Income should be numeric", preferredStyle: UIAlertControllerStyle.Alert)
         alertAnnualIncome.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+        }))
+       
+        var alertNegativeAnnualIncome = UIAlertController(title: "Annual Income", message: "Annual Income cannot be less than Zero", preferredStyle: UIAlertControllerStyle.Alert)
+        alertNegativeAnnualIncome.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+        }))
+        
+        var alertPositiveDeferredLoss = UIAlertController(title: "Deferred Loss", message: "Deferred Loss cannot be greater than Zero", preferredStyle: UIAlertControllerStyle.Alert)
+        alertPositiveDeferredLoss.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
         }))
         
         var alertDeferredLoss = UIAlertController(title: "Deferred Loss", message: "Deferred Loss should be numeric", preferredStyle: UIAlertControllerStyle.Alert)
@@ -151,7 +177,7 @@ class AddFilingController: UIViewController , UIPickerViewDelegate, UITextFieldD
 
         var alertFilingAlreadyAvailable = UIAlertController(title: "Filing Year", message: "Filing information already added for this Year", preferredStyle: UIAlertControllerStyle.Alert)
         alertFilingAlreadyAvailable.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-           // println("Filing information already added for this Year")
+           
         }))
         
         let lstFilingStatus = CapitalGainController.sharedInstance.GetFilingStatus()
@@ -163,6 +189,11 @@ class AddFilingController: UIViewController , UIPickerViewDelegate, UITextFieldD
             presentViewController(alertFilingMode, animated: true, completion: nil)
             return false
         }
+        else if(!contains(filingModeArray,txtFilingMode.text))
+        {
+            presentViewController(alertInvalidFilingMode, animated: true, completion: nil)
+            return false
+        }
         else if(txtCurrentTaxableIncome.text.toDouble() == nil)
         {
             presentViewController(alertAnnualIncome, animated: true, completion: nil)
@@ -171,6 +202,16 @@ class AddFilingController: UIViewController , UIPickerViewDelegate, UITextFieldD
         else if(txtPreviouslyDeferredLoss.text.isEmpty == false && txtPreviouslyDeferredLoss.text.toDouble() == nil)
         {
             presentViewController(alertDeferredLoss, animated: true, completion: nil)
+            return false
+        }
+        else if (txtCurrentTaxableIncome.text.toDouble() < 0)
+        {
+            presentViewController(alertNegativeAnnualIncome, animated: true, completion: nil)
+            return false
+        }
+        else if(txtPreviouslyDeferredLoss.text.toDouble() > 0)
+        {
+            presentViewController(alertPositiveDeferredLoss, animated: true, completion: nil)
             return false
         }
         else if(lblYear.text!.toInt() == nil)
@@ -225,4 +266,30 @@ class AddFilingController: UIViewController , UIPickerViewDelegate, UITextFieldD
     }
 }
 
+
+extension UIViewController: UITextFieldDelegate{
+    func addToolBar(textField: UITextField){
+        var toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.Default
+        toolBar.translucent = true
+        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        var doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Done, target: self, action: "donePressed")
+        var cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "cancelPressed")
+        var spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.userInteractionEnabled = true
+        toolBar.sizeToFit()
+        
+        textField.delegate = self
+        textField.inputAccessoryView = toolBar
+        
+       
+    }
+    func donePressed(){
+        view.endEditing(true)
+    }
+    func cancelPressed(){
+        view.endEditing(true) // or do something
+    }
+}
 

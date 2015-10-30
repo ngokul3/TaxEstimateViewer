@@ -35,8 +35,9 @@ class AddInvestmentController: UIViewController, UITextFieldDelegate{
         
         super.viewDidLoad()
 
-       self.txtSymbol.delegate = self
-       self.txtProfitLoss.delegate = self
+        
+        addToolBar(self.txtProfitLoss)
+        addToolBar(self.txtSymbol)
         
         let date = NSDate()
         var dateFormatter = NSDateFormatter()
