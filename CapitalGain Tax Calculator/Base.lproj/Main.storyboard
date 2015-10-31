@@ -543,13 +543,16 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Flc-YH-t17" id="1vR-eg-2NI">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="a" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8B-XE-IWC">
-                                            <rect key="frame" x="8" y="5" width="139" height="24"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="a" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8B-XE-IWC">
+                                            <rect key="frame" x="0.0" y="10" width="78" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="y8B-XE-IWC" firstAttribute="top" secondItem="1vR-eg-2NI" secondAttribute="topMargin" constant="2" id="9EV-v6-0Ea"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="lblFilingStatus" destination="y8B-XE-IWC" id="RUb-1t-s1U"/>
@@ -586,25 +589,35 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kLy-f1-SKO" id="6Hy-gv-biP">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VY0-ce-joE">
-                                            <rect key="frame" x="6" y="8" width="142" height="22"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VY0-ce-joE">
+                                            <rect key="frame" x="0.0" y="10" width="78" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="A" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lG-ZZ-4Yi">
-                                            <rect key="frame" x="150" y="7" width="85" height="24"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="A" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lG-ZZ-4Yi">
+                                            <rect key="frame" x="84" y="10" width="165" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" tag="30" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cME-kK-XXt">
-                                            <rect key="frame" x="236" y="9" width="53" height="25"/>
+                                        <imageView userInteractionEnabled="NO" tag="30" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cME-kK-XXt">
+                                            <rect key="frame" x="252" y="8" width="40" height="25"/>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" tag="40" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CL9-8N-hLN">
-                                            <rect key="frame" x="289" y="9" width="53" height="25"/>
+                                        <imageView userInteractionEnabled="NO" tag="40" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CL9-8N-hLN">
+                                            <rect key="frame" x="293" y="8" width="40" height="25"/>
                                         </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="VY0-ce-joE" firstAttribute="top" secondItem="6Hy-gv-biP" secondAttribute="topMargin" constant="2" id="0Cp-zl-Mk8"/>
+                                        <constraint firstItem="5lG-ZZ-4Yi" firstAttribute="top" secondItem="6Hy-gv-biP" secondAttribute="topMargin" constant="2" id="5th-Pm-Gfd"/>
+                                        <constraint firstItem="5lG-ZZ-4Yi" firstAttribute="top" secondItem="6Hy-gv-biP" secondAttribute="topMargin" constant="2" id="7j9-Yo-LLe"/>
+                                        <constraint firstItem="cME-kK-XXt" firstAttribute="top" secondItem="6Hy-gv-biP" secondAttribute="topMargin" id="IBD-Bq-WdC"/>
+                                        <constraint firstItem="cME-kK-XXt" firstAttribute="leading" secondItem="5lG-ZZ-4Yi" secondAttribute="trailing" constant="3" id="SFp-9P-WJH"/>
+                                        <constraint firstItem="CL9-8N-hLN" firstAttribute="leading" secondItem="cME-kK-XXt" secondAttribute="trailing" constant="1" id="Vqq-mj-PtY"/>
+                                        <constraint firstItem="VY0-ce-joE" firstAttribute="leading" secondItem="6Hy-gv-biP" secondAttribute="leadingMargin" constant="-8" id="Wo6-gX-2WR"/>
+                                        <constraint firstItem="CL9-8N-hLN" firstAttribute="top" secondItem="6Hy-gv-biP" secondAttribute="topMargin" id="vf6-gG-1HJ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="img360" destination="CL9-8N-hLN" id="FLi-cQ-lCn"/>
