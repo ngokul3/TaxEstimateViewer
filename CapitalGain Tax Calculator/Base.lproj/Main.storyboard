@@ -739,7 +739,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILV-hL-5HY">
-                                <rect key="frame" x="8" y="98" width="356" height="191"/>
+                                <rect key="frame" x="8" y="99" width="356" height="268"/>
                                 <connections>
                                     <segue destination="XGP-fu-3fm" kind="embed" identifier="ShowInvestments" id="3sj-dn-DaP"/>
                                 </connections>
@@ -752,8 +752,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fAt-MV-HID">
-                                <rect key="frame" x="8" y="344" width="356" height="294"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fAt-MV-HID">
+                                <rect key="frame" x="8" y="368" width="356" height="296"/>
                                 <connections>
                                     <segue destination="aSO-aT-m5j" kind="embed" id="5ax-mG-qBW"/>
                                 </connections>
@@ -762,34 +762,39 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fAt-MV-HID" firstAttribute="top" secondItem="ILV-hL-5HY" secondAttribute="bottom" id="1DY-aw-zkL"/>
+                            <constraint firstItem="fAt-MV-HID" firstAttribute="leading" secondItem="ypq-Zo-q6r" secondAttribute="leadingMargin" constant="-8" id="2It-AN-Lgt"/>
+                            <constraint firstItem="fAt-MV-HID" firstAttribute="top" secondItem="ILV-hL-5HY" secondAttribute="bottom" constant="8" id="3Pq-bn-7a6"/>
                             <constraint firstItem="GWB-Zl-w8n" firstAttribute="top" secondItem="fAt-MV-HID" secondAttribute="bottom" id="3lh-M5-CoV"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="fAt-MV-HID" secondAttribute="bottom" constant="29" id="462-UG-Vh6"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="fAt-MV-HID" secondAttribute="top" constant="299" id="462-UG-Vh6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fAt-MV-HID" secondAttribute="trailing" constant="-5" id="DRi-cv-WwV"/>
+                            <constraint firstItem="ILV-hL-5HY" firstAttribute="top" secondItem="MRv-gN-Exv" secondAttribute="bottom" constant="3" id="GDj-0x-T6L"/>
                             <constraint firstItem="ILV-hL-5HY" firstAttribute="leading" secondItem="ypq-Zo-q6r" secondAttribute="leadingMargin" constant="-7" id="GHN-2i-dhF"/>
                             <constraint firstItem="fAt-MV-HID" firstAttribute="leading" secondItem="ypq-Zo-q6r" secondAttribute="leading" id="HD1-zz-7uB"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="fAt-MV-HID" secondAttribute="bottom" constant="3" id="HwF-Hp-Vd6"/>
                             <constraint firstItem="MRv-gN-Exv" firstAttribute="top" secondItem="x0x-PJ-yB5" secondAttribute="bottom" constant="2" id="IMe-p9-cYF"/>
                             <constraint firstItem="GWB-Zl-w8n" firstAttribute="top" secondItem="fAt-MV-HID" secondAttribute="bottom" constant="2" id="KoE-W8-Dnd"/>
                             <constraint firstAttribute="trailing" secondItem="fAt-MV-HID" secondAttribute="trailing" id="MHL-IA-lsm"/>
                             <constraint firstItem="fAt-MV-HID" firstAttribute="leading" secondItem="ypq-Zo-q6r" secondAttribute="leading" id="NTd-U4-kYn"/>
-                            <constraint firstItem="ILV-hL-5HY" firstAttribute="leading" secondItem="ypq-Zo-q6r" secondAttribute="leadingMargin" constant="-8" id="PEL-hG-PuR"/>
-                            <constraint firstItem="ILV-hL-5HY" firstAttribute="top" secondItem="MRv-gN-Exv" secondAttribute="bottom" constant="2" id="QHi-X2-ZeD"/>
                             <constraint firstItem="ILV-hL-5HY" firstAttribute="leading" secondItem="ypq-Zo-q6r" secondAttribute="leadingMargin" constant="-8" id="R89-tD-uzd"/>
-                            <constraint firstItem="ILV-hL-5HY" firstAttribute="trailing" secondItem="fAt-MV-HID" secondAttribute="trailing" id="RiT-Y6-DF6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ILV-hL-5HY" secondAttribute="trailing" constant="-5" id="S8z-Sq-M9N"/>
                             <constraint firstItem="fAt-MV-HID" firstAttribute="trailing" secondItem="MRv-gN-Exv" secondAttribute="trailing" id="SSA-be-CGS"/>
                             <constraint firstAttribute="trailing" secondItem="MRv-gN-Exv" secondAttribute="trailing" id="TH2-PF-cZw"/>
+                            <constraint firstItem="ILV-hL-5HY" firstAttribute="leading" secondItem="fAt-MV-HID" secondAttribute="leading" id="UAZ-MD-Lsc"/>
                             <constraint firstItem="fAt-MV-HID" firstAttribute="top" secondItem="ILV-hL-5HY" secondAttribute="bottom" id="UEb-bd-0Is"/>
-                            <constraint firstItem="fAt-MV-HID" firstAttribute="top" secondItem="ILV-hL-5HY" secondAttribute="bottom" constant="1" id="Vn0-AM-rna"/>
-                            <constraint firstItem="fAt-MV-HID" firstAttribute="top" secondItem="ypq-Zo-q6r" secondAttribute="top" constant="290" id="WiJ-ZT-edC"/>
+                            <constraint firstItem="ILV-hL-5HY" firstAttribute="trailing" secondItem="fAt-MV-HID" secondAttribute="trailing" id="W8T-le-Y25"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MRv-gN-Exv" secondAttribute="trailing" id="cgC-LE-VtZ"/>
                             <constraint firstAttribute="trailing" secondItem="fAt-MV-HID" secondAttribute="trailing" id="dc5-gs-SXA"/>
                             <constraint firstItem="MRv-gN-Exv" firstAttribute="leading" secondItem="ypq-Zo-q6r" secondAttribute="leading" id="ddI-JE-xJf"/>
                             <constraint firstItem="fAt-MV-HID" firstAttribute="leading" secondItem="ypq-Zo-q6r" secondAttribute="leadingMargin" constant="-8" id="eQ3-VP-eRr"/>
-                            <constraint firstItem="ILV-hL-5HY" firstAttribute="leading" secondItem="fAt-MV-HID" secondAttribute="leading" id="nND-2Q-3cS"/>
+                            <constraint firstItem="fAt-MV-HID" firstAttribute="top" secondItem="ILV-hL-5HY" secondAttribute="bottom" constant="55" id="joa-Jn-jbt"/>
+                            <constraint firstItem="fAt-MV-HID" firstAttribute="top" secondItem="ILV-hL-5HY" secondAttribute="bottom" constant="1" id="ncy-o8-6nM"/>
                             <constraint firstItem="ILV-hL-5HY" firstAttribute="top" secondItem="ypq-Zo-q6r" secondAttribute="top" constant="98" id="p7u-pY-cP2"/>
                             <constraint firstItem="GWB-Zl-w8n" firstAttribute="top" secondItem="fAt-MV-HID" secondAttribute="bottom" id="qPA-Tm-AfE"/>
                             <constraint firstItem="fAt-MV-HID" firstAttribute="top" secondItem="ILV-hL-5HY" secondAttribute="bottom" id="s1N-R3-JGo"/>
+                            <constraint firstItem="ILV-hL-5HY" firstAttribute="top" secondItem="x0x-PJ-yB5" secondAttribute="bottom" constant="4" id="saa-Re-u9j"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ILV-hL-5HY" secondAttribute="trailing" constant="-5" id="soE-7F-bOs"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ILV-hL-5HY" secondAttribute="trailing" constant="-5" id="t3Y-IO-5je"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ILV-hL-5HY" secondAttribute="trailing" constant="-10" id="tmz-Bl-biM"/>
+                            <constraint firstItem="ILV-hL-5HY" firstAttribute="leading" secondItem="ypq-Zo-q6r" secondAttribute="leadingMargin" constant="-8" id="vpb-PG-8hf"/>
                             <constraint firstItem="MRv-gN-Exv" firstAttribute="leading" secondItem="ypq-Zo-q6r" secondAttribute="leadingMargin" id="xGy-8L-9bU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fAt-MV-HID" secondAttribute="trailing" constant="-5" id="yxD-KX-Lnh"/>
                             <constraint firstItem="fAt-MV-HID" firstAttribute="leading" secondItem="MRv-gN-Exv" secondAttribute="leading" id="zjg-1X-Mm8"/>
@@ -801,9 +806,11 @@
                                 <exclude reference="GHN-2i-dhF"/>
                                 <exclude reference="R89-tD-uzd"/>
                                 <exclude reference="p7u-pY-cP2"/>
+                                <exclude reference="saa-Re-u9j"/>
                                 <exclude reference="soE-7F-bOs"/>
                                 <exclude reference="tmz-Bl-biM"/>
                                 <exclude reference="1DY-aw-zkL"/>
+                                <exclude reference="3Pq-bn-7a6"/>
                                 <exclude reference="HD1-zz-7uB"/>
                                 <exclude reference="MHL-IA-lsm"/>
                                 <exclude reference="NTd-U4-kYn"/>
@@ -811,6 +818,7 @@
                                 <exclude reference="UEb-bd-0Is"/>
                                 <exclude reference="dc5-gs-SXA"/>
                                 <exclude reference="eQ3-VP-eRr"/>
+                                <exclude reference="joa-Jn-jbt"/>
                                 <exclude reference="s1N-R3-JGo"/>
                                 <exclude reference="yxD-KX-Lnh"/>
                                 <exclude reference="zjg-1X-Mm8"/>
