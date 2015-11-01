@@ -11,20 +11,21 @@ import UIKit
 class TaxViewControllerContainer: UIViewController, UITextFieldDelegate  {
 
     
-    @IBOutlet weak var txtLTCapitalGain: UILabel!
+    //@IBOutlet weak var txtLTCapitalGain: UILabel!
     
-    @IBOutlet weak var txtSTCapitalGain: UILabel!
+    //@IBOutlet weak var txtSTCapitalGain: UILabel!
     
     
-    @IBOutlet weak var txtTotalTax: UILabel!
+    //@IBOutlet weak var txtTotalTax: UILabel!
     @IBOutlet weak var txtYear: UITextField!
    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.txtYear.delegate = self
+       // self.txtYear.delegate = self
         
+        addToolBar(self.txtYear)
         var lstFilingStatus = CapitalGainController.sharedInstance.GetFilingStatus()
         
         let maxYear = lstFilingStatus.map{ return $0.Year }.reduce(Int.min, combine: {max($0, $1)} )
