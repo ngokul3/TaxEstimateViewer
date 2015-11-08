@@ -10,20 +10,11 @@ import UIKit
 
 class TaxViewControllerContainer: UIViewController, UITextFieldDelegate  {
 
-    
-    //@IBOutlet weak var txtLTCapitalGain: UILabel!
-    
-    //@IBOutlet weak var txtSTCapitalGain: UILabel!
-    
-    
-    //@IBOutlet weak var txtTotalTax: UILabel!
     @IBOutlet weak var txtYear: UITextField!
    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       // self.txtYear.delegate = self
         
         addToolBar(self.txtYear)
         var lstFilingStatus = CapitalGainController.sharedInstance.GetFilingStatus()
@@ -63,6 +54,24 @@ class TaxViewControllerContainer: UIViewController, UITextFieldDelegate  {
             
             containerViewController.lstLotPositionForYear = CapitalGainController.sharedInstance.GetLotPositionForYear(year!)
             containerViewController.tableView.reloadData()
+            
+            let isFilingStatusavailable = CapitalGainController.sharedInstance.GetFilingStatusForYear(year!)
+            
+            if(isFilingStatusavailable == nil)
+            {
+                var alertNilFiling = UIAlertController(title: "FilingMode", message: "Tax Filing Mode information missing for the year.", preferredStyle: UIAlertControllerStyle.Alert)
+                alertNilFiling.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                    
+                }))
+                
+                presentViewController(alertNilFiling, animated: true, completion: nil)
+                
+                RefreshContainers(FilingStatus())
+                
+                return
+                
+            }
+            
             
             let filingStatus = containerViewController.CalculateCapitalGain()
             
