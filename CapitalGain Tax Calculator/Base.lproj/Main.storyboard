@@ -739,7 +739,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILV-hL-5HY">
-                                <rect key="frame" x="8" y="99" width="356" height="268"/>
+                                <rect key="frame" x="8" y="99" width="356" height="270"/>
                                 <connections>
                                     <segue destination="XGP-fu-3fm" kind="embed" identifier="ShowInvestments" id="3sj-dn-DaP"/>
                                 </connections>
@@ -753,11 +753,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fAt-MV-HID">
-                                <rect key="frame" x="8" y="368" width="356" height="296"/>
+                                <rect key="frame" x="8" y="377" width="356" height="287"/>
                                 <connections>
                                     <segue destination="aSO-aT-m5j" kind="embed" id="5ax-mG-qBW"/>
                                 </connections>
                             </containerView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="e1X-2u-fSD">
+                                <rect key="frame" x="-32" y="367" width="422" height="2"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -765,7 +768,7 @@
                             <constraint firstItem="fAt-MV-HID" firstAttribute="leading" secondItem="ypq-Zo-q6r" secondAttribute="leadingMargin" constant="-8" id="2It-AN-Lgt"/>
                             <constraint firstItem="fAt-MV-HID" firstAttribute="top" secondItem="ILV-hL-5HY" secondAttribute="bottom" constant="8" id="3Pq-bn-7a6"/>
                             <constraint firstItem="GWB-Zl-w8n" firstAttribute="top" secondItem="fAt-MV-HID" secondAttribute="bottom" id="3lh-M5-CoV"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="fAt-MV-HID" secondAttribute="top" constant="299" id="462-UG-Vh6"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="fAt-MV-HID" secondAttribute="top" constant="290" id="462-UG-Vh6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fAt-MV-HID" secondAttribute="trailing" constant="-5" id="DRi-cv-WwV"/>
                             <constraint firstItem="ILV-hL-5HY" firstAttribute="top" secondItem="MRv-gN-Exv" secondAttribute="bottom" constant="3" id="GDj-0x-T6L"/>
                             <constraint firstItem="ILV-hL-5HY" firstAttribute="leading" secondItem="ypq-Zo-q6r" secondAttribute="leadingMargin" constant="-7" id="GHN-2i-dhF"/>
@@ -782,14 +785,17 @@
                             <constraint firstItem="ILV-hL-5HY" firstAttribute="leading" secondItem="fAt-MV-HID" secondAttribute="leading" id="UAZ-MD-Lsc"/>
                             <constraint firstItem="fAt-MV-HID" firstAttribute="top" secondItem="ILV-hL-5HY" secondAttribute="bottom" id="UEb-bd-0Is"/>
                             <constraint firstItem="ILV-hL-5HY" firstAttribute="trailing" secondItem="fAt-MV-HID" secondAttribute="trailing" id="W8T-le-Y25"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="e1X-2u-fSD" secondAttribute="trailing" constant="-31" id="YoH-H8-Lv2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MRv-gN-Exv" secondAttribute="trailing" id="cgC-LE-VtZ"/>
                             <constraint firstAttribute="trailing" secondItem="fAt-MV-HID" secondAttribute="trailing" id="dc5-gs-SXA"/>
                             <constraint firstItem="MRv-gN-Exv" firstAttribute="leading" secondItem="ypq-Zo-q6r" secondAttribute="leading" id="ddI-JE-xJf"/>
                             <constraint firstItem="fAt-MV-HID" firstAttribute="leading" secondItem="ypq-Zo-q6r" secondAttribute="leadingMargin" constant="-8" id="eQ3-VP-eRr"/>
                             <constraint firstItem="fAt-MV-HID" firstAttribute="top" secondItem="ILV-hL-5HY" secondAttribute="bottom" constant="55" id="joa-Jn-jbt"/>
-                            <constraint firstItem="fAt-MV-HID" firstAttribute="top" secondItem="ILV-hL-5HY" secondAttribute="bottom" constant="1" id="ncy-o8-6nM"/>
+                            <constraint firstItem="fAt-MV-HID" firstAttribute="top" secondItem="e1X-2u-fSD" secondAttribute="bottom" constant="8" id="mbd-FG-NAH"/>
+                            <constraint firstItem="fAt-MV-HID" firstAttribute="top" secondItem="ILV-hL-5HY" secondAttribute="bottom" constant="8" id="ncy-o8-6nM"/>
                             <constraint firstItem="ILV-hL-5HY" firstAttribute="top" secondItem="ypq-Zo-q6r" secondAttribute="top" constant="98" id="p7u-pY-cP2"/>
                             <constraint firstItem="GWB-Zl-w8n" firstAttribute="top" secondItem="fAt-MV-HID" secondAttribute="bottom" id="qPA-Tm-AfE"/>
+                            <constraint firstItem="e1X-2u-fSD" firstAttribute="leading" secondItem="ypq-Zo-q6r" secondAttribute="leadingMargin" constant="-48" id="rRo-kg-Eyh"/>
                             <constraint firstItem="fAt-MV-HID" firstAttribute="top" secondItem="ILV-hL-5HY" secondAttribute="bottom" id="s1N-R3-JGo"/>
                             <constraint firstItem="ILV-hL-5HY" firstAttribute="top" secondItem="x0x-PJ-yB5" secondAttribute="bottom" constant="4" id="saa-Re-u9j"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ILV-hL-5HY" secondAttribute="trailing" constant="-5" id="soE-7F-bOs"/>
