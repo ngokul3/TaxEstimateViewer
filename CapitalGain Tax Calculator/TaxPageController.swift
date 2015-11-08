@@ -47,8 +47,6 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
         dataSource = self
         self.dataSource = self
         
-      //  RefreshTaxViewPages()
-        
         _page1 = self.storyboard?.instantiateViewControllerWithIdentifier("ResultLabelID") as! ResultLabelController
         _page2 = self.storyboard?.instantiateViewControllerWithIdentifier("ResultLongTermGraphID") as! ResultGraphController
         _page3 = self.storyboard?.instantiateViewControllerWithIdentifier("ResultLongTermPieID") as! ResultLongTermPieController
@@ -76,11 +74,7 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
         }
 
         NSLog("loaded!");
-        
-        
-     //   setViewControllers([getController(_controllerEnum)!], direction: .Forward, animated: false, completion: nil)
-        
-        // Do any additional setup after loading the view.
+     
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,7 +84,7 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
     
     func RefreshTaxViewPages()
     {
-       // _page1.labelTest(self.view.frame.size.width, thisHeight: self.view.frame.size.height)
+       
         _page1.ShowLongTermShortTermLabel()
         _page2.DrawLongTermShortTermGraph()
         _page3.DrawLongTermPieChart()
@@ -99,12 +93,12 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
     }
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
         return 0
-       // return _controllerEnum.rawValue
+       
     }
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
         return myViewControllers.count
-        //return ControllerEnum.GetCount()
+       
     }
     
     func viewControllerAtIndex(index: Int) -> UIViewController

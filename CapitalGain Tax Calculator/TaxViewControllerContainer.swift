@@ -90,6 +90,20 @@ class TaxViewControllerContainer: UIViewController, UITextFieldDelegate  {
 
             }
             
+            if(filingStatus?.NetLoss != 0)
+            {
+                var alertNilFiling = UIAlertController(title: "Net Loss", message: "There is no Taxable Capital Gain due to total loss.", preferredStyle: UIAlertControllerStyle.Alert)
+                alertNilFiling.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                    
+                }))
+                
+                presentViewController(alertNilFiling, animated: true, completion: nil)
+                
+                RefreshContainers(FilingStatus())
+                
+                return
+                
+            }
             
             if(filingStatus!.CurrentTaxableIncome != 0)
             {

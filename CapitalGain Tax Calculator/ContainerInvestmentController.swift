@@ -108,7 +108,6 @@ class ContainerInvestmentController: UITableViewController {
             let filingStatus = CapitalGainController.sharedInstance.GetFilingStatusForYear(year!)
             
             let lstLotTerm = CapitalGainController.sharedDBInstance.ReturnLotTerm(lstLotPositionSelected)
-           // let taxProcessor = TaxProcessor()
             
             RefreshInvestments()
 
