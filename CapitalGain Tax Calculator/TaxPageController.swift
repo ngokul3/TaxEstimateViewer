@@ -90,7 +90,7 @@ class TaxPageController: UIPageViewController, UIPageViewControllerDataSource {
     
     func RefreshTaxViewPages()
     {
-        _page1.labelTest(self.view.frame.size.width, thisHeight: self.view.frame.size.height)
+       // _page1.labelTest(self.view.frame.size.width, thisHeight: self.view.frame.size.height)
         _page1.ShowLongTermShortTermLabel()
         _page2.DrawLongTermShortTermGraph()
         _page3.DrawLongTermPieChart()

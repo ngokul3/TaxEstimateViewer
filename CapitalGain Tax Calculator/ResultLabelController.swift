@@ -49,7 +49,7 @@ class ResultLabelController: UIViewController {
   //  let thisWidth = pageViewController.view.frame.size. width
     //let thisHeight = pageViewController.view.frame.size.height
         
-    self.view.frame = CGRect(x: 0, y: 0, width: 375, height: 243)
+   // self.view.frame = CGRect(x: 0, y: 0, width: 375, height: 243)
         
    
     }
@@ -60,10 +60,6 @@ class ResultLabelController: UIViewController {
     }
     
 
-    func labelTest(thisWidth: CGFloat, thisHeight: CGFloat)
-    {
-        self.view.frame = CGRect(x: 0, y: 0, width: thisWidth, height: thisHeight)
-    }
     func ShowLongTermShortTermLabel()
     {
         self.txtAnnualIncome.text = FilingStatusForGraph.CurrentTaxableIncome.description
