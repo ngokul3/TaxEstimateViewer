@@ -63,7 +63,7 @@ public class ChartViewBase: UIView, ChartAnimatorDelegate
     public var infoTextColor: UIColor! = UIColor(red: 247.0/255.0, green: 189.0/255.0, blue: 51.0/255.0, alpha: 1.0) // orange
     
     /// description text that appears in the bottom right corner of the chart
-    public var descriptionText = "Capital Gain @ Tax %"
+    public var descriptionText = ""
     
     /// flag that indicates if the chart has been fed with data yet
     internal var _dataNotSet = true

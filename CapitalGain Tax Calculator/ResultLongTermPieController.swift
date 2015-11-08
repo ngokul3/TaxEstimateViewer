@@ -81,7 +81,7 @@ class ResultLongTermPieController: UIViewController {
         }
         else
         {
-            let pieChartDataSet = PieChartDataSet(yVals: taxLimit, label: "Long Term Tax Slab")
+            let pieChartDataSet = PieChartDataSet(yVals: taxLimit, label: "Long Term Gain Vs Tax %")
             let pieChartData = PieChartData(xVals: taxPerc, dataSet: pieChartDataSet)
             
             pieChartView.data = pieChartData

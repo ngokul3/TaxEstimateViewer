@@ -77,7 +77,7 @@ class ResultShortTermPieController: UIViewController {
         }
         else
         {
-            let pieChartDataSet = PieChartDataSet(yVals: taxLimit, label: "Short Term Tax Slab")
+            let pieChartDataSet = PieChartDataSet(yVals: taxLimit, label: "Short Term Gain Vs Tax %")
             let pieChartData = PieChartData(xVals: taxPerc, dataSet: pieChartDataSet)
             pieChartView.data = pieChartData
             
