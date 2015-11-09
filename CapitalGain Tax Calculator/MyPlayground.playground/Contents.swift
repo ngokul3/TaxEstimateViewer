@@ -32,5 +32,25 @@ var xxx : Double
 xxx = 1000.123
 round(xxx)
 
+NSCalendarUnit.CalendarUnitYear
+
+//let date = NSDate()
+let calendar = NSCalendar.currentCalendar()
+
+
+let flags: NSCalendarUnit = NSCalendarUnit.CalendarUnitYear
+let date = NSDate()
+let components = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitYear, fromDate: date)
+
+let year = components.year
+
+
+
+
+
+
+
+//NSCalendar.isDate("2015-01-01")
+
 
 

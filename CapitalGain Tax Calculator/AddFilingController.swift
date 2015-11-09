@@ -47,9 +47,7 @@ class AddFilingController: UIViewController , UIPickerViewDelegate, UITextFieldD
         stpYear.maximumValue = 2030 // TODO:
         stpYear.stepValue = 1
         
-       // self.txtCurrentTaxableIncome.delegate = self
         self.txtFilingMode.delegate = self
-        //self.txtPreviouslyDeferredLoss.delegate = self
         addToolBar(self.txtPreviouslyDeferredLoss)
         addToolBar(self.txtCurrentTaxableIncome)
         
@@ -60,8 +58,6 @@ class AddFilingController: UIViewController , UIPickerViewDelegate, UITextFieldD
             lblYear.text = selectedFilingDetail?.Year.description
             txtCurrentTaxableIncome.text = utils.ConvertStringToCurrency(selectedFilingDetail?.CurrentTaxableIncome.description)
             txtFilingMode.text = selectedFilingDetail?.FilingType.rawValue
-            
-           // txtPreviouslyDeferredLoss.text = selectedFilingDetail?.PreviouslyDeferredLoss.description
             txtPreviouslyDeferredLoss.text = utils.ConvertStringToCurrency(selectedFilingDetail?.PreviouslyDeferredLoss.description)
             
         }

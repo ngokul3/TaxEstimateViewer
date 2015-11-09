@@ -16,13 +16,25 @@ class TaxViewControllerContainer: UIViewController, UITextFieldDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let date = NSDate()
+        let components = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitYear, fromDate: date)
+    
+        let currentYear = components.year
+        
+        
         addToolBar(self.txtYear)
         var lstFilingStatus = CapitalGainController.sharedInstance.GetFilingStatus()
         
-        let maxYear = lstFilingStatus.map{ return $0.Year }.reduce(Int.min, combine: {max($0, $1)} )
+        if(lstFilingStatus.count == 0)
+        {
+            txtYear.text = currentYear.description
+        }
+        else
+        {
+            let maxYear = lstFilingStatus.map{ return $0.Year }.reduce(Int.min, combine: {max($0, $1)} )
         
-        txtYear.text = maxYear.description
-        
+            txtYear.text = maxYear.description
+        }
         self.Refresh()
     }
     
@@ -154,9 +166,5 @@ class TaxViewControllerContainer: UIViewController, UITextFieldDelegate  {
         
     }
     
-    func textFieldShouldReturn(userText: UITextField!) -> Bool {
-        userText.resignFirstResponder()
-        return true;
-    }
 
 }
