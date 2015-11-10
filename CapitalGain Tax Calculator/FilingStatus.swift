@@ -63,7 +63,6 @@ class FilingStatus
     private var _year:Int //ToDO - Int or int32
     private var _filingType: ENumFilingType
     private var _currentTaxableIncome: Double
-    private var _previouslyDeferredLoss : Double //ToDo - Handle Deferred Loss
     private var _taxOnSTCapitalGain: Double
     private var _taxOnLTCapitalGain: Double
     private var _netLoss : Double
@@ -76,7 +75,6 @@ class FilingStatus
         self._year = 0
         self._filingType = ENumFilingType.Single //TODO: proper init
         self._currentTaxableIncome = 0
-        self._previouslyDeferredLoss = 0
         self._taxOnLTCapitalGain = 0
         self._taxOnSTCapitalGain = 0
         self._netLoss = 0
@@ -122,14 +120,6 @@ class FilingStatus
         }
     }
     
-    var PreviouslyDeferredLoss: Double {
-        get {
-            return _previouslyDeferredLoss
-        }
-        set {
-            _previouslyDeferredLoss = newValue
-        }
-    }
     
     var TaxOnLTCapitalGain: Double {
         get {

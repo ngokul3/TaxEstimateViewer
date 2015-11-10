@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddFilingController: UIViewController , UIPickerViewDelegate, UITextFieldDelegate{
+class AddFilingController: UIViewController , UIPickerViewDelegate{
 
     var utils = Utils()
     @IBOutlet weak var lblYear: UILabel!
@@ -18,8 +18,6 @@ class AddFilingController: UIViewController , UIPickerViewDelegate, UITextFieldD
     @IBOutlet weak var txtFilingMode: UITextField!
     
     @IBOutlet weak var txtCurrentTaxableIncome: UITextField!
-    
-    @IBOutlet weak var txtPreviouslyDeferredLoss: UITextField!
     
     @IBOutlet weak var pickerFilingMode: UIPickerView!
     
@@ -48,7 +46,6 @@ class AddFilingController: UIViewController , UIPickerViewDelegate, UITextFieldD
         stpYear.stepValue = 1
         
         self.txtFilingMode.delegate = self
-        addToolBar(self.txtPreviouslyDeferredLoss)
         addToolBar(self.txtCurrentTaxableIncome)
         
         if (selectedFilingDetail != nil)
@@ -58,7 +55,6 @@ class AddFilingController: UIViewController , UIPickerViewDelegate, UITextFieldD
             lblYear.text = selectedFilingDetail?.Year.description
             txtCurrentTaxableIncome.text = utils.ConvertStringToCurrency(selectedFilingDetail?.CurrentTaxableIncome.description)
             txtFilingMode.text = selectedFilingDetail?.FilingType.rawValue
-            txtPreviouslyDeferredLoss.text = utils.ConvertStringToCurrency(selectedFilingDetail?.PreviouslyDeferredLoss.description)
             
         }
     }
@@ -74,18 +70,10 @@ class AddFilingController: UIViewController , UIPickerViewDelegate, UITextFieldD
     }
     @IBAction func OntxtCurrentTaxableIncomeEditDidEnd(sender: AnyObject) {
         txtCurrentTaxableIncome.text = utils.ConvertStringToCurrency(txtCurrentTaxableIncome.text)
-        
+       
     }
     
-    @IBAction func OntxtPreviouslyDeferredLossEditDidBegin(sender: AnyObject) {
-        txtPreviouslyDeferredLoss.text = utils.ConvertCurrencyToString(txtPreviouslyDeferredLoss.text)
-
-    }
-    @IBAction func OntxtPreviouslyDeferredLossEditDidEnd(sender: AnyObject) {
-        txtPreviouslyDeferredLoss.text = utils.ConvertStringToCurrency(txtPreviouslyDeferredLoss.text)
-        
-    }
-
+  
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -125,22 +113,10 @@ class AddFilingController: UIViewController , UIPickerViewDelegate, UITextFieldD
         //pickerFilingMode.bringSubviewToFront(<#view: UIView#>)
     }
     
-   /* func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-      if(textField == txtFilingMode)
-       {
-        return false
-       }
-        else
-       {
-        return true
-        }
-    }*/
-    
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool // Invoked immediately prior to
     {
         txtCurrentTaxableIncome.text = utils.ConvertCurrencyToString(txtCurrentTaxableIncome.text)
-        txtPreviouslyDeferredLoss.text = utils.ConvertCurrencyToString(txtPreviouslyDeferredLoss.text)
-        
+    
         
         var alertFilingMode = UIAlertController(title: "Filing Mode", message: "Filing Mode is required", preferredStyle: UIAlertControllerStyle.Alert)
         alertFilingMode.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
@@ -195,19 +171,9 @@ class AddFilingController: UIViewController , UIPickerViewDelegate, UITextFieldD
             presentViewController(alertAnnualIncome, animated: true, completion: nil)
             return false
         }
-        else if(txtPreviouslyDeferredLoss.text.isEmpty == false && txtPreviouslyDeferredLoss.text.toDouble() == nil)
-        {
-            presentViewController(alertDeferredLoss, animated: true, completion: nil)
-            return false
-        }
         else if (txtCurrentTaxableIncome.text.toDouble() < 0)
         {
             presentViewController(alertNegativeAnnualIncome, animated: true, completion: nil)
-            return false
-        }
-        else if(txtPreviouslyDeferredLoss.text.toDouble() > 0)
-        {
-            presentViewController(alertPositiveDeferredLoss, animated: true, completion: nil)
             return false
         }
         else if(lblYear.text!.toInt() == nil)
@@ -237,8 +203,7 @@ class AddFilingController: UIViewController , UIPickerViewDelegate, UITextFieldD
             filingStatus.Year = lblYear.text!.toInt()!
             filingStatus.FilingType = ENumFilingType(rawValue: txtFilingMode.text)!
             filingStatus.CurrentTaxableIncome = txtCurrentTaxableIncome.text!.toDouble()!
-            filingStatus.PreviouslyDeferredLoss = txtPreviouslyDeferredLoss.text!.toDouble()!
-
+           
             if(self.selectedFilingDetail != nil)
             {
                 filingStatus.FilingStatusId = selectedFilingDetail!.FilingStatusId
@@ -255,11 +220,7 @@ class AddFilingController: UIViewController , UIPickerViewDelegate, UITextFieldD
 
         }
     }
-    
-    func textFieldShouldReturn(userText: UITextField!) -> Bool {
-        userText.resignFirstResponder()
-        return true;
-    }
+  
 }
 
 

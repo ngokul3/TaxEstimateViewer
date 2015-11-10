@@ -20,7 +20,7 @@ class DataManager
     {
         self._dirPaths =   NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         self._docsDir = _dirPaths[0] as! String
-       self._databasePath = _docsDir.stringByAppendingPathComponent( "Test1")
+       self._databasePath = _docsDir.stringByAppendingPathComponent("CapitalGain")
          self._filemgr = NSFileManager.defaultManager()
         self._capitalGainCalculatorDB = FMDatabase()
     }
@@ -37,7 +37,7 @@ class DataManager
         if self._capitalGainCalculatorDB.open()
         {
             
-            let deleteLotPositionSql = "delete from LotPosition "
+            let deleteLotPositionSql = "drop table FilingStatus "
             
             
             let results:Bool? = self._capitalGainCalculatorDB.executeUpdate (deleteLotPositionSql,
@@ -57,7 +57,6 @@ class DataManager
     
     
     func CreateTable(){
-      //  if !self._filemgr.fileExistsAtPath(_databasePath as String) {
         
             if !self._capitalGainCalculatorDB.open()
             {
@@ -134,7 +133,7 @@ class DataManager
         {
             
             
-            let insertSQL = "INSERT INTO FilingStatus (Year, FilingType, CurrentTaxableIncome, PreviouslyDeferredLoss) VALUES ('\(filingStatus.Year)', '\(filingStatus.FilingType.rawValue)', \(filingStatus.CurrentTaxableIncome), \(filingStatus.PreviouslyDeferredLoss))"
+            let insertSQL = "INSERT INTO FilingStatus (Year, FilingType, CurrentTaxableIncome) VALUES ('\(filingStatus.Year)', '\(filingStatus.FilingType.rawValue)', \(filingStatus.CurrentTaxableIncome))"
             
             let result = self._capitalGainCalculatorDB.executeUpdate(insertSQL,
                 withArgumentsInArray: nil)
@@ -182,7 +181,7 @@ class DataManager
         if self._capitalGainCalculatorDB.open()
         {
             
-            let updateSQL = "Update FilingStatus set Year = \(filingStatus.Year), FilingType = '\(filingStatus.FilingType.rawValue)', CurrentTaxableIncome = \(filingStatus.CurrentTaxableIncome), PreviouslyDeferredLoss = \(filingStatus.PreviouslyDeferredLoss) Where FilingStatusId = \(filingStatus.FilingStatusId)"
+            let updateSQL = "Update FilingStatus set Year = \(filingStatus.Year), FilingType = '\(filingStatus.FilingType.rawValue)', CurrentTaxableIncome = \(filingStatus.CurrentTaxableIncome) Where FilingStatusId = \(filingStatus.FilingStatusId)"
             
             let result = self._capitalGainCalculatorDB.executeUpdate(updateSQL,
                 withArgumentsInArray: nil)
@@ -311,7 +310,7 @@ class DataManager
             
             var lstFilingStatus : [FilingStatus] = [FilingStatus]()
             
-            let selectFilingStatusSql = "Select FilingStatusId, Year, FilingType, CurrentTaxableIncome, PreviouslyDeferredLoss From FilingStatus"
+            let selectFilingStatusSql = "Select FilingStatusId, Year, FilingType, CurrentTaxableIncome From FilingStatus"
             
             NSLog(selectFilingStatusSql)
             
@@ -329,21 +328,13 @@ class DataManager
                 
                 filingStatus.FilingStatusId = results?.intForColumn("FilingStatusId") as Int32!
                 
-                NSLog(filingStatus.FilingStatusId.description)
                 
                 filingStatus.Year = Int(results?.intForColumn("Year") as Int32!)
-                NSLog(filingStatus.Year.description)
-                
+             
                 let filingType = results?.stringForColumn("FilingType")!
                 filingStatus.FilingType =  ENumFilingType(rawValue: filingType! )!
                 
                 filingStatus.CurrentTaxableIncome = results?.doubleForColumn("CurrentTaxableIncome") as Double!
-                
-                NSLog(filingStatus.CurrentTaxableIncome.description)
-                
-                filingStatus.PreviouslyDeferredLoss = results?.doubleForColumn("PreviouslyDeferredLoss") as Double!
-              
-                NSLog(filingStatus.PreviouslyDeferredLoss.description)
                 
                 lstFilingStatus.append(filingStatus)
                 
