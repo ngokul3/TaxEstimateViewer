@@ -25,11 +25,12 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
     
     var selectedFilingDetail : FilingStatus?
     
-    var filingModeArray = [ENumFilingType.Single.rawValue,ENumFilingType.Joint.rawValue,ENumFilingType.Separate.rawValue,ENumFilingType.HoH.rawValue]
+  var filingModeArray = [ENumFilingType.Single.rawValue,ENumFilingType.Joint.rawValue,ENumFilingType.Separate.rawValue,ENumFilingType.HoH.rawValue]
     
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         pickerFilingMode.hidden = true
         let date = NSDate()
