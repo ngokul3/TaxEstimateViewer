@@ -106,11 +106,8 @@
 		55D0CF5E1B5DD1AC003B1D3F /* FilingMasterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF5D1B5DD1AC003B1D3F /* FilingMasterController.swift */; };
 		55D0CF6B1B5F1F4E003B1D3F /* CapitalGainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF6A1B5F1F4E003B1D3F /* CapitalGainController.swift */; };
 		55D0CF6D1B5F2145003B1D3F /* CapitalGainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0CF6C1B5F2145003B1D3F /* CapitalGainManager.swift */; };
-		55DAF8451BA44FA100CD2273 /* Short_No.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DAF8431BA44FA100CD2273 /* Short_No.png */; };
-		55DAF8461BA44FA100CD2273 /* Short_Yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DAF8441BA44FA100CD2273 /* Short_Yes.png */; };
 		55DAF8481BA45E2300CD2273 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DAF8471BA45E2300CD2273 /* TabBarController.swift */; };
 		55DAF84C1BA47CE600CD2273 /* Income.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DAF8491BA47CE600CD2273 /* Income.png */; };
-		55DAF84D1BA47CE600CD2273 /* Reg.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DAF84A1BA47CE600CD2273 /* Reg.png */; };
 		55DAF84E1BA47CE600CD2273 /* ShortSell.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DAF84B1BA47CE600CD2273 /* ShortSell.png */; };
 		55DD2B481B6ED2AC002B7400 /* SortedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DD2B471B6ED2AC002B7400 /* SortedDictionary.swift */; };
 		55E7D2F71B778AC40012D1CB /* ContainerInvestmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7D2F61B778AC40012D1CB /* ContainerInvestmentController.swift */; };
@@ -267,11 +264,8 @@
 		55D0CF5D1B5DD1AC003B1D3F /* FilingMasterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilingMasterController.swift; sourceTree = "<group>"; };
 		55D0CF6A1B5F1F4E003B1D3F /* CapitalGainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapitalGainController.swift; sourceTree = "<group>"; };
 		55D0CF6C1B5F2145003B1D3F /* CapitalGainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapitalGainManager.swift; sourceTree = "<group>"; };
-		55DAF8431BA44FA100CD2273 /* Short_No.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Short_No.png; sourceTree = "<group>"; };
-		55DAF8441BA44FA100CD2273 /* Short_Yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Short_Yes.png; sourceTree = "<group>"; };
 		55DAF8471BA45E2300CD2273 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		55DAF8491BA47CE600CD2273 /* Income.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Income.png; sourceTree = "<group>"; };
-		55DAF84A1BA47CE600CD2273 /* Reg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Reg.png; sourceTree = "<group>"; };
 		55DAF84B1BA47CE600CD2273 /* ShortSell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShortSell.png; sourceTree = "<group>"; };
 		55DD2B471B6ED2AC002B7400 /* SortedDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedDictionary.swift; sourceTree = "<group>"; };
 		55E7D2F61B778AC40012D1CB /* ContainerInvestmentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerInvestmentController.swift; sourceTree = "<group>"; };
@@ -338,10 +332,7 @@
 			children = (
 				55CDF0F91BDD423100EB5874 /* LongSell.png */,
 				55DAF8491BA47CE600CD2273 /* Income.png */,
-				55DAF84A1BA47CE600CD2273 /* Reg.png */,
 				55DAF84B1BA47CE600CD2273 /* ShortSell.png */,
-				55DAF8431BA44FA100CD2273 /* Short_No.png */,
-				55DAF8441BA44FA100CD2273 /* Short_Yes.png */,
 				5505E4401B9328C000E95F93 /* 365-No.png */,
 				5505E4411B9328C000E95F93 /* 365.png */,
 				5505E4421B9328C000E95F93 /* Long Term.png */,
@@ -673,9 +664,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55DAF84C1BA47CE600CD2273 /* Income.png in Resources */,
-				55DAF84D1BA47CE600CD2273 /* Reg.png in Resources */,
 				55C28A511B55F0E2001D073E /* Main.storyboard in Resources */,
-				55DAF8461BA44FA100CD2273 /* Short_Yes.png in Resources */,
 				5505E44A1B9328C000E95F93 /* Short Term.png in Resources */,
 				5505E4471B9328C000E95F93 /* 365.png in Resources */,
 				5505E4461B9328C000E95F93 /* 365-No.png in Resources */,
@@ -686,7 +675,6 @@
 				5505E44B1B9328C000E95F93 /* Short.png in Resources */,
 				55DAF84E1BA47CE600CD2273 /* ShortSell.png in Resources */,
 				55CDF0FA1BDD423100EB5874 /* LongSell.png in Resources */,
-				55DAF8451BA44FA100CD2273 /* Short_No.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
