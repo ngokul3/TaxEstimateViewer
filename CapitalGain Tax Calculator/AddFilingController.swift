@@ -45,8 +45,7 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
         
         stpYear.maximumValue = 2030 // TODO:
         stpYear.stepValue = 1
-        
-        self.txtFilingMode.delegate = self
+        txtFilingMode.delegate = self
         addToolBar(self.txtCurrentTaxableIncome)
         
         if (selectedFilingDetail != nil)
@@ -87,7 +86,7 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
        
-            return filingModeArray[row]
+           return filingModeArray[row]
         
         
     }
@@ -110,8 +109,18 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
     
     @IBAction func OnFilingModeEditBegin(sender: AnyObject) {
         pickerFilingMode.hidden = false
-        view.endEditing(true)
-        //pickerFilingMode.bringSubviewToFront(<#view: UIView#>)
+    }
+    
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        if(textField == txtFilingMode)
+        {
+            pickerFilingMode.hidden = false
+            return false
+        }
+        else
+        {
+            return true
+        }
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool // Invoked immediately prior to

@@ -94,6 +94,7 @@ class FilingMasterController: UITableViewController {
                         let selectedFilingDetail = CapitalGainController.sharedInstance.GetFilingStatusItem(index)
                         editViewController.selectedFilingDetail = selectedFilingDetail
                         editViewController.navigationItem.title = "Edit Filing Detail"
+                        //editViewController.txtFilingMode.text = selectedFilingDetail.FilingType.rawValue
                     }
                     
                 }
