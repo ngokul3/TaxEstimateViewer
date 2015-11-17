@@ -129,7 +129,13 @@ class CapitalGainControllerManager{
   
     func DeleteFilingStatusItem(index: Int)
     {
-        lstFilingStatus.removeAtIndex(index) //ToDO - Defensive Coding required
+        if lstFilingStatus.count > index
+        {
+            lstFilingStatus.removeAtIndex(index)
+            
+        }
+        
+       
     }
     
 

@@ -25,8 +25,6 @@ class AddInvestmentController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var txtProfitLoss: UITextField!
     
-    weak var lotPosition = LotPosition() // TODO: is it used?
-    
     var selectedLotPosition : LotPosition?
     
     var utils = Utils()
@@ -46,7 +44,7 @@ class AddInvestmentController: UIViewController, UITextFieldDelegate{
         let components = calendar.components(.CalendarUnitYear, fromDate: date)
         let year = components.year
         
-        stpYear.maximumValue = 2030 // TODO:
+        stpYear.maximumValue = 2030
         stpYear.stepValue = 1
         
         if (selectedLotPosition != nil)

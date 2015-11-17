@@ -11,7 +11,6 @@ import UIKit
 class FilingMasterController: UITableViewController {
     var databasePath = NSString()
 
- //var filingStatus =   [FilingStatus]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,7 +26,7 @@ class FilingMasterController: UITableViewController {
 
  
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1 // TODO:
+        return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,17 +58,6 @@ class FilingMasterController: UITableViewController {
         }
         
     }
-  /*  func LoadFilingStatus(lstFilingStatus: [FilingStatus])
-    {
-        if lstFilingStatus.count > 0
-        {
-            for filingStatus in lstFilingStatus
-            {
-                CapitalGainController.sharedInstance.AddFilingStatus(filingStatus)
-            }
-            
-        }
-    }*/
     
     override func prepareForSegue(segue: UIStoryboardSegue,
         sender: AnyObject?) {
@@ -94,7 +82,6 @@ class FilingMasterController: UITableViewController {
                         let selectedFilingDetail = CapitalGainController.sharedInstance.GetFilingStatusItem(index)
                         editViewController.selectedFilingDetail = selectedFilingDetail
                         editViewController.navigationItem.title = "Edit Filing Detail"
-                        //editViewController.txtFilingMode.text = selectedFilingDetail.FilingType.rawValue
                     }
                     
                 }
@@ -109,8 +96,6 @@ class FilingMasterController: UITableViewController {
             var arrayInvestments = CapitalGainController.sharedInstance.GetFilingStatus()
             
             let newIndexPath = NSIndexPath(forRow: 1, inSection: 0)
-            
-            // tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
             
             tableView.reloadData()
         }

@@ -43,7 +43,7 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
         lblYear.text = year.description
         stpYear.value = Double(year)
         
-        stpYear.maximumValue = 2030 // TODO:
+        stpYear.maximumValue = 2030
         stpYear.stepValue = 1
         txtFilingMode.delegate = self
         addToolBar(self.txtCurrentTaxableIncome)
@@ -51,7 +51,7 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
         if (selectedFilingDetail != nil)
         {
             println("This is filing detail edit")
-            stpYear.enabled = false
+           // stpYear.enabled = false
             lblYear.text = selectedFilingDetail?.Year.description
             txtCurrentTaxableIncome.text = utils.ConvertStringToCurrency(selectedFilingDetail?.CurrentTaxableIncome.description)
             txtFilingMode.text = selectedFilingDetail?.FilingType.rawValue
@@ -144,14 +144,6 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
         alertNegativeAnnualIncome.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
         }))
         
-        var alertPositiveDeferredLoss = UIAlertController(title: "Deferred Loss", message: "Deferred Loss cannot be greater than Zero", preferredStyle: UIAlertControllerStyle.Alert)
-        alertPositiveDeferredLoss.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-        }))
-        
-        var alertDeferredLoss = UIAlertController(title: "Deferred Loss", message: "Deferred Loss should be numeric", preferredStyle: UIAlertControllerStyle.Alert)
-        alertDeferredLoss.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-        }))
- 
         var alertYear = UIAlertController(title: "Filing Year", message: "Year should be in YYYY format", preferredStyle: UIAlertControllerStyle.Alert)
         alertYear.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
          }))
