@@ -77,9 +77,9 @@ class FilingMasterController: UITableViewController {
                 
                 if let editViewController = segue.destinationViewController as? AddFilingController{
                     
-                    if let index = tableView.indexPathForSelectedRow()?.row
+                    if let row = tableView.indexPathForSelectedRow()?.row
                     {
-                        let selectedFilingDetail = CapitalGainController.sharedInstance.GetFilingStatusItem(index)
+                        let selectedFilingDetail = CapitalGainController.sharedInstance.GetFilingStatusItem(row)
                         editViewController.selectedFilingDetail = selectedFilingDetail
                         editViewController.navigationItem.title = "Edit Filing Detail"
                     }

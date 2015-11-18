@@ -124,6 +124,7 @@ class CapitalGainControllerManager{
         selectedFilingStatus?.Year = filingStatus.Year
         selectedFilingStatus?.FilingType = filingStatus.FilingType
         selectedFilingStatus?.CurrentTaxableIncome = filingStatus.CurrentTaxableIncome
+        
     }
     
   

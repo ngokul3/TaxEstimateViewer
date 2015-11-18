@@ -83,12 +83,12 @@ class DataManager
             } else {
                 println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
             }
-       // }
+       
     }
     
     func InsertInvestment(lotPosition: LotPosition) -> NSString
     {
-        //TODO: Check for already existing lots
+        
         self._capitalGainCalculatorDB = FMDatabase(path: _databasePath as String)
         
      
@@ -96,7 +96,7 @@ class DataManager
         {
                 let isLongTerm = lotPosition.IsLongTerm ? 1 : 0
               
-                let insertSQL = "INSERT INTO LotPosition (SymbolCode, Direction, RealizedGainLoss, Year, IsLongTerm) VALUES ('\(lotPosition.SymbolCode)', '\(lotPosition.Direction.rawValue)', \(lotPosition.RealizedGainLoss), \(lotPosition.RealizedYear), \(isLongTerm))" //TODO
+                let insertSQL = "INSERT INTO LotPosition (SymbolCode, Direction, RealizedGainLoss, Year, IsLongTerm) VALUES ('\(lotPosition.SymbolCode)', '\(lotPosition.Direction.rawValue)', \(lotPosition.RealizedGainLoss), \(lotPosition.RealizedYear), \(isLongTerm))"
             
                 NSLog(insertSQL)
                 let result = self._capitalGainCalculatorDB.executeUpdate(insertSQL,
@@ -118,15 +118,14 @@ class DataManager
                 }
             } else {
                 println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
-                return "Error" //ToDO
+                return "Error"
             }
     
-        return ""//ToDO
+        return ""
     }
     
     func InsertFilingStatus(filingStatus: FilingStatus) -> NSString
     {
-        //TODO: Check for already existing record
         self._capitalGainCalculatorDB = FMDatabase(path: _databasePath as String)
         
         if self._capitalGainCalculatorDB.open()
@@ -138,15 +137,26 @@ class DataManager
             let result = self._capitalGainCalculatorDB.executeUpdate(insertSQL,
                 withArgumentsInArray: nil)
             
-            if !result {
+            if result {
+                let lastInsertedSql = "SELECT max(FilingStatusID) as FilingStatusID from FilingStatus"
+                
+                let insertedResult:FMResultSet?  = self._capitalGainCalculatorDB.executeQuery(lastInsertedSql,
+                    withArgumentsInArray: nil)
+                while insertedResult?.next() == true {
+                    filingStatus.FilingStatusId = insertedResult!.intForColumn("FilingStatusId") as Int32!
+                }
+            }
+            else
+            {
                 println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+                
             }
         } else {
             println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
-            return "Error" //ToDO
+            return "Error"
         }
         
-        return ""//ToDO
+        return ""
     }
 
     func UpdateInvestment(lotPosition: LotPosition) -> NSString
@@ -168,10 +178,10 @@ class DataManager
             }
         } else {
             println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
-            return "Error" //ToDO
+            return "Error"
         }
         
-        return ""//ToDO
+        return ""
     }
     
     func UpdateFilingStatus(filingStatus: FilingStatus) -> NSString
@@ -191,10 +201,10 @@ class DataManager
             }
         } else {
             println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
-            return "Error" //ToDO
+            return "Error"
         }
         
-        return ""//ToDO
+        return ""
     }
 
     func DeleteLotPosition(lotPosition: LotPosition) -> Bool?

@@ -57,7 +57,7 @@ class FilingStatusTaxAt
 
 }
 
-class FilingStatus
+class FilingStatus : Equatable
 {
     private var _filingStatusId: Int32
     private var _year:Int //ToDO - Int or int32
@@ -165,4 +165,8 @@ class FilingStatus
             _lstFilingStatusTaxAt = newValue
         }
     }
+}
+
+func ==(lhs: FilingStatus, rhs: FilingStatus) -> Bool {
+    return lhs.Year == rhs.Year
 }

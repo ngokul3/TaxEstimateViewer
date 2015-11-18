@@ -53,6 +53,7 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
             println("This is filing detail edit")
            // stpYear.enabled = false
             lblYear.text = selectedFilingDetail?.Year.description
+            stpYear.value = Double(selectedFilingDetail!.Year)
             txtCurrentTaxableIncome.text = utils.ConvertStringToCurrency(selectedFilingDetail?.CurrentTaxableIncome.description)
             txtFilingMode.text = selectedFilingDetail?.FilingType.rawValue
             
@@ -126,7 +127,7 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool // Invoked immediately prior to
     {
         txtCurrentTaxableIncome.text = utils.ConvertCurrencyToString(txtCurrentTaxableIncome.text)
-    
+        var foundIndex : Int?
         
         var alertFilingMode = UIAlertController(title: "Filing Mode", message: "Filing Mode is required", preferredStyle: UIAlertControllerStyle.Alert)
         alertFilingMode.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
@@ -158,6 +159,7 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
         
         let recordCount = lstFilingStatus.filter({m in m.Year == self.lblYear.text!.toInt()}).count as Int!
         
+        
         if (txtFilingMode.text.isEmpty)
         {
             presentViewController(alertFilingMode, animated: true, completion: nil)
@@ -184,10 +186,10 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
             presentViewController(alertYear, animated: true, completion: nil)
             return false
         }
-        else if (self.selectedFilingDetail == nil && recordCount != nil && recordCount > 0)
+        
+        else if(selectedFilingDetail?.Year != lblYear.text!.toInt() && recordCount > 0)
         {
             presentViewController(alertFilingAlreadyAvailable, animated: true, completion: nil)
-
             return false
         }
         else
@@ -251,4 +253,6 @@ extension UIViewController: UITextFieldDelegate{
         view.endEditing(true) // or do something
     }
 }
+
+
 
