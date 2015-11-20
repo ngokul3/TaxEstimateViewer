@@ -89,7 +89,7 @@ class TaxViewControllerContainer: UIViewController, UITextFieldDelegate  {
             
             if(filingStatus == nil)
             {
-                var alertNilFiling = UIAlertController(title: "Investment", message: "There are no Investments for the year.", preferredStyle: UIAlertControllerStyle.Alert)
+                var alertNilFiling = UIAlertController(title: "Investment", message: "There are no Investments available / selected for the year.", preferredStyle: UIAlertControllerStyle.Alert)
                 alertNilFiling.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
                     
                 }))
