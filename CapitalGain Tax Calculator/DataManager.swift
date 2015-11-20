@@ -260,7 +260,7 @@ class DataManager
         {
             var lstLotPosition : [LotPosition] = [LotPosition]()
             
-            let selectLotPositionSql = "Select LotPositionID, SymbolCode, Direction, RealizedGainLoss, Year, IsLongTerm From LotPosition Order By RealizedGainLoss Desc, SymbolCode Asc"
+            let selectLotPositionSql = "Select LotPositionID, SymbolCode, Direction, RealizedGainLoss, Year, IsLongTerm From LotPosition Order By SymbolCode Asc, RealizedGainLoss Desc"
             
             NSLog(selectLotPositionSql)
             
@@ -320,7 +320,7 @@ class DataManager
             
             var lstFilingStatus : [FilingStatus] = [FilingStatus]()
             
-            let selectFilingStatusSql = "Select FilingStatusId, Year, FilingType, CurrentTaxableIncome From FilingStatus"
+            let selectFilingStatusSql = "Select FilingStatusId, Year, FilingType, CurrentTaxableIncome From FilingStatus Order by Year Desc"
             
             NSLog(selectFilingStatusSql)
             
