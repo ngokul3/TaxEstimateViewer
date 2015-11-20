@@ -46,12 +46,16 @@ class TaxProcessor
             filingStatus.TaxOnLTCapitalGain = GetCapitalGainTax(longTermGLIncluding1256, termTaxDictionary: longTermTax!, taxableIncome: filingStatus.CurrentTaxableIncome, lstFilingStatusTaxAt: &filingStatus.FilingStatusTax)
             filingStatus.TaxOnSTCapitalGain = GetCapitalGainTax(shortTermGLIncluding1256, termTaxDictionary: shortTermTax!, taxableIncome: filingStatus.CurrentTaxableIncome, lstFilingStatusTaxAt: &filingStatus.FilingStatusTax)
             
+            filingStatus.NetLoss = 0
+            
         }
         else if(longTermGLIncluding1256 < 0 && shortTermGLIncluding1256 >= 0)
         {
             if(longTermGLIncluding1256 + shortTermGLIncluding1256 > 0)
             {
                 filingStatus.TaxOnSTCapitalGain = GetCapitalGainTax(longTermGLIncluding1256 + shortTermGLIncluding1256, termTaxDictionary: shortTermTax!, taxableIncome: filingStatus.CurrentTaxableIncome, lstFilingStatusTaxAt: &filingStatus.FilingStatusTax)
+                
+                filingStatus.NetLoss = 0
             }
             else
             {
@@ -63,6 +67,8 @@ class TaxProcessor
             if(longTermGLIncluding1256 + shortTermGLIncluding1256 > 0)
             {
                 filingStatus.TaxOnLTCapitalGain = GetCapitalGainTax(longTermGLIncluding1256 + shortTermGLIncluding1256, termTaxDictionary: longTermTax!, taxableIncome: filingStatus.CurrentTaxableIncome, lstFilingStatusTaxAt: &filingStatus.FilingStatusTax)
+                
+                filingStatus.NetLoss = 0
             }
             else
             {
