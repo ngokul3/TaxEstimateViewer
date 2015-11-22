@@ -68,7 +68,7 @@ class ChartAxisLayerDefault: ChartAxisLayer {
             let minSpace = tuple.0
             let previousScreenLoc = tuple.1
             return (min(minSpace, abs(screenLoc - previousScreenLoc)), screenLoc)
-        }.0
+            }.0
     }
     
     var length: CGFloat {
@@ -88,13 +88,13 @@ class ChartAxisLayerDefault: ChartAxisLayer {
             sum + self.labelMaybeSize(label).height
         }
     }()
-
+    
     lazy var axisTitleLabelsWidth: CGFloat = {
         return self.axisTitleLabels.reduce(0) {sum, label in
             sum + self.labelMaybeSize(label).width
         }
     }()
-
+    
     var width: CGFloat {
         fatalError("override")
     }
@@ -102,7 +102,7 @@ class ChartAxisLayerDefault: ChartAxisLayer {
     var lineP1: CGPoint {
         fatalError("override")
     }
-
+    
     var lineP2: CGPoint {
         fatalError("override")
     }
@@ -114,24 +114,24 @@ class ChartAxisLayerDefault: ChartAxisLayer {
     var low: Bool {
         fatalError("override")
     }
-
+    
     // p1: screen location corresponding to smallest axis value
     // p2: screen location corresponding to biggest axis value
     required init(p1: CGPoint, p2: CGPoint, axisValues: [ChartAxisValue], axisTitleLabels: [ChartAxisLabel], settings: ChartAxisSettings)  {
         self.p1 = p1
         self.p2 = p2
-        self.axisValues = axisValues.sorted {(ca1, ca2) -> Bool in // ensure sorted
+        self.axisValues = axisValues.sort {(ca1, ca2) -> Bool in // ensure sorted
             ca1.scalar < ca2.scalar
         }
         self.axisTitleLabels = axisTitleLabels
         self.settings = settings
     }
     
-    func chartInitialized(#chart: Chart) {
+    func chartInitialized(chart chart: Chart) {
         self.initDrawers()
     }
-
-    func chartViewDrawing(#context: CGContextRef, chart: Chart) {
+    
+    func chartViewDrawing(context context: CGContextRef, chart: Chart) {
         if self.settings.isAxisLineVisible {
             if let lineDrawer = self.lineDrawer {
                 CGContextSetLineWidth(context, CGFloat(self.settings.axisStrokeWidth))
@@ -152,18 +152,18 @@ class ChartAxisLayerDefault: ChartAxisLayer {
         fatalError("override")
     }
     
-    func generateLineDrawer(#offset: CGFloat) -> ChartLineDrawer {
+    func generateLineDrawer(offset offset: CGFloat) -> ChartLineDrawer {
         fatalError("override")
     }
     
-    func generateAxisTitleLabelsDrawers(#offset: CGFloat) -> [ChartLabelDrawer] {
+    func generateAxisTitleLabelsDrawers(offset offset: CGFloat) -> [ChartLabelDrawer] {
         fatalError("override")
     }
     
-    func generateLabelDrawers(#offset: CGFloat) -> [ChartLabelDrawer] {
+    func generateLabelDrawers(offset offset: CGFloat) -> [ChartLabelDrawer] {
         fatalError("override")
     }
-
+    
     func labelMaybeSize(labelMaybe: ChartAxisLabel?) -> CGSize {
         return labelMaybe?.textSize ?? CGSizeZero
     }
@@ -172,11 +172,11 @@ class ChartAxisLayerDefault: ChartAxisLayer {
         if let firstScalar = self.axisValues.first?.scalar {
             return self.screenLocForScalar(scalar, firstAxisScalar: firstScalar)
         } else {
-            println("Warning: requesting empty axis for screen location")
+            print("Warning: requesting empty axis for screen location")
             return 0
         }
     }
-
+    
     func innerScreenLocForScalar(scalar: Double, firstAxisScalar: Double) -> CGFloat {
         return self.length * CGFloat(scalar - firstAxisScalar) / self.modelLength
     }
@@ -186,5 +186,5 @@ class ChartAxisLayerDefault: ChartAxisLayer {
     }
     
     
-
+    
 }

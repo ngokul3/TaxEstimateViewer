@@ -21,13 +21,13 @@ struct SortedDictionary<KeyType: Hashable, ValueType> {
         let existingValue = self.dictionary[key]
         if existingValue != nil {
             // 3
-            let existingIndex = find(self.array, key)!
+            let existingIndex = self.array.indexOf(key) // Convert - find(self.array, key)!
             
             // 4
             if existingIndex < index {
                 adjustedIndex--
             }
-            self.array.removeAtIndex(existingIndex)
+            self.array.removeAtIndex(existingIndex!)
         }
         
         // 5
@@ -63,8 +63,8 @@ struct SortedDictionary<KeyType: Hashable, ValueType> {
         }
         // 2(b)
         set {
-            // 4
-            if let index = find(self.array, key) {
+            // 4 // find(self.array, key) //Convert
+            if let _ = self.array.indexOf(key) {
             } else {
                 self.array.append(key)
             }
@@ -73,7 +73,7 @@ struct SortedDictionary<KeyType: Hashable, ValueType> {
             self.dictionary[key] = newValue
         }
     }
-    
+   
     subscript(index: Int) -> (KeyType, ValueType) {
         // 1
         get {

@@ -21,7 +21,7 @@ class ResultGraphController: UIViewController {
     private let dirSelectorHeight: CGFloat = 50
     private let CONST_GRAPH_INTERVAL: Double = 5
     
-    private func barsChart(#horizontal: Bool,stackedLongTermIncomeLevel : [Double], stackedShortTermIncomeLevel : [Double] ) -> Chart {
+    private func barsChart(horizontal horizontal: Bool,stackedLongTermIncomeLevel : [Double], stackedShortTermIncomeLevel : [Double] ) -> Chart {
         
         let resultFilingStatus = CapitalGainController.sharedInstance.GetResultFilingStatus()
         
@@ -47,10 +47,23 @@ class ResultGraphController: UIViewController {
   
         let frameColors = [UIColor.redColor().colorWithAlphaComponent(0.6), UIColor.blueColor().colorWithAlphaComponent(0.6), UIColor.greenColor().colorWithAlphaComponent(0.6)]
         
-        let groups: [ChartPointsBarGroup<ChartStackedBarModel>] = Array(enumerate(groupsData)).map {index, entry in
+       /* let groups: [ChartPointsBarGroup<ChartStackedBarModel>] = Array(enumerate(groupsData)).map {index, entry in
             let constant = ChartAxisValueFloat(CGFloat(index))
             let bars: [ChartStackedBarModel] = Array(enumerate(entry.bars)).map {index, bars in
                 let items = Array(enumerate(bars.quantities)).map {index, quantity in
+                    ChartStackedBarItemModel(quantity, frameColors[index])
+                }
+                return ChartStackedBarModel(constant: constant, start: ChartAxisValueFloat(bars.start), items: items)
+            }
+            return ChartPointsBarGroup(constant: constant, bars: bars)
+        }*/ //Convert
+        
+        
+        
+        let groups: [ChartPointsBarGroup<ChartStackedBarModel>] = groupsData.enumerate().map {index, entry in
+            let constant = ChartAxisValueFloat(CGFloat(index))
+            let bars: [ChartStackedBarModel] = entry.bars.enumerate().map {index, bars in
+                let items = bars.quantities.enumerate().map {index, quantity in
                     ChartStackedBarItemModel(quantity, frameColors[index])
                 }
                 return ChartStackedBarModel(constant: constant, start: ChartAxisValueFloat(bars.start), items: items)
@@ -61,10 +74,10 @@ class ResultGraphController: UIViewController {
        
 
         /* */
-        var xTaxBracket = [ChartAxisValueFloat]()
+       // var xTaxBracket = [ChartAxisValueFloat]()
         
         
-        let incomeItem =  ChartAxisValueFloat(CGFloat(currentIncome),labelSettings: labelSettings)
+       // let incomeItem =  ChartAxisValueFloat(CGFloat(currentIncome),labelSettings: labelSettings)
         
         let lstFilingStatusTax = resultFilingStatus.FilingStatusTax
   
@@ -88,18 +101,32 @@ class ResultGraphController: UIViewController {
         var axisValues1 = [ChartAxisValue]()
         var axisValues2 = [ChartAxisValue]()
         
-       // if (currentIncome + maxTermCapitalGain != 0)
-       // {
-             (axisValues1, axisValues2) = (
+      
+           /*  (axisValues1, axisValues2) = (
                 Array(stride(from: CGFloat(currentIncome), through: CGFloat(currentIncome + maxTermCapitalGain), by: CGFloat(interval))).map {ChartAxisValueFloat($0, labelSettings: labelSettings)},
                 [ChartAxisValueString(order: -1)] +
                     Array(enumerate(groupsData)).map {index, tuple in ChartAxisValueString(tuple.0, order: index, labelSettings: labelSettings)} +
                     [ChartAxisValueString(order: groupsData.count)]
-                )
+                )*/
         
-            
+        
+        (axisValues1, axisValues2) = (
+             (CGFloat(currentIncome)).stride(through: CGFloat(currentIncome + maxTermCapitalGain), by: CGFloat(interval)).map {ChartAxisValueFloat($0, labelSettings: labelSettings)},
+            [ChartAxisValueString(order: -1)] +
+                 groupsData.enumerate().map {index, tuple in ChartAxisValueString(tuple.0, order: index, labelSettings:
+                    labelSettings)} +
+                [ChartAxisValueString(order: groupsData.count)]
+        )
+        
+   /*     let (axisValues1, axisValues2): ([ChartAxisValue], [ChartAxisValue]) = (
+            (-60).stride(through: 100, by: 20).map {ChartAxisValueFloat(CGFloat($0), labelSettings: labelSettings)},
+            [ChartAxisValueString(order: -1)] +
+                groupsData.enumerate().map {index, tuple in ChartAxisValueString(tuple.0, order: index, labelSettings: labelSettings)} +
+                [ChartAxisValueString(order: groupsData.count)]
+        )*/
+        
                 
-      //  }
+    
       
         
         /* */
@@ -109,7 +136,7 @@ class ResultGraphController: UIViewController {
       
         let xModel = ChartAxisModel(axisValues: xValues, axisTitleLabel: ChartAxisLabel(text: "Term", settings: labelSettings))
         let yModel = ChartAxisModel(axisValues: yValues, axisTitleLabel: ChartAxisLabel(text: "Base Income + Capital Gain", settings: labelSettings.defaultVertical()))
-        let frame = ExamplesDefaults.chartFrame(self.view.bounds)
+        //let frame = ExamplesDefaults.chartFrame(self.view.bounds)
         
         let chartFrame = self.chart?.frame ?? CGRectMake(0,0,375,243)
         let coordsSpace = ChartCoordsSpaceLeftBottomSingleAxis(chartSettings: ExamplesDefaults.chartSettings, chartFrame: chartFrame, xModel: xModel, yModel: yModel)
@@ -117,7 +144,7 @@ class ResultGraphController: UIViewController {
         
         let groupsLayer = ChartGroupedStackedBarsLayer(xAxis: xAxis, yAxis: yAxis, innerFrame: innerFrame, groups: groups, horizontal: horizontal, barSpacing: 2, groupSpacing: 30, animDuration: 0.5)
         
-        var settings = ChartGuideLinesLayerSettings(linesColor: UIColor.blackColor(), linesWidth: ExamplesDefaults.guidelinesWidth)
+        let settings = ChartGuideLinesLayerSettings(linesColor: UIColor.blackColor(), linesWidth: ExamplesDefaults.guidelinesWidth)
         let guidelinesLayer = ChartGuideLinesLayer(xAxis: xAxis, yAxis: yAxis, innerFrame: innerFrame, axis: horizontal ? .X : .Y, settings: settings)
         
         let dummyZeroChartPoint = ChartPoint(x: ChartAxisValueFloat(0), y: ChartAxisValueFloat(0))
@@ -133,8 +160,7 @@ class ResultGraphController: UIViewController {
                     return CGRectMake(innerFrame.origin.x, chartPointModel.screenLoc.y - width / 2, innerFrame.size.width, width)
                 }
                 
-                //return CGRectMake(0, 0, self.sourceViewController.view!!.frame.size.width, self.sourceViewController.view!!.frame.size.height)
-                //return CGRectMake(0,0,375,243)
+               
                 }()
             
             let v = UIView(frame: viewFrame)
@@ -155,7 +181,7 @@ class ResultGraphController: UIViewController {
     }
     
     
-    private func showChart(#horizontal: Bool) {
+    private func showChart(horizontal horizontal: Bool) {
         self.chart?.clearView()
         
         var stackedLongTermIncomeLevel = [Double]()
@@ -210,14 +236,14 @@ class ResultGraphController: UIViewController {
             graphPieChartView.hidden = true
             self.showChart(horizontal: false)
      
-            if let chart = self.chart {
+           /* if let chart = self.chart {
                 
                 //      let dirSelector = DirSelector(frame: CGRectMake(0, chart.frame.origin.y + chart.frame.size.height, self.view.frame.size.width, self.dirSelectorHeight), controller: self)
                 
               //  let dirSelector = DirSelector(frame: CGRectMake(0,0,375,243), controller: self)
                 
               //  self.view.addSubview(dirSelector)
-            }
+            }*/
         }
         else
         {
@@ -267,10 +293,10 @@ class ResultGraphController: UIViewController {
         override func didMoveToSuperview() {
             let views = [self.horizontal, self.vertical]
             for v in views {
-                v.setTranslatesAutoresizingMaskIntoConstraints(false)
+                v.translatesAutoresizingMaskIntoConstraints = false
             }
             
-            let namedViews = Array(enumerate(views)).map{index, view in
+            let namedViews = views.enumerate().map{index, view in
                 ("v\(index)", view)
             }
             
@@ -285,11 +311,12 @@ class ResultGraphController: UIViewController {
                 "\(str)-(\(buttonsSpace))-[\(tuple.0)]"
             }
             
-            let vConstraits = namedViews.flatMap {NSLayoutConstraint.constraintsWithVisualFormat("V:|[\($0.0)]", options: NSLayoutFormatOptions.allZeros, metrics: nil, views: viewsDict)}
+            let vConstraits = namedViews.flatMap {NSLayoutConstraint.constraintsWithVisualFormat("V:|[\($0.0)]", options: NSLayoutFormatOptions(), metrics: nil, views: viewsDict)}
             
-            self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(hConstraintStr, options: NSLayoutFormatOptions.allZeros, metrics: nil, views: viewsDict)
+            self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(hConstraintStr, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDict)
                 + vConstraits)
         }
+
         
         required init(coder aDecoder: NSCoder) {
             fatalError("init(coder:) has not been implemented")

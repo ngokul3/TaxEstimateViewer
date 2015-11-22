@@ -20,7 +20,7 @@ public final class ChartPointsBarGroup<T: ChartBarModel> {
 
 
 public class ChartGroupedBarsLayer<T: ChartBarModel>: ChartCoordsSpaceLayer {
-
+    
     private let groups: [ChartPointsBarGroup<T>]
     
     private let barSpacing: CGFloat?
@@ -29,7 +29,7 @@ public class ChartGroupedBarsLayer<T: ChartBarModel>: ChartCoordsSpaceLayer {
     private let horizontal: Bool
     
     private let animDuration: Float
-
+    
     init(xAxis: ChartAxisLayer, yAxis: ChartAxisLayer, innerFrame: CGRect, groups: [ChartPointsBarGroup<T>], horizontal: Bool = false, barSpacing: CGFloat?, groupSpacing: CGFloat?, animDuration: Float) {
         self.groups = groups
         self.horizontal = horizontal
@@ -40,12 +40,12 @@ public class ChartGroupedBarsLayer<T: ChartBarModel>: ChartCoordsSpaceLayer {
         super.init(xAxis: xAxis, yAxis: yAxis, innerFrame: innerFrame)
     }
     
-    func barsGenerator(#barWidth: CGFloat) -> ChartBarsViewGenerator<T> {
+    func barsGenerator(barWidth barWidth: CGFloat) -> ChartBarsViewGenerator<T> {
         fatalError("override")
     }
     
-    override public func chartInitialized(#chart: Chart) {
-
+    override public func chartInitialized(chart chart: Chart) {
+        
         let axis = self.horizontal ? self.yAxis : self.xAxis
         let groupAvailableLength = (axis.length  - (self.groupSpacing ?? 0) * CGFloat(self.groups.count)) / CGFloat(groups.count + 1)
         let maxBarCountInGroup = self.groups.reduce(CGFloat(0)) {maxCount, group in
@@ -53,7 +53,7 @@ public class ChartGroupedBarsLayer<T: ChartBarModel>: ChartCoordsSpaceLayer {
         }
         
         let barWidth = ((groupAvailableLength - ((self.barSpacing ?? 0) * (maxBarCountInGroup - 1))) / CGFloat(maxBarCountInGroup))
-
+        
         let barsGenerator = self.barsGenerator(barWidth: barWidth)
         
         let calculateConstantScreenLoc: (axis: ChartAxisLayer, index: Int, group: ChartPointsBarGroup<T>) -> CGFloat = {axis, index, group in
@@ -65,7 +65,7 @@ public class ChartGroupedBarsLayer<T: ChartBarModel>: ChartCoordsSpaceLayer {
         
         for group in self.groups {
             
-            for (index, bar) in enumerate(group.bars) {
+            for (index, bar) in group.bars.enumerate() {
                 
                 let constantScreenLoc: CGFloat = {
                     if barsGenerator.direction == .LeftToRight {
@@ -84,12 +84,12 @@ public class ChartGroupedBarsLayer<T: ChartBarModel>: ChartCoordsSpaceLayer {
 
 public typealias ChartGroupedPlainBarsLayer = ChartGroupedPlainBarsLayer_<Any>
 public class ChartGroupedPlainBarsLayer_<N>: ChartGroupedBarsLayer<ChartBarModel> {
-
+    
     public override init(xAxis: ChartAxisLayer, yAxis: ChartAxisLayer, innerFrame: CGRect, groups: [ChartPointsBarGroup<ChartBarModel>], horizontal: Bool, barSpacing: CGFloat?, groupSpacing: CGFloat?, animDuration: Float) {
         super.init(xAxis: xAxis, yAxis: yAxis, innerFrame: innerFrame, groups: groups, horizontal: horizontal, barSpacing: barSpacing, groupSpacing: groupSpacing, animDuration: animDuration)
     }
     
-    override func barsGenerator(#barWidth: CGFloat) -> ChartBarsViewGenerator<ChartBarModel> {
+    override func barsGenerator(barWidth barWidth: CGFloat) -> ChartBarsViewGenerator<ChartBarModel> {
         return ChartBarsViewGenerator(horizontal: self.horizontal, xAxis: self.xAxis, yAxis: self.yAxis, chartInnerFrame: self.innerFrame, barWidth: barWidth, barSpacing: self.barSpacing)
     }
 }
@@ -101,7 +101,7 @@ public class ChartGroupedStackedBarsLayer_<N>: ChartGroupedBarsLayer<ChartStacke
         super.init(xAxis: xAxis, yAxis: yAxis, innerFrame: innerFrame, groups: groups, horizontal: horizontal, barSpacing: barSpacing, groupSpacing: groupSpacing, animDuration: animDuration)
     }
     
-    override func barsGenerator(#barWidth: CGFloat) -> ChartBarsViewGenerator<ChartStackedBarModel> {
+    override func barsGenerator(barWidth barWidth: CGFloat) -> ChartBarsViewGenerator<ChartStackedBarModel> {
         return ChartStackedBarsViewGenerator(horizontal: horizontal, xAxis: xAxis, yAxis: yAxis, chartInnerFrame: innerFrame, barWidth: barWidth, barSpacing: barSpacing)
     }
 }

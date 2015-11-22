@@ -22,8 +22,10 @@ public class ChartLimitLine: ChartComponentBase
     @objc
     public enum ChartLimitLabelPosition: Int
     {
-        case Left
-        case Right
+        case LeftTop
+        case LeftBottom
+        case RightTop
+        case RightBottom
     }
     
     /// limit / maximum (the y-value or xIndex)
@@ -36,24 +38,24 @@ public class ChartLimitLine: ChartComponentBase
     public var valueTextColor = UIColor.blackColor()
     public var valueFont = UIFont.systemFontOfSize(13.0)
     public var label = ""
-    public var labelPosition = ChartLimitLabelPosition.Right
+    public var labelPosition = ChartLimitLabelPosition.RightTop
     
     public override init()
     {
-        super.init();
+        super.init()
     }
     
     public init(limit: Double)
     {
-        super.init();
-        self.limit = limit;
+        super.init()
+        self.limit = limit
     }
     
     public init(limit: Double, label: String)
     {
-        super.init();
-        self.limit = limit;
-        self.label = label;
+        super.init()
+        self.limit = limit
+        self.label = label
     }
     
     /// set the line width of the chart (min = 0.2, max = 12); default 2
@@ -61,19 +63,21 @@ public class ChartLimitLine: ChartComponentBase
         {
         get
         {
-            return _lineWidth;
+            return _lineWidth
         }
         set
         {
-            _lineWidth = newValue;
-            
-            if (_lineWidth < 0.2)
+            if (newValue < 0.2)
             {
-                _lineWidth = 0.2;
+                _lineWidth = 0.2
             }
-            if (_lineWidth > 12.0)
+            else if (newValue > 12.0)
             {
-                _lineWidth = 12.0;
+                _lineWidth = 12.0
+            }
+            else
+            {
+                _lineWidth = newValue
             }
         }
     }

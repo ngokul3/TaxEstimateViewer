@@ -36,8 +36,8 @@ class ResultShortTermPieController: UIViewController {
     {
         let resultFilingStatus = CapitalGainController.sharedInstance.GetResultFilingStatus()
         
-        var lstTaxBracket = TaxOnCapitalGainLossUp.GetTaxHairCut(resultFilingStatus)
-        var shortTermTaxBracket = lstTaxBracket.filter({m in m.Term.rawValue == ENumTerm.ShortTerm.rawValue}).first
+        // //Convert let lstTaxBracket = TaxOnCapitalGainLossUp.GetTaxHairCut(resultFilingStatus)
+       // var shortTermTaxBracket = lstTaxBracket.filter({m in m.Term.rawValue == ENumTerm.ShortTerm.rawValue}).first //Convert
         setSTPieChart(resultFilingStatus.FilingStatusTax)
             
        

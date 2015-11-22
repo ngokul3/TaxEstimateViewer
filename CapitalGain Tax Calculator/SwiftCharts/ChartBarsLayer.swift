@@ -14,6 +14,12 @@ public class ChartBarModel {
     public let axisValue2: ChartAxisValue
     public let bgColor: UIColor?
     
+    /**
+     - parameter constant:Value of coordinate which doesn't change between start and end of the bar - if the bar is horizontal, this is y, if it's vertical it's x.
+     - parameter axisValue1:Start, variable coordinate.
+     - parameter axisValue2:End, variable coordinate.
+     - parameter bgColor:Background color of bar.
+     */
     public init(constant: ChartAxisValue, axisValue1: ChartAxisValue, axisValue2: ChartAxisValue, bgColor: UIColor? = nil) {
         self.constant = constant
         self.axisValue1 = axisValue1
@@ -49,10 +55,10 @@ class ChartBarsViewGenerator<T: ChartBarModel> {
                 case .LeftToRight: return yAxis
                 case .BottomToTop: return xAxis
                 }
-                }()
+            }()
             let spacing: CGFloat = barSpacingMaybe ?? 0
             return axis.minAxisScreenSpace - spacing
-        }()
+            }()
         
         self.xAxis = xAxis
         self.yAxis = yAxis
@@ -115,11 +121,11 @@ public class ChartBarsLayer: ChartCoordsSpaceLayer {
         self.barWidth = barWidth
         self.barSpacing = barSpacing
         self.animDuration = animDuration
-
+        
         super.init(xAxis: xAxis, yAxis: yAxis, innerFrame: innerFrame)
     }
     
-    public override func chartInitialized(#chart: Chart) {
+    public override func chartInitialized(chart chart: Chart) {
         
         
         let barsGenerator = ChartBarsViewGenerator(horizontal: self.horizontal, xAxis: self.xAxis, yAxis: self.yAxis, chartInnerFrame: self.innerFrame, barWidth: self.barWidth, barSpacing: self.barSpacing)

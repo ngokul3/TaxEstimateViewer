@@ -9,9 +9,9 @@
 import UIKit
 
 class ChartAxisXLowLayerDefault: ChartAxisXLayerDefault {
-
+    
     override var low: Bool {return true}
-
+    
     override var lineP1: CGPoint {
         return self.p1
     }
@@ -20,7 +20,7 @@ class ChartAxisXLowLayerDefault: ChartAxisXLayerDefault {
         return self.p2
     }
     
-    override func chartViewDrawing(#context: CGContextRef, chart: Chart) {
+    override func chartViewDrawing(context context: CGContextRef, chart: Chart) {
         super.chartViewDrawing(context: context, chart: chart)
     }
     

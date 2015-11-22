@@ -9,7 +9,7 @@
 import UIKit
 
 public class ChartUtils {
-
+    
     public class func textSize(text: String, font: UIFont) -> CGSize {
         return NSAttributedString(string: text, attributes: [NSFontAttributeName: font]).size()
     }

@@ -23,7 +23,7 @@ class TabBarController: UITabBarController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        let x = 10
+        
     }
 
     /*

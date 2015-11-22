@@ -22,7 +22,7 @@ struct TaxOnCapitalGainLossUp {
     {
         //Single 2015
         
-        var br_LT_Single_2015 = TaxBracket()
+        let br_LT_Single_2015 = TaxBracket()
         
         br_LT_Single_2015.FilingType = ENumFilingType.Single
         br_LT_Single_2015.Year = 2015
@@ -40,7 +40,7 @@ struct TaxOnCapitalGainLossUp {
          _taxBracketList.append(br_LT_Single_2015)
         
         
-        var br_ST_Single_2015 = TaxBracket()
+        let br_ST_Single_2015 = TaxBracket()
         
         br_ST_Single_2015.FilingType = ENumFilingType.Single
         br_ST_Single_2015.Year = 2015
@@ -62,7 +62,7 @@ struct TaxOnCapitalGainLossUp {
         
         //Joint 2015
         
-        var br_LT_Joint_2015 = TaxBracket()
+        let br_LT_Joint_2015 = TaxBracket()
         
         br_LT_Joint_2015.FilingType = ENumFilingType.Joint
         br_LT_Joint_2015.Year = 2015
@@ -80,7 +80,7 @@ struct TaxOnCapitalGainLossUp {
         _taxBracketList.append(br_LT_Joint_2015)
         
       
-        var br_ST_Joint_2015 = TaxBracket()
+        let br_ST_Joint_2015 = TaxBracket()
         
         br_ST_Joint_2015.FilingType = ENumFilingType.Joint
         br_ST_Joint_2015.Year = 2015
@@ -100,7 +100,7 @@ struct TaxOnCapitalGainLossUp {
         
         //HOH 2015
         
-        var br_LT_HOH_2015 = TaxBracket()
+        let br_LT_HOH_2015 = TaxBracket()
         
         br_LT_HOH_2015.FilingType = ENumFilingType.HoH
         br_LT_HOH_2015.Year = 2015
@@ -119,7 +119,7 @@ struct TaxOnCapitalGainLossUp {
         _taxBracketList.append(br_LT_HOH_2015)
         
         
-        var br_ST_HOH_2015 = TaxBracket()
+        let br_ST_HOH_2015 = TaxBracket()
         
         br_ST_HOH_2015.FilingType = ENumFilingType.HoH
         br_ST_HOH_2015.Year = 2015
@@ -139,7 +139,7 @@ struct TaxOnCapitalGainLossUp {
         
         //Separate 2015
         
-        var br_LT_Separate_2015 = TaxBracket()
+        let br_LT_Separate_2015 = TaxBracket()
         
         br_LT_Separate_2015.FilingType = ENumFilingType.Separate
         br_LT_Separate_2015.Year = 2015
@@ -157,7 +157,7 @@ struct TaxOnCapitalGainLossUp {
         
         _taxBracketList.append(br_LT_Separate_2015)
         
-        var br_ST_Separate_2015 = TaxBracket()
+        let br_ST_Separate_2015 = TaxBracket()
         
         br_ST_Separate_2015.FilingType = ENumFilingType.Separate
         br_ST_Separate_2015.Year = 2015

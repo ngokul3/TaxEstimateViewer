@@ -9,7 +9,7 @@
 import UIKit
 
 public struct ChartLineModel<T: ChartPoint> {
-   
+    
     let chartPoints: [T]
     let lineColor: UIColor
     let lineWidth: CGFloat

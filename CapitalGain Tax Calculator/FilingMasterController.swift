@@ -30,7 +30,7 @@ class FilingMasterController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var recordCount = CapitalGainController.sharedInstance.GetFilingStatus().count
+        let recordCount = CapitalGainController.sharedInstance.GetFilingStatus().count
         return recordCount
     }
     
@@ -77,7 +77,7 @@ class FilingMasterController: UITableViewController {
                 
                 if let editViewController = segue.destinationViewController as? AddFilingController{
                     
-                    if let row = tableView.indexPathForSelectedRow()?.row
+                    if let row = tableView.indexPathForSelectedRow!.row as? Int //Convert
                     {
                         let selectedFilingDetail = CapitalGainController.sharedInstance.GetFilingStatusItem(row)
                         editViewController.selectedFilingDetail = selectedFilingDetail
@@ -91,11 +91,11 @@ class FilingMasterController: UITableViewController {
     }
     
     @IBAction func unwindToFilingStatusList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? AddFilingController{
+        if let _ = sender.sourceViewController as? AddFilingController{
             
-            var arrayInvestments = CapitalGainController.sharedInstance.GetFilingStatus()
+           // _ = CapitalGainController.sharedInstance.GetFilingStatus()
             
-            let newIndexPath = NSIndexPath(forRow: 1, inSection: 0)
+            //_ = NSIndexPath(forRow: 1, inSection: 0) // Convert
             
             tableView.reloadData()
         }

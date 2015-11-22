@@ -31,7 +31,7 @@ class InvestmentMasterController: UITableViewController {
     }
 
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
      
 
     }
@@ -128,15 +128,15 @@ class InvestmentMasterController: UITableViewController {
                 
                 if let editViewController = segue.destinationViewController as? AddInvestmentController{
                     
-                    let section = tableView.indexPathForSelectedRow()?.section
+                    let section = tableView.indexPathForSelectedRow?.section
                     
-                    let row = tableView.indexPathForSelectedRow()?.row
+                    let row = tableView.indexPathForSelectedRow!.row
                     
                     let year = arrYears[section!].description.toInt()
                     
                     let lstLotPositionForYear = CapitalGainController.sharedInstance.GetLotPositionForYear(year!)
                     
-                    let selectedLotPosition = lstLotPositionForYear[row!]
+                    let selectedLotPosition = lstLotPositionForYear[row]
                     
                     editViewController.selectedLotPosition = selectedLotPosition
                     editViewController.navigationItem.title = "Edit Investment"
@@ -173,7 +173,7 @@ class InvestmentMasterController: UITableViewController {
     }
     
     @IBAction func unwindToInvestmentList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? AddInvestmentController{
+        if let _ = sender.sourceViewController as? AddInvestmentController{
             
              tableView.reloadData()
         }

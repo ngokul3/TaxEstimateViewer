@@ -12,8 +12,8 @@
 //
 
 import Foundation
-import CoreGraphics.CGBase
-import UIKit.UIColor
+import CoreGraphics
+import UIKit
 
 public class RadarChartData: ChartData
 {
@@ -24,7 +24,7 @@ public class RadarChartData: ChartData
     
     public override init()
     {
-        super.init();
+        super.init()
     }
     
     public override init(xVals: [String?]?, dataSets: [ChartDataSet]?)

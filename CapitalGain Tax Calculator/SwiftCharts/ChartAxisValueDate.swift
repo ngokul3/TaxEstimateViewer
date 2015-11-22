@@ -9,7 +9,7 @@
 import UIKit
 
 public class ChartAxisValueDate: ChartAxisValue {
-  
+    
     private let formatter: NSDateFormatter
     private let labelSettings: ChartLabelSettings
     

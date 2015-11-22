@@ -52,7 +52,7 @@ public class ChartGuideLinesLayerAbstract<T: ChartGuideLinesLayerSettings>: Char
         fatalError("override")
     }
     
-    override public func chartViewDrawing(#context: CGContextRef, chart: Chart) {
+    override public func chartViewDrawing(context context: CGContextRef, chart: Chart) {
         let originScreenLoc = self.innerFrame.origin
         let xScreenLocs = onlyVisibleX ? self.xAxis.visibleAxisValuesScreenLocs : self.xAxis.axisValuesScreenLocs
         let yScreenLocs = onlyVisibleY ? self.yAxis.visibleAxisValuesScreenLocs : self.yAxis.axisValuesScreenLocs
@@ -109,7 +109,7 @@ public class ChartGuideLinesForValuesLayerAbstract<T: ChartGuideLinesLayerSettin
     private let settings: T
     private let axisValuesX: [ChartAxisValue]
     private let axisValuesY: [ChartAxisValue]
-
+    
     public init(xAxis: ChartAxisLayer, yAxis: ChartAxisLayer, innerFrame: CGRect, settings: T, axisValuesX: [ChartAxisValue], axisValuesY: [ChartAxisValue]) {
         self.settings = settings
         self.axisValuesX = axisValuesX
@@ -125,7 +125,7 @@ public class ChartGuideLinesForValuesLayerAbstract<T: ChartGuideLinesLayerSettin
         fatalError("override")
     }
     
-    override public func chartViewDrawing(#context: CGContextRef, chart: Chart) {
+    override public func chartViewDrawing(context context: CGContextRef, chart: Chart) {
         let originScreenLoc = self.innerFrame.origin
         
         for axisValue in self.axisValuesX {
@@ -135,7 +135,7 @@ public class ChartGuideLinesForValuesLayerAbstract<T: ChartGuideLinesLayerSettin
             let x2 = x1
             let y2 = originScreenLoc.y + self.innerFrame.height
             self.drawGuideline(context, p1: CGPointMake(x1, y1), p2: CGPointMake(x2, y2))
-
+            
         }
         
         for axisValue in self.axisValuesY {
@@ -145,7 +145,7 @@ public class ChartGuideLinesForValuesLayerAbstract<T: ChartGuideLinesLayerSettin
             let x2 = originScreenLoc.x + self.innerFrame.width
             let y2 = y1
             self.drawGuideline(context, p1: CGPointMake(x1, y1), p2: CGPointMake(x2, y2))
-
+            
         }
     }
 }

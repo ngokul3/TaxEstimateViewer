@@ -9,7 +9,7 @@
 import UIKit
 
 public protocol ChartAxisLayer: ChartLayer {
-        
+    
     var p1: CGPoint {get}
     var p2: CGPoint {get}
     var axisValues: [ChartAxisValue] {get}

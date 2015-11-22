@@ -10,9 +10,9 @@ import UIKit
 
 
 public class ChartPointsViewsLayer<T: ChartPoint, U: UIView>: ChartPointsLayer<T> {
-
-    typealias ChartPointViewGenerator = (chartPointModel: ChartPointLayerModel<T>, layer: ChartPointsViewsLayer<T, U>, chart: Chart) -> U?
-    typealias ViewWithChartPoint = (view: U, chartPointModel: ChartPointLayerModel<T>)
+    
+    public typealias ChartPointViewGenerator = (chartPointModel: ChartPointLayerModel<T>, layer: ChartPointsViewsLayer<T, U>, chart: Chart) -> U?
+    public typealias ViewWithChartPoint = (view: U, chartPointModel: ChartPointLayerModel<T>)
     
     private(set) var viewsWithChartPoints: [ViewWithChartPoint] = []
     
@@ -28,7 +28,7 @@ public class ChartPointsViewsLayer<T: ChartPoint, U: UIView>: ChartPointsLayer<T
         super.init(xAxis: xAxis, yAxis: yAxis, innerFrame: innerFrame, chartPoints: chartPoints, displayDelay: displayDelay)
     }
     
-    override func display(#chart: Chart) {
+    override func display(chart chart: Chart) {
         super.display(chart: chart)
         
         self.viewsWithChartPoints = self.generateChartPointViews(chartPointModels: self.chartPointsModels, chart: chart)
@@ -37,22 +37,20 @@ public class ChartPointsViewsLayer<T: ChartPoint, U: UIView>: ChartPointsLayer<T
             for v in self.viewsWithChartPoints {chart.addSubview(v.view)}
             
         } else {
-            var next: (Int, dispatch_time_t) -> () = {_, _ in} // no-op closure, workaround for local recursive function. See http://stackoverflow.com/a/24272256
-            next = {index, delay in
+            func next(index: Int, delay: dispatch_time_t) {
                 if index < self.viewsWithChartPoints.count {
                     dispatch_after(delay, dispatch_get_main_queue()) {() -> Void in
                         let view = self.viewsWithChartPoints[index].view
                         chart.addSubview(view)
-                        
-                        next(index + 1, ChartUtils.toDispatchTime(self.delayBetweenItems))
+                        next(index + 1, delay: ChartUtils.toDispatchTime(self.delayBetweenItems))
                     }
                 }
             }
-            next(0, 0)
+            next(0, delay: 0)
         }
     }
     
-    private func generateChartPointViews(#chartPointModels: [ChartPointLayerModel<T>], chart: Chart) -> [ViewWithChartPoint] {
+    private func generateChartPointViews(chartPointModels chartPointModels: [ChartPointLayerModel<T>], chart: Chart) -> [ViewWithChartPoint] {
         let viewsWithChartPoints = self.chartPointsModels.reduce(Array<ViewWithChartPoint>()) {viewsWithChartPoints, model in
             if let view = self.viewGenerator(chartPointModel: model, layer: self, chart: chart) {
                 return viewsWithChartPoints + [(view: view, chartPointModel: model)]

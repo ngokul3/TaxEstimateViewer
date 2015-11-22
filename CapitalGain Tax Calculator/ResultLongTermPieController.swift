@@ -38,9 +38,9 @@ class ResultLongTermPieController: UIViewController {
         
         let resultFilingStatus = CapitalGainController.sharedInstance.GetResultFilingStatus()
         
-        var lstTaxBracket = TaxOnCapitalGainLossUp.GetTaxHairCut(resultFilingStatus)
+        // // Convertlet lstTaxBracket = TaxOnCapitalGainLossUp.GetTaxHairCut(resultFilingStatus)
         
-        var longTermTaxBracket = lstTaxBracket.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).first
+       ////Convert var longTermTaxBracket = lstTaxBracket.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).first
         
         setLTPieChart(resultFilingStatus.FilingStatusTax)
        

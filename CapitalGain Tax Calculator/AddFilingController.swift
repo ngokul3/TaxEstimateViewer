@@ -34,10 +34,10 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
         
         pickerFilingMode.hidden = true
         let date = NSDate()
-        var dateFormatter = NSDateFormatter()
+       // var dateFormatter = NSDateFormatter() //Convert
         
         let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(.CalendarUnitYear, fromDate: date)
+        let components = calendar.components(NSCalendarUnit.Year, fromDate: date)//Convert
         let year = components.year
         
         lblYear.text = year.description
@@ -50,7 +50,7 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
         
         if (selectedFilingDetail != nil)
         {
-            println("This is filing detail edit")
+            print("This is filing detail edit")
            // stpYear.enabled = false
             lblYear.text = selectedFilingDetail?.Year.description
             stpYear.value = Double(selectedFilingDetail!.Year)
@@ -85,7 +85,7 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
        
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
        
            return filingModeArray[row]
         
@@ -129,28 +129,28 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
         txtCurrentTaxableIncome.text = utils.ConvertCurrencyToString(txtCurrentTaxableIncome.text)
         var foundIndex : Int?
         
-        var alertFilingMode = UIAlertController(title: "Filing Mode", message: "Filing Mode is required", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertFilingMode = UIAlertController(title: "Filing Mode", message: "Filing Mode is required", preferredStyle: UIAlertControllerStyle.Alert)
         alertFilingMode.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
         }))
         
-        var alertInvalidFilingMode = UIAlertController(title: "Invalid Filing Mode", message: "Filing Mode is invalid", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertInvalidFilingMode = UIAlertController(title: "Invalid Filing Mode", message: "Filing Mode is invalid", preferredStyle: UIAlertControllerStyle.Alert)
         alertInvalidFilingMode.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
         }))
         
-        var alertAnnualIncome = UIAlertController(title: "Annual Income", message: "Annual Income should be numeric", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertAnnualIncome = UIAlertController(title: "Annual Income", message: "Annual Income should be numeric", preferredStyle: UIAlertControllerStyle.Alert)
         alertAnnualIncome.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
         }))
        
-        var alertNegativeAnnualIncome = UIAlertController(title: "Annual Income", message: "Annual Income cannot be less than Zero", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertNegativeAnnualIncome = UIAlertController(title: "Annual Income", message: "Annual Income cannot be less than Zero", preferredStyle: UIAlertControllerStyle.Alert)
         alertNegativeAnnualIncome.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
         }))
         
-        var alertYear = UIAlertController(title: "Filing Year", message: "Year should be in YYYY format", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertYear = UIAlertController(title: "Filing Year", message: "Year should be in YYYY format", preferredStyle: UIAlertControllerStyle.Alert)
         alertYear.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
          }))
         
 
-        var alertFilingAlreadyAvailable = UIAlertController(title: "Filing Year", message: "Filing information already added for this Year", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertFilingAlreadyAvailable = UIAlertController(title: "Filing Year", message: "Filing information already added for this Year", preferredStyle: UIAlertControllerStyle.Alert)
         alertFilingAlreadyAvailable.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
            
         }))
@@ -160,22 +160,22 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
         let recordCount = lstFilingStatus.filter({m in m.Year == self.lblYear.text!.toInt()}).count as Int!
         
         
-        if (txtFilingMode.text.isEmpty)
+        if (txtFilingMode.text!.isEmpty)
         {
             presentViewController(alertFilingMode, animated: true, completion: nil)
             return false
         }
-        else if(!contains(filingModeArray,txtFilingMode.text))
+        else if(!filingModeArray.contains(txtFilingMode.text!)) // Convert !contains(filingModeArray,txtFilingMode.text!))
         {
             presentViewController(alertInvalidFilingMode, animated: true, completion: nil)
             return false
         }
-        else if(txtCurrentTaxableIncome.text.toDouble() == nil)
+        else if(txtCurrentTaxableIncome.text!.toDouble() == nil)
         {
             presentViewController(alertAnnualIncome, animated: true, completion: nil)
             return false
         }
-        else if (txtCurrentTaxableIncome.text.toDouble() < 0)
+        else if (txtCurrentTaxableIncome.text!.toDouble() < 0)
         {
             presentViewController(alertNegativeAnnualIncome, animated: true, completion: nil)
             return false
@@ -200,12 +200,12 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
   
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        var filingStatus = FilingStatus()
+        let filingStatus = FilingStatus()
 
         if btnAddFilingStatus === sender
         {
             filingStatus.Year = lblYear.text!.toInt()!
-            filingStatus.FilingType = ENumFilingType(rawValue: txtFilingMode.text)!
+            filingStatus.FilingType = ENumFilingType(rawValue: txtFilingMode.text!)!
             filingStatus.CurrentTaxableIncome = txtCurrentTaxableIncome.text!.toDouble()!
            
             if(self.selectedFilingDetail != nil)
@@ -230,13 +230,13 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
 
 extension UIViewController: UITextFieldDelegate{
     func addToolBar(textField: UITextField){
-        var toolBar = UIToolbar()
+        let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.Default
         toolBar.translucent = true
         toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
-        var doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Done, target: self, action: "donePressed")
-        var cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "cancelPressed")
-        var spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Done, target: self, action: "donePressed")
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "cancelPressed")
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
         toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         toolBar.userInteractionEnabled = true
         toolBar.sizeToFit()

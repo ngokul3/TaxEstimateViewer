@@ -13,7 +13,7 @@ public class Utils
     func ConvertStringToCurrency(strPrice : String!) -> String!
     {
         
-var formatter = NSNumberFormatter()
+let formatter = NSNumberFormatter()
         
         formatter.numberStyle = .CurrencyStyle
         formatter.maximumFractionDigits = 0
@@ -33,7 +33,7 @@ var formatter = NSNumberFormatter()
     
     func ConvertCurrencyToString(strCurrency : String!) -> String!
     {
-        var formatter = NSNumberFormatter()
+        let formatter = NSNumberFormatter()
         formatter.numberStyle = .CurrencyStyle
         
         let profitLoss = formatter.numberFromString(strCurrency!)

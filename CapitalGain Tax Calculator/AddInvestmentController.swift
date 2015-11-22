@@ -8,7 +8,9 @@
 
 import UIKit
 
-class AddInvestmentController: UIViewController, UITextFieldDelegate{
+class AddInvestmentController: UIViewController{
+    
+    // static var CalendarYear: NSCalendarUnit { get }
     
     @IBOutlet weak var btnAddInvestment: UIBarButtonItem!
     
@@ -33,15 +35,16 @@ class AddInvestmentController: UIViewController, UITextFieldDelegate{
         
         super.viewDidLoad()
 
+       
         
         addToolBar(self.txtProfitLoss)
         addToolBar(self.txtSymbol)
         
         let date = NSDate()
-        var dateFormatter = NSDateFormatter()
+       // var dateFormatter = NSDateFormatter() //Convert
         
         let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(.CalendarUnitYear, fromDate: date)
+        let components = calendar.components(NSCalendarUnit.Year, fromDate: date)
         let year = components.year
         
         stpYear.maximumValue = 2030
@@ -49,7 +52,7 @@ class AddInvestmentController: UIViewController, UITextFieldDelegate{
         
         if (selectedLotPosition != nil)
         {
-            println("This is investment edit")
+            print("This is investment edit")
             txtSymbol.text = selectedLotPosition?.SymbolCode
             
             txtProfitLoss.text = utils.ConvertStringToCurrency(selectedLotPosition?.RealizedGainLoss.description)
@@ -147,33 +150,33 @@ class AddInvestmentController: UIViewController, UITextFieldDelegate{
     
     txtProfitLoss.text = utils.ConvertCurrencyToString(txtProfitLoss.text)
     
-    var alertAssetDesc = UIAlertController(title: "Asset Description", message: "Asset Description is required", preferredStyle: UIAlertControllerStyle.Alert)
+    let alertAssetDesc = UIAlertController(title: "Asset Description", message: "Asset Description is required", preferredStyle: UIAlertControllerStyle.Alert)
     alertAssetDesc.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
   
     }))
     
     
-    var alertProfitLoss = UIAlertController(title: "Profit / Loss", message: "Profit / Loss should be numeric", preferredStyle: UIAlertControllerStyle.Alert)
+    let alertProfitLoss = UIAlertController(title: "Profit / Loss", message: "Profit / Loss should be numeric", preferredStyle: UIAlertControllerStyle.Alert)
     alertProfitLoss.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
   
     }))
    
-    var alertProfitNotLessThanZero = UIAlertController(title: "Profit / Loss", message: "Profit cannot be less than Zero", preferredStyle: UIAlertControllerStyle.Alert)
+    let alertProfitNotLessThanZero = UIAlertController(title: "Profit / Loss", message: "Profit cannot be less than Zero", preferredStyle: UIAlertControllerStyle.Alert)
     alertProfitNotLessThanZero.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
         
     }))
 
-        if (txtSymbol.text.isEmpty)
+        if (txtSymbol.text!.isEmpty)
         {
              presentViewController(alertAssetDesc, animated: true, completion: nil)
             return false
         }
-        else if(txtProfitLoss.text.toDouble() == nil)
+        else if(txtProfitLoss.text!.toDouble() == nil)
         {
             presentViewController(alertProfitLoss, animated: true, completion: nil)
             return false
         }
-        else if(txtProfitLoss.text.toDouble() < 0 && btnProfitLoss.selectedSegmentIndex == 0 )
+        else if(txtProfitLoss.text!.toDouble() < 0 && btnProfitLoss.selectedSegmentIndex == 0 )
         {
             presentViewController(alertProfitNotLessThanZero, animated: true, completion: nil)
             return false
@@ -185,13 +188,12 @@ class AddInvestmentController: UIViewController, UITextFieldDelegate{
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        var lotPosition = LotPosition()
-        var errorMessage = String()
-
+        let lotPosition = LotPosition()
+      
         if btnAddInvestment === sender
         {
             
-            lotPosition.SymbolCode = txtSymbol.text
+            lotPosition.SymbolCode = txtSymbol.text!
  
             if(swtIsShortDirection.on)
             {
@@ -202,13 +204,13 @@ class AddInvestmentController: UIViewController, UITextFieldDelegate{
                 lotPosition.Direction = ENumDirection.Long
             }
             
-            if(btnProfitLoss.selectedSegmentIndex == 1 && txtProfitLoss.text.toDouble() > 0)
+            if(btnProfitLoss.selectedSegmentIndex == 1 && txtProfitLoss.text!.toDouble() > 0)
             {
-                lotPosition.RealizedGainLoss = txtProfitLoss.text.toDouble()! * -1
+                lotPosition.RealizedGainLoss = txtProfitLoss.text!.toDouble()! * -1
             }
             else
             {
-                lotPosition.RealizedGainLoss = txtProfitLoss.text.toDouble()!
+                lotPosition.RealizedGainLoss = txtProfitLoss.text!.toDouble()!
             }
            
             

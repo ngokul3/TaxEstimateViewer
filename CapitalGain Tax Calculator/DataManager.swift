@@ -44,7 +44,7 @@ class DataManager
                 withArgumentsInArray: nil)
             
             if !(results != nil) {
-                println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+                print("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
                 
             }
             
@@ -65,23 +65,23 @@ class DataManager
             self._capitalGainCalculatorDB = FMDatabase(path: _databasePath as String)
             
             if self._capitalGainCalculatorDB == nil {
-                println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+                print("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
             }
             
             if self._capitalGainCalculatorDB.open() {
                 let lotPositionTable = "CREATE TABLE IF NOT EXISTS LotPosition (LotPositionID INTEGER PRIMARY KEY AUTOINCREMENT, SymbolCode TEXT,  Direction TEXT, RealizedGainLoss DOUBLE, Year INTEGER, IsLongTerm BOOLEAN)"
                 if !self._capitalGainCalculatorDB.executeStatements(lotPositionTable) {
-                    println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+                    print("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
                 }
                 
                 let filingStatusTable = "CREATE TABLE IF NOT EXISTS FilingStatus (FilingStatusID INTEGER PRIMARY KEY AUTOINCREMENT, FilingType TEXT, Year INTEGER, CurrentTaxableIncome DOUBLE, PreviouslyDeferredLoss DOUBLE)"
                 if !self._capitalGainCalculatorDB.executeStatements(filingStatusTable) {
-                    println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+                    print("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
                 }
                 
                 self._capitalGainCalculatorDB.close()
             } else {
-                println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+                print("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
             }
        
     }
@@ -113,11 +113,11 @@ class DataManager
                 }
             else
                 {
-                    println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+                    print("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
    
                 }
             } else {
-                println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+                print("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
                 return "Error"
             }
     
@@ -148,11 +148,11 @@ class DataManager
             }
             else
             {
-                println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+                print("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
                 
             }
         } else {
-            println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+            print("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
             return "Error"
         }
         
@@ -174,10 +174,10 @@ class DataManager
                 withArgumentsInArray: nil)
             
             if !result {
-                println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+                print("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
             }
         } else {
-            println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+            print("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
             return "Error"
         }
         
@@ -197,10 +197,10 @@ class DataManager
                 withArgumentsInArray: nil)
             
             if !result {
-                println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+                print("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
             }
         } else {
-            println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+            print("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
             return "Error"
         }
         
@@ -221,7 +221,7 @@ class DataManager
             withArgumentsInArray: nil)
         
         if !(results != nil) {
-            println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+            print("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
             
         }
        
@@ -245,7 +245,7 @@ class DataManager
                 withArgumentsInArray: nil)
             
             if !(results != nil) {
-                println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+                print("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
                 
             }
             
@@ -269,7 +269,7 @@ class DataManager
                 withArgumentsInArray: nil)
             
             if !(results != nil) {
-                println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+                print("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
             }
 
             while results?.next() == true {
@@ -329,7 +329,7 @@ class DataManager
                 withArgumentsInArray: nil)
             
             if !(results != nil) {
-                println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+                print("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
             }
             
             while results?.next() == true {
@@ -417,7 +417,7 @@ class DataManager
                 withArgumentsInArray: nil)
             
             if !(results != nil) {
-                println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+                print("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
             }
             
             while results?.next() == true {
@@ -463,13 +463,13 @@ class DataManager
                 withArgumentsInArray: nil)
             
             if !(results != nil) {
-                println("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
+                print("Error: \(self._capitalGainCalculatorDB.lastErrorMessage())")
                 
             }
             
             while results?.next() == true {
                 
-                let lotTerm = LotTerm()
+                // //Convert let lotTerm = LotTerm()
                 
                 
                 let year = results?.intForColumn("Year") as Int32!

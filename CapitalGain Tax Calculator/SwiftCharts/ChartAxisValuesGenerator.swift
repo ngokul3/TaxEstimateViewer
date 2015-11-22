@@ -8,7 +8,7 @@
 
 import UIKit
 
-public typealias ChartAxisValueGenerator = (CGFloat) -> ChartAxisValue
+public typealias ChartAxisValueGenerator = Double -> ChartAxisValue
 
 // Dynamic axis values generation
 public struct ChartAxisValuesGenerator {
@@ -23,7 +23,7 @@ public struct ChartAxisValuesGenerator {
     
     private static func generateAxisValuesWithChartPoints(chartPoints: [ChartPoint], minSegmentCount: Double, maxSegmentCount: Double, multiple: Double = 10, axisValueGenerator: ChartAxisValueGenerator, addPaddingSegmentIfEdge: Bool, axisPicker: (ChartPoint) -> ChartAxisValue) -> [ChartAxisValue] {
         
-        let sortedChartPoints = sorted(chartPoints) {(obj1, obj2) in
+        let sortedChartPoints = chartPoints.sort {(obj1, obj2) in
             return axisPicker(obj1).scalar < axisPicker(obj2).scalar
         }
         
@@ -31,7 +31,7 @@ public struct ChartAxisValuesGenerator {
             return self.generateAxisValuesWithChartPoints(axisPicker(first).scalar, last: axisPicker(last).scalar, minSegmentCount: minSegmentCount, maxSegmentCount: maxSegmentCount, multiple: multiple, axisValueGenerator: axisValueGenerator, addPaddingSegmentIfEdge: addPaddingSegmentIfEdge)
             
         } else {
-            println("Trying to generate Y axis without datapoints, returning empty array")
+            print("Trying to generate Y axis without datapoints, returning empty array")
             return []
         }
     }
@@ -71,7 +71,7 @@ public struct ChartAxisValuesGenerator {
         let offset = firstValue
         return (0...Int(segmentCount)).map {segment in
             let scalar = offset + (Double(segment) * segmentSize)
-            return axisValueGenerator(CGFloat(scalar))
+            return axisValueGenerator(scalar)
         }
     }
     

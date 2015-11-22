@@ -9,7 +9,7 @@
 import UIKit
 
 public class ChartAxisValueInt: ChartAxisValue {
-
+    
     public let int: Int
     private let labelSettings: ChartLabelSettings
     

@@ -27,7 +27,7 @@ public class ChartConfigXY: ChartConfig {
     public let yAxisConfig: ChartAxisConfig
     public let xAxisLabelSettings: ChartLabelSettings
     public let yAxisLabelSettings: ChartLabelSettings
-
+    
     public init(chartSettings: ChartSettings = ChartSettings(), xAxisConfig: ChartAxisConfig, yAxisConfig: ChartAxisConfig, xAxisLabelSettings: ChartLabelSettings = ChartLabelSettings(), yAxisLabelSettings: ChartLabelSettings = ChartLabelSettings(), guidelinesConfig: GuidelinesConfig? = GuidelinesConfig()) {
         self.xAxisConfig = xAxisConfig
         self.yAxisConfig = yAxisConfig
@@ -39,11 +39,11 @@ public class ChartConfigXY: ChartConfig {
 }
 
 public struct ChartAxisConfig {
-    public let from: CGFloat
-    public let to: CGFloat
-    public let by: CGFloat
+    public let from: Double
+    public let to: Double
+    public let by: Double
     
-    public init(from: CGFloat, to: CGFloat, by: CGFloat) {
+    public init(from: Double, to: Double, by: Double) {
         self.from = from
         self.to = to
         self.by = by
@@ -64,8 +64,8 @@ public struct GuidelinesConfig {
 
 // Helper to generate default guidelines layer for GuidelinesConfig
 public struct GuidelinesDefaultLayerGenerator {
-
-    public static func generateOpt(#xAxis: ChartAxisLayer, yAxis: ChartAxisLayer, chartInnerFrame: CGRect, guidelinesConfig: GuidelinesConfig?) -> ChartLayer? {
+    
+    public static func generateOpt(xAxis xAxis: ChartAxisLayer, yAxis: ChartAxisLayer, chartInnerFrame: CGRect, guidelinesConfig: GuidelinesConfig?) -> ChartLayer? {
         if let guidelinesConfig = guidelinesConfig {
             return self.generate(xAxis: xAxis, yAxis: yAxis, chartInnerFrame: chartInnerFrame, guidelinesConfig: guidelinesConfig)
         } else {
@@ -73,7 +73,7 @@ public struct GuidelinesDefaultLayerGenerator {
         }
     }
     
-    public static func generate(#xAxis: ChartAxisLayer, yAxis: ChartAxisLayer, chartInnerFrame: CGRect, guidelinesConfig: GuidelinesConfig) -> ChartLayer {
+    public static func generate(xAxis xAxis: ChartAxisLayer, yAxis: ChartAxisLayer, chartInnerFrame: CGRect, guidelinesConfig: GuidelinesConfig) -> ChartLayer {
         if guidelinesConfig.dotted {
             let settings = ChartGuideLinesDottedLayerSettings(linesColor: guidelinesConfig.lineColor, linesWidth: guidelinesConfig.lineWidth)
             return ChartGuideLinesDottedLayer(xAxis: xAxis, yAxis: yAxis, innerFrame: chartInnerFrame, settings: settings)

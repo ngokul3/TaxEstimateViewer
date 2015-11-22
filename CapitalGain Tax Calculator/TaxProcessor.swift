@@ -24,11 +24,11 @@ class TaxProcessor
         filingStatus.TaxOnLTCapitalGain = 0
         filingStatus.TaxOnSTCapitalGain = 0
         
-        var lstTaxBracket = TaxOnCapitalGainLossUp.GetTaxHairCut(filingStatus)
+        let lstTaxBracket = TaxOnCapitalGainLossUp.GetTaxHairCut(filingStatus)
  
-        var shortTermTax = lstTaxBracket.filter({m in m.Term.rawValue == ENumTerm.ShortTerm.rawValue}).first
+        let shortTermTax = lstTaxBracket.filter({m in m.Term.rawValue == ENumTerm.ShortTerm.rawValue}).first
         
-        var longTermTax = lstTaxBracket.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).first
+        let longTermTax = lstTaxBracket.filter({m in m.Term.rawValue == ENumTerm.LongTerm.rawValue}).first
         
         
     //    let lotTermMap: [Double] = lstLotTerm.map { return $0.TermRealizedGainLoss }
@@ -89,11 +89,8 @@ class TaxProcessor
     {
         var totalIncomeIncludingCapitalGain : Double
         var taxOnCapitalGain : Double = 0
-        var testDict : Dictionary<Double,Double> = Dictionary<Double,Double>()
         
         let cntTaxDictionary = termTaxDictionary.FederalTax.count
-        
-     //   let xx = termTaxDictionary.FederalTax as Dictionary<Double,Double>!
         let maxTaxValue = termTaxDictionary.FederalTax.array[cntTaxDictionary - 1]
         let maxTaxItem = termTaxDictionary.FederalTax.dictionary[maxTaxValue] //TODO - Double can't be value
         

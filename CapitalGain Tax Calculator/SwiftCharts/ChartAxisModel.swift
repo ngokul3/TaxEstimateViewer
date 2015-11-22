@@ -12,7 +12,7 @@ public class ChartAxisModel {
     let axisValues: [ChartAxisValue]
     let lineColor: UIColor
     let axisTitleLabels: [ChartAxisLabel]
-
+    
     public convenience init(axisValues: [ChartAxisValue], lineColor: UIColor = UIColor.blackColor(), axisTitleLabel: ChartAxisLabel) {
         self.init(axisValues: axisValues, lineColor: lineColor, axisTitleLabels: [axisTitleLabel])
     }

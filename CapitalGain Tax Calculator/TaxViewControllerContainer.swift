@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TaxViewControllerContainer: UIViewController, UITextFieldDelegate  {
+class TaxViewControllerContainer: UIViewController  {
 
     @IBOutlet weak var txtYear: UITextField!
    
@@ -17,13 +17,13 @@ class TaxViewControllerContainer: UIViewController, UITextFieldDelegate  {
         super.viewDidLoad()
         
         let date = NSDate()
-        let components = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitYear, fromDate: date)
+        let components = NSCalendar.currentCalendar().components(NSCalendarUnit.Year, fromDate: date)
     
         let currentYear = components.year
         
         
         addToolBar(self.txtYear)
-        var lstFilingStatus = CapitalGainController.sharedInstance.GetFilingStatus()
+        let lstFilingStatus = CapitalGainController.sharedInstance.GetFilingStatus()
         
         if(lstFilingStatus.count == 0)
         {
@@ -40,15 +40,15 @@ class TaxViewControllerContainer: UIViewController, UITextFieldDelegate  {
     
     func Refresh()
     {
-        var filingStatus : FilingStatus?
+        //var filingStatus : FilingStatus? //Convert
         
         var year : Int?
         
-        year = txtYear.text.toInt()
+        year = txtYear.text!.toInt()
         
         if (year == nil)
         {
-            var alertNilYear = UIAlertController(title: "Year", message: "Please enter year in YYYY format", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertNilYear = UIAlertController(title: "Year", message: "Please enter year in YYYY format", preferredStyle: UIAlertControllerStyle.Alert)
             alertNilYear.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
             }))
 
@@ -71,7 +71,7 @@ class TaxViewControllerContainer: UIViewController, UITextFieldDelegate  {
             
             if(isFilingStatusavailable == nil)
             {
-                var alertNilFiling = UIAlertController(title: "FilingMode", message: "Tax Filing Mode information missing for the year.", preferredStyle: UIAlertControllerStyle.Alert)
+                let alertNilFiling = UIAlertController(title: "FilingMode", message: "Tax Filing Mode information missing for the year.", preferredStyle: UIAlertControllerStyle.Alert)
                 alertNilFiling.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
                     
                 }))
@@ -89,7 +89,7 @@ class TaxViewControllerContainer: UIViewController, UITextFieldDelegate  {
             
             if(filingStatus == nil)
             {
-                var alertNilFiling = UIAlertController(title: "Investment", message: "There are no Investments available / selected for the year.", preferredStyle: UIAlertControllerStyle.Alert)
+                let alertNilFiling = UIAlertController(title: "Investment", message: "There are no Investments available / selected for the year.", preferredStyle: UIAlertControllerStyle.Alert)
                 alertNilFiling.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
                     
                 }))
@@ -104,7 +104,7 @@ class TaxViewControllerContainer: UIViewController, UITextFieldDelegate  {
             
             if(filingStatus?.NetLoss != 0)
             {
-                var alertNilFiling = UIAlertController(title: "Net Loss", message: "There is no Taxable Capital Gain due to total loss.", preferredStyle: UIAlertControllerStyle.Alert)
+                let alertNilFiling = UIAlertController(title: "Net Loss", message: "There is no Taxable Capital Gain due to total loss.", preferredStyle: UIAlertControllerStyle.Alert)
                 alertNilFiling.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
                     
                 }))

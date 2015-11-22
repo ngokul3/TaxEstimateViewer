@@ -12,9 +12,9 @@ public class ChartAxisLabel {
     
     public let text: String
     let settings: ChartLabelSettings
-
+    
     var hidden: Bool = false
-   
+    
     lazy var textSize: CGSize = {
         let size = ChartUtils.textSize(self.text, font: self.settings.font)
         if self.settings.rotation == 0 {

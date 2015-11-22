@@ -9,14 +9,18 @@
 import UIKit
 
 public class ChartPointBubble: ChartPoint {
-    public let diameterScalar: CGFloat
+    public let diameterScalar: Double
     public let bgColor: UIColor
     public let borderColor: UIColor
     
-    public init(x: ChartAxisValue, y: ChartAxisValue, diameterScalar: CGFloat, bgColor: UIColor, borderColor: UIColor = UIColor.blackColor()) {
+    public init(x: ChartAxisValue, y: ChartAxisValue, diameterScalar: Double, bgColor: UIColor, borderColor: UIColor = UIColor.blackColor()) {
         self.diameterScalar = diameterScalar
         self.bgColor = bgColor
         self.borderColor = borderColor
         super.init(x: x, y: y)
+    }
+    
+    required public init(x: ChartAxisValue, y: ChartAxisValue) {
+        fatalError("init(x:y:) has not been implemented")
     }
 }

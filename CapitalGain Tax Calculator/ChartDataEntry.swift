@@ -1,14 +1,20 @@
 //
 //  ChartDataEntry.swift
-//  CapitalGain Tax Calculator
+//  Charts
 //
-//  Created by Gokul Narasimhan on 8/31/15.
-//  Copyright (c) 2015 BigRoom. All rights reserved.
+//  Created by Daniel Cohen Gindi on 23/2/15.
+
+//
+//  Copyright 2015 Daniel Cohen Gindi & Philipp Jahoda
+//  A port of MPAndroidChart for iOS
+//  Licensed under Apache License 2.0
+//
+//  https://github.com/danielgindi/ios-charts
 //
 
 import Foundation
 
-public class ChartDataEntry: NSObject, Equatable
+public class ChartDataEntry: NSObject
 {
     /// the actual value (y axis)
     public var value = Double(0.0)
@@ -19,26 +25,26 @@ public class ChartDataEntry: NSObject, Equatable
     /// optional spot for additional data this Entry represents
     public var data: AnyObject?
     
-    public override init()
+    public override required init()
     {
-        super.init();
+        super.init()
     }
     
     public init(value: Double, xIndex: Int)
     {
-        super.init();
+        super.init()
         
-        self.value = value;
-        self.xIndex = xIndex;
+        self.value = value
+        self.xIndex = xIndex
     }
     
     public init(value: Double, xIndex: Int, data: AnyObject?)
     {
-        super.init();
+        super.init()
         
-        self.value = value;
-        self.xIndex = xIndex;
-        self.data = data;
+        self.value = value
+        self.xIndex = xIndex
+        self.data = data
     }
     
     // MARK: NSObject
@@ -47,48 +53,50 @@ public class ChartDataEntry: NSObject, Equatable
     {
         if (object === nil)
         {
-            return false;
+            return false
         }
         
         if (!object!.isKindOfClass(self.dynamicType))
         {
-            return false;
+            return false
         }
         
         if (object!.data !== data && !object!.data.isEqual(self.data))
         {
-            return false;
+            return false
         }
         
         if (object!.xIndex != xIndex)
         {
-            return false;
+            return false
         }
         
         if (fabs(object!.value - value) > 0.00001)
         {
-            return false;
+            return false
         }
         
-        return true;
+        return true
     }
     
     // MARK: NSObject
     
     public override var description: String
         {
-            return "ChartDataEntry, xIndex: \(xIndex), value \(value)";
+            return "ChartDataEntry, xIndex: \(xIndex), value \(value)"
     }
     
     // MARK: NSCopying
     
     public func copyWithZone(zone: NSZone) -> AnyObject
     {
-        var copy = self.dynamicType.allocWithZone(zone) as ChartDataEntry;
-        copy.value = value;
-        copy.xIndex = xIndex;
-        copy.data = data;
-        return copy;
+        let copy = self.dynamicType.init()
+        
+        copy.value = value
+        copy.xIndex = xIndex
+        copy.data = data
+        
+        return copy
     }
 }
 
@@ -96,28 +104,28 @@ public func ==(lhs: ChartDataEntry, rhs: ChartDataEntry) -> Bool
 {
     if (lhs === rhs)
     {
-        return true;
+        return true
     }
     
     if (!lhs.isKindOfClass(rhs.dynamicType))
     {
-        return false;
+        return false
     }
     
     if (lhs.data !== rhs.data && !lhs.data!.isEqual(rhs.data))
     {
-        return false;
+        return false
     }
     
     if (lhs.xIndex != rhs.xIndex)
     {
-        return false;
+        return false
     }
     
     if (fabs(lhs.value - rhs.value) > 0.00001)
     {
-        return false;
+        return false
     }
     
-    return true;
+    return true
 }

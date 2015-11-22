@@ -21,14 +21,7 @@ class ContainerInvestmentController: UITableViewController {
         
     }
     
-    override func viewDidAppear(animated: Bool) {
-        let taxViewController =  self.presentedViewController
-
-    }
-
-    override func viewWillAppear(animated: Bool) {
-          let taxViewController =  self.presentedViewController
-    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -40,7 +33,7 @@ class ContainerInvestmentController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var recordCount = lstLotPositionForYear.count
+        let recordCount = lstLotPositionForYear.count
         return recordCount
     }
     

@@ -31,8 +31,6 @@ enum ENumInvestmentType:String{
         case .Section1256:
             return "Section1256"
 
-        default:
-            return ""
         }
     }
     

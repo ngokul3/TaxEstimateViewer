@@ -9,16 +9,16 @@
 import UIKit
 
 public protocol ChartLinesViewPathGenerator {
-    func generatePath(#points: [CGPoint], lineWidth: CGFloat) -> UIBezierPath
+    func generatePath(points points: [CGPoint], lineWidth: CGFloat) -> UIBezierPath
 }
 
 public class ChartLinesView: UIView {
-
+    
     private let lineColor: UIColor
     private let lineWidth: CGFloat
     private let animDuration: Float
     private let animDelay: Float
-
+    
     init(path: UIBezierPath, frame: CGRect, lineColor: UIColor, lineWidth: CGFloat, animDuration: Float, animDelay: Float) {
         
         self.lineColor = lineColor
@@ -27,16 +27,16 @@ public class ChartLinesView: UIView {
         self.animDelay = animDelay
         
         super.init(frame: frame)
-
+        
         self.backgroundColor = UIColor.clearColor()
         self.show(path: path)
     }
-
+    
     required public init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func createLineMask(#frame: CGRect) -> CALayer {
+    private func createLineMask(frame frame: CGRect) -> CALayer {
         let lineMaskLayer = CAShapeLayer()
         var maskRect = frame
         maskRect.origin.y = 0
@@ -47,8 +47,8 @@ public class ChartLinesView: UIView {
         
         return lineMaskLayer
     }
-
-    private func generateLayer(#path: UIBezierPath) -> CAShapeLayer {
+    
+    private func generateLayer(path path: UIBezierPath) -> CAShapeLayer {
         let lineLayer = CAShapeLayer()
         lineLayer.lineJoin = kCALineJoinBevel
         lineLayer.fillColor   = UIColor.clearColor().CGColor
@@ -78,9 +78,9 @@ public class ChartLinesView: UIView {
         return lineLayer
     }
     
-    private func show(#path: UIBezierPath) {
+    private func show(path path: UIBezierPath) {
         let lineMask = self.createLineMask(frame: frame)
         self.layer.mask = lineMask
         self.layer.addSublayer(self.generateLayer(path: path))
     }
- }
+}
