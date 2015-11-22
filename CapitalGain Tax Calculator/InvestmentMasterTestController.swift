@@ -8,37 +8,37 @@
 
 import UIKit
 
-class InvestmentMasterController: UITableViewController {
+class InvestmentMasterTestController: UITableViewController {
     var lotPosition =   [LotPosition]()
     var databasePath = NSString()
     var utils = Utils()
     var arrYears = Array<Int32>()
-
+    
     @IBOutlet var investmentTableView: UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         CapitalGainController.sharedDBInstance.CreateTable()
         if CapitalGainController.sharedDBInstance.OpenDatabase(){
-        let lstLotPosition = CapitalGainController.sharedDBInstance.ReturnLotPosition()
-        let lstFilingStatus = CapitalGainController.sharedDBInstance.ReturnFilingStatus()
-        LoadLotPosition(lstLotPosition)
-        LoadFilingStatus(lstFilingStatus)
+            let lstLotPosition = CapitalGainController.sharedDBInstance.ReturnLotPosition()
+            let lstFilingStatus = CapitalGainController.sharedDBInstance.ReturnFilingStatus()
+            LoadLotPosition(lstLotPosition)
+            LoadFilingStatus(lstFilingStatus)
         }
         
         
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
     }
-
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
-     
-
+        
+        
     }
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-      //  arrYears = CapitalGainController.sharedDBInstance.ReturnDistinctYears()
-        return 0// arrYears.count
-       
+         arrYears = CapitalGainController.sharedDBInstance.ReturnDistinctYears()
+        return  arrYears.count
+        
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -53,8 +53,8 @@ class InvestmentMasterController: UITableViewController {
         let lstLotPositionForYear = CapitalGainController.sharedInstance.GetLotPositionForYear(year!)
         
         return lstLotPositionForYear.count
-        }
-
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->   UITableViewCell {
         
         let cellIdentifier = "InvestmentTableViewCell"
@@ -82,7 +82,7 @@ class InvestmentMasterController: UITableViewController {
         let img365View = cell.viewWithTag(40) as! UIImageView
         img365View.image = cell.ImageFor365(lotPosition.IsLongTerm)
         
-   
+        
         return cell
     }
     
@@ -98,22 +98,22 @@ class InvestmentMasterController: UITableViewController {
         
         let selectedLotPosition = lstLotPositionForYear[row]
         
-       // let lotPosition = CapitalGainController.sharedInstance.GetLotPositionItem(indexPath.row)
+        // let lotPosition = CapitalGainController.sharedInstance.GetLotPositionItem(indexPath.row)
         let isSuccess = CapitalGainController.sharedDBInstance.DeleteLotPosition(selectedLotPosition)
         
         if ((isSuccess) != nil)
         {
             CapitalGainController.sharedInstance.DeleteLotPositionItem(selectedLotPosition)
             tableView.reloadData()
-
+            
         }
         
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue,
         sender: AnyObject?) {
-       
-           if (segue.identifier == "AddInvestment")
+            
+            if (segue.identifier == "AddInvestment")
             {
                 
                 if let addViewController = segue.destinationViewController as? AddInvestmentController{
@@ -140,18 +140,18 @@ class InvestmentMasterController: UITableViewController {
                     
                     editViewController.selectedLotPosition = selectedLotPosition
                     editViewController.navigationItem.title = "Edit Investment"
-                 
+                    
                 }
                 
             }
             
     }
     
-  
+    
     func LoadLotPosition(lstLotPosition: [LotPosition])
     {
-         if lstLotPosition.count > 0
-         {
+        if lstLotPosition.count > 0
+        {
             for lotPosition in lstLotPosition
             {
                 CapitalGainController.sharedInstance.AddLotPosition(lotPosition)
@@ -175,12 +175,12 @@ class InvestmentMasterController: UITableViewController {
     @IBAction func unwindToInvestmentList(sender: UIStoryboardSegue) {
         if let _ = sender.sourceViewController as? AddInvestmentController{
             
-             tableView.reloadData()
+            tableView.reloadData()
         }
     }
     
-
-
+    
+    
 }
 
 

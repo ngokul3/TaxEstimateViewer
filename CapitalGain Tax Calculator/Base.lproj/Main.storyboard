@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Ul-UE-fK1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Ul-UE-fK1">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -27,13 +28,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asset held for more than 1 year?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8Y-ld-Qnr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Asset held for more than 1 year?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8Y-ld-Qnr">
                                 <rect key="frame" x="8" y="336" width="250" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="P/L Realized Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZT-mC-AEZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" misplaced="YES" text="P/L Realized Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZT-mC-AEZ">
                                 <rect key="frame" x="8" y="276" width="135" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -68,7 +69,7 @@
                                     <action selector="stpYearValueChanged:" destination="COO-sV-LRS" eventType="valueChanged" id="AS6-gf-Hst"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Is P/L from a Short Sell ?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKt-91-KH6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" misplaced="YES" text="Is P/L from a Short Sell ?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKt-91-KH6">
                                 <rect key="frame" x="8" y="220" width="192" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -382,8 +383,10 @@
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="InvestmentTableViewCell" id="o7u-E4-9dk" customClass="InvestmentTableViewCell" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o7u-E4-9dk" id="sIy-wa-yvy">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" verticalHuggingPriority="251" text="S" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15g-Kb-XWp">
@@ -533,8 +536,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FilingTableViewCell" id="Flc-YH-t17" customClass="FilingTableViewCell" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="86" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Flc-YH-t17" id="1vR-eg-2NI">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="a" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8B-XE-IWC">
@@ -580,8 +585,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="InvestmentTableViewCell" id="kLy-f1-SKO" customClass="InvestmentTableViewCell" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="22" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kLy-f1-SKO" id="6Hy-gv-biP">
+                                    <rect key="frame" x="0.0" y="0.0" width="336" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VY0-ce-joE">
@@ -679,6 +686,115 @@
             <point key="canvasLocation" x="320" y="-240"/>
         </scene>
         <!--Investments-->
+        <scene sceneID="5ff-UT-EYU">
+            <objects>
+                <tableViewController id="ONa-nJ-Kae" userLabel="Investments" customClass="InvestmentMasterTestController" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="cqN-Eo-scq" userLabel="InvestmentTableView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="InvestmentTableViewCell" id="hso-MA-Ivv" customClass="InvestmentTableViewCell" customModule="CapitalGain_Tax_Calculator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="114" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hso-MA-Ivv" id="ZMJ-10-Nfe">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" verticalHuggingPriority="251" text="S" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bav-PP-81g" userLabel="Lbl Investment Name">
+                                            <rect key="frame" x="2" y="11" width="78" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="E0V-vb-RYG"/>
+                                                <constraint firstAttribute="width" constant="78" id="IuC-c3-FcC"/>
+                                                <constraint firstAttribute="width" constant="125" id="OlZ-U9-gRc"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="OlZ-U9-gRc"/>
+                                                    <exclude reference="E0V-vb-RYG"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="A" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOL-LF-gOy" userLabel="Lbl Profit Loss">
+                                            <rect key="frame" x="88" y="11" width="170" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="170" id="Lxd-h8-uBA"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" tag="30" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M8d-VX-djy" userLabel="ImgLTST">
+                                            <rect key="frame" x="262" y="9" width="40" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="cwg-OA-60R"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" tag="40" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wO3-GY-rVr" userLabel="Img360">
+                                            <rect key="frame" x="304" y="9" width="40" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="46" id="hWe-kV-6Y5"/>
+                                                <constraint firstAttribute="width" constant="53" id="oix-rN-jr0"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="oix-rN-jr0"/>
+                                                    <exclude reference="hWe-kV-6Y5"/>
+                                                </mask>
+                                            </variation>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Bav-PP-81g" firstAttribute="centerY" secondItem="wO3-GY-rVr" secondAttribute="centerY" id="1mS-ay-MTp"/>
+                                        <constraint firstItem="M8d-VX-djy" firstAttribute="top" secondItem="wO3-GY-rVr" secondAttribute="top" id="1ta-7z-j9x"/>
+                                        <constraint firstItem="M8d-VX-djy" firstAttribute="bottom" secondItem="wO3-GY-rVr" secondAttribute="bottom" id="2d8-F1-Rk1"/>
+                                        <constraint firstItem="pOL-LF-gOy" firstAttribute="leading" secondItem="Bav-PP-81g" secondAttribute="trailing" constant="7" id="2qA-vf-uvm"/>
+                                        <constraint firstItem="pOL-LF-gOy" firstAttribute="centerY" secondItem="M8d-VX-djy" secondAttribute="centerY" id="4PU-lq-OOl"/>
+                                        <constraint firstItem="wO3-GY-rVr" firstAttribute="leading" secondItem="M8d-VX-djy" secondAttribute="trailing" constant="1" id="5qI-Q1-dOg"/>
+                                        <constraint firstItem="pOL-LF-gOy" firstAttribute="centerY" secondItem="wO3-GY-rVr" secondAttribute="centerY" id="LfY-Q7-2Eu"/>
+                                        <constraint firstItem="Bav-PP-81g" firstAttribute="centerY" secondItem="M8d-VX-djy" secondAttribute="centerY" id="VKu-az-g0Z"/>
+                                        <constraint firstItem="M8d-VX-djy" firstAttribute="leading" secondItem="pOL-LF-gOy" secondAttribute="trailing" constant="32" id="anv-RI-RUH"/>
+                                        <constraint firstItem="Bav-PP-81g" firstAttribute="leading" secondItem="ZMJ-10-Nfe" secondAttribute="leadingMargin" constant="-6" id="dIH-0t-A4A"/>
+                                        <constraint firstItem="Bav-PP-81g" firstAttribute="baseline" secondItem="pOL-LF-gOy" secondAttribute="baseline" id="gqo-aS-Q27"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="wO3-GY-rVr" secondAttribute="trailing" constant="-6" id="iwj-hP-R2l"/>
+                                        <constraint firstItem="Bav-PP-81g" firstAttribute="centerY" secondItem="ZMJ-10-Nfe" secondAttribute="centerY" id="m6X-3n-whq"/>
+                                        <constraint firstItem="wO3-GY-rVr" firstAttribute="top" secondItem="ZMJ-10-Nfe" secondAttribute="topMargin" constant="1" id="zBo-Yv-RIE"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="img360" destination="wO3-GY-rVr" id="tqu-wg-Jd8"/>
+                                    <outlet property="imgLTST" destination="M8d-VX-djy" id="MhU-Za-o6K"/>
+                                    <outlet property="lblInvesmentName" destination="Bav-PP-81g" id="o6I-wN-XGa"/>
+                                    <outlet property="lblProfitLoss" destination="pOL-LF-gOy" id="Zx7-CJ-WUU"/>
+                                    <segue destination="COO-sV-LRS" kind="show" identifier="EditInvestment" id="jtv-ty-K8n"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ONa-nJ-Kae" id="AO3-jd-0Tv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="gl0-gj-Dfv">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="Qj0-es-wew"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="eCP-G3-TBr">
+                            <connections>
+                                <segue destination="COO-sV-LRS" kind="show" identifier="AddInvestment" id="By3-6h-GCw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="investmentTableView" destination="cqN-Eo-scq" id="aze-5S-yud"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="axw-pF-BSp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1533.5" y="-2209.5"/>
+        </scene>
+        <!--Investments-->
         <scene sceneID="xcq-6T-r1u">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NMN-bp-Ucf" sceneMemberID="viewController">
@@ -691,7 +807,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="eny-Cq-9WB" kind="relationship" relationship="rootViewController" id="ynb-m8-NgJ"/>
+                        <segue destination="ONa-nJ-Kae" kind="relationship" relationship="rootViewController" id="RKU-nB-Be2"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DWe-3Z-vfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1350,7 +1466,7 @@
         <image name="Short Term.png" width="31" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Wus-nc-gLo"/>
-        <segue reference="jTS-FV-eqX"/>
+        <segue reference="Ebe-wr-Rtk"/>
+        <segue reference="jtv-ty-K8n"/>
     </inferredMetricsTieBreakers>
 </document>

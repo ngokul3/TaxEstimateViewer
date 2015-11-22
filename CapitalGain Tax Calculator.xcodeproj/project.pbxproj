@@ -88,6 +88,7 @@
 		557E85F21B6AE44F00197CBE /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 557E85EC1B6AE44F00197CBE /* FMDatabaseAdditions.m */; };
 		557E85F31B6AE44F00197CBE /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 557E85EE1B6AE44F00197CBE /* FMDatabasePool.m */; };
 		5597E7F11B8AC0D200605BBD /* ResultGraphController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5597E7F01B8AC0D200605BBD /* ResultGraphController.swift */; };
+		55A4B5F61C024EFA00601E2A /* InvestmentMasterTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A4B5F51C024EFA00601E2A /* InvestmentMasterTestController.swift */; };
 		55A693831BA5C0D700665F2B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A693821BA5C0D600665F2B /* Utils.swift */; };
 		55AA04771B97C8CF003A1734 /* ResultLongTermPieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA04761B97C8CF003A1734 /* ResultLongTermPieController.swift */; };
 		55AA04791B97FA8F003A1734 /* ResultShortTermPieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA04781B97FA8F003A1734 /* ResultShortTermPieController.swift */; };
@@ -256,6 +257,7 @@
 		557E85ED1B6AE44F00197CBE /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = DataLibrary/src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
 		557E85EE1B6AE44F00197CBE /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = DataLibrary/src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
 		5597E7F01B8AC0D200605BBD /* ResultGraphController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultGraphController.swift; sourceTree = "<group>"; };
+		55A4B5F51C024EFA00601E2A /* InvestmentMasterTestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestmentMasterTestController.swift; sourceTree = "<group>"; };
 		55A693821BA5C0D600665F2B /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		55AA04761B97C8CF003A1734 /* ResultLongTermPieController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultLongTermPieController.swift; sourceTree = "<group>"; };
 		55AA04781B97FA8F003A1734 /* ResultShortTermPieController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultShortTermPieController.swift; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 				55AA04761B97C8CF003A1734 /* ResultLongTermPieController.swift */,
 				55AA04781B97FA8F003A1734 /* ResultShortTermPieController.swift */,
 				55DAF8471BA45E2300CD2273 /* TabBarController.swift */,
+				55A4B5F51C024EFA00601E2A /* InvestmentMasterTestController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -840,6 +843,7 @@
 				55EB88491B95536400CA5561 /* BarLineScatterCandleChartDataSet.swift in Sources */,
 				55689C6A1B83FE8C00F8FAA2 /* ChartLayer.swift in Sources */,
 				55D0CF6B1B5F1F4E003B1D3F /* CapitalGainController.swift in Sources */,
+				55A4B5F61C024EFA00601E2A /* InvestmentMasterTestController.swift in Sources */,
 				55EB87FD1B95410B00CA5561 /* ChartDataSet.swift in Sources */,
 				55EB88151B95469A00CA5561 /* ChartViewBase.swift in Sources */,
 				55AA04791B97FA8F003A1734 /* ResultShortTermPieController.swift in Sources */,
