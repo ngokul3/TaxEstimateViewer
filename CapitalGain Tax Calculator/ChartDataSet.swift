@@ -537,6 +537,7 @@ public class ChartDataSet: NSObject
     public override var description: String
         {
             return String(format: "ChartDataSet, label: %@, %i entries", arguments: [self.label ?? "", _yVals.count])
+           
     }
     
     public override var debugDescription: String
@@ -565,6 +566,9 @@ public class ChartDataSet: NSObject
         copy._lastStart = _lastStart
         copy._lastEnd = _lastEnd
         copy.label = label
+        
+        
+
         
         return copy
     }
