@@ -63,13 +63,14 @@ public class ChartLegendRenderer: ChartRendererBase
                 }*///Convert
                 if (dataSet.isKindOfClass(PieChartDataSet))
                 {
-                    var xVals = data.xVals
+                    let xVals = data.xVals
                     let pds = dataSet as! PieChartDataSet
                     
                     for (var j = 0; j < clrs.count && j < entryCount && j < xVals.count; j++)
                     {
-                        labels.append(xVals[j])
-                        colors.append(clrs[j])
+                        //Convert
+                       /* labels.append(xVals[j])
+                        colors.append(clrs[j])*/
                     }
                     
                     if (pds.label != nil)
