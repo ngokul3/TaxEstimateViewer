@@ -801,7 +801,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NMN-bp-Ucf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Investments" id="OgO-Oa-RN0"/>
                     <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="q5q-sw-grh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1468,6 +1468,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Ebe-wr-Rtk"/>
-        <segue reference="jtv-ty-K8n"/>
+        <segue reference="ur2-f8-IJ1"/>
     </inferredMetricsTieBreakers>
 </document>

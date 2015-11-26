@@ -74,6 +74,7 @@
 		55689C8B1B8407E000F8FAA2 /* ChartGroupedBarsLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55689C8A1B8407E000F8FAA2 /* ChartGroupedBarsLayer.swift */; };
 		55689C8D1B84084000F8FAA2 /* ChartPointsViewsLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55689C8C1B84084000F8FAA2 /* ChartPointsViewsLayer.swift */; };
 		55689C8F1B8408AA00F8FAA2 /* ChartViewsConflictSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55689C8E1B8408A900F8FAA2 /* ChartViewsConflictSolver.swift */; };
+		5576F41C1C07486C000134E2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5576F41B1C07486C000134E2 /* Default-568h@2x.png */; };
 		557BD8261B6D1559003F5CE1 /* TaxBracket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BD8251B6D1559003F5CE1 /* TaxBracket.swift */; };
 		557BD8281B6D1671003F5CE1 /* TaxOnCapitalGainLossUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BD8271B6D1671003F5CE1 /* TaxOnCapitalGainLossUp.swift */; };
 		557E85D71B66FE6100197CBE /* FilingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557E85D61B66FE6100197CBE /* FilingTableViewCell.swift */; };
@@ -235,6 +236,7 @@
 		55689C8A1B8407E000F8FAA2 /* ChartGroupedBarsLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartGroupedBarsLayer.swift; path = SwiftCharts/ChartGroupedBarsLayer.swift; sourceTree = "<group>"; };
 		55689C8C1B84084000F8FAA2 /* ChartPointsViewsLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartPointsViewsLayer.swift; path = SwiftCharts/ChartPointsViewsLayer.swift; sourceTree = "<group>"; };
 		55689C8E1B8408A900F8FAA2 /* ChartViewsConflictSolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartViewsConflictSolver.swift; path = SwiftCharts/ChartViewsConflictSolver.swift; sourceTree = "<group>"; };
+		5576F41B1C07486C000134E2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		557BD8251B6D1559003F5CE1 /* TaxBracket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxBracket.swift; sourceTree = "<group>"; };
 		557BD8271B6D1671003F5CE1 /* TaxOnCapitalGainLossUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxOnCapitalGainLossUp.swift; sourceTree = "<group>"; };
 		557BD8291B6DA6E2003F5CE1 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
@@ -450,6 +452,7 @@
 		55C28A3A1B55F0E2001D073E = {
 			isa = PBXGroup;
 			children = (
+				5576F41B1C07486C000134E2 /* Default-568h@2x.png */,
 				557E85E01B6AE1F200197CBE /* libsqlite3.dylib */,
 				55C28A451B55F0E2001D073E /* CapitalGain Tax Calculator */,
 				55C28A5E1B55F0E3001D073E /* CapitalGain Tax CalculatorTests */,
@@ -709,6 +712,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55DAF84C1BA47CE600CD2273 /* Income.png in Resources */,
+				5576F41C1C07486C000134E2 /* Default-568h@2x.png in Resources */,
 				55C28A511B55F0E2001D073E /* Main.storyboard in Resources */,
 				5505E44A1B9328C000E95F93 /* Short Term.png in Resources */,
 				5505E4471B9328C000E95F93 /* 365.png in Resources */,
@@ -1011,6 +1015,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "CapitalGain Tax Calculator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "CapitalGain Tax Calculator";
 				PROVISIONING_PROFILE = "";
@@ -1028,6 +1033,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "CapitalGain Tax Calculator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "CapitalGain Tax Calculator";
 				PROVISIONING_PROFILE = "";
