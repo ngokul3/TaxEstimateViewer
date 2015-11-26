@@ -115,7 +115,6 @@
 		55C28A531B55F0E2001D073E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55C28A521B55F0E2001D073E /* Images.xcassets */; };
 		55C28A561B55F0E2001D073E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55C28A541B55F0E2001D073E /* LaunchScreen.xib */; };
 		55C28A621B55F0E3001D073E /* CapitalGain_Tax_CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A611B55F0E3001D073E /* CapitalGain_Tax_CalculatorTests.swift */; };
-		55C28A6C1B572D9F001D073E /* InvestmentMasterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A6B1B572D9F001D073E /* InvestmentMasterController.swift */; };
 		55C28A701B57C9CB001D073E /* AddInvestmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A6F1B57C9CB001D073E /* AddInvestmentController.swift */; };
 		55C28A741B58751F001D073E /* LotPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C28A731B58751F001D073E /* LotPosition.swift */; };
 		55CDF0FA1BDD423100EB5874 /* LongSell.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CDF0F91BDD423100EB5874 /* LongSell.png */; };
@@ -289,7 +288,6 @@
 		55C28A5B1B55F0E3001D073E /* CapitalGain Tax CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CapitalGain Tax CalculatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C28A601B55F0E3001D073E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55C28A611B55F0E3001D073E /* CapitalGain_Tax_CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapitalGain_Tax_CalculatorTests.swift; sourceTree = "<group>"; };
-		55C28A6B1B572D9F001D073E /* InvestmentMasterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestmentMasterController.swift; sourceTree = "<group>"; };
 		55C28A6F1B57C9CB001D073E /* AddInvestmentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddInvestmentController.swift; sourceTree = "<group>"; };
 		55C28A731B58751F001D073E /* LotPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotPosition.swift; sourceTree = "<group>"; };
 		55CDF0F91BDD423100EB5874 /* LongSell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LongSell.png; sourceTree = "<group>"; };
@@ -545,7 +543,6 @@
 				555F15751B7FFFD700A34EC4 /* ResultLabelController.swift */,
 				55D0CF5D1B5DD1AC003B1D3F /* FilingMasterController.swift */,
 				55C28A6F1B57C9CB001D073E /* AddInvestmentController.swift */,
-				55C28A6B1B572D9F001D073E /* InvestmentMasterController.swift */,
 				557E85DA1B67084300197CBE /* AddFilingController.swift */,
 				556065CF1B769D490054E00E /* TaxViewControllerContainer.swift */,
 				55E7D2F61B778AC40012D1CB /* ContainerInvestmentController.swift */,
@@ -784,7 +781,6 @@
 				55689C711B83FF4500F8FAA2 /* Chart.swift in Sources */,
 				55EB88111B95463F00CA5561 /* PieChartView.swift in Sources */,
 				557E85F31B6AE44F00197CBE /* FMDatabasePool.m in Sources */,
-				55C28A6C1B572D9F001D073E /* InvestmentMasterController.swift in Sources */,
 				55BE5C781C018698004E8952 /* HorizontalBarChartView.swift in Sources */,
 				55EB88411B95501E00CA5561 /* ChartYAxisRenderer.swift in Sources */,
 				55689C531B83FE3700F8FAA2 /* ChartAxisValueFloatScreenLoc.swift in Sources */,
