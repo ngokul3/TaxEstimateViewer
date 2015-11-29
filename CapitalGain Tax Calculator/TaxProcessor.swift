@@ -92,7 +92,7 @@ class TaxProcessor
         
         let cntTaxDictionary = termTaxDictionary.FederalTax.count
         let maxTaxValue = termTaxDictionary.FederalTax.array[cntTaxDictionary - 1]
-        let maxTaxItem = termTaxDictionary.FederalTax.dictionary[maxTaxValue] //TODO - Double can't be value
+        let maxTaxItem = termTaxDictionary.FederalTax.dictionary[maxTaxValue]
         
         totalIncomeIncludingCapitalGain = taxableIncome + termGL
       

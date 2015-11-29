@@ -18,7 +18,7 @@ enum ENumFilingType:String{
 class FilingStatusTaxAt
 {
     private var _limit: Double
-    private var _limitTaxedAt: Double //ToDO
+    private var _limitTaxedAt: Double
     private var _longShort: ENumTerm
     
     init()
@@ -60,7 +60,7 @@ class FilingStatusTaxAt
 class FilingStatus : Equatable
 {
     private var _filingStatusId: Int32
-    private var _year:Int //ToDO - Int or int32
+    private var _year:Int
     private var _filingType: ENumFilingType
     private var _currentTaxableIncome: Double
     private var _taxOnSTCapitalGain: Double
@@ -73,7 +73,7 @@ class FilingStatus : Equatable
     {
         self._filingStatusId = 0
         self._year = 0
-        self._filingType = ENumFilingType.Single //TODO: proper init
+        self._filingType = ENumFilingType.Single
         self._currentTaxableIncome = 0
         self._taxOnLTCapitalGain = 0
         self._taxOnSTCapitalGain = 0

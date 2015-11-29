@@ -18,8 +18,8 @@ class TaxBracket
     init()
     {
         self._year = 0
-        self._term = ENumTerm.LongTerm //ToDo - better init
-        self._filingType = ENumFilingType.Separate //ToDo - better init
+        self._term = ENumTerm.LongTerm
+        self._filingType = ENumFilingType.Separate
 
         self._federalTax = SortedDictionary<Double,Double>()
         

@@ -17,7 +17,7 @@ class CapitalGainControllerManager{
     init()
     {
        _resultFilingStatus = FilingStatus()
-        //ToDO private member variables for all
+        
     }
     
     func SetResultFilingStatus(filingStatus : FilingStatus )
@@ -78,11 +78,12 @@ class CapitalGainControllerManager{
     
     func DeleteLotPositionItem(lotPosition: LotPosition)
     {
-     /*  if let foundIndex = find(self.lstLotPosition, lotPosition)
+        
+       if let foundIndex = self.lstLotPosition.indexOf(lotPosition)
        {
         self.lstLotPosition.removeAtIndex(foundIndex)
 
-        }*/ //TODO
+        }
     }
   
   
