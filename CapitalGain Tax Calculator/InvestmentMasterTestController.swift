@@ -98,7 +98,6 @@ class InvestmentMasterTestController: UITableViewController {
         
         let selectedLotPosition = lstLotPositionForYear[row]
         
-        // let lotPosition = CapitalGainController.sharedInstance.GetLotPositionItem(indexPath.row)
         let isSuccess = CapitalGainController.sharedDBInstance.DeleteLotPosition(selectedLotPosition)
         
         if ((isSuccess) != nil)

@@ -51,7 +51,6 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
         if (selectedFilingDetail != nil)
         {
             print("This is filing detail edit")
-           // stpYear.enabled = false
             lblYear.text = selectedFilingDetail?.Year.description
             stpYear.value = Double(selectedFilingDetail!.Year)
             txtCurrentTaxableIncome.text = utils.ConvertStringToCurrency(selectedFilingDetail?.CurrentTaxableIncome.description)
@@ -115,11 +114,23 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         if(textField == txtFilingMode)
         {
+           
             pickerFilingMode.hidden = false
+            
+            if(txtFilingMode.text?.characters.count == 0)
+            {
+                txtFilingMode.text = filingModeArray[0]
+            }
+            else
+            {
+                let itemIndex = filingModeArray.indexOf(txtFilingMode.text!)
+                pickerFilingMode.selectRow(itemIndex!, inComponent: 0, animated: false)
+            }
             return false
         }
         else
         {
+            pickerFilingMode.hidden = true
             return true
         }
     }
@@ -127,7 +138,6 @@ class AddFilingController: UIViewController , UIPickerViewDelegate{
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool // Invoked immediately prior to
     {
         txtCurrentTaxableIncome.text = utils.ConvertCurrencyToString(txtCurrentTaxableIncome.text)
-        var foundIndex : Int?
         
         let alertFilingMode = UIAlertController(title: "Filing Mode", message: "Filing Mode is required", preferredStyle: UIAlertControllerStyle.Alert)
         alertFilingMode.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
