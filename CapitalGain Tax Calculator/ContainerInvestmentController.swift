@@ -15,6 +15,7 @@ class ContainerInvestmentController: UITableViewController {
     var utils = Utils()
     var lstLotPositionForYear = [LotPosition]()
     var taxProcessor = TaxProcessor()
+    var selectedItems = [NSIndexPath]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,12 +40,15 @@ class ContainerInvestmentController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->   UITableViewCell {
         
-        
         let cellIdentifier = "InvestmentTableViewCell"
         
         let lotPosition = lstLotPositionForYear[indexPath.row]
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! InvestmentTableViewCell
+        
+        
+        cell.tag = Int(lotPosition.LotId)
+        
         cell.lblInvesmentName.text = lotPosition.SymbolCode
         cell.lblProfitLoss.text = utils.ConvertStringToCurrency(lotPosition.RealizedGainLoss.description)
         let imgLTSTImageView = cell.viewWithTag(30) as! UIImageView
@@ -62,32 +66,47 @@ class ContainerInvestmentController: UITableViewController {
             cell.lblProfitLoss.textColor = UIColor.redColor()
         }
 
-        
+       if(lstLotPositionForYear[indexPath.row].IsSelected)
+        {
+            if(!selectedItems.contains(indexPath))
+            {
+                selectedItems.append(indexPath)
+            }
+            
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+        }
+        else
+        {
+            cell.accessoryType = UITableViewCellAccessoryType.None
+        }
         return cell
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
         
-        if( cell?.accessoryType == UITableViewCellAccessoryType.Checkmark)
-      {
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+       
+        if (selectedItems.contains(indexPath))
+        {
             cell?.setSelected(false, animated: false)
             tableView.deselectRowAtIndexPath(indexPath, animated: false)
             cell?.accessoryType = UITableViewCellAccessoryType.None
         
             lstLotPositionForYear[indexPath.row].IsSelected = false
+            selectedItems.removeAtIndex(selectedItems.indexOf(indexPath)!)
+
         }
-        
         else
-       {
+        {
             cell?.setSelected(true, animated: false)
             tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: UITableViewScrollPosition.None)
             cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
         
             lstLotPositionForYear[indexPath.row].IsSelected = true
-
+            selectedItems.append(indexPath)
         }
+  
     }
     
     func CalculateCapitalGain()->FilingStatus?
